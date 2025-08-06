@@ -1,0 +1,27 @@
+<svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="back2815Grad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#f6a604;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#e0e0e0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c0c0c0;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Back view - larger circular -->
+  <circle cx="75" cy="75" r="50" fill="url(#back2815Grad)" stroke="#333" stroke-width="2"/>
+  
+  <!-- Wire terminals (larger) -->
+  <circle cx="75" cy="40" r="5" fill="#8B4513"/>
+  <circle cx="95" cy="60" r="5" fill="#FF0000"/>
+  <circle cx="75" cy="110" r="5" fill="#000000"/>
+  
+  <!-- Heavy-duty mounting holes -->
+  <circle cx="50" cy="50" r="4" fill="#333"/>
+  <circle cx="100" cy="50" r="4" fill="#333"/>
+  <circle cx="100" cy="100" r="4" fill="#333"/>
+  <circle cx="50" cy="100" r="4" fill="#333"/>
+  
+  <!-- Back view label -->
+  <text x="75" y="135" font-family="Arial, sans-serif" font-size="8" 
+        text-anchor="middle" fill="#666">Back View</text>
+</svg>

@@ -40,7 +40,7 @@ function getMotorRecommendations(application, payload, flightTime) {
             payloadRange: '0-1',
             efficiency: '94%',
             price: '$89',
-            image: 'assets/wr1806-motor.jpg'
+            image: 'assets/wr1806-motor.svg'
         },
         {
             name: 'WR2212-1000',
@@ -52,7 +52,7 @@ function getMotorRecommendations(application, payload, flightTime) {
             payloadRange: '1-5',
             efficiency: '96%',
             price: '$149',
-            image: 'assets/wr2212-motor.jpg'
+            image: 'assets/wr2212-motor.svg'
         },
         {
             name: 'WR2815-900',
@@ -64,7 +64,7 @@ function getMotorRecommendations(application, payload, flightTime) {
             payloadRange: '5-15',
             efficiency: '98%',
             price: '$389',
-            image: 'assets/wr2815-motor.jpg'
+            image: 'assets/wr2815-motor.svg'
         },
         {
             name: 'WR4020-400',
@@ -76,7 +76,7 @@ function getMotorRecommendations(application, payload, flightTime) {
             payloadRange: '15+',
             efficiency: '99%',
             price: '$749',
-            image: 'assets/wr4020-motor.jpg'
+            image: 'assets/wr4020-motor.svg'
         }
     ];
     
