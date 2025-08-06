@@ -35,7 +35,7 @@
 
 .feature-tag {
     background: #e3f2fd;
-    color: #0066cc;
+    color: #f6a604;
     padding: 8px 16px;
     border-radius: 20px;
     font-size: 0.875rem;
@@ -82,7 +82,7 @@
     color: #333;
     margin-bottom: 20px;
     padding-left: 16px;
-    border-left: 3px solid #0066cc;
+    border-left: 3px solid #f6a604;
 }
 
 .form-row {
@@ -117,7 +117,7 @@
 .form-input:focus,
 .form-select:focus {
     outline: none;
-    border-color: #0066cc;
+    border-color: #f6a604;
     box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
 }
 
@@ -180,7 +180,7 @@
 .result-icon {
     width: 24px;
     height: 24px;
-    background: #0066cc;
+    background: #f6a604;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -384,7 +384,7 @@
 
 .progress-fill {
     height: 100%;
-    background: #0066cc;
+    background: #f6a604;
     width: 0%;
     transition: width 0.3s ease;
 }
@@ -416,7 +416,7 @@
     width: 20px;
     height: 20px;
     border: 2px solid #f3f3f3;
-    border-top: 2px solid #0066cc;
+    border-top: 2px solid #f6a604;
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
