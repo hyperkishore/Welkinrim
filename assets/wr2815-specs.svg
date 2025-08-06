@@ -1,0 +1,32 @@
+<svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+  <!-- Technical specifications diagram -->
+  <rect width="150" height="150" fill="#f8f9fa"/>
+  
+  <!-- Motor outline with dimensions (larger) -->
+  <ellipse cx="75" cy="75" rx="45" ry="30" fill="none" stroke="#333" stroke-width="2"/>
+  
+  <!-- Dimension lines -->
+  <g stroke="#f6a604" stroke-width="1" fill="none">
+    <line x1="30" y1="35" x2="120" y2="35"/>
+    <line x1="30" y1="33" x2="30" y2="37"/>
+    <line x1="120" y1="33" x2="120" y2="37"/>
+    
+    <line x1="130" y1="45" x2="130" y2="105"/>
+    <line x1="128" y1="45" x2="132" y2="45"/>
+    <line x1="128" y1="105" x2="132" y2="105"/>
+  </g>
+  
+  <!-- Dimension text (larger motor) -->
+  <text x="75" y="30" font-family="Arial, sans-serif" font-size="8" 
+        text-anchor="middle" fill="#f6a604">90mm</text>
+  <text x="140" y="78" font-family="Arial, sans-serif" font-size="8" 
+        text-anchor="middle" fill="#f6a604">60mm</text>
+  
+  <!-- Power rating -->
+  <text x="75" y="115" font-family="Arial, sans-serif" font-size="10" 
+        text-anchor="middle" fill="#f6a604" font-weight="bold">3.2kW</text>
+  
+  <!-- Specs label -->
+  <text x="75" y="130" font-family="Arial, sans-serif" font-size="8" 
+        text-anchor="middle" fill="#666">High Power</text>
+</svg>
