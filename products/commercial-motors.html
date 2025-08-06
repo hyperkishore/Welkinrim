@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commercial Drone Motors | WelkinRim Professional Series</title>
+    <meta name="description" content="High-performance commercial drone motors for professional operations. 2-15kg payload capacity with industry-leading efficiency and reliability.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="product-pages.css">
+</head>
+<body>
+    <!-- Navigation (same as homepage) -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="../index.html">
+                    <img src="../assets/logo.svg" alt="WelkinRim" class="nav-logo">
+                    <span class="nav-brand-text">WelkinRim</span>
+                </a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="../index.html#products" class="nav-link">Products</a>
+                <a href="../index.html#industries" class="nav-link">Industries</a>
+                <a href="../index.html#resources" class="nav-link">Resources</a>
+                <a href="../index.html#support" class="nav-link">Support</a>
+                <a href="../index.html#company" class="nav-link">Company</a>
+                <a href="../contact.html" class="nav-cta">Get Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="../index.html">Home</a>
+                <span class="breadcrumb-separator">→</span>
+                <a href="../products.html">Products</a>
+                <span class="breadcrumb-separator">→</span>
+                <span class="breadcrumb-current">Commercial Motors</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1 class="page-title">Commercial Drone Motors</h1>
+                    <p class="page-subtitle">Professional-grade brushless motors engineered for commercial operations, delivering exceptional performance and reliability for payloads from 2-15kg.</p>
+                    <div class="header-stats">
+                        <div class="header-stat">
+                            <span class="stat-number">98.2%</span>
+                            <span class="stat-label">Avg. Efficiency</span>
+                        </div>
+                        <div class="header-stat">
+                            <span class="stat-number">12,000h</span>
+                            <span class="stat-label">MTBF Rating</span>
+                        </div>
+                        <div class="header-stat">
+                            <span class="stat-number">IP67</span>
+                            <span class="stat-label">Protection</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-visual">
+                    <img src="../assets/commercial-motors-hero.jpg" alt="Commercial Motors" class="header-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter and Sort -->
+    <section class="product-filters">
+        <div class="container">
+            <div class="filter-bar">
+                <div class="filter-group">
+                    <label for="thrust-filter">Thrust Range</label>
+                    <select id="thrust-filter" class="filter-select">
+                        <option value="">All Thrust Ranges</option>
+                        <option value="5-10">5-10 kg</option>
+                        <option value="10-15">10-15 kg</option>
+                        <option value="15-25">15-25 kg</option>
+                        <option value="25+">25+ kg</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="voltage-filter">Voltage</label>
+                    <select id="voltage-filter" class="filter-select">
+                        <option value="">All Voltages</option>
+                        <option value="6s">6S (22.2V)</option>
+                        <option value="8s">8S (29.6V)</option>
+                        <option value="10s">10S (37V)</option>
+                        <option value="12s">12S (44.4V)</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="application-filter">Application</label>
+                    <select id="application-filter" class="filter-select">
+                        <option value="">All Applications</option>
+                        <option value="delivery">Delivery</option>
+                        <option value="inspection">Inspection</option>
+                        <option value="photography">Photography</option>
+                        <option value="mapping">Mapping</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="sort-by">Sort By</label>
+                    <select id="sort-by" class="filter-select">
+                        <option value="efficiency">Efficiency</option>
+                        <option value="thrust">Max Thrust</option>
+                        <option value="weight">Weight</option>
+                        <option value="price">Price</option>
+                    </select>
+                </div>
+                
+                <button class="btn btn-outline" onclick="clearFilters()">Clear Filters</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section class="product-catalog">
+        <div class="container">
+            <div class="catalog-grid" id="product-grid">
+                
+                <!-- Product 1: WR2212-1000 -->
+                <div class="product-card-detailed" data-thrust="8.5" data-voltage="6s" data-application="photography,inspection">
+                    <div class="product-images">
+                        <div class="main-image">
+                            <img src="../assets/wr2212-motor.jpg" alt="WR2212-1000" class="product-main-img">
+                        </div>
+                        <div class="image-thumbnails">
+                            <img src="../assets/wr2212-side.jpg" alt="Side view" class="thumb">
+                            <img src="../assets/wr2212-back.jpg" alt="Back view" class="thumb">
+                            <img src="../assets/wr2212-specs.jpg" alt="Specifications" class="thumb">
+                        </div>
+                    </div>
+                    
+                    <div class="product-details">
+                        <div class="product-header">
+                            <h3 class="product-name">WR2212-1000</h3>
+                            <div class="product-series">Commercial Series</div>
+                        </div>
+                        
+                        <p class="product-description">
+                            Versatile motor optimized for aerial photography and inspection drones. 
+                            Excellent power-to-weight ratio with smooth operation for stable footage.
+                        </p>
+                        
+                        <div class="key-specs">
+                            <div class="spec-grid">
+                                <div class="spec-item">
+                                    <span class="spec-label">Max Thrust</span>
+                                    <span class="spec-value">8.5 kg</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Power</span>
+                                    <span class="spec-value">750W</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Weight</span>
+                                    <span class="spec-value">135g</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Efficiency</span>
+                                    <span class="spec-value">96.8%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Voltage</span>
+                                    <span class="spec-value">6S</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">KV</span>
+                                    <span class="spec-value">1000</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="applications">
+                            <h4>Ideal Applications</h4>
+                            <div class="app-tags">
+                                <span class="app-tag">Aerial Photography</span>
+                                <span class="app-tag">Infrastructure Inspection</span>
+                                <span class="app-tag">Mapping & Surveying</span>
+                            </div>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <div class="price-info">
+                                <span class="price">$149</span>
+                                <span class="price-note">Unit price</span>
+                            </div>
+                            <div class="action-buttons">
+                                <button class="btn btn-outline" onclick="viewSpecs('WR2212-1000')">Technical Specs</button>
+                                <button class="btn btn-primary" onclick="requestQuote('WR2212-1000')">Get Quote</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2: WR2815-900 -->
+                <div class="product-card-detailed" data-thrust="25.4" data-voltage="8s" data-application="delivery,inspection">
+                    <div class="product-images">
+                        <div class="main-image">
+                            <img src="../assets/wr2815-motor.jpg" alt="WR2815-900" class="product-main-img">
+                            <div class="product-badge">Best Seller</div>
+                        </div>
+                        <div class="image-thumbnails">
+                            <img src="../assets/wr2815-side.jpg" alt="Side view" class="thumb">
+                            <img src="../assets/wr2815-back.jpg" alt="Back view" class="thumb">
+                            <img src="../assets/wr2815-specs.jpg" alt="Specifications" class="thumb">
+                        </div>
+                    </div>
+                    
+                    <div class="product-details">
+                        <div class="product-header">
+                            <h3 class="product-name">WR2815-900</h3>
+                            <div class="product-series">Commercial Series</div>
+                        </div>
+                        
+                        <p class="product-description">
+                            High-performance motor designed for demanding commercial applications. 
+                            Industry-leading efficiency with exceptional thrust-to-weight ratio.
+                        </p>
+                        
+                        <div class="key-specs">
+                            <div class="spec-grid">
+                                <div class="spec-item">
+                                    <span class="spec-label">Max Thrust</span>
+                                    <span class="spec-value">25.4 kg</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Power</span>
+                                    <span class="spec-value">3.2 kW</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Weight</span>
+                                    <span class="spec-value">485g</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Efficiency</span>
+                                    <span class="spec-value">98.8%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Voltage</span>
+                                    <span class="spec-value">8S</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">KV</span>
+                                    <span class="spec-value">900</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="applications">
+                            <h4>Ideal Applications</h4>
+                            <div class="app-tags">
+                                <span class="app-tag">Commercial Delivery</span>
+                                <span class="app-tag">Industrial Inspection</span>
+                                <span class="app-tag">Heavy Payload</span>
+                            </div>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <div class="price-info">
+                                <span class="price">$389</span>
+                                <span class="price-note">Unit price</span>
+                            </div>
+                            <div class="action-buttons">
+                                <button class="btn btn-outline" onclick="viewSpecs('WR2815-900')">Technical Specs</button>
+                                <button class="btn btn-primary" onclick="requestQuote('WR2815-900')">Get Quote</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3: WR3508-680 -->
+                <div class="product-card-detailed" data-thrust="18.2" data-voltage="10s" data-application="delivery,mapping">
+                    <div class="product-images">
+                        <div class="main-image">
+                            <img src="../assets/wr3508-motor.jpg" alt="WR3508-680" class="product-main-img">
+                        </div>
+                        <div class="image-thumbnails">
+                            <img src="../assets/wr3508-side.jpg" alt="Side view" class="thumb">
+                            <img src="../assets/wr3508-back.jpg" alt="Back view" class="thumb">
+                            <img src="../assets/wr3508-specs.jpg" alt="Specifications" class="thumb">
+                        </div>
+                    </div>
+                    
+                    <div class="product-details">
+                        <div class="product-header">
+                            <h3 class="product-name">WR3508-680</h3>
+                            <div class="product-series">Commercial Series</div>
+                        </div>
+                        
+                        <p class="product-description">
+                            Extended flight time motor with optimized efficiency curves. 
+                            Perfect balance of power and endurance for long-range missions.
+                        </p>
+                        
+                        <div class="key-specs">
+                            <div class="spec-grid">
+                                <div class="spec-item">
+                                    <span class="spec-label">Max Thrust</span>
+                                    <span class="spec-value">18.2 kg</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Power</span>
+                                    <span class="spec-value">2.1 kW</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Weight</span>
+                                    <span class="spec-value">320g</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Efficiency</span>
+                                    <span class="spec-value">97.5%</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Voltage</span>
+                                    <span class="spec-value">10S</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">KV</span>
+                                    <span class="spec-value">680</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="applications">
+                            <h4>Ideal Applications</h4>
+                            <div class="app-tags">
+                                <span class="app-tag">Long Range Delivery</span>
+                                <span class="app-tag">Precision Mapping</span>
+                                <span class="app-tag">Surveillance</span>
+                            </div>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <div class="price-info">
+                                <span class="price">$289</span>
+                                <span class="price-note">Unit price</span>
+                            </div>
+                            <div class="action-buttons">
+                                <button class="btn btn-outline" onclick="viewSpecs('WR3508-680')">Technical Specs</button>
+                                <button class="btn btn-primary" onclick="requestQuote('WR3508-680')">Get Quote</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Comparison -->
+    <section class="comparison-section">
+        <div class="container">
+            <h2 class="section-title">Technical Comparison</h2>
+            <div class="comparison-table-container">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>Max Thrust (kg)</th>
+                            <th>Power (W)</th>
+                            <th>Weight (g)</th>
+                            <th>Efficiency (%)</th>
+                            <th>Voltage</th>
+                            <th>KV</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>WR2212-1000</strong></td>
+                            <td>8.5</td>
+                            <td>750</td>
+                            <td>135</td>
+                            <td>96.8</td>
+                            <td>6S</td>
+                            <td>1000</td>
+                            <td>$149</td>
+                        </tr>
+                        <tr>
+                            <td><strong>WR2815-900</strong></td>
+                            <td>25.4</td>
+                            <td>3200</td>
+                            <td>485</td>
+                            <td>98.8</td>
+                            <td>8S</td>
+                            <td>900</td>
+                            <td>$389</td>
+                        </tr>
+                        <tr>
+                            <td><strong>WR3508-680</strong></td>
+                            <td>18.2</td>
+                            <td>2100</td>
+                            <td>320</td>
+                            <td>97.5</td>
+                            <td>10S</td>
+                            <td>680</td>
+                            <td>$289</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="product-support">
+        <div class="container">
+            <div class="support-grid">
+                <div class="support-card">
+                    <h3>Technical Documentation</h3>
+                    <p>Comprehensive datasheets, installation guides, and performance curves for all commercial motors.</p>
+                    <a href="../resources/commercial-docs.html" class="support-link">Download Resources →</a>
+                </div>
+                
+                <div class="support-card">
+                    <h3>Motor Selection Tool</h3>
+                    <p>Use our interactive calculator to find the perfect motor configuration for your specific requirements.</p>
+                    <a href="../tools/selector.html" class="support-link">Launch Tool →</a>
+                </div>
+                
+                <div class="support-card">
+                    <h3>Expert Support</h3>
+                    <p>Get personalized recommendations and technical support from our engineering team.</p>
+                    <a href="../contact.html" class="support-link">Contact Engineers →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as homepage) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="micro-motors.html">Micro Motors</a></li>
+                        <li><a href="commercial-motors.html">Commercial Motors</a></li>
+                        <li><a href="industrial-motors.html">Industrial Motors</a></li>
+                        <li><a href="propulsion-systems.html">Complete Systems</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="../resources/datasheets.html">Technical Specs</a></li>
+                        <li><a href="../resources/guides.html">Installation Guides</a></li>
+                        <li><a href="../tools/calculator.html">Performance Tools</a></li>
+                        <li><a href="../resources/faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="../support.html">Technical Support</a></li>
+                        <li><a href="../warranty.html">Warranty</a></li>
+                        <li><a href="../distributors.html">Find Distributor</a></li>
+                        <li><a href="../contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="../about.html">About WelkinRim</a></li>
+                        <li><a href="../news.html">News & Updates</a></li>
+                        <li><a href="../careers.html">Careers</a></li>
+                        <li><a href="../partners.html">Partners</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <p>&copy; 2024 WelkinRim Technologies. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="../privacy.html">Privacy Policy</a>
+                        <a href="../terms.html">Terms of Service</a>
+                    </div>
+                </div>
+                <div class="footer-certifications">
+                    <img src="../assets/iso-9001.png" alt="ISO 9001 Certified" class="cert-badge">
+                    <img src="../assets/ce-mark.png" alt="CE Certified" class="cert-badge">
+                    <img src="../assets/fcc-cert.png" alt="FCC Certified" class="cert-badge">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../scripts.js"></script>
+    <script src="product-catalog.js"></script>
+</body>
+</html>
