@@ -1,0 +1,24 @@
+Assets Directory for WelkinRim Website
+
+This directory should contain:
+
+Images:
+- logo.svg (Company logo)
+- hero-motor.png (Main motor image for homepage)
+- wr1806-motor.jpg (Micro series motor)
+- wr2212-motor.jpg (Commercial series motor) 
+- wr2815-motor.jpg (Featured motor)
+- wr3508-motor.jpg (Commercial series)
+- wr4020-motor.jpg (Industrial series)
+- commercial-motors-hero.jpg (Product page hero)
+- micro-motor.jpg (Category image)
+- commercial-motor.jpg (Category image)
+- industrial-motor.jpg (Category image)
+
+Certifications:
+- iso-9001.png (ISO certification badge)
+- ce-mark.png (CE certification)
+- fcc-cert.png (FCC certification)
+
+For development, these images can be replaced with placeholder images or stock photos.
+In production, these would be high-quality product photography and company assets.
