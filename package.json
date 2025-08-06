@@ -1,0 +1,31 @@
+{
+  "name": "welkinrim-website",
+  "version": "1.0.0",
+  "description": "Modern website for WelkinRim drone motor technology startup",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 serve.py",
+    "serve": "python3 serve.py",
+    "dev": "python3 serve.py 3000",
+    "test": "python3 serve.py 8080"
+  },
+  "keywords": [
+    "drone",
+    "motors",
+    "brushless",
+    "UAV",
+    "propulsion",
+    "aviation",
+    "technology"
+  ],
+  "author": "WelkinRim Technologies",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/welkinrim/website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/welkinrim/website/issues"
+  },
+  "homepage": "https://welkinrim.com"
+}
