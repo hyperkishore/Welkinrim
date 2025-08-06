@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor Performance Calculator | WelkinRim Technical Tools</title>
+    <meta name="description" content="Calculate drone motor performance, thrust requirements, and flight time optimization with our advanced engineering calculator.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="tools.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="../index.html">
+                    <img src="../assets/logo.svg" alt="WelkinRim" class="nav-logo">
+                    <span class="nav-brand-text">WelkinRim</span>
+                </a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="../index.html#products" class="nav-link">Products</a>
+                <a href="../index.html#industries" class="nav-link">Industries</a>
+                <a href="../index.html#resources" class="nav-link">Resources</a>
+                <a href="../index.html#support" class="nav-link">Support</a>
+                <a href="../index.html#company" class="nav-link">Company</a>
+                <a href="../contact.html" class="nav-cta">Get Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav">
+                <a href="../index.html">Home</a>
+                <span class="breadcrumb-separator">→</span>
+                <a href="../resources.html">Resources</a>
+                <span class="breadcrumb-separator">→</span>
+                <span class="breadcrumb-current">Performance Calculator</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <section class="tool-header">
+        <div class="container">
+            <div class="tool-hero">
+                <h1 class="tool-title">Motor Performance Calculator</h1>
+                <p class="tool-subtitle">
+                    Calculate thrust requirements, power consumption, flight time, and motor selection parameters for your drone application.
+                </p>
+                <div class="tool-features">
+                    <div class="feature-tag">Thrust Analysis</div>
+                    <div class="feature-tag">Power Optimization</div>
+                    <div class="feature-tag">Flight Time Prediction</div>
+                    <div class="feature-tag">Motor Matching</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Tool -->
+    <section class="calculator-section">
+        <div class="container">
+            <div class="calculator-grid">
+                
+                <!-- Input Panel -->
+                <div class="input-panel">
+                    <h2 class="panel-title">Flight Configuration</h2>
+                    
+                    <!-- Basic Parameters -->
+                    <div class="input-group">
+                        <h3 class="group-title">Basic Parameters</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="drone-weight">Drone Weight (kg)</label>
+                                <input type="number" id="drone-weight" step="0.1" min="0" value="2.5" class="form-input">
+                                <small class="field-help">Total weight including frame, electronics, battery</small>
+                            </div>
+                            
+                            <div class="form-field">
+                                <label for="payload-weight">Payload Weight (kg)</label>
+                                <input type="number" id="payload-weight" step="0.1" min="0" value="1.0" class="form-input">
+                                <small class="field-help">Camera, sensors, cargo, etc.</small>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="motor-count">Number of Motors</label>
+                                <select id="motor-count" class="form-select">
+                                    <option value="4" selected>4 (Quadcopter)</option>
+                                    <option value="6">6 (Hexacopter)</option>
+                                    <option value="8">8 (Octocopter)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-field">
+                                <label for="safety-factor">Safety Factor</label>
+                                <select id="safety-factor" class="form-select">
+                                    <option value="1.5">1.5x (Racing)</option>
+                                    <option value="2.0" selected>2.0x (Standard)</option>
+                                    <option value="2.5">2.5x (Commercial)</option>
+                                    <option value="3.0">3.0x (Critical)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Power System -->
+                    <div class="input-group">
+                        <h3 class="group-title">Power System</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="battery-voltage">Battery Voltage</label>
+                                <select id="battery-voltage" class="form-select">
+                                    <option value="11.1">3S (11.1V)</option>
+                                    <option value="14.8">4S (14.8V)</option>
+                                    <option value="18.5">5S (18.5V)</option>
+                                    <option value="22.2" selected>6S (22.2V)</option>
+                                    <option value="29.6">8S (29.6V)</option>
+                                    <option value="37.0">10S (37.0V)</option>
+                                    <option value="44.4">12S (44.4V)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-field">
+                                <label for="battery-capacity">Battery Capacity (mAh)</label>
+                                <input type="number" id="battery-capacity" min="1000" max="50000" step="100" value="6000" class="form-input">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="target-efficiency">Target Efficiency (%)</label>
+                                <input type="number" id="target-efficiency" min="70" max="99" step="1" value="85" class="form-input">
+                                <small class="field-help">Conservative: 80%, Optimized: 90%+</small>
+                            </div>
+                            
+                            <div class="form-field">
+                                <label for="discharge-rate">Max Discharge Rate (C)</label>
+                                <input type="number" id="discharge-rate" min="10" max="100" step="5" value="25" class="form-input">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Flight Requirements -->
+                    <div class="input-group">
+                        <h3 class="group-title">Flight Requirements</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="target-flight-time">Target Flight Time (min)</label>
+                                <input type="number" id="target-flight-time" min="5" max="180" step="5" value="25" class="form-input">
+                            </div>
+                            
+                            <div class="form-field">
+                                <label for="hover-percentage">Hover Percentage (%)</label>
+                                <input type="number" id="hover-percentage" min="10" max="100" step="5" value="70" class="form-input">
+                                <small class="field-help">Time spent hovering vs. forward flight</small>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="altitude">Operating Altitude (m)</label>
+                                <input type="number" id="altitude" min="0" max="6000" step="100" value="100" class="form-input">
+                            </div>
+                            
+                            <div class="form-field">
+                                <label for="temperature">Temperature (°C)</label>
+                                <input type="number" id="temperature" min="-40" max="60" step="5" value="20" class="form-input">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary btn-large calculate-btn" onclick="calculatePerformance()">
+                        Calculate Performance
+                    </button>
+                </div>
+                
+                <!-- Results Panel -->
+                <div class="results-panel">
+                    <h2 class="panel-title">Calculation Results</h2>
+                    
+                    <div class="results-content" id="results-content">
+                        <div class="results-placeholder">
+                            <div class="placeholder-icon">📊</div>
+                            <p>Enter your configuration parameters and click "Calculate Performance" to see detailed analysis.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Results will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Motor Recommendations -->
+    <section class="motor-recommendations" id="motor-recommendations" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">Recommended Motors</h2>
+            <div class="recommendations-grid" id="recommendations-grid">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Notes -->
+    <section class="technical-notes">
+        <div class="container">
+            <h2 class="section-title">Understanding the Calculations</h2>
+            
+            <div class="notes-grid">
+                <div class="note-card">
+                    <h3>Thrust Requirements</h3>
+                    <p>
+                        Total thrust needed = (Drone Weight + Payload) × Safety Factor. 
+                        We distribute this across all motors to determine per-motor thrust requirements.
+                    </p>
+                    <div class="formula">
+                        <code>T_motor = (W_total × SF) / N_motors</code>
+                    </div>
+                </div>
+                
+                <div class="note-card">
+                    <h3>Power Consumption</h3>
+                    <p>
+                        Power varies with thrust loading and motor efficiency. Higher thrust-to-weight ratios 
+                        require exponentially more power.
+                    </p>
+                    <div class="formula">
+                        <code>P = (T^1.5) / (η × √(2ρA))</code>
+                    </div>
+                </div>
+                
+                <div class="note-card">
+                    <h3>Flight Time Estimation</h3>
+                    <p>
+                        Flight time considers hover power, forward flight efficiency, battery capacity, 
+                        and environmental factors like altitude and temperature.
+                    </p>
+                    <div class="formula">
+                        <code>t = (C_batt × V_nom × η_total) / P_avg</code>
+                    </div>
+                </div>
+                
+                <div class="note-card">
+                    <h3>Environmental Effects</h3>
+                    <p>
+                        Air density decreases with altitude and temperature, reducing motor efficiency 
+                        and requiring higher power for the same thrust.
+                    </p>
+                    <div class="formula">
+                        <code>ρ = ρ_0 × (1 - 0.0065h/T)^(gM/R×0.0065)</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">Tools & Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="calculator.html">Performance Calculator</a></li>
+                        <li><a href="selector.html">Motor Selector</a></li>
+                        <li><a href="../resources/guides.html">Technical Guides</a></li>
+                        <li><a href="../resources/datasheets.html">Datasheets</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="../support.html">Technical Support</a></li>
+                        <li><a href="../contact.html">Engineering Team</a></li>
+                        <li><a href="../resources/faq.html">FAQ</a></li>
+                        <li><a href="../training.html">Training</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="../products/micro-motors.html">Micro Motors</a></li>
+                        <li><a href="../products/commercial-motors.html">Commercial Motors</a></li>
+                        <li><a href="../products/industrial-motors.html">Industrial Motors</a></li>
+                        <li><a href="../products/propulsion-systems.html">Complete Systems</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="../about.html">About WelkinRim</a></li>
+                        <li><a href="../news.html">News & Updates</a></li>
+                        <li><a href="../careers.html">Careers</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <p>&copy; 2024 WelkinRim Technologies. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="../privacy.html">Privacy Policy</a>
+                        <a href="../terms.html">Terms of Service</a>
+                    </div>
+                </div>
+                <div class="footer-certifications">
+                    <img src="../assets/iso-9001.png" alt="ISO 9001 Certified" class="cert-badge">
+                    <img src="../assets/ce-mark.png" alt="CE Certified" class="cert-badge">
+                    <img src="../assets/fcc-cert.png" alt="FCC Certified" class="cert-badge">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../scripts.js"></script>
+    <script src="calculator.js"></script>
+</body>
+</html>
