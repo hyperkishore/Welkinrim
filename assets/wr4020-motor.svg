@@ -1,0 +1,31 @@
+<svg width="240" height="240" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="featured3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f6a604;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#f1d600;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffab00;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="240" height="240" fill="#ffffff"/>
+  
+  <!-- Industrial Motor -->
+  <g transform="translate(120,120)">
+    <ellipse cx="0" cy="0" rx="85" ry="60" fill="#c0c0c0" stroke="#333" stroke-width="3"/>
+    <ellipse cx="0" cy="-5" rx="80" ry="55" fill="url(#featured3)" stroke="#333" stroke-width="2"/>
+    <circle cx="0" cy="0" r="20" fill="#333"/>
+    <circle cx="0" cy="0" r="12" fill="url(#featured3)"/>
+    
+    <!-- Heavy-duty cooling -->
+    <rect x="-70" y="-10" width="140" height="2" fill="#666" opacity="0.8"/>
+    <rect x="-70" y="-5" width="140" height="2" fill="#666" opacity="0.8"/>
+    <rect x="-70" y="0" width="140" height="2" fill="#666" opacity="0.8"/>
+    <rect x="-70" y="5" width="140" height="2" fill="#666" opacity="0.8"/>
+    <rect x="-70" y="10" width="140" height="2" fill="#666" opacity="0.8"/>
+    
+    <!-- Model number -->
+    <text x="0" y="-90" font-family="Arial, sans-serif" font-size="12" font-weight="bold" 
+          text-anchor="middle" fill="#333">WR4020-400</text>
+  </g>
+</svg>

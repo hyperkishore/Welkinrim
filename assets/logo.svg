@@ -1,0 +1,28 @@
+<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f6a604;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f1d600;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main logo circle -->
+  <circle cx="20" cy="20" r="18" fill="url(#logoGradient)" stroke="#000000" stroke-width="1"/>
+  
+  <!-- Inner propeller design -->
+  <g transform="translate(20,20)">
+    <!-- Propeller blades -->
+    <ellipse cx="0" cy="-8" rx="2" ry="6" fill="#000000" transform="rotate(0)"/>
+    <ellipse cx="0" cy="-8" rx="2" ry="6" fill="#000000" transform="rotate(90)"/>
+    <ellipse cx="0" cy="-8" rx="2" ry="6" fill="#000000" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-8" rx="2" ry="6" fill="#000000" transform="rotate(270)"/>
+    
+    <!-- Center hub -->
+    <circle cx="0" cy="0" r="3" fill="#000000"/>
+    <circle cx="0" cy="0" r="1.5" fill="url(#logoGradient)"/>
+  </g>
+  
+  <!-- Company initial "W" -->
+  <text x="20" y="26" font-family="Arial, sans-serif" font-size="12" font-weight="bold" 
+        text-anchor="middle" fill="#FFFFFF">W</text>
+</svg>
