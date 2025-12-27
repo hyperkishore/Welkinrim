@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor Matchmaker | WelkinRim Propulsion Assistant</title>
+    <meta name="description" content="Find the perfect drone motor for your requirements. Compare motors from WelkinRim and leading vendors with our intelligent matching algorithm.">
+    <link rel="icon" type="image/png" href="assets/Welkinrim logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="motor-matchmaker.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="assets/Welkinrim logo.png" alt="WelkinRim" class="nav-logo">
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="products/commercial-motors.html" class="nav-link">Products</a>
+                <a href="index.html#industries" class="nav-link">Industries</a>
+                <a href="tools/calculator.html" class="nav-link">Resources</a>
+                <a href="motor-matchmaker.html" class="nav-link nav-link-active">Motor Matchmaker</a>
+                <a href="index.html#support" class="nav-link">Support</a>
+                <a href="index.html#company" class="nav-link">Company</a>
+                <a href="index.html#contact" class="nav-cta">Get Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="matchmaker-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Motor Matchmaker</h1>
+                <p class="hero-subtitle">Find the perfect propulsion system for your drone in seconds. Compare motors from WelkinRim and leading vendors with our intelligent matching algorithm.</p>
+                <div class="hero-stats-row">
+                    <div class="hero-stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Motors in Database</span>
+                    </div>
+                    <div class="hero-stat-item">
+                        <span class="stat-number">&lt;3s</span>
+                        <span class="stat-label">Search Time</span>
+                    </div>
+                    <div class="hero-stat-item">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Top Vendors</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="matchmaker-main">
+        <div class="container">
+            <div class="matchmaker-grid">
+                <!-- Input Sidebar -->
+                <div class="input-sidebar">
+                    <div class="sidebar-header">
+                        <h2>Drone Specifications</h2>
+                        <p class="sidebar-subtitle">Enter your requirements to find matching motors</p>
+                    </div>
+
+                    <form id="motor-search-form" class="search-form">
+                        <!-- Required Fields -->
+                        <div class="form-section">
+                            <h3 class="form-section-title">Essential Parameters</h3>
+                            
+                            <div class="form-group">
+                                <label for="all-up-weight" class="required">All-Up Weight (kg)</label>
+                                <input type="number" id="all-up-weight" name="allUpWeight" 
+                                       min="0.1" max="500" step="0.1" required
+                                       placeholder="e.g., 5.5">
+                                <small class="field-help">Total weight including frame, battery, payload</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="thrust-ratio" class="required">Target Thrust-to-Weight Ratio</label>
+                                <input type="number" id="thrust-ratio" name="thrustRatio" 
+                                       min="1.5" max="4" step="0.1" value="2.0" required>
+                                <small class="field-help">Recommended: 2.0 for standard, 2.5+ for agile</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="battery-voltage" class="required">Battery Voltage</label>
+                                <select id="battery-voltage" name="batteryVoltage" required>
+                                    <option value="">Select voltage...</option>
+                                    <option value="3">3S (11.1V)</option>
+                                    <option value="4">4S (14.8V)</option>
+                                    <option value="5">5S (18.5V)</option>
+                                    <option value="6">6S (22.2V)</option>
+                                    <option value="8">8S (29.6V)</option>
+                                    <option value="10">10S (37.0V)</option>
+                                    <option value="12">12S (44.4V)</option>
+                                    <option value="14">14S (51.8V)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="prop-diameter" class="required">Propeller Diameter Range (inch)</label>
+                                <div class="range-inputs">
+                                    <input type="number" id="prop-min" name="propMin" 
+                                           min="3" max="30" step="0.5" placeholder="Min"
+                                           required>
+                                    <span class="range-separator">to</span>
+                                    <input type="number" id="prop-max" name="propMax" 
+                                           min="3" max="30" step="0.5" placeholder="Max"
+                                           required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Optional Fields -->
+                        <div class="form-section">
+                            <h3 class="form-section-title">Optional Preferences</h3>
+                            
+                            <div class="form-group">
+                                <label for="flight-time">Desired Flight Time (min)</label>
+                                <input type="number" id="flight-time" name="flightTime" 
+                                       min="5" max="180" step="5" placeholder="e.g., 30">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="payload-mass">Payload Mass (kg)</label>
+                                <input type="number" id="payload-mass" name="payloadMass" 
+                                       min="0" max="100" step="0.1" placeholder="e.g., 2.0">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="motor-weight">Motor Weight Preference (g)</label>
+                                <input type="number" id="motor-weight" name="motorWeight" 
+                                       min="10" max="5000" step="10" placeholder="e.g., 300">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="kv-preference">KV Preference</label>
+                                <input type="number" id="kv-preference" name="kvPreference" 
+                                       min="50" max="3000" step="10" placeholder="e.g., 380">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ip-rating">IP Rating Required</label>
+                                <select id="ip-rating" name="ipRating">
+                                    <option value="">No requirement</option>
+                                    <option value="IP54">IP54</option>
+                                    <option value="IP65">IP65</option>
+                                    <option value="IP67">IP67</option>
+                                    <option value="IP68">IP68</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="annual-volume">Annual Volume (units)</label>
+                                <input type="number" id="annual-volume" name="annualVolume" 
+                                       min="1" max="100000" step="1" placeholder="e.g., 100">
+                                <small class="field-help">Affects pricing tier</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="vendor-preference">Vendor Preference</label>
+                                <div class="vendor-checkboxes">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="vendors" value="welkinrim" checked>
+                                        <span>WelkinRim</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="vendors" value="t-motor" checked>
+                                        <span>T-Motor</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="vendors" value="kde" checked>
+                                        <span>KDE Direct</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="vendors" value="sunnysky" checked>
+                                        <span>Sunnysky</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="vendors" value="mad" checked>
+                                        <span>MAD Motors</span>
+                                    </label>
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="vendors" value="hobbywing" checked>
+                                        <span>Hobbywing</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large search-button" id="search-button">
+                            Search Motors
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Results Area -->
+                <div class="results-area">
+                    <!-- Results Header -->
+                    <div class="results-header" id="results-header" style="display: none;">
+                        <div class="results-info">
+                            <h2>Search Results</h2>
+                            <p class="results-count"><span id="result-count">0</span> motors found</p>
+                        </div>
+                        <div class="results-actions">
+                            <button class="btn btn-secondary" id="compare-button" disabled>
+                                Compare Selected (<span id="compare-count">0</span>)
+                            </button>
+                            <select class="sort-select" id="sort-select">
+                                <option value="score">Best Match</option>
+                                <option value="thrust">Max Thrust</option>
+                                <option value="efficiency">Efficiency</option>
+                                <option value="price">Price (Low to High)</option>
+                                <option value="weight">Weight (Light to Heavy)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Initial State -->
+                    <div class="initial-state" id="initial-state">
+                        <div class="initial-content">
+                            <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                                <circle cx="60" cy="60" r="50" stroke="#f6a604" stroke-width="2" opacity="0.3"/>
+                                <path d="M40 60L50 70L70 50" stroke="#f6a604" stroke-width="3" stroke-linecap="round"/>
+                                <circle cx="60" cy="60" r="25" stroke="#f6a604" stroke-width="2" opacity="0.5"/>
+                            </svg>
+                            <h3>Start Your Search</h3>
+                            <p>Enter your drone specifications and we'll find the perfect motors for your application</p>
+                        </div>
+                    </div>
+
+                    <!-- Loading State -->
+                    <div class="loading-state" id="loading-state" style="display: none;">
+                        <div class="loading-spinner"></div>
+                        <p>Analyzing requirements and searching motor database...</p>
+                    </div>
+
+                    <!-- Results Table -->
+                    <div class="results-table-container" id="results-container" style="display: none;">
+                        <table class="results-table" id="results-table">
+                            <thead>
+                                <tr>
+                                    <th class="th-checkbox">
+                                        <input type="checkbox" id="select-all" title="Select all">
+                                    </th>
+                                    <th>Score</th>
+                                    <th>Brand</th>
+                                    <th>Model</th>
+                                    <th>Max Thrust</th>
+                                    <th>Power</th>
+                                    <th>Weight</th>
+                                    <th>KV</th>
+                                    <th>Price</th>
+                                    <th>MOQ</th>
+                                    <th>Lead Time</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="results-tbody">
+                                <!-- Results will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- No Results State -->
+                    <div class="no-results" id="no-results" style="display: none;">
+                        <h3>No Motors Found</h3>
+                        <p>Try adjusting your search parameters or contact our team for custom solutions</p>
+                        <button class="btn btn-primary" onclick="window.location.href='#contact'">
+                            Request Custom Motor
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Drawer -->
+    <div class="comparison-drawer" id="comparison-drawer">
+        <div class="drawer-header">
+            <h3>Motor Comparison</h3>
+            <button class="drawer-close" id="drawer-close">&times;</button>
+        </div>
+        <div class="drawer-content" id="comparison-content">
+            <!-- Comparison table will be populated here -->
+        </div>
+    </div>
+
+    <!-- Quote Modal -->
+    <div class="quote-modal" id="quote-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Request Quote</h3>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body" id="quote-modal-body">
+                <!-- Quote form will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="products/micro-motors.html">Micro Motors</a></li>
+                        <li><a href="products/commercial-motors.html">Commercial Motors</a></li>
+                        <li><a href="products/industrial-motors.html">Industrial Motors</a></li>
+                        <li><a href="motor-matchmaker.html">Motor Matchmaker</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="resources/datasheets.html">Technical Specs</a></li>
+                        <li><a href="resources/guides.html">Installation Guides</a></li>
+                        <li><a href="tools/calculator.html">Performance Tools</a></li>
+                        <li><a href="resources/faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="support.html">Technical Support</a></li>
+                        <li><a href="warranty.html">Warranty</a></li>
+                        <li><a href="distributors.html">Find Distributor</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About WelkinRim</a></li>
+                        <li><a href="news.html">News & Updates</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <p>&copy; 2024 WelkinRim Technologies. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                    </div>
+                </div>
+                <div class="footer-certifications">
+                    <img src="assets/iso-9001.svg" alt="ISO 9001 Certified" class="cert-badge">
+                    <img src="assets/ce-mark.svg" alt="CE Certified" class="cert-badge">
+                    <img src="assets/fcc-cert.svg" alt="FCC Certified" class="cert-badge">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script src="motor-database.js"></script>
+    <script src="motor-matchmaker.js"></script>
+</body>
+</html>
