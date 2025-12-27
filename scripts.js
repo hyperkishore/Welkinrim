@@ -2,13 +2,45 @@
 document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
-    
+    const nav = document.querySelector('.nav');
+
+    // Mobile menu toggle
     if (navToggle && navMenu) {
         navToggle.addEventListener('click', function() {
             navMenu.classList.toggle('nav-menu-active');
             navToggle.classList.toggle('nav-toggle-active');
+            document.body.classList.toggle('menu-open');
+        });
+
+        // Close menu when clicking a link
+        navMenu.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('nav-menu-active');
+                navToggle.classList.remove('nav-toggle-active');
+                document.body.classList.remove('menu-open');
+            });
         });
     }
+
+    // Sticky nav with background change on scroll
+    let lastScroll = 0;
+    window.addEventListener('scroll', function() {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > 50) {
+            nav.classList.add('nav-scrolled');
+        } else {
+            nav.classList.remove('nav-scrolled');
+        }
+
+        // Hide/show nav on scroll direction
+        if (currentScroll > lastScroll && currentScroll > 200) {
+            nav.classList.add('nav-hidden');
+        } else {
+            nav.classList.remove('nav-hidden');
+        }
+        lastScroll = currentScroll;
+    });
 });
 
 // Motor Selector Tool
@@ -355,13 +387,81 @@ function loadDynamicContent() {
     // In production, this would fetch from an API
 }
 
+// Scroll Progress Indicator
+window.addEventListener('scroll', function() {
+    const scrollProgress = document.getElementById('scroll-progress');
+    if (scrollProgress) {
+        const scrollTop = document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const progress = (scrollTop / scrollHeight) * 100;
+        scrollProgress.style.width = progress + '%';
+    }
+});
+
+// Counter Animation for Stats
+function animateCounters() {
+    const counters = document.querySelectorAll('.hero-stat-number');
+
+    counters.forEach(counter => {
+        const text = counter.textContent;
+        const hasPlus = text.includes('+');
+        const hasPercent = text.includes('%');
+        const hasComma = text.includes(',');
+
+        let target = parseFloat(text.replace(/[^0-9.]/g, ''));
+        if (hasComma) target = parseFloat(text.replace(/,/g, ''));
+
+        const duration = 2000;
+        const start = 0;
+        const increment = target / (duration / 16);
+        let current = start;
+
+        const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+                let displayValue = Math.floor(current);
+                if (hasComma && displayValue >= 1000) {
+                    displayValue = displayValue.toLocaleString();
+                }
+                counter.textContent = displayValue + (hasPlus ? '+' : '') + (hasPercent ? '%' : '');
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.textContent = text;
+            }
+        };
+
+        updateCounter();
+    });
+}
+
+// Trigger counter animation when hero section is visible
+const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateCounters();
+            heroObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const heroStats = document.querySelector('.hero-stats');
+    if (heroStats) {
+        heroObserver.observe(heroStats);
+    }
+});
+
 // Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize components
     loadDynamicContent();
-    
+
     // Set up progressive enhancement
     document.body.classList.add('js-enabled');
-    
+
+    // Add testimonial cards to animation observer
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    testimonialCards.forEach(el => observer.observe(el));
+
     console.log('WelkinRim website initialized successfully');
 });
