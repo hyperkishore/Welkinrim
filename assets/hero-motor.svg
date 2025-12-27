@@ -78,20 +78,20 @@
     </g>
     
     <!-- WelkinRim branding -->
-    <text x="150" y="280" font-family="Arial, sans-serif" font-size="14" font-weight="bold" 
-          text-anchor="middle" fill="url(#motorGradient)">WelkinRim Precision</text>
+    <text x="150" y="280" font-family="Arial, sans-serif" font-size="14" font-weight="bold"
+          text-anchor="middle" fill="#171a20">WelkinRim Precision</text>
   </g>
   
   <!-- Subtle rotation indicators -->
-  <g stroke="#f6a604" stroke-width="1" fill="none" opacity="0.4">
+  <g stroke="#171a20" stroke-width="1" fill="none" opacity="0.3">
     <path d="M 150 50 Q 180 80 150 110" marker-end="url(#arrowhead)"/>
     <path d="M 250 150 Q 220 120 190 150" marker-end="url(#arrowhead)"/>
   </g>
-  
+
   <!-- Arrow marker definition -->
   <defs>
     <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#f6a604" />
+      <polygon points="0 0, 10 3.5, 0 7" fill="#171a20" />
     </marker>
   </defs>
 </svg>
