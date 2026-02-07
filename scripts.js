@@ -22,24 +22,45 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Sticky nav with background change on scroll
+    // Sticky nav + scroll progress (rAF-throttled for performance)
     let lastScroll = 0;
-    window.addEventListener('scroll', function() {
+    let scrollTicking = false;
+
+    function onScroll() {
         const currentScroll = window.pageYOffset;
 
-        if (currentScroll > 50) {
-            nav.classList.add('nav-scrolled');
-        } else {
-            nav.classList.remove('nav-scrolled');
+        // Nav background
+        if (nav) {
+            if (currentScroll > 50) {
+                nav.classList.add('nav-scrolled');
+            } else {
+                nav.classList.remove('nav-scrolled');
+            }
+            // Hide/show nav on scroll direction
+            if (currentScroll > lastScroll && currentScroll > 200) {
+                nav.classList.add('nav-hidden');
+            } else {
+                nav.classList.remove('nav-hidden');
+            }
         }
 
-        // Hide/show nav on scroll direction
-        if (currentScroll > lastScroll && currentScroll > 200) {
-            nav.classList.add('nav-hidden');
-        } else {
-            nav.classList.remove('nav-hidden');
+        // Scroll progress indicator
+        const scrollProgress = document.getElementById('scroll-progress');
+        if (scrollProgress) {
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = scrollHeight > 0 ? (currentScroll / scrollHeight) * 100 : 0;
+            scrollProgress.style.width = progress + '%';
         }
+
         lastScroll = currentScroll;
+        scrollTicking = false;
+    }
+
+    window.addEventListener('scroll', function() {
+        if (!scrollTicking) {
+            requestAnimationFrame(onScroll);
+            scrollTicking = true;
+        }
     });
 });
 
@@ -60,73 +81,47 @@ function findMotors() {
 }
 
 function getMotorRecommendations(application, payload, flightTime) {
-    // Motor database (in production, this would come from an API)
-    const motors = [
-        {
-            name: 'WR1806-2300',
-            series: 'Micro',
-            thrust: '2.1kg',
-            power: '380W',
-            weight: '28g',
-            applications: ['racing', 'photography'],
-            payloadRange: '0-1',
-            efficiency: '94%',
-            price: '$89',
-            image: 'assets/wr1806-motor.svg'
-        },
-        {
-            name: 'WR2212-1000',
-            series: 'Commercial',
-            thrust: '8.5kg',
-            power: '750W',
-            weight: '135g',
-            applications: ['commercial', 'photography', 'inspection'],
-            payloadRange: '1-5',
-            efficiency: '96%',
-            price: '$149',
-            image: 'assets/wr2212-motor.svg'
-        },
-        {
-            name: 'WR2815-900',
-            series: 'Commercial',
-            thrust: '25.4kg',
-            power: '3.2kW',
-            weight: '485g',
-            applications: ['commercial', 'agriculture', 'inspection'],
-            payloadRange: '5-15',
-            efficiency: '98%',
-            price: '$389',
-            image: 'assets/wr2815-motor.svg'
-        },
-        {
-            name: 'WR4020-400',
-            series: 'Industrial',
-            thrust: '45.2kg',
-            power: '6.8kW',
-            weight: '1.2kg',
-            applications: ['agriculture', 'inspection', 'research'],
-            payloadRange: '15+',
-            efficiency: '99%',
-            price: '$749',
-            image: 'assets/wr4020-motor.svg'
-        }
-    ];
-    
-    // Filter motors based on criteria
+    // Use global motorDatabase (loaded from motor-database.js)
+    const motors = (typeof motorDatabase !== 'undefined' ? motorDatabase : []).map(m => ({
+        name: m.model,
+        series: m.series || 'Commercial',
+        thrust: (m.maxThrust / 1000).toFixed(1) + 'kg',
+        power: m.maxPower ? (m.maxPower >= 1000 ? (m.maxPower / 1000).toFixed(1) + 'kW' : m.maxPower + 'W') : 'N/A',
+        weight: m.weight >= 1000 ? (m.weight / 1000).toFixed(1) + 'kg' : m.weight + 'g',
+        applications: m.applications || [],
+        payloadRange: m.payloadRange || '0-1',
+        efficiency: ((m.efficiency || 0.85) * 100).toFixed(0) + '%',
+        price: '$' + (m.price || 0),
+        image: m.image || 'assets/commercial-motor.svg',
+        brand: m.brand || 'WelkinRim',
+        id: m.id
+    }));
+
+    // Filter by application and payload
     let filtered = motors.filter(motor => {
-        return motor.applications.includes(application) && 
-               motor.payloadRange === payload;
+        const appMatch = motor.applications.includes(application);
+        const payloadMatch = motor.payloadRange === payload;
+        return appMatch && payloadMatch;
     });
-    
-    // If no exact matches, provide similar alternatives
+
+    // Fallback: match by payload only
     if (filtered.length === 0) {
         filtered = motors.filter(motor => motor.payloadRange === payload);
     }
-    
-    // Sort by efficiency (best first)
-    filtered.sort((a, b) => parseFloat(b.efficiency) - parseFloat(a.efficiency));
-    
-    return filtered.slice(0, 3); // Return top 3 recommendations
+
+    // Fallback: match by application only
+    if (filtered.length === 0) {
+        filtered = motors.filter(motor => motor.applications.includes(application));
+    }
+
+    // Prioritize WelkinRim motors
+    filtered.sort((a, b) => {
+        if (a.brand === 'WelkinRim' && b.brand !== 'WelkinRim') return -1;
+        if (a.brand !== 'WelkinRim' && b.brand === 'WelkinRim') return 1;
+        return parseFloat(b.efficiency) - parseFloat(a.efficiency);
+    });
+
+    return filtered.slice(0, 3);
 }
 
 function displayResults(motors) {
@@ -196,15 +191,12 @@ function displayResults(motors) {
 
 // Placeholder functions for motor actions
 function viewSpecs(motorName) {
-    // In production, this would navigate to the specific motor page
-    window.open(`products/motors/${motorName.toLowerCase().replace('-', '')}.html`, '_blank');
+    // Open motor detail on product page or matchmaker
+    window.location.href = 'motor-matchmaker.html';
 }
 
 function requestQuote(motorName) {
-    // In production, this would open a quote form with pre-filled motor info
-    const subject = encodeURIComponent(`Quote Request for ${motorName}`);
-    const body = encodeURIComponent(`Hi WelkinRim team,\n\nI'm interested in getting a quote for the ${motorName} motor.\n\nPlease provide pricing and availability information.\n\nThank you!`);
-    window.open(`mailto:sales@welkinrim.com?subject=${subject}&body=${body}`);
+    window.location.href = 'contact.html?motor=' + encodeURIComponent(motorName) + '&type=quote';
 }
 
 // Smooth scrolling for navigation links
@@ -318,12 +310,21 @@ window.addEventListener('error', function(e) {
 // Newsletter signup (if implemented)
 function subscribeNewsletter(email) {
     if (!email || !email.includes('@')) {
-        alert('Please enter a valid email address');
         return;
     }
-    
-    // In production, this would make an API call
-    alert('Thank you for subscribing! You will receive updates about our latest products and innovations.');
+    // Show inline success message
+    const btn = event && event.target;
+    if (btn) {
+        const original = btn.textContent;
+        btn.textContent = 'Subscribed!';
+        btn.disabled = true;
+        btn.style.backgroundColor = '#22c55e';
+        setTimeout(() => {
+            btn.textContent = original;
+            btn.disabled = false;
+            btn.style.backgroundColor = '';
+        }, 3000);
+    }
 }
 
 // Analytics tracking helpers (for Google Analytics, etc.)
@@ -383,20 +384,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Dynamic content loading for better performance
 function loadDynamicContent() {
-    // This could load testimonials, case studies, or other dynamic content
-    // In production, this would fetch from an API
+    // Content is loaded statically or via shared.js
 }
 
-// Scroll Progress Indicator
-window.addEventListener('scroll', function() {
-    const scrollProgress = document.getElementById('scroll-progress');
-    if (scrollProgress) {
-        const scrollTop = document.documentElement.scrollTop;
-        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const progress = (scrollTop / scrollHeight) * 100;
-        scrollProgress.style.width = progress + '%';
-    }
-});
+// Scroll Progress Indicator - handled by unified scroll handler above
 
 // Counter Animation for Stats
 function animateCounters() {

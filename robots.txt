@@ -1,0 +1,9 @@
+# WelkinRim robots.txt
+# Allow all crawlers
+
+User-agent: *
+Allow: /
+Disallow: /__pycache__/
+
+# Sitemap location
+Sitemap: https://welkinrim.com/sitemap.xml

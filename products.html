@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - WelkinRim | Professional Drone Motors & Propulsion Systems</title>
+    <meta name="description" content="Explore WelkinRim's complete range of professional drone motors and propulsion systems. From micro racing motors to heavy-lift industrial solutions.">
+    <meta name="keywords" content="drone motors, brushless motors, micro motors, commercial motors, industrial motors, propulsion systems, FPV motors, heavy-lift motors">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Products - WelkinRim Professional Drone Motors">
+    <meta property="og:description" content="Complete range of professional drone motors from micro racing to heavy-lift industrial solutions.">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        /* Skip to content link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 100;
+            border-radius: 0 0 4px 0;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: #ffffff;
+            padding: 120px 20px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('images/hero-motor.svg') center/contain no-repeat;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #b0b0b0;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #808080;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Product Categories Grid */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .category-card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 40px 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #000000, #404040);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover {
+            border-color: #000000;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .category-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .category-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #000000;
+        }
+
+        .category-description {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .category-specs {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .spec-row:last-child {
+            border-bottom: none;
+        }
+
+        .spec-label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .spec-value {
+            color: #666;
+        }
+
+        .featured-motors {
+            margin-bottom: 25px;
+        }
+
+        .featured-motors-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+        }
+
+        .motor-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .motor-list li {
+            padding: 6px 0;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        .motor-list li::before {
+            content: '→';
+            margin-right: 8px;
+            color: #000;
+            font-weight: 700;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: #000000;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #000000;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #ffffff;
+            color: #000000;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #000000;
+            border: 2px solid #000000;
+        }
+
+        .btn-outline:hover {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        /* Comparison Table */
+        .comparison-section {
+            background: #f8f8f8;
+            padding: 80px 20px;
+        }
+
+        .comparison-table-wrapper {
+            overflow-x: auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        .comparison-table thead {
+            background: #000000;
+            color: #ffffff;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .comparison-table th {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+
+        .comparison-table tbody tr:hover {
+            background: #f8f8f8;
+        }
+
+        .comparison-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .table-highlight {
+            font-weight: 700;
+            color: #000000;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            color: #ffffff;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: #ffffff;
+            color: #000000;
+            border: 2px solid #ffffff;
+        }
+
+        .btn-white:hover {
+            background: transparent;
+            color: #ffffff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero-stats {
+                gap: 40px;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 80px 20px 60px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 60px 20px;
+            }
+
+            .category-card {
+                padding: 30px 20px;
+            }
+
+            .category-name {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav id="main-nav"></nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Professional Drone Motors</h1>
+            <p>From racing micro motors to heavy-lift industrial solutions. Engineered for precision, built for performance.</p>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Motor Models</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">0-50kg</span>
+                    <span class="stat-label">Payload Range</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">4</span>
+                    <span class="stat-label">Product Lines</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Expert Support</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Product Categories -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Product Categories</h2>
+                <p class="section-subtitle">Choose the right motor category for your application. From high-speed racing to heavy-lift operations.</p>
+
+                <div class="categories-grid">
+                    <!-- Micro Motors -->
+                    <div class="category-card">
+                        <img src="images/micro-motor.svg" alt="Micro Motors" class="category-icon">
+                        <h3 class="category-name">Micro Motors</h3>
+                        <p class="category-description">Ultra-light, high-KV motors designed for racing drones and FPV applications. Maximum speed and agility.</p>
+
+                        <div class="category-specs">
+                            <div class="spec-row">
+                                <span class="spec-label">Payload Range</span>
+                                <span class="spec-value">0-2kg</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Voltage</span>
+                                <span class="spec-value">2-6S LiPo</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">KV Range</span>
+                                <span class="spec-value">1400-2800 KV</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Applications</span>
+                                <span class="spec-value">Racing, FPV, Acro</span>
+                            </div>
+                        </div>
+
+                        <div class="featured-motors">
+                            <div class="featured-motors-title">Featured Models</div>
+                            <ul class="motor-list">
+                                <li>WR-1404 (3800 KV) - Racing</li>
+                                <li>WR-1806 (2400 KV) - Freestyle</li>
+                                <li>WR-2204 (2300 KV) - Cinematic FPV</li>
+                            </ul>
+                        </div>
+
+                        <a href="products/micro-motors.html" class="btn">View Micro Motors</a>
+                    </div>
+
+                    <!-- Commercial Motors -->
+                    <div class="category-card">
+                        <img src="images/commercial-motor.svg" alt="Commercial Motors" class="category-icon">
+                        <h3 class="category-name">Commercial Motors</h3>
+                        <p class="category-description">Professional-grade motors for commercial photography, inspection, and mapping operations.</p>
+
+                        <div class="category-specs">
+                            <div class="spec-row">
+                                <span class="spec-label">Payload Range</span>
+                                <span class="spec-value">2-15kg</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Voltage</span>
+                                <span class="spec-value">4-8S LiPo</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">KV Range</span>
+                                <span class="spec-value">280-1000 KV</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Applications</span>
+                                <span class="spec-value">Photo, Mapping, Inspection</span>
+                            </div>
+                        </div>
+
+                        <div class="featured-motors">
+                            <div class="featured-motors-title">Featured Models</div>
+                            <ul class="motor-list">
+                                <li>WR-4108 (380 KV) - Photography</li>
+                                <li>WR-5008 (340 KV) - Survey/Mapping</li>
+                                <li>WR-6215 (200 KV) - Heavy Camera Rigs</li>
+                            </ul>
+                        </div>
+
+                        <a href="products/commercial-motors.html" class="btn">View Commercial Motors</a>
+                    </div>
+
+                    <!-- Industrial Motors -->
+                    <div class="category-card">
+                        <img src="images/industrial-motor.svg" alt="Industrial Motors" class="category-icon">
+                        <h3 class="category-name">Industrial Motors</h3>
+                        <p class="category-description">Heavy-lift powerhouses engineered for agricultural spraying, cargo delivery, and specialized industrial tasks.</p>
+
+                        <div class="category-specs">
+                            <div class="spec-row">
+                                <span class="spec-label">Payload Range</span>
+                                <span class="spec-value">15-50kg</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Voltage</span>
+                                <span class="spec-value">6-14S LiPo</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">KV Range</span>
+                                <span class="spec-value">80-280 KV</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Applications</span>
+                                <span class="spec-value">Agriculture, Cargo, Heavy-Lift</span>
+                            </div>
+                        </div>
+
+                        <div class="featured-motors">
+                            <div class="featured-motors-title">Featured Models</div>
+                            <ul class="motor-list">
+                                <li>WR-8318 (120 KV) - Agriculture</li>
+                                <li>WR-9025 (90 KV) - Heavy Cargo</li>
+                                <li>WR-10030 (80 KV) - Industrial Lift</li>
+                            </ul>
+                        </div>
+
+                        <a href="products/industrial-motors.html" class="btn">View Industrial Motors</a>
+                    </div>
+
+                    <!-- Propulsion Systems -->
+                    <div class="category-card">
+                        <img src="images/hero-motor.svg" alt="Propulsion Systems" class="category-icon">
+                        <h3 class="category-name">Propulsion Systems</h3>
+                        <p class="category-description">Complete turnkey solutions with perfectly matched motors, ESCs, and propellers. Maximum efficiency guaranteed.</p>
+
+                        <div class="category-specs">
+                            <div class="spec-row">
+                                <span class="spec-label">Payload Range</span>
+                                <span class="spec-value">0-50kg</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Components</span>
+                                <span class="spec-value">Motor + ESC + Prop</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Warranty</span>
+                                <span class="spec-value">Extended System Warranty</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-label">Applications</span>
+                                <span class="spec-value">All Categories</span>
+                            </div>
+                        </div>
+
+                        <div class="featured-motors">
+                            <div class="featured-motors-title">Featured Systems</div>
+                            <ul class="motor-list">
+                                <li>Racing Pro Bundle - FPV Racing</li>
+                                <li>Commercial Plus Kit - Photography</li>
+                                <li>Industrial Max System - Heavy-Lift</li>
+                            </ul>
+                        </div>
+
+                        <a href="products/propulsion-systems.html" class="btn">View Propulsion Systems</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Table -->
+        <section class="comparison-section">
+            <div class="container">
+                <h2 class="section-title">Quick Comparison</h2>
+                <p class="section-subtitle">Compare key specifications across our product lines to find your perfect match.</p>
+
+                <div class="comparison-table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Payload Range</th>
+                                <th>Voltage</th>
+                                <th>KV Range</th>
+                                <th>Best For</th>
+                                <th>Starting Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="table-highlight">Micro Motors</td>
+                                <td>0-2kg</td>
+                                <td>2-6S</td>
+                                <td>1400-2800 KV</td>
+                                <td>Racing, FPV, Acrobatics</td>
+                                <td>$24.99</td>
+                            </tr>
+                            <tr>
+                                <td class="table-highlight">Commercial Motors</td>
+                                <td>2-15kg</td>
+                                <td>4-8S</td>
+                                <td>280-1000 KV</td>
+                                <td>Photography, Inspection, Mapping</td>
+                                <td>$149.99</td>
+                            </tr>
+                            <tr>
+                                <td class="table-highlight">Industrial Motors</td>
+                                <td>15-50kg</td>
+                                <td>6-14S</td>
+                                <td>80-280 KV</td>
+                                <td>Agriculture, Cargo, Heavy-Lift</td>
+                                <td>$599.99</td>
+                            </tr>
+                            <tr>
+                                <td class="table-highlight">Propulsion Systems</td>
+                                <td>0-50kg (varies)</td>
+                                <td>2-14S (varies)</td>
+                                <td>80-2800 KV (varies)</td>
+                                <td>Complete Turnkey Solutions</td>
+                                <td>$299.99</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Not Sure Which Motor to Choose?</h2>
+                <p>Use our intelligent Motor Matchmaker to find the perfect motor based on your specific requirements in seconds.</p>
+
+                <div class="cta-buttons">
+                    <a href="motor-matchmaker.html" class="btn btn-white">Find My Motor</a>
+                    <a href="contact.html" class="btn btn-outline btn-white">Talk to an Expert</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer"></footer>
+
+    <!-- Scripts -->
+    <script src="js/shared.js"></script>
+    <script src="js/motor-database.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>

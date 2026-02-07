@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Studies | WelkinRim - Real-World Results</title>
+    <meta name="description" content="See how WelkinRim drone motors power real-world operations. Case studies from agriculture, urban delivery, and aerospace research.">
+    <meta name="keywords" content="WelkinRim case studies, drone motors, agricultural drones, delivery drones, aerospace research, motor performance">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Case Studies | WelkinRim - Real-World Results">
+    <meta property="og:description" content="Discover how leading organizations achieve breakthrough results with WelkinRim precision drone motors.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/welkinrim-og.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Skip to content */
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #fff;
+            color: #000;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-to-content:focus {
+            top: 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(180deg, #000 0%, #111 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 30% 40%, rgba(59, 130, 246, 0.18) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(139, 92, 246, 0.18) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #3b82f6;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1.25rem;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 50px;
+            background: rgba(59, 130, 246, 0.08);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.35rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Sections */
+        .section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-dark {
+            background: #000;
+        }
+
+        .section-light {
+            background: #0a0a0a;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Case Study Card */
+        .case-study {
+            margin-bottom: 5rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+
+        .case-study:last-child {
+            margin-bottom: 0;
+        }
+
+        .case-study:hover {
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .case-study-header {
+            padding: 3rem 3rem 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .case-study-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #8b5cf6;
+            margin-bottom: 1rem;
+        }
+
+        .case-study-client {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .case-study-industry {
+            font-size: 1.1rem;
+            color: #64748b;
+            font-weight: 400;
+        }
+
+        .case-study-body {
+            padding: 2.5rem 3rem 3rem;
+        }
+
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .case-study-block {
+            padding: 0;
+        }
+
+        .block-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        .block-label--challenge {
+            color: #f59e0b;
+        }
+
+        .block-label--solution {
+            color: #3b82f6;
+        }
+
+        .block-label--results {
+            color: #10b981;
+        }
+
+        .block-label-icon {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .block-label--challenge .block-label-icon {
+            background: #f59e0b;
+            box-shadow: 0 0 8px rgba(245, 158, 11, 0.5);
+        }
+
+        .block-label--solution .block-label-icon {
+            background: #3b82f6;
+            box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+        }
+
+        .block-label--results .block-label-icon {
+            background: #10b981;
+            box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+        }
+
+        .block-text {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .motor-tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #3b82f6;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        /* Results Stats */
+        .results-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .result-stat {
+            padding: 1rem;
+            background: rgba(16, 185, 129, 0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(16, 185, 129, 0.1);
+        }
+
+        .result-number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.25rem;
+            line-height: 1.2;
+        }
+
+        .result-description {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            line-height: 1.4;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 50% 50%, rgba(59, 130, 246, 0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 100%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn--primary {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            color: #fff;
+        }
+
+        .cta-btn--primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .cta-btn--secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .cta-btn--secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .case-study-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .results-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: auto;
+                min-height: 400px;
+                padding: 8rem 0 4rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 4rem 5%;
+            }
+
+            .case-study-header {
+                padding: 2rem 1.5rem 1.5rem;
+            }
+
+            .case-study-body {
+                padding: 1.5rem;
+            }
+
+            .case-study-client {
+                font-size: 1.75rem;
+            }
+
+            .case-study-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .results-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .cta-section {
+                padding: 5rem 5%;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
+
+    <nav id="main-nav"></nav>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-label">Case Studies</span>
+                <h1>Real-World Results,<br>Proven Performance</h1>
+                <p class="hero-subtitle">See how industry leaders achieve breakthrough operational efficiency with WelkinRim precision drone motors.</p>
+            </div>
+        </section>
+
+        <!-- Case Studies -->
+        <section class="section section-dark">
+            <h2 class="section-title">Featured Case Studies</h2>
+            <p class="section-subtitle">From agricultural fleets to cutting-edge research labs, our motors deliver measurable results across industries.</p>
+
+            <!-- Case Study 1: AgriDrone Systems -->
+            <article class="case-study">
+                <div class="case-study-header">
+                    <span class="case-study-label">Case Study 01</span>
+                    <h3 class="case-study-client">AgriDrone Systems</h3>
+                    <p class="case-study-industry">Agricultural Fleet Operations</p>
+                </div>
+                <div class="case-study-body">
+                    <div class="case-study-grid">
+                        <div class="case-study-block">
+                            <div class="block-label block-label--challenge">
+                                <span class="block-label-icon"></span>
+                                Challenge
+                            </div>
+                            <p class="block-text">A fleet of 40 agricultural drones needed motors capable of withstanding chemical exposure, dust, high humidity, and continuous operation during planting season. Their previous motors were failing after just 800 hours, causing costly downtime during critical growing periods.</p>
+                        </div>
+                        <div class="case-study-block">
+                            <div class="block-label block-label--solution">
+                                <span class="block-label-icon"></span>
+                                Solution
+                            </div>
+                            <span class="motor-tag">WR4014-500 Industrial Series</span>
+                            <p class="block-text">IP67-rated motors with custom corrosion-resistant coating engineered to withstand agricultural chemicals. Optimized cooling system designed for sustained heavy-lift operations in hot, humid conditions.</p>
+                        </div>
+                        <div class="case-study-block">
+                            <div class="block-label block-label--results">
+                                <span class="block-label-icon"></span>
+                                Results
+                            </div>
+                            <div class="results-stats">
+                                <div class="result-stat">
+                                    <div class="result-number">3,200+</div>
+                                    <div class="result-description">Hours per motor (4x improvement)</div>
+                                </div>
+                                <div class="result-stat">
+                                    <div class="result-number">40%</div>
+                                    <div class="result-description">Reduction in maintenance costs</div>
+                                </div>
+                                <div class="result-stat">
+                                    <div class="result-number">15%</div>
+                                    <div class="result-description">Increase in spray coverage per flight</div>
+                                </div>
+                                <div class="result-stat">
+                                    <div class="result-number">96%</div>
+                                    <div class="result-description">Fleet uptime (from 72%)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Case Study 2: SkyLogistics -->
+            <article class="case-study">
+                <div class="case-study-header">
+                    <span class="case-study-label">Case Study 02</span>
+                    <h3 class="case-study-client">SkyLogistics</h3>
+                    <p class="case-study-industry">Urban Delivery Fleet</p>
+                </div>
+                <div class="case-study-body">
+                    <div class="case-study-grid">
+                        <div class="case-study-block">
+                            <div class="block-label block-label--challenge">
+                                <span class="block-label-icon"></span>
+                                Challenge
+                            </div>
+                            <p class="block-text">SkyLogistics needed to scale their urban delivery drone fleet from 12 to 200+ vehicles. They required motors with consistent performance across varied weather conditions, minimal maintenance windows, and full FAA compliance for Beyond Visual Line of Sight (BVLOS) operations.</p>
+                        </div>
+                        <div class="case-study-block">
+                            <div class="block-label block-label--solution">
+                                <span class="block-label-icon"></span>
+                                Solution
+                            </div>
+                            <span class="motor-tag">WR2815-900 Commercial Series</span>
+                            <p class="block-text">Custom firmware integration with SkyLogistics' fleet management platform. Real-time telemetry for predictive maintenance, paired with WelkinRim's dedicated fleet support program for rapid field service and replacement logistics.</p>
+                        </div>
+                        <div class="case-study-block">
+                            <div class="block-label block-label--results">
+                                <span class="block-label-icon"></span>
+                                Results
+                            </div>
+                            <div class="results-stats">
+                                <div class="result-stat">
+                                    <div class="result-number">200+</div>
+                                    <div class="result-description">Delivery drones deployed</div>
+                                </div>
+                                <div class="result-stat">
+                                    <div class="result-number">99.7%</div>
+                                    <div class="result-description">Delivery success rate</div>
+                                </div>
+                                <div class="result-stat">
+                                    <div class="result-number">22 min</div>
+                                    <div class="result-description">Average flight time (from 16 min)</div>
+                                </div>
+                                <div class="result-stat">
+                                    <div class="result-number">35%</div>
+                                    <div class="result-description">Reduction in cost per delivery</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Case Study 3: MIT Aerospace Lab -->
+            <article class="case-study">
+                <div class="case-study-header">
+                    <span class="case-study-label">Case Study 03</span>
+                    <h3 class="case-study-client">MIT Aerospace Lab</h3>
+                    <p class="case-study-industry">Research Platform</p>
+                </div>
+                <div class="case-study-body">
+                    <div class="case-study-grid">
+                        <div class="case-study-block">
+                            <div class="block-label block-label--challenge">
+                                <span class="block-label-icon"></span>
+                                Challenge
+                            </div>
+                            <p class="block-text">The research team needed highly configurable motors for experimental VTOL platforms. Requirements included precise thrust control for repeatable experiments, extensive data logging capabilities, and the ability to operate safely across various test configurations.</p>
+                        </div>
+                        <div class="case-study-block">
+                            <div class="block-label block-label--solution">
+                                <span class="block-label-icon"></span>
+                                Solution
+                            </div>
+                            <span class="motor-tag">WR3508-680 Research Configuration</span>
+                            <p class="block-text">Custom telemetry interface providing high-frequency sensor data for research analysis. Extended operating envelope for experimental flight regimes, backed by dedicated engineering support from WelkinRim's R&D team.</p>
+                        </div>
+                        <div class="case-study-block">
+                            <div class="block-label block-label--results">
+                                <span class="block-label-icon"></span>
+                                Results
+                            </div>
+                            <div class="results-stats">
+                                <div class="result-stat">
+                                    <div class="result-number">12</div>
+                                    <div class="result-description">Published papers using WelkinRim platforms</div>
+                                </div>
+                                <div class="result-stat">
+                                    <div class="result-number">15%</div>
+                                    <div class="result-description">Better thrust accuracy than spec</div>
+                                </div>
+                                <div class="result-stat">
+                                    <div class="result-number">3</div>
+                                    <div class="result-description">Additional university programs adopted</div>
+                                </div>
+                                <div class="result-stat">
+                                    <div class="result-number">100%</div>
+                                    <div class="result-description">Experiment repeatability rate</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Write Your<br>Success Story?</h2>
+                <p class="cta-text">Every operation is unique. Our engineering team works closely with you to identify the right motor configuration for your specific requirements, fleet size, and operating environment.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="cta-btn cta-btn--primary">Contact Our Team</a>
+                    <a href="products.html" class="cta-btn cta-btn--secondary">Explore Motors</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer"></footer>
+
+    <script src="shared.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>

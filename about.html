@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About WelkinRim | Precision Engineering Excellence</title>
+    <meta name="description" content="WelkinRim - 10+ years of precision engineering excellence. ISO 9001, CE, FCC certified. 5,000+ motors delivered to 50+ countries worldwide.">
+    <meta name="keywords" content="WelkinRim company, precision engineering, motor manufacturer, ISO certified, Munich engineering">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="About WelkinRim | Precision Engineering Excellence">
+    <meta property="og:description" content="Founded in Munich, Germany. 10+ years of precision engineering. 5,000+ motors delivered to 50+ countries.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/welkinrim-og.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Skip to content */
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #fff;
+            color: #000;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-to-content:focus {
+            top: 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(180deg, #000 0%, #111 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: #94a3b8;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-dark {
+            background: #000;
+        }
+
+        .section-light {
+            background: #0a0a0a;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #3b82f6 0%, #8b5cf6 100%);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin: 0 2rem;
+        }
+
+        .timeline-year {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            width: 16px;
+            height: 16px;
+            background: #3b82f6;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+
+        /* Engineering Pillars */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pillar-card {
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.1);
+        }
+
+        .pillar-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pillar-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .pillar-description {
+            color: #94a3b8;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Certifications */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .cert-card {
+            padding: 2.5rem 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .cert-card:hover {
+            border-color: rgba(139, 92, 246, 0.5);
+            box-shadow: 0 12px 24px rgba(139, 92, 246, 0.1);
+        }
+
+        .cert-badge {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .cert-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .cert-description {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Testing Process */
+        .testing-process {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .test-step {
+            padding: 2.5rem 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .test-step:hover {
+            border-color: rgba(59, 130, 246, 0.5);
+            transform: translateY(-4px);
+        }
+
+        .test-step-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+
+        .test-step h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+
+        .team-photo {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.1);
+        }
+
+        .team-info {
+            padding: 2rem;
+        }
+
+        .team-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-role {
+            color: #3b82f6;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .team-bio {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Partners Section */
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .partner-card {
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 150px;
+            transition: all 0.3s ease;
+        }
+
+        .partner-card:hover {
+            border-color: rgba(59, 130, 246, 0.5);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .partner-placeholder {
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 1.25rem;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 4rem 5%;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: row !important;
+            }
+
+            .timeline-dot {
+                left: 20px;
+            }
+
+            .timeline-content {
+                margin-left: 60px;
+                margin-right: 0;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .pillars-grid,
+            .certifications-grid,
+            .team-grid,
+            .partners-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
+
+    <nav id="main-nav"></nav>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Engineering Excellence<br>Since 2014</h1>
+                <p class="hero-subtitle">Precision motors engineered in Munich, trusted worldwide</p>
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Years of Excellence</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5,000+</div>
+                        <div class="stat-label">Motors Delivered</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Countries Served</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">40+</div>
+                        <div class="stat-label">Expert Engineers</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Company Story -->
+        <section class="section section-dark">
+            <h2 class="section-title">Our Story</h2>
+            <p class="section-subtitle">Founded by aerospace engineers in Munich, WelkinRim has grown from a startup vision to a global leader in precision motor engineering. Our commitment to excellence drives every innovation.</p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2014</div>
+                        <h3>The Beginning</h3>
+                        <p style="color: #94a3b8;">Founded by aerospace engineers in Munich, Germany with a vision to revolutionize precision motor technology.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2016</div>
+                        <h3>First Commercial Launch</h3>
+                        <p style="color: #94a3b8;">Released our first commercial motor line, setting new standards for efficiency and reliability in the industry.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2018</div>
+                        <h3>Global Expansion</h3>
+                        <p style="color: #94a3b8;">Achieved ISO 9001 certification and expanded operations to 20 countries, establishing partnerships with industry leaders.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020</div>
+                        <h3>Industrial Series</h3>
+                        <p style="color: #94a3b8;">Launched industrial motor series and celebrated our 1,000th customer milestone, solidifying our market position.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2022</div>
+                        <h3>AI Innovation</h3>
+                        <p style="color: #94a3b8;">Introduced Motor Matchmaker AI tool, transforming how engineers select optimal motors for their projects.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024</div>
+                        <h3>Global Leader</h3>
+                        <p style="color: #94a3b8;">Reached 5,000+ motors delivered to 50+ countries, cementing our position as a trusted global partner.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Engineering Pillars -->
+        <section class="section section-light">
+            <h2 class="section-title">Engineering Pillars</h2>
+            <p class="section-subtitle">Three core principles guide every design decision and manufacturing process</p>
+
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="pillar-icon">⚙️</div>
+                    <h3 class="pillar-title">Precision Engineering</h3>
+                    <p class="pillar-description">Every motor is designed with micron-level accuracy using advanced CAD systems and validated through extensive simulation. Our tolerances exceed industry standards by 40%.</p>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon">🛡️</div>
+                    <h3 class="pillar-title">Reliability First</h3>
+                    <p class="pillar-description">Rigorous testing protocols ensure 10,000+ hour operational lifetimes. Each unit undergoes environmental stress testing, load cycling, and quality validation before shipping.</p>
+                </div>
+
+                <div class="pillar-card">
+                    <div class="pillar-icon">🔧</div>
+                    <h3 class="pillar-title">Versatile Design</h3>
+                    <p class="pillar-description">Modular architecture enables seamless integration across applications from commercial drones to industrial automation. Standard interfaces reduce implementation time by 60%.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section class="section section-dark">
+            <h2 class="section-title">Certifications & Standards</h2>
+            <p class="section-subtitle">Industry-leading compliance and quality assurance</p>
+
+            <div class="certifications-grid">
+                <div class="cert-card">
+                    <div class="cert-badge">ISO 9001</div>
+                    <h3 class="cert-title">Quality Management</h3>
+                    <p class="cert-description">Certified quality management system ensuring consistent product excellence, continuous improvement, and customer satisfaction across all operations.</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-badge">CE</div>
+                    <h3 class="cert-title">European Compliance</h3>
+                    <p class="cert-description">Full compliance with European Union safety, health, and environmental protection standards for motor systems and electronic components.</p>
+                </div>
+
+                <div class="cert-card">
+                    <div class="cert-badge">FCC</div>
+                    <h3 class="cert-title">Electromagnetic Compliance</h3>
+                    <p class="cert-description">Federal Communications Commission certification for electromagnetic interference standards, ensuring safe operation in sensitive environments.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testing & QC Process -->
+        <section class="section section-light">
+            <h2 class="section-title">Testing & Quality Control</h2>
+            <p class="section-subtitle">Every motor undergoes rigorous testing before it reaches your hands</p>
+
+            <div class="testing-process">
+                <div class="test-step">
+                    <div class="test-step-number">01</div>
+                    <h3>Incoming Material Inspection</h3>
+                    <p style="color: #94a3b8;">Every component tested against specifications with automated optical and dimensional inspection systems.</p>
+                </div>
+                <div class="test-step">
+                    <div class="test-step-number">02</div>
+                    <h3>Assembly Verification</h3>
+                    <p style="color: #94a3b8;">Dynamic balancing to sub-milligram precision. Winding resistance and insulation resistance measured on every unit.</p>
+                </div>
+                <div class="test-step">
+                    <div class="test-step-number">03</div>
+                    <h3>Performance Validation</h3>
+                    <p style="color: #94a3b8;">100% thrust stand testing across the full operating range. Efficiency, thermal, and vibration data recorded for each motor.</p>
+                </div>
+                <div class="test-step">
+                    <div class="test-step-number">04</div>
+                    <h3>Environmental Stress Testing</h3>
+                    <p style="color: #94a3b8;">Thermal cycling (-40°C to +85°C), salt spray (1000h), humidity (95% RH), and vibration endurance on statistical samples.</p>
+                </div>
+                <div class="test-step">
+                    <div class="test-step-number">05</div>
+                    <h3>Accelerated Life Testing</h3>
+                    <p style="color: #94a3b8;">Continuous run testing under load to validate 10,000+ hour MTBF. Bearing, winding, and magnet degradation tracked over time.</p>
+                </div>
+                <div class="test-step">
+                    <div class="test-step-number">06</div>
+                    <h3>Final Audit & Serialization</h3>
+                    <p style="color: #94a3b8;">Unique serial number with full traceability. Test report and certificate of conformance included with every shipment.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team -->
+        <section class="section section-light">
+            <h2 class="section-title">Leadership Team</h2>
+            <p class="section-subtitle">Experienced leaders driving innovation and excellence</p>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-photo">👤</div>
+                    <div class="team-info">
+                        <h3 class="team-name">Dr. Klaus Schneider</h3>
+                        <div class="team-role">Chief Technology Officer</div>
+                        <p class="team-bio">Former aerospace engineer with 15+ years in propulsion systems. PhD in Mechanical Engineering from TU Munich.</p>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo">👤</div>
+                    <div class="team-info">
+                        <h3 class="team-name">Anna Weber</h3>
+                        <div class="team-role">Engineering Lead</div>
+                        <p class="team-bio">Specializes in brushless motor design and control systems. Led development of our industrial motor series.</p>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo">👤</div>
+                    <div class="team-info">
+                        <h3 class="team-name">Marcus Fischer</h3>
+                        <div class="team-role">Head of Sales</div>
+                        <p class="team-bio">20+ years in B2B industrial sales, building relationships with leading manufacturers across Europe and Asia.</p>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-photo">👤</div>
+                    <div class="team-info">
+                        <h3 class="team-name">Sofia Müller</h3>
+                        <div class="team-role">Quality Assurance Director</div>
+                        <p class="team-bio">Oversees ISO compliance and testing protocols. Expert in reliability engineering and failure analysis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners -->
+        <section class="section section-dark">
+            <h2 class="section-title">Trusted Partners</h2>
+            <p class="section-subtitle">Collaborating with industry leaders worldwide</p>
+
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-placeholder">Leading Drone<br>Manufacturer</div>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-placeholder">Industrial<br>Automation</div>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-placeholder">Robotics<br>Solutions</div>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-placeholder">Aerospace<br>Systems</div>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-placeholder">Defense<br>Technology</div>
+                </div>
+                <div class="partner-card">
+                    <div class="partner-placeholder">Research<br>Institutions</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer"></footer>
+
+    <script src="shared.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>

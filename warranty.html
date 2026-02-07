@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warranty Policy | WelkinRim - Industrial Motor Solutions</title>
+    <meta name="description" content="WelkinRim warranty policy. Learn about our 3-year warranty coverage and claim process.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .warranty-hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, #0066cc 0%, #004c99 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .warranty-hero h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .warranty-hero p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .warranty-content {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .warranty-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .warranty-summary {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 60px;
+            border: 2px solid #0066cc;
+        }
+
+        .warranty-summary h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .warranty-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .highlight-item {
+            text-align: center;
+        }
+
+        .highlight-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .highlight-item h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #0066cc;
+            margin-bottom: 10px;
+        }
+
+        .highlight-item p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .warranty-section {
+            margin-bottom: 50px;
+        }
+
+        .warranty-section h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 10px;
+        }
+
+        .warranty-section h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .warranty-section p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .warranty-section ul {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        .warranty-section li {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        .info-box {
+            background: #fffbf0;
+            border-left: 4px solid #ffcc00;
+            padding: 20px 30px;
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+
+        .info-box h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            margin-bottom: 0;
+        }
+
+        .claim-process {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 40px;
+            margin-top: 40px;
+        }
+
+        .claim-process h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .process-step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #0066cc;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .process-step h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .process-step p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .contact-cta {
+            background: linear-gradient(135deg, #0066cc 0%, #004c99 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 50px 40px;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .contact-cta h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .contact-cta p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.125rem;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #0066cc;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .warranty-hero {
+                padding: 100px 20px 40px;
+            }
+
+            .warranty-hero h1 {
+                font-size: 2rem;
+            }
+
+            .warranty-hero p {
+                font-size: 1rem;
+            }
+
+            .warranty-summary {
+                padding: 30px 20px;
+            }
+
+            .claim-process {
+                padding: 30px 20px;
+            }
+
+            .contact-cta {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
+    <nav id="main-nav"></nav>
+
+    <main id="main-content">
+        <section class="warranty-hero">
+            <h1>Warranty Policy</h1>
+            <p>Industry-leading coverage that protects your investment in precision engineering</p>
+        </section>
+
+        <section class="warranty-content">
+            <div class="warranty-container">
+                <div class="warranty-summary">
+                    <h2>Our Warranty Commitment</h2>
+                    <div class="warranty-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon">3️⃣</div>
+                            <h3>3-Year Coverage</h3>
+                            <p>Standard warranty period for all industrial motors and drives</p>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🔧</div>
+                            <h3>Full Repair/Replace</h3>
+                            <p>Defective products repaired or replaced at no charge</p>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🌍</div>
+                            <h3>Global Support</h3>
+                            <p>Warranty honored worldwide through our distribution network</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="warranty-section">
+                    <h2>Standard Warranty Coverage</h2>
+                    <p>WelkinRim warrants all products to be free from defects in materials and workmanship under normal use and service for a period of <strong>three (3) years from the date of delivery</strong>. This warranty is provided to the original purchaser and is non-transferable.</p>
+
+                    <h3>What's Covered</h3>
+                    <ul>
+                        <li><strong>Manufacturing Defects:</strong> Defects in materials, components, or assembly processes</li>
+                        <li><strong>Design Defects:</strong> Failures resulting from design flaws in standard products</li>
+                        <li><strong>Component Failures:</strong> Failure of bearings, windings, encoders, or other integral components under normal operation</li>
+                        <li><strong>Workmanship Issues:</strong> Assembly errors, improper tolerances, or quality control failures</li>
+                        <li><strong>Performance Issues:</strong> Failure to meet published specifications when properly installed and operated</li>
+                    </ul>
+
+                    <h3>Warranty Remedy</h3>
+                    <p>If a covered defect is confirmed, WelkinRim will, at its sole discretion:</p>
+                    <ul>
+                        <li>Repair the defective product at no charge</li>
+                        <li>Replace the defective product with an equivalent new or refurbished unit</li>
+                        <li>Provide credit toward the purchase of a replacement product</li>
+                    </ul>
+                    <p>Repaired or replaced products are warranted for the remainder of the original warranty period or 90 days from the repair/replacement date, whichever is longer.</p>
+                </div>
+
+                <div class="warranty-section">
+                    <h2>What's Not Covered</h2>
+                    <p>This warranty does not cover failures or damage resulting from:</p>
+                    <ul>
+                        <li><strong>Improper Installation:</strong> Installation not in accordance with WelkinRim specifications and guidelines</li>
+                        <li><strong>Misuse or Abuse:</strong> Operation outside rated parameters, overloading, or improper application</li>
+                        <li><strong>Environmental Factors:</strong> Exposure to corrosive atmospheres, excessive moisture, extreme temperatures beyond specifications, or contamination</li>
+                        <li><strong>Unauthorized Modifications:</strong> Any alteration, repair, or modification by parties other than WelkinRim or authorized service centers</li>
+                        <li><strong>Normal Wear:</strong> Consumable items such as brushes, seals, or items subject to normal wear and tear</li>
+                        <li><strong>External Causes:</strong> Damage from accidents, natural disasters, power surges, or external electrical/mechanical interference</li>
+                        <li><strong>Maintenance Neglect:</strong> Failure to perform recommended maintenance or use of improper lubricants/consumables</li>
+                        <li><strong>Cosmetic Damage:</strong> Scratches, dents, or aesthetic issues that do not affect functionality</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <h4>Important Operating Conditions</h4>
+                        <p>Warranty coverage requires that products are operated within specified voltage, current, speed, temperature, and environmental ratings. Operation outside these parameters voids the warranty.</p>
+                    </div>
+                </div>
+
+                <div class="warranty-section">
+                    <h2>Extended Warranty Options</h2>
+                    <p>For critical applications or enhanced peace of mind, WelkinRim offers extended warranty programs:</p>
+                    <ul>
+                        <li><strong>5-Year Extended Coverage:</strong> Extends standard warranty to five years from delivery date</li>
+                        <li><strong>Preventive Maintenance Programs:</strong> Scheduled inspection and maintenance with priority warranty service</li>
+                        <li><strong>On-Site Support Plans:</strong> Available for high-value installations requiring rapid response</li>
+                    </ul>
+                    <p>Contact our sales team for extended warranty pricing and eligibility. Extended warranties must be purchased at the time of product order.</p>
+                </div>
+
+                <div class="claim-process">
+                    <h3>How to File a Warranty Claim</h3>
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <h4>Contact Support</h4>
+                            <p>Email support@welkinrim.com with product details, serial number, and issue description</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <h4>Obtain RMA</h4>
+                            <p>Receive Return Authorization (RMA) number and shipping instructions</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <h4>Ship Product</h4>
+                            <p>Return product with RMA number clearly marked on package</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <h4>Evaluation</h4>
+                            <p>Our engineers evaluate the product and confirm warranty coverage</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">5</div>
+                            <h4>Resolution</h4>
+                            <p>Receive repaired/replacement product, typically within 10-15 business days</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="warranty-section">
+                    <h2>Important Information</h2>
+
+                    <h3>Proof of Purchase Required</h3>
+                    <p>All warranty claims require proof of purchase, including invoice number, purchase date, and dealer/distributor information. Serial numbers must match our manufacturing records.</p>
+
+                    <h3>Return Shipping</h3>
+                    <p>Customer is responsible for shipping costs to WelkinRim. If the claim is approved under warranty, WelkinRim will pay return shipping costs. If the claim is denied (non-warranty issue), customer is responsible for all shipping costs and repair charges.</p>
+
+                    <h3>Limitation of Remedies</h3>
+                    <p>The remedies provided in this warranty are the customer's sole and exclusive remedies. WelkinRim shall not be liable for indirect, incidental, or consequential damages including lost profits, downtime, or business interruption.</p>
+
+                    <h3>Geographic Coverage</h3>
+                    <p>This warranty is valid worldwide. However, warranty service outside the European Union may be subject to additional shipping time and may be fulfilled through authorized distributors or service centers.</p>
+                </div>
+
+                <div class="contact-cta">
+                    <h3>Need Warranty Support?</h3>
+                    <p>Our technical support team is ready to help you with warranty claims, product issues, and technical questions.</p>
+                    <a href="contact.html?type=support" class="cta-button">Contact Support</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer"></footer>
+    <script src="shared.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>

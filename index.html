@@ -5,18 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WelkinRim | Precision Drone Motors & Propulsion Systems</title>
     <meta name="description" content="German-engineered brushless drone motors delivering unmatched performance, reliability, and efficiency for commercial and research applications. 99.8% efficiency, 10,000+ hour MTBF.">
+    <!-- Open Graph -->
+    <meta property="og:title" content="WelkinRim | Precision Drone Motors & Propulsion Systems">
+    <meta property="og:description" content="German-engineered brushless drone motors. 99.8% efficiency, 10,000+ hour MTBF. Commercial and research applications.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://welkinrim.com/">
+    <meta property="og:image" content="https://welkinrim.com/assets/Welkinrim logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="WelkinRim | Precision Drone Motors">
+    <meta name="twitter:description" content="German-engineered brushless drone motors. 99.8% efficiency, 10,000+ hour MTBF.">
     <link rel="icon" type="image/png" href="assets/Welkinrim logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "WelkinRim Technologies",
+        "url": "https://welkinrim.com",
+        "logo": "https://welkinrim.com/assets/Welkinrim logo.png",
+        "description": "German-engineered precision drone motors and propulsion systems for commercial and research applications.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Innovation Park, Building C",
+            "addressLocality": "Munich",
+            "addressCountry": "DE",
+            "postalCode": "80331"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1-555-935-5466",
+            "contactType": "sales",
+            "email": "sales@welkinrim.com"
+        },
+        "sameAs": []
+    }
+    </script>
 </head>
 <body>
+    <a href="#motor-selector" class="skip-to-content">Skip to content</a>
+
     <!-- Scroll Progress Indicator -->
     <div class="scroll-progress" id="scroll-progress"></div>
 
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <div class="nav-brand">
                 <img src="assets/Welkinrim logo.png" alt="WelkinRim" class="nav-logo">
@@ -30,11 +65,11 @@
                 <a href="#company" class="nav-link">Company</a>
                 <a href="#contact" class="nav-cta">Get Quote</a>
             </div>
-            <div class="nav-toggle" id="nav-toggle">
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
                 <span class="nav-toggle-bar"></span>
                 <span class="nav-toggle-bar"></span>
                 <span class="nav-toggle-bar"></span>
-            </div>
+            </button>
         </div>
     </nav>
 
@@ -75,7 +110,7 @@
             </div>
             <div class="hero-visual">
                 <div class="hero-motor-display">
-                    <img src="assets/hero-motor.svg" alt="WelkinRim Precision Motor" class="hero-motor-image">
+                    <img src="assets/hero-motor.svg" alt="WelkinRim Precision Motor" class="hero-motor-image" fetchpriority="high">
                     <div class="hero-specs">
                         <div class="spec-item">
                             <span class="spec-label">Thrust</span>
@@ -253,7 +288,7 @@
                         <h3 class="category-title">Micro Motors</h3>
                         <p class="category-specs">100g-2kg payload • 2S-4S • Racing/FPV</p>
                         <p class="category-description">Ultra-lightweight motors for racing drones and micro applications with exceptional power-to-weight ratios.</p>
-                        <a href="products/commercial-motors.html" class="category-link">Explore Micro Motors →</a>
+                        <a href="products/micro-motors.html" class="category-link">Explore Micro Motors →</a>
                     </div>
                 </div>
                 
@@ -277,7 +312,7 @@
                         <h3 class="category-title">Industrial Motors</h3>
                         <p class="category-specs">15-50kg payload • 12S+ • Heavy-lift</p>
                         <p class="category-description">High-power motors for heavy-lift applications, agricultural spraying, and industrial operations.</p>
-                        <a href="products/commercial-motors.html" class="category-link">Explore Industrial Motors →</a>
+                        <a href="products/industrial-motors.html" class="category-link">Explore Industrial Motors →</a>
                     </div>
                 </div>
             </div>
@@ -412,7 +447,7 @@
     </section>
 
     <!-- Technical Resources -->
-    <section class="resources" id="resources">
+    <section class="resources" id="support">
         <div class="container">
             <h2 class="section-title">Technical Resources</h2>
             <div class="resources-grid">
@@ -447,13 +482,29 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials">
+    <!-- Trusted By Logo Bar -->
+    <section class="trusted-by">
         <div class="container">
-            <h2 class="section-title">Trusted by Industry Leaders</h2>
-            <p class="section-subtitle">See why leading drone manufacturers and research institutions choose WelkinRim</p>
+            <p class="trusted-by-label">Trusted by industry leaders worldwide</p>
+            <div class="trusted-logos">
+                <div class="trusted-logo-item">AgriDrone Systems</div>
+                <div class="trusted-logo-item">SkyLogistics</div>
+                <div class="trusted-logo-item">MIT Aerospace</div>
+                <div class="trusted-logo-item">DroneTech GmbH</div>
+                <div class="trusted-logo-item">AeroScan Industries</div>
+                <div class="trusted-logo-item">Pacific UAV</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="company">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <p class="section-subtitle">Real results from teams using WelkinRim motors in production</p>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
+                    <div class="testimonial-industry-tag">Agriculture</div>
                     <div class="testimonial-rating">
                         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                     </div>
@@ -465,8 +516,10 @@
                             <p>CTO, AgriDrone Systems</p>
                         </div>
                     </div>
+                    <a href="case-studies.html" class="testimonial-case-link">Read full case study →</a>
                 </div>
                 <div class="testimonial-card">
+                    <div class="testimonial-industry-tag">Research</div>
                     <div class="testimonial-rating">
                         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                     </div>
@@ -478,8 +531,10 @@
                             <p>Research Lead, MIT Aerospace</p>
                         </div>
                     </div>
+                    <a href="case-studies.html" class="testimonial-case-link">Read full case study →</a>
                 </div>
                 <div class="testimonial-card">
+                    <div class="testimonial-industry-tag">Delivery</div>
                     <div class="testimonial-rating">
                         <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                     </div>
@@ -491,13 +546,14 @@
                             <p>Operations Director, SkyLogistics</p>
                         </div>
                     </div>
+                    <a href="case-studies.html" class="testimonial-case-link">Read full case study →</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact CTA -->
-    <section class="contact-cta">
+    <section class="contact-cta" id="contact">
         <div class="container">
             <div class="cta-content">
                 <h2 class="cta-title">Ready to Power Your Next Project?</h2>
@@ -572,6 +628,8 @@
         </div>
     </footer>
 
-    <script src="scripts.js"></script>
+    <script src="motor-database.js" defer></script>
+    <script src="scripts.js" defer></script>
+    <script src="quote-wizard.js" defer></script>
 </body>
 </html>

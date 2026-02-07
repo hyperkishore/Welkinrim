@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Distributor | WelkinRim - Industrial Motor Solutions</title>
+    <meta name="description" content="Find a WelkinRim distributor near you. Global network of authorized distributors and partners.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .distributor-hero {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #0066cc 0%, #004c99 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .distributor-hero h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .distributor-hero p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .network-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+
+        .section-header p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.125rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%);
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #0066cc;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.125rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .regions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .region-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .region-card:hover {
+            border-color: #0066cc;
+            box-shadow: 0 10px 30px rgba(0,102,204,0.1);
+            transform: translateY(-5px);
+        }
+
+        .region-card h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+
+        .region-card p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .region-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .become-distributor {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 60px 40px;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .become-distributor h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .become-distributor p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.125rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.7;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+            text-align: left;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .benefit-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #0066cc;
+            color: white;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            background: #0052a3;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,102,204,0.3);
+        }
+
+        .contact-section {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+
+        .contact-section p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.125rem;
+            color: #555;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .distributor-hero {
+                padding: 100px 20px 60px;
+            }
+
+            .distributor-hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .become-distributor {
+                padding: 40px 20px;
+            }
+
+            .become-distributor h2 {
+                font-size: 1.75rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
+    <nav id="main-nav"></nav>
+
+    <main id="main-content">
+        <section class="distributor-hero">
+            <h1>Global Distribution Network</h1>
+            <p>Find authorized WelkinRim distributors and partners worldwide</p>
+        </section>
+
+        <section class="network-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Worldwide Coverage</h2>
+                    <p>Our extensive distributor network ensures local support, fast delivery, and expert service across six continents</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Countries Served</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Authorized Distributors</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Global Support</div>
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <h2>Regional Coverage</h2>
+                    <p>Our distribution partners provide local expertise and support across major industrial regions</p>
+                </div>
+
+                <div class="regions-grid">
+                    <div class="region-card">
+                        <div class="region-icon">🇪🇺</div>
+                        <h3>Europe</h3>
+                        <p>Comprehensive coverage across all EU member states, UK, Switzerland, and Norway. Direct factory support from our Munich headquarters.</p>
+                    </div>
+                    <div class="region-card">
+                        <div class="region-icon">🌎</div>
+                        <h3>North America</h3>
+                        <p>Extensive network in USA, Canada, and Mexico with regional warehouses for rapid delivery and local technical support.</p>
+                    </div>
+                    <div class="region-card">
+                        <div class="region-icon">🌏</div>
+                        <h3>Asia-Pacific</h3>
+                        <p>Growing presence in China, Japan, South Korea, Southeast Asia, India, and Australia with certified distribution partners.</p>
+                    </div>
+                    <div class="region-card">
+                        <div class="region-icon">🌍</div>
+                        <h3>Middle East & Africa</h3>
+                        <p>Strategic partnerships in UAE, Saudi Arabia, South Africa, and major industrial hubs across the regions.</p>
+                    </div>
+                    <div class="region-card">
+                        <div class="region-icon">🌎</div>
+                        <h3>Latin America</h3>
+                        <p>Authorized distributors in Brazil, Argentina, Chile, Colombia, and throughout Central and South America.</p>
+                    </div>
+                    <div class="region-card">
+                        <div class="region-icon">🌐</div>
+                        <h3>Global Accounts</h3>
+                        <p>Direct support for multinational corporations and OEMs with coordinated global pricing and service agreements.</p>
+                    </div>
+                </div>
+
+                <div class="become-distributor">
+                    <h2>Become a WelkinRim Distributor</h2>
+                    <p>Join our global network and benefit from industry-leading products, technical support, and business partnership opportunities</p>
+
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">✓</div>
+                            <div class="benefit-text">Competitive margins and volume incentives</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">✓</div>
+                            <div class="benefit-text">Comprehensive technical training</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">✓</div>
+                            <div class="benefit-text">Marketing and sales support</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">✓</div>
+                            <div class="benefit-text">Protected territories</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">✓</div>
+                            <div class="benefit-text">Demo equipment programs</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">✓</div>
+                            <div class="benefit-text">Co-op advertising opportunities</div>
+                        </div>
+                    </div>
+
+                    <a href="contact.html?type=distributor" class="cta-button">Apply to Become a Distributor</a>
+                </div>
+
+                <div class="contact-section">
+                    <h2>Find Your Local Distributor</h2>
+                    <p>Contact our sales team to connect with an authorized distributor in your region. We'll match you with the right partner for your specific needs and location.</p>
+                    <a href="contact.html?type=sales" class="cta-button">Contact Sales</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer"></footer>
+    <script src="shared.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>

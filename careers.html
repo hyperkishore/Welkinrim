@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers | WelkinRim - Industrial Motor Solutions</title>
+    <meta name="description" content="Join the WelkinRim team. Explore career opportunities in precision engineering and industrial motor technology.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .careers-hero {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #0066cc 0%, #004c99 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .careers-hero h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .careers-hero p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .careers-content {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .culture-section {
+            margin-bottom: 80px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+
+        .section-header p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.125rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .value-card {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%);
+            border-radius: 12px;
+            padding: 35px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+
+        .value-card p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .stats-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+            border-radius: 16px;
+            padding: 60px 40px;
+            margin-bottom: 80px;
+            color: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #0066cc;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .positions-section {
+            margin-bottom: 80px;
+        }
+
+        .position-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .position-card:hover {
+            border-color: #0066cc;
+            box-shadow: 0 8px 30px rgba(0,102,204,0.1);
+        }
+
+        .position-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .position-header h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin: 0;
+        }
+
+        .position-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .position-tag {
+            background: #f0f7ff;
+            color: #0066cc;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .position-details {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .position-meta {
+            display: flex;
+            gap: 30px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .apply-button {
+            background: #0066cc;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .apply-button:hover {
+            background: #0052a3;
+            transform: translateY(-2px);
+        }
+
+        .benefits-section {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 60px 40px;
+            margin-bottom: 80px;
+        }
+
+        .benefits-section h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .benefit-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-text {
+            flex: 1;
+        }
+
+        .benefit-text h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .benefit-text p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .contact-cta {
+            background: linear-gradient(135deg, #0066cc 0%, #004c99 100%);
+            border-radius: 16px;
+            padding: 60px 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .contact-cta h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .contact-cta p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.125rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #0066cc;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .careers-hero {
+                padding: 100px 20px 60px;
+            }
+
+            .careers-hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .position-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .stats-section,
+            .benefits-section,
+            .contact-cta {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
+    <nav id="main-nav"></nav>
+
+    <main id="main-content">
+        <section class="careers-hero">
+            <h1>Join Our Team</h1>
+            <p>Build the future of precision motor technology with a global leader in industrial engineering</p>
+        </section>
+
+        <section class="careers-content">
+            <div class="container">
+                <div class="culture-section">
+                    <div class="section-header">
+                        <h2>Why WelkinRim?</h2>
+                        <p>We're more than just a motor manufacturer. We're a team of passionate engineers, innovators, and problem-solvers dedicated to advancing industrial technology.</p>
+                    </div>
+
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <div class="value-icon">🔬</div>
+                            <h3>Innovation First</h3>
+                            <p>Work on cutting-edge motor technology with access to state-of-the-art R&D facilities and resources.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">🌍</div>
+                            <h3>Global Impact</h3>
+                            <p>Your work powers critical infrastructure and industrial systems in over 50 countries worldwide.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">📈</div>
+                            <h3>Career Growth</h3>
+                            <p>Continuous learning opportunities, mentorship programs, and clear advancement paths.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">🤝</div>
+                            <h3>Collaborative Culture</h3>
+                            <p>Work alongside 40+ talented engineers in a supportive, team-oriented environment.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-section">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number">40+</div>
+                            <div class="stat-label">Engineers & Specialists</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">25</div>
+                            <div class="stat-label">Years of Excellence</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Countries Served</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">10K+</div>
+                            <div class="stat-label">Motors Shipped Annually</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="positions-section">
+                    <div class="section-header">
+                        <h2>Open Positions</h2>
+                        <p>Explore current opportunities to join the WelkinRim team</p>
+                    </div>
+
+                    <div class="position-card">
+                        <div class="position-header">
+                            <h3>Senior Motor Design Engineer</h3>
+                            <div class="position-tags">
+                                <span class="position-tag">Full-Time</span>
+                                <span class="position-tag">Engineering</span>
+                            </div>
+                        </div>
+                        <div class="position-meta">
+                            <div class="meta-item">📍 Munich, Germany</div>
+                            <div class="meta-item">💼 5+ years experience</div>
+                            <div class="meta-item">🎓 M.Sc. Electrical Engineering</div>
+                        </div>
+                        <p class="position-details">Lead the design and development of next-generation industrial motors. Work with advanced simulation tools, prototype testing, and collaborate with manufacturing teams to bring innovative motor solutions to market.</p>
+                        <a href="contact.html?type=careers&position=motor-design-engineer" class="apply-button">Apply Now</a>
+                    </div>
+
+                    <div class="position-card">
+                        <div class="position-header">
+                            <h3>Regional Sales Manager - DACH</h3>
+                            <div class="position-tags">
+                                <span class="position-tag">Full-Time</span>
+                                <span class="position-tag">Sales</span>
+                            </div>
+                        </div>
+                        <div class="position-meta">
+                            <div class="meta-item">📍 Munich, Germany</div>
+                            <div class="meta-item">💼 3+ years B2B sales</div>
+                            <div class="meta-item">🌍 Travel: 40%</div>
+                        </div>
+                        <p class="position-details">Drive business growth across Germany, Austria, and Switzerland. Build relationships with key industrial customers, identify new market opportunities, and provide technical consultation for motor solutions.</p>
+                        <a href="contact.html?type=careers&position=sales-manager" class="apply-button">Apply Now</a>
+                    </div>
+
+                    <div class="position-card">
+                        <div class="position-header">
+                            <h3>Applications Engineer</h3>
+                            <div class="position-tags">
+                                <span class="position-tag">Full-Time</span>
+                                <span class="position-tag">Technical Support</span>
+                            </div>
+                        </div>
+                        <div class="position-meta">
+                            <div class="meta-item">📍 Munich, Germany</div>
+                            <div class="meta-item">💼 2+ years experience</div>
+                            <div class="meta-item">🔧 Technical background required</div>
+                        </div>
+                        <p class="position-details">Provide technical support and application engineering for customers implementing WelkinRim motors. Analyze customer requirements, recommend solutions, and support commissioning and troubleshooting.</p>
+                        <a href="contact.html?type=careers&position=applications-engineer" class="apply-button">Apply Now</a>
+                    </div>
+                </div>
+
+                <div class="benefits-section">
+                    <h2>Benefits & Perks</h2>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">💰</div>
+                            <div class="benefit-text">
+                                <h4>Competitive Compensation</h4>
+                                <p>Market-leading salary with performance bonuses</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🏥</div>
+                            <div class="benefit-text">
+                                <h4>Health & Wellness</h4>
+                                <p>Comprehensive health insurance and wellness programs</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🏖️</div>
+                            <div class="benefit-text">
+                                <h4>Work-Life Balance</h4>
+                                <p>30 days vacation plus German public holidays</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">📚</div>
+                            <div class="benefit-text">
+                                <h4>Learning & Development</h4>
+                                <p>Training budget, conferences, and skill development</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🚴</div>
+                            <div class="benefit-text">
+                                <h4>Mobility Support</h4>
+                                <p>Public transit subsidy or bike leasing program</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🍽️</div>
+                            <div class="benefit-text">
+                                <h4>Modern Workplace</h4>
+                                <p>On-site cafeteria, coffee bar, and collaborative spaces</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-cta">
+                    <h2>Don't See the Right Role?</h2>
+                    <p>We're always looking for talented individuals to join our team. Send us your CV and tell us how you can contribute to WelkinRim's success.</p>
+                    <a href="contact.html?type=careers" class="cta-button">Submit Your Application</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer"></footer>
+    <script src="shared.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support & FAQ - WelkinRim</title>
+    <meta name="description" content="Find answers to common questions, warranty information, and support resources for WelkinRim precision drone motors.">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Hero Section */
+        .support-hero {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            padding: 120px 20px 80px;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .support-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #999999 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .support-hero p {
+            font-size: 1.2rem;
+            color: #999;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* Support Channels */
+        .support-channels {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .support-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .support-card:hover {
+            transform: translateY(-5px);
+            border-color: #666;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .support-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .support-card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .support-card p {
+            color: #999;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .support-card .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            border: 1px solid #555;
+        }
+
+        .support-card .btn:hover {
+            background: #444;
+            border-color: #777;
+        }
+
+        /* Content Sections */
+        .content-section {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .content-section h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            text-align: center;
+            color: #fff;
+        }
+
+        /* FAQ Accordion */
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-category {
+            margin-bottom: 50px;
+        }
+
+        .faq-category-title {
+            font-size: 1.8rem;
+            font-weight: 400;
+            color: #fff;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #333;
+        }
+
+        .faq-item {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: #555;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 20px 25px;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 400;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            color: #ccc;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '−';
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 25px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 25px 25px;
+        }
+
+        .faq-answer p {
+            color: #999;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* Warranty Section */
+        .warranty-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 50px;
+            margin: 60px auto;
+            max-width: 900px;
+        }
+
+        .warranty-section h3 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        .warranty-section h4 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin: 30px 0 15px;
+            color: #fff;
+        }
+
+        .warranty-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .warranty-section li {
+            color: #999;
+            line-height: 1.8;
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .warranty-section li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #666;
+        }
+
+        .warranty-section p {
+            color: #999;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* RMA Process */
+        .rma-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .rma-step {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .rma-step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: #333;
+            border-radius: 50%;
+            line-height: 50px;
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .rma-step h4 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .rma-step p {
+            color: #999;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .support-cta {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+            border: 1px solid #444;
+            border-radius: 12px;
+            padding: 60px 40px;
+            text-align: center;
+            margin: 80px auto;
+            max-width: 800px;
+        }
+
+        .support-cta h3 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .support-cta p {
+            font-size: 1.1rem;
+            color: #999;
+            margin-bottom: 30px;
+        }
+
+        .support-cta .btn-primary {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .support-cta .btn-primary:hover {
+            background: #e0e0e0;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .support-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .support-hero p {
+                font-size: 1rem;
+            }
+
+            .content-section h2 {
+                font-size: 2rem;
+            }
+
+            .warranty-section {
+                padding: 30px 25px;
+            }
+
+            .support-cta {
+                padding: 40px 25px;
+            }
+        }
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What types of drone motors does WelkinRim manufacture?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "WelkinRim specializes in high-performance brushless motors for professional and commercial drones. Our product line includes the A2212 series for racing and FPV applications, the XR4000 series for heavy-lift platforms, and the AR2814 series for precision cinematography. All motors feature aerospace-grade construction, advanced cooling systems, and IP67 environmental protection."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I select the right motor for my application?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Motor selection depends on your payload weight, flight time requirements, and performance goals. Use our Motor Matchmaker tool for personalized recommendations. Generally, the A2212 series suits racing drones (250-450mm frames), the AR2814 series is ideal for camera platforms (500-650mm frames), and the XR4000 series handles heavy-lift applications (750mm+ frames)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can your motors operate in extreme temperatures?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, WelkinRim motors are rated for -40\u00b0C to +85\u00b0C operation, making them suitable for arctic surveys, desert operations, and high-altitude flights. Our advanced bearing systems use temperature-stable lubricants, and the neodymium magnets maintain performance across the full temperature range."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What does the warranty cover?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "All WelkinRim motors include a comprehensive 3-year warranty covering manufacturing defects, material failures, and workmanship issues. This includes bearing failures, magnet demagnetization, winding defects, and structural integrity problems under normal operating conditions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I initiate a return or RMA?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Contact our support team via email or phone with your order number and description of the issue. We'll provide an RMA number within 24 hours and detailed return instructions. Shipping costs for warranty claims are covered by WelkinRim. Defective units are typically replaced within 5-7 business days of receipt."
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav id="main-nav"></nav>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="support-hero">
+            <h1>Support Center</h1>
+            <p>Find answers, get technical assistance, and learn more about your WelkinRim motors</p>
+
+            <div class="support-channels">
+                <div class="support-card">
+                    <div class="support-card-icon">📧</div>
+                    <h3>Email Support</h3>
+                    <p>Get detailed technical assistance from our engineering team</p>
+                    <a href="contact.html" class="btn">Contact Us</a>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-card-icon">💬</div>
+                    <h3>Live Chat</h3>
+                    <p>24/7 real-time support for urgent questions</p>
+                    <a href="contact.html#chat" class="btn">Start Chat</a>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-card-icon">📚</div>
+                    <h3>Documentation</h3>
+                    <p>Browse technical specs, datasheets, and installation guides</p>
+                    <a href="products.html" class="btn">View Docs</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="content-section">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-container">
+                <!-- General Category -->
+                <div class="faq-category">
+                    <h3 class="faq-category-title">General</h3>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>What types of drone motors does WelkinRim manufacture?</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>WelkinRim specializes in high-performance brushless motors for professional and commercial drones. Our product line includes the A2212 series for racing and FPV applications, the XR4000 series for heavy-lift platforms, and the AR2814 series for precision cinematography. All motors feature aerospace-grade construction, advanced cooling systems, and IP67 environmental protection for reliable performance in demanding conditions.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Where are WelkinRim motors manufactured?</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>All WelkinRim motors are precision-manufactured in our ISO 9001:2015 certified facilities using advanced CNC machining and automated assembly processes. We maintain strict quality control throughout production, with 100% performance testing before shipping. Our vertically integrated manufacturing allows us to guarantee consistent quality and traceability for every motor.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>What certifications do your motors have?</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>WelkinRim motors are manufactured under ISO 9001:2015 quality management standards and meet CE and FCC compliance requirements. Our products undergo rigorous testing for electromagnetic compatibility (EMC), environmental protection (IP67 rating), and thermal performance. We provide full certification documentation and test reports with volume orders for commercial applications.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Category -->
+                <div class="faq-category">
+                    <h3 class="faq-category-title">Technical</h3>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>How do I select the right motor for my application?</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Motor selection depends on your payload weight, flight time requirements, and performance goals. Use our Motor Matchmaker tool on the homepage for personalized recommendations. Generally, the A2212 series suits racing drones (250-450mm frames), the AR2814 series is ideal for camera platforms (500-650mm frames), and the XR4000 series handles heavy-lift applications (750mm+ frames). Our technical team is available to assist with custom configurations.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>What is the recommended thrust-to-weight ratio?</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>For stable hovering and smooth cinematography, target a 2:1 thrust-to-weight ratio. Racing and acrobatic applications benefit from 4:1 or higher. Heavy-lift platforms should maintain at least 2.5:1 for safety margins. All WelkinRim motors include thrust tables in their datasheets showing performance across different propeller sizes and battery voltages to help you calculate exact ratios.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Can your motors operate in extreme temperatures?</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, WelkinRim motors are rated for -40°C to +85°C operation, making them suitable for arctic surveys, desert operations, and high-altitude flights. Our advanced bearing systems use temperature-stable lubricants, and the neodymium magnets maintain performance across the full temperature range. The IP67 environmental sealing protects internal components from moisture and dust in extreme conditions.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>What propeller sizes are compatible with your motors?</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Each motor series is optimized for specific propeller ranges: A2212 (8-10 inch), AR2814 (11-14 inch), and XR4000 (14-18 inch). Detailed thrust and efficiency curves for each propeller size are available in the product datasheets. We recommend carbon fiber or high-quality composite propellers for best performance. Always balance propellers before installation to minimize vibration and extend motor life.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>What ESC do you recommend for WelkinRim motors?</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Choose an ESC rated for at least 20% above your motor's maximum current draw. For the A2212 series, use 30A+ ESCs; AR2814 requires 40A+; XR4000 needs 60A+. We recommend BLHeli_32 or BLHeli_S firmware for optimal performance. Ensure your ESC supports your desired PWM frequency (typical range: 24kHz for smoothness, 48kHz for racing). All motors are compatible with standard 3-phase ESC protocols.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ordering Category -->
+                <div class="faq-category">
+                    <h3 class="faq-category-title">Ordering</h3>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>What is the minimum order quantity?</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We welcome orders of all sizes. Individual motors can be purchased through our website or authorized distributors. For commercial orders of 50+ units, contact our sales team for volume pricing and customization options. OEM partnerships and private labeling are available for orders of 500+ units with flexible payment terms and dedicated engineering support.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Do you offer volume discounts?</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, tiered volume pricing is available starting at 10 units. Discounts increase at 25, 50, 100, and 250+ unit quantities. Commercial accounts receive additional benefits including extended payment terms, priority technical support, and custom motor configurations. Contact our sales team with your requirements for a detailed quote and volume pricing structure.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>What payment methods do you accept?</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We accept all major credit cards (Visa, Mastercard, American Express), PayPal, wire transfers, and purchase orders from established commercial accounts. Volume orders can be structured with 30-day net terms after credit approval. International customers can pay via wire transfer or PayPal in USD, EUR, or GBP. All transactions are secured with industry-standard encryption.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>How long does shipping take?</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Standard shipping within the continental US takes 3-5 business days. Express shipping delivers in 1-2 business days. International shipping varies by destination (typically 7-14 business days). Volume orders are usually fulfilled within 5-10 business days depending on quantity and customization requirements. All shipments include tracking information and signature confirmation for orders over $500.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Warranty & Support Category -->
+                <div class="faq-category">
+                    <h3 class="faq-category-title">Warranty & Support</h3>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>What does the warranty cover?</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>All WelkinRim motors include a comprehensive 3-year warranty covering manufacturing defects, material failures, and workmanship issues. This includes bearing failures, magnet demagnetization, winding defects, and structural integrity problems under normal operating conditions. The warranty covers replacement or repair at our discretion. See the detailed warranty section below for complete terms and exclusions.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>How do I initiate a return or RMA?</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Contact our support team via email or phone with your order number and description of the issue. We'll provide an RMA number within 24 hours and detailed return instructions. Returns must include the original motor, packaging, and all accessories. Shipping costs for warranty claims are covered by WelkinRim. Defective units are typically replaced within 5-7 business days of receipt. See the RMA process section below for complete steps.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>How do I contact technical support?</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Our technical support team is available 24/7 via live chat on our website, email at support@welkinrim.com, or phone during business hours. For complex technical issues, you can schedule a video consultation with our engineering team. Most inquiries are answered within 2 hours, with urgent issues receiving immediate attention. We also offer on-site technical support for large commercial deployments.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Warranty Section -->
+        <section class="content-section" id="warranty">
+            <div class="warranty-section">
+                <h3>Warranty Information</h3>
+
+                <p>WelkinRim stands behind every motor with our industry-leading 3-year comprehensive warranty. We're committed to ensuring your motors deliver peak performance throughout their operational life.</p>
+
+                <h4>Coverage Includes</h4>
+                <ul>
+                    <li>Manufacturing defects in materials and workmanship</li>
+                    <li>Bearing failures under normal operating conditions</li>
+                    <li>Magnet demagnetization or detachment</li>
+                    <li>Stator winding defects or insulation failures</li>
+                    <li>Bell housing structural failures</li>
+                    <li>Shaft alignment or concentricity issues</li>
+                    <li>Environmental seal failures (IP67 rated components)</li>
+                </ul>
+
+                <h4>Warranty Exclusions</h4>
+                <ul>
+                    <li>Damage from crashes, impacts, or foreign object ingestion</li>
+                    <li>Operation beyond specified voltage, current, or temperature ratings</li>
+                    <li>Wear items including bearings after normal service life (500+ flight hours)</li>
+                    <li>Modifications, repairs, or servicing by unauthorized parties</li>
+                    <li>Use of incompatible ESCs or propellers outside recommended specifications</li>
+                    <li>Cosmetic damage that doesn't affect performance</li>
+                    <li>Damage from water immersion (IP67 rating covers splashes, not submersion)</li>
+                </ul>
+
+                <h4>Warranty Service</h4>
+                <p>Defective motors will be repaired or replaced at WelkinRim's discretion. Warranty service includes return shipping within the continental US. International customers are responsible for initial shipping costs; we cover return shipping for approved warranty claims. Typical warranty turnaround is 5-7 business days from receipt of the defective unit.</p>
+
+                <h4>Extended Coverage</h4>
+                <p>Commercial customers with fleets of 50+ units can purchase extended warranty coverage up to 5 years with additional benefits including expedited replacement, advance exchange programs, and on-site technical support. Contact our commercial sales team for extended warranty pricing and terms.</p>
+            </div>
+        </section>
+
+        <!-- RMA Process Section -->
+        <section class="content-section">
+            <h2>Return & RMA Process</h2>
+
+            <div class="rma-steps">
+                <div class="rma-step">
+                    <div class="rma-step-number">1</div>
+                    <h4>Contact Support</h4>
+                    <p>Email support@welkinrim.com or call us with your order number and a description of the issue. Include photos or videos if applicable.</p>
+                </div>
+
+                <div class="rma-step">
+                    <div class="rma-step-number">2</div>
+                    <h4>Receive RMA Number</h4>
+                    <p>We'll evaluate your claim and issue an RMA number within 24 hours, along with detailed return instructions and a prepaid shipping label.</p>
+                </div>
+
+                <div class="rma-step">
+                    <div class="rma-step-number">3</div>
+                    <h4>Ship the Motor</h4>
+                    <p>Pack the motor securely in its original packaging with all accessories. Include the RMA number on the outside of the package and ship using our provided label.</p>
+                </div>
+
+                <div class="rma-step">
+                    <div class="rma-step-number">4</div>
+                    <h4>Evaluation & Resolution</h4>
+                    <p>Our team will inspect the motor within 2 business days. Approved warranty claims receive a replacement motor shipped immediately. You'll receive tracking information via email.</p>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 40px; color: #999; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <strong>Note:</strong> Non-warranty repairs are evaluated on a case-by-case basis. We'll provide a detailed quote including parts, labor, and shipping before proceeding with any paid repairs. Most out-of-warranty repairs are completed within 10 business days.
+            </p>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="support-cta">
+            <h3>Can't Find What You're Looking For?</h3>
+            <p>Our technical support team is ready to help with any questions about motor selection, installation, troubleshooting, or performance optimization.</p>
+            <a href="contact.html" class="btn-primary">Contact Technical Support</a>
+        </section>
+    </main>
+
+    <footer id="main-footer"></footer>
+
+    <script src="shared.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+        // FAQ Accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    const isActive = faqItem.classList.contains('active');
+
+                    // Close all other FAQ items
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('active');
+                        item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                    });
+
+                    // Toggle current item
+                    if (!isActive) {
+                        faqItem.classList.add('active');
+                        this.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });
+
+            // Open FAQ item if there's a hash in the URL
+            if (window.location.hash) {
+                const targetId = window.location.hash.substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    // Smooth scroll to the element
+                    setTimeout(() => {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

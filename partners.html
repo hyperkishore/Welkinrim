@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partners | WelkinRim - Industrial Motor Solutions</title>
+    <meta name="description" content="Explore partnership opportunities with WelkinRim. Technology partners, research collaborations, and integration programs.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .partners-hero {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #0066cc 0%, #004c99 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .partners-hero h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .partners-hero p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .partners-content {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+
+        .section-header p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.125rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .partnership-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .partnership-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 35px;
+            transition: all 0.3s ease;
+        }
+
+        .partnership-card:hover {
+            border-color: #0066cc;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,102,204,0.1);
+        }
+
+        .partnership-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .partnership-card h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+
+        .partnership-card p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .partnership-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .partnership-card li {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.8;
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        .partnership-card li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #0066cc;
+            font-weight: bold;
+        }
+
+        .benefits-section {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%);
+            border-radius: 16px;
+            padding: 60px 40px;
+            margin-bottom: 80px;
+        }
+
+        .benefits-section h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .benefit-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-text {
+            flex: 1;
+        }
+
+        .benefit-text h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .benefit-text p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .process-section {
+            margin-bottom: 80px;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 30px 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #0066cc;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .process-step h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .process-step p {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .testimonial-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+            border-radius: 16px;
+            padding: 60px 40px;
+            margin-bottom: 80px;
+            color: white;
+            text-align: center;
+        }
+
+        .testimonial-section h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .testimonial-quote {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.95;
+        }
+
+        .testimonial-author {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .testimonial-company {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #0066cc 0%, #004c99 100%);
+            border-radius: 16px;
+            padding: 60px 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.125rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #0066cc;
+            padding: 15px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .partners-hero {
+                padding: 100px 20px 60px;
+            }
+
+            .partners-hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .benefits-section,
+            .testimonial-section,
+            .cta-section {
+                padding: 40px 20px;
+            }
+
+            .cta-section h2 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
+    <nav id="main-nav"></nav>
+
+    <main id="main-content">
+        <section class="partners-hero">
+            <h1>Partnership Programs</h1>
+            <p>Collaborate with WelkinRim to create innovative motor solutions and accelerate industrial advancement</p>
+        </section>
+
+        <section class="partners-content">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Partnership Opportunities</h2>
+                    <p>Join forces with a global leader in precision motor technology. We offer multiple partnership models designed to create mutual value and drive innovation.</p>
+                </div>
+
+                <div class="partnership-types">
+                    <div class="partnership-card">
+                        <div class="partnership-icon">🔬</div>
+                        <h3>Technology Partners</h3>
+                        <p>Collaborate on next-generation motor technology, control systems, and industrial automation solutions.</p>
+                        <ul>
+                            <li>Joint R&D initiatives</li>
+                            <li>Technology licensing</li>
+                            <li>Product co-development</li>
+                            <li>IP sharing agreements</li>
+                        </ul>
+                    </div>
+
+                    <div class="partnership-card">
+                        <div class="partnership-icon">🏪</div>
+                        <h3>Distribution Partners</h3>
+                        <p>Expand our global reach by becoming an authorized distributor in your region.</p>
+                        <ul>
+                            <li>Protected territories</li>
+                            <li>Competitive margins</li>
+                            <li>Technical training</li>
+                            <li>Marketing support</li>
+                        </ul>
+                    </div>
+
+                    <div class="partnership-card">
+                        <div class="partnership-icon">🎓</div>
+                        <h3>Research Institutions</h3>
+                        <p>Academic partnerships for fundamental research and advanced motor technology development.</p>
+                        <ul>
+                            <li>Research grants</li>
+                            <li>Equipment donations</li>
+                            <li>Internship programs</li>
+                            <li>Joint publications</li>
+                        </ul>
+                    </div>
+
+                    <div class="partnership-card">
+                        <div class="partnership-icon">🔧</div>
+                        <h3>Integration Partners</h3>
+                        <p>System integrators and OEMs incorporating WelkinRim motors into their solutions.</p>
+                        <ul>
+                            <li>Custom configurations</li>
+                            <li>Volume pricing</li>
+                            <li>Technical consultation</li>
+                            <li>Priority support</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="benefits-section">
+                    <h2>Partner Benefits</h2>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🏆</div>
+                            <div class="benefit-text">
+                                <h4>Industry Leadership</h4>
+                                <p>Align with a recognized leader in precision motor technology</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">💡</div>
+                            <div class="benefit-text">
+                                <h4>Innovation Access</h4>
+                                <p>Early access to new technologies and product roadmaps</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🎯</div>
+                            <div class="benefit-text">
+                                <h4>Technical Expertise</h4>
+                                <p>Dedicated engineering support and consultation</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">📈</div>
+                            <div class="benefit-text">
+                                <h4>Market Expansion</h4>
+                                <p>Access to our global distribution network</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🤝</div>
+                            <div class="benefit-text">
+                                <h4>Collaborative Culture</h4>
+                                <p>Work with experienced engineers and business professionals</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🌍</div>
+                            <div class="benefit-text">
+                                <h4>Global Reach</h4>
+                                <p>Leverage our presence in 50+ countries worldwide</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process-section">
+                    <div class="section-header">
+                        <h2>How to Become a Partner</h2>
+                        <p>Our partnership process is designed to ensure mutual alignment and successful collaboration</p>
+                    </div>
+
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <h4>Initial Contact</h4>
+                            <p>Submit your partnership inquiry through our contact form</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <h4>Qualification</h4>
+                            <p>Our team reviews your capabilities and alignment with our goals</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <h4>Discovery Meeting</h4>
+                            <p>Discuss opportunities, expectations, and mutual objectives</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <h4>Agreement</h4>
+                            <p>Finalize partnership terms and contractual arrangements</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">5</div>
+                            <h4>Onboarding</h4>
+                            <p>Training, resource provisioning, and launch planning</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-section">
+                    <h2>What Our Partners Say</h2>
+                    <blockquote class="testimonial-quote">
+                        "WelkinRim's technical expertise and commitment to quality make them an ideal partner. Their motors have become the foundation of our industrial automation solutions, and their engineering team provides exceptional support."
+                    </blockquote>
+                    <div class="testimonial-author">Dr. Marcus Weber</div>
+                    <div class="testimonial-company">Chief Technology Officer, AutoTech Systems GmbH</div>
+                </div>
+
+                <div class="cta-section">
+                    <h2>Ready to Partner With Us?</h2>
+                    <p>Let's discuss how we can create value together. Contact our partnership team to explore opportunities.</p>
+                    <a href="contact.html?type=partner" class="cta-button">Start the Conversation</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer"></footer>
+    <script src="shared.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -19,7 +19,14 @@ const motorDatabase = [
         stockQty: 150,
         leadTimeWeeks: 1,
         efficiency: 0.85,
-        datasheetUrl: '/datasheets/wr2212-1000.pdf'
+        datasheetUrl: '/datasheets/wr2212-1000.pdf',
+        series: 'Micro',
+        applications: ['racing', 'photography', 'research'],
+        payloadRange: '0-1',
+        image: 'assets/wr2212-motor.svg',
+        voltage: [11.1, 14.8],
+        maxPower: 370,
+        description: 'High-KV micro motor optimized for agile flight and racing applications'
     },
     {
         id: 'wr2815-900',
@@ -39,7 +46,14 @@ const motorDatabase = [
         stockQty: 85,
         leadTimeWeeks: 1,
         efficiency: 0.88,
-        datasheetUrl: '/datasheets/wr2815-900.pdf'
+        datasheetUrl: '/datasheets/wr2815-900.pdf',
+        series: 'Commercial',
+        applications: ['photography', 'inspection', 'surveillance', 'mapping'],
+        payloadRange: '1-5',
+        image: 'assets/wr2815-motor.svg',
+        voltage: [14.8, 22.2],
+        maxPower: 888,
+        description: 'Weather-resistant commercial motor with IP65 rating for professional aerial work'
     },
     {
         id: 'wr3508-680',
@@ -59,7 +73,14 @@ const motorDatabase = [
         stockQty: 45,
         leadTimeWeeks: 2,
         efficiency: 0.90,
-        datasheetUrl: '/datasheets/wr3508-680.pdf'
+        datasheetUrl: '/datasheets/wr3508-680.pdf',
+        series: 'Commercial',
+        applications: ['photography', 'delivery', 'inspection', 'research'],
+        payloadRange: '1-5',
+        image: 'assets/wr3508-motor.svg',
+        voltage: [22.2, 29.6],
+        maxPower: 1628,
+        description: 'High-efficiency commercial motor with IP67 protection for demanding payloads'
     },
     {
         id: 'wr4014-500',
@@ -79,7 +100,14 @@ const motorDatabase = [
         stockQty: 0,
         leadTimeWeeks: 8,
         efficiency: 0.92,
-        datasheetUrl: '/datasheets/wr4014-500.pdf'
+        datasheetUrl: '/datasheets/wr4014-500.pdf',
+        series: 'Industrial',
+        applications: ['delivery', 'inspection', 'agriculture', 'research'],
+        payloadRange: '5-15',
+        image: 'assets/industrial-motor.svg',
+        voltage: [22.2, 44.4],
+        maxPower: 3552,
+        description: 'Heavy-duty industrial motor designed for large payload delivery and agriculture'
     },
     {
         id: 'wr5010-380',
@@ -99,7 +127,14 @@ const motorDatabase = [
         stockQty: 0,
         leadTimeWeeks: 10,
         efficiency: 0.93,
-        datasheetUrl: '/datasheets/wr5010-380.pdf'
+        datasheetUrl: '/datasheets/wr5010-380.pdf',
+        series: 'Industrial',
+        applications: ['delivery', 'agriculture', 'inspection', 'research'],
+        payloadRange: '5-15',
+        image: 'assets/industrial-motor.svg',
+        voltage: [29.6, 44.4],
+        maxPower: 4440,
+        description: 'Premium IP68-rated industrial motor for extreme environments and heavy lifting'
     },
 
     // T-Motor
@@ -121,7 +156,14 @@ const motorDatabase = [
         stockQty: 100,
         leadTimeWeeks: 3,
         efficiency: 0.87,
-        datasheetUrl: ''
+        datasheetUrl: '',
+        series: 'Commercial',
+        applications: ['photography', 'delivery', 'inspection', 'mapping'],
+        payloadRange: '1-5',
+        image: 'assets/commercial-motor.svg',
+        voltage: [14.8, 22.2],
+        maxPower: 666,
+        description: 'Reliable T-Motor commercial platform for professional photography and mapping'
     },
     {
         id: 'tm-u8-100',
@@ -141,7 +183,14 @@ const motorDatabase = [
         stockQty: 50,
         leadTimeWeeks: 4,
         efficiency: 0.89,
-        datasheetUrl: ''
+        datasheetUrl: '',
+        series: 'Industrial',
+        applications: ['delivery', 'agriculture', 'inspection'],
+        payloadRange: '5-15',
+        image: 'assets/industrial-motor.svg',
+        voltage: [22.2, 44.4],
+        maxPower: 1998,
+        description: 'Low-KV heavy-lift motor for agricultural and large-scale delivery platforms'
     },
     {
         id: 'tm-f40-2300',
@@ -161,7 +210,14 @@ const motorDatabase = [
         stockQty: 200,
         leadTimeWeeks: 2,
         efficiency: 0.83,
-        datasheetUrl: ''
+        datasheetUrl: '',
+        series: 'Racing',
+        applications: ['racing', 'research'],
+        payloadRange: '1-5',
+        image: 'assets/micro-motor.svg',
+        voltage: [11.1, 14.8],
+        maxPower: 518,
+        description: 'Ultra-lightweight racing motor engineered for maximum speed and agility'
     },
     {
         id: 'tm-u11-90',
@@ -181,7 +237,14 @@ const motorDatabase = [
         stockQty: 20,
         leadTimeWeeks: 6,
         efficiency: 0.91,
-        datasheetUrl: ''
+        datasheetUrl: '',
+        series: 'Industrial',
+        applications: ['delivery', 'inspection', 'agriculture'],
+        payloadRange: '15+',
+        image: 'assets/industrial-motor.svg',
+        voltage: [44.4, 51.8],
+        maxPower: 2849,
+        description: 'Extreme heavy-lift motor capable of carrying 15kg+ payloads with efficiency'
     },
 
     // KDE Direct
@@ -203,7 +266,14 @@ const motorDatabase = [
         stockQty: 75,
         leadTimeWeeks: 3,
         efficiency: 0.88,
-        datasheetUrl: ''
+        datasheetUrl: '',
+        series: 'Commercial',
+        applications: ['photography', 'surveillance', 'inspection', 'mapping'],
+        payloadRange: '1-5',
+        image: 'assets/commercial-motor.svg',
+        voltage: [14.8, 22.2],
+        maxPower: 999,
+        description: 'Premium KDE motor with IP56 protection for professional surveillance systems'
     },
     {
         id: 'kde-3510xf-475',
@@ -223,7 +293,14 @@ const motorDatabase = [
         stockQty: 40,
         leadTimeWeeks: 4,
         efficiency: 0.90,
-        datasheetUrl: ''
+        datasheetUrl: '',
+        series: 'Commercial',
+        applications: ['photography', 'delivery', 'inspection', 'research'],
+        payloadRange: '5-15',
+        image: 'assets/commercial-motor.svg',
+        voltage: [22.2, 29.6],
+        maxPower: 1776,
+        description: 'High-performance commercial motor with exceptional efficiency for mid-range payloads'
     },
     {
         id: 'kde-4215xf-465',
@@ -243,7 +320,14 @@ const motorDatabase = [
         stockQty: 25,
         leadTimeWeeks: 5,
         efficiency: 0.91,
-        datasheetUrl: ''
+        datasheetUrl: '',
+        series: 'Industrial',
+        applications: ['delivery', 'inspection', 'agriculture', 'research'],
+        payloadRange: '5-15',
+        image: 'assets/industrial-motor.svg',
+        voltage: [22.2, 37.0],
+        maxPower: 2775,
+        description: 'Robust industrial-grade motor built for demanding delivery and agriculture tasks'
     },
 
     // Sunnysky
@@ -265,7 +349,14 @@ const motorDatabase = [
         stockQty: 300,
         leadTimeWeeks: 2,
         efficiency: 0.82,
-        datasheetUrl: ''
+        datasheetUrl: '',
+        series: 'Micro',
+        applications: ['racing', 'research', 'photography'],
+        payloadRange: '0-1',
+        image: 'assets/micro-motor.svg',
+        voltage: [11.1, 14.8],
+        maxPower: 266,
+        description: 'Budget-friendly micro motor perfect for entry-level racing and research projects'
     },
     {
         id: 'ss-x3520-520',
@@ -285,7 +376,14 @@ const motorDatabase = [
         stockQty: 150,
         leadTimeWeeks: 3,
         efficiency: 0.86,
-        datasheetUrl: ''
+        datasheetUrl: '',
+        series: 'Commercial',
+        applications: ['photography', 'delivery', 'inspection', 'mapping'],
+        payloadRange: '1-5',
+        image: 'assets/commercial-motor.svg',
+        voltage: [22.2, 29.6],
+        maxPower: 1184,
+        description: 'Cost-effective commercial motor offering solid performance for aerial photography'
     },
     {
         id: 'ss-x4110s-340',
@@ -305,7 +403,14 @@ const motorDatabase = [
         stockQty: 80,
         leadTimeWeeks: 3,
         efficiency: 0.87,
-        datasheetUrl: ''
+        datasheetUrl: '',
+        series: 'Commercial',
+        applications: ['delivery', 'inspection', 'research', 'mapping'],
+        payloadRange: '5-15',
+        image: 'assets/commercial-motor.svg',
+        voltage: [22.2, 37.0],
+        maxPower: 1924,
+        description: 'Affordable mid-thrust motor suitable for delivery drones and inspection platforms'
     },
 
     // MAD Components
@@ -327,7 +432,14 @@ const motorDatabase = [
         stockQty: 60,
         leadTimeWeeks: 4,
         efficiency: 0.93,
-        datasheetUrl: ''
+        datasheetUrl: '',
+        series: 'Industrial',
+        applications: ['delivery', 'agriculture', 'inspection', 'research'],
+        payloadRange: '5-15',
+        image: 'assets/industrial-motor.svg',
+        voltage: [22.2, 44.4],
+        maxPower: 3996,
+        description: 'High-efficiency industrial motor with IP65 rating for agricultural applications'
     },
     {
         id: 'mad-m10-100',
@@ -347,7 +459,14 @@ const motorDatabase = [
         stockQty: 15,
         leadTimeWeeks: 8,
         efficiency: 0.94,
-        datasheetUrl: ''
+        datasheetUrl: '',
+        series: 'Industrial',
+        applications: ['delivery', 'agriculture', 'inspection'],
+        payloadRange: '15+',
+        image: 'assets/industrial-motor.svg',
+        voltage: [44.4, 51.8],
+        maxPower: 6216,
+        description: 'Ultra-heavy-lift industrial motor designed for extreme payloads and harsh conditions'
     },
     {
         id: 'mad-m3-1900',
@@ -367,7 +486,14 @@ const motorDatabase = [
         stockQty: 100,
         leadTimeWeeks: 3,
         efficiency: 0.85,
-        datasheetUrl: ''
+        datasheetUrl: '',
+        series: 'Micro',
+        applications: ['racing', 'research', 'surveillance'],
+        payloadRange: '1-5',
+        image: 'assets/micro-motor.svg',
+        voltage: [14.8, 22.2],
+        maxPower: 999,
+        description: 'High-KV micro motor with IP54 protection for compact racing and surveillance drones'
     },
 
     // Hobbywing
@@ -389,7 +515,14 @@ const motorDatabase = [
         stockQty: 90,
         leadTimeWeeks: 3,
         efficiency: 0.89,
-        datasheetUrl: ''
+        datasheetUrl: '',
+        series: 'Industrial',
+        applications: ['delivery', 'agriculture', 'inspection', 'research'],
+        payloadRange: '5-15',
+        image: 'assets/industrial-motor.svg',
+        voltage: [22.2, 44.4],
+        maxPower: 3108,
+        description: 'Versatile industrial motor with IP55 protection for agricultural and delivery use'
     },
     {
         id: 'hw-x8-160',
@@ -409,7 +542,14 @@ const motorDatabase = [
         stockQty: 40,
         leadTimeWeeks: 4,
         efficiency: 0.91,
-        datasheetUrl: ''
+        datasheetUrl: '',
+        series: 'Industrial',
+        applications: ['delivery', 'agriculture', 'inspection'],
+        payloadRange: '15+',
+        image: 'assets/industrial-motor.svg',
+        voltage: [37.0, 51.8],
+        maxPower: 4403,
+        description: 'Large-scale industrial motor engineered for heavy payload delivery and agriculture'
     },
     {
         id: 'hw-2808-1500',
@@ -429,7 +569,14 @@ const motorDatabase = [
         stockQty: 200,
         leadTimeWeeks: 2,
         efficiency: 0.84,
-        datasheetUrl: ''
+        datasheetUrl: '',
+        series: 'Micro',
+        applications: ['racing', 'research', 'photography'],
+        payloadRange: '0-1',
+        image: 'assets/micro-motor.svg',
+        voltage: [11.1, 14.8],
+        maxPower: 518,
+        description: 'Compact high-KV motor ideal for lightweight racing builds and photography drones'
     }
 ];
 

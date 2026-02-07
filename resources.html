@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - WelkinRim</title>
+    <meta name="description" content="Access performance calculators, motor matchmaker, technical datasheets, integration guides, and support resources for WelkinRim drone motors.">
+    <meta name="keywords" content="drone motor calculator, motor matchmaker, technical datasheets, integration guides, drone motor resources">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .resources-hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 120px 20px 80px;
+            text-align: center;
+            color: white;
+        }
+
+        .resources-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .resources-hero p {
+            font-size: 1.25rem;
+            color: #b0b0b0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .resources-grid {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .resource-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 40px 30px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+            border-color: #2563eb;
+        }
+
+        .resource-icon {
+            font-size: 3rem;
+            line-height: 1;
+        }
+
+        .resource-card h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 0;
+            color: #1a1a1a;
+        }
+
+        .resource-card p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .resource-card .card-link {
+            color: #2563eb;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .resource-card .card-link::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+
+        .resource-card:hover .card-link::after {
+            transform: translateX(5px);
+        }
+
+        .resource-card.info-only {
+            cursor: default;
+        }
+
+        .resource-card.info-only:hover {
+            transform: none;
+            box-shadow: none;
+            border-color: #e0e0e0;
+        }
+
+        @media (max-width: 768px) {
+            .resources-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .resources-hero p {
+                font-size: 1.1rem;
+            }
+
+            .resources-grid {
+                margin: 60px auto;
+                grid-template-columns: 1fr;
+            }
+
+            .resource-card {
+                padding: 30px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav id="main-nav"></nav>
+
+    <main id="main-content">
+        <section class="resources-hero">
+            <h1>Resources</h1>
+            <p>Tools, guides, and documentation to help you get the most out of your WelkinRim motors</p>
+        </section>
+
+        <section class="resources-grid">
+            <a href="tools/calculator.html" class="resource-card">
+                <div class="resource-icon">⚡</div>
+                <h2>Performance Calculator</h2>
+                <p>Calculate thrust, power consumption, and flight time for your drone setup. Input your motor specs and get instant performance metrics.</p>
+                <span class="card-link">Launch Calculator</span>
+            </a>
+
+            <a href="motor-matchmaker.html" class="resource-card">
+                <div class="resource-icon">🎯</div>
+                <h2>Motor Matchmaker</h2>
+                <p>Find the perfect motor for your drone build. Answer a few questions and get personalized motor recommendations with comparison tools.</p>
+                <span class="card-link">Find Your Motor</span>
+            </a>
+
+            <div class="resource-card info-only">
+                <div class="resource-icon">📄</div>
+                <h2>Technical Datasheets</h2>
+                <p>Detailed specifications, performance curves, and technical documentation are available on each product page. Download PDF datasheets for offline reference.</p>
+            </div>
+
+            <div class="resource-card info-only">
+                <div class="resource-icon">🔧</div>
+                <h2>Integration Guides</h2>
+                <p>Step-by-step installation instructions, wiring diagrams, and ESC compatibility guides included with every motor. Check product pages for model-specific guides.</p>
+            </div>
+
+            <a href="support.html#faq" class="resource-card">
+                <div class="resource-icon">💬</div>
+                <h2>FAQ</h2>
+                <p>Common questions about motor selection, installation, troubleshooting, and maintenance. Get quick answers to technical questions.</p>
+                <span class="card-link">View FAQ</span>
+            </a>
+
+            <a href="motor-matchmaker.html#comparison" class="resource-card">
+                <div class="resource-icon">📊</div>
+                <h2>Motor Comparison Tool</h2>
+                <p>Compare multiple motors side-by-side. Built into the Motor Matchmaker, compare specifications, performance, and pricing at a glance.</p>
+                <span class="card-link">Compare Motors</span>
+            </a>
+        </section>
+    </main>
+
+    <footer id="main-footer"></footer>
+
+    <script src="shared.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>

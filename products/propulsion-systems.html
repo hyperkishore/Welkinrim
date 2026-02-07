@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Propulsion Systems | WelkinRim Integrated Solutions</title>
+    <meta name="description" content="Pre-matched motor, ESC, and propeller combinations optimized for peak performance. Complete propulsion systems for any application.">
+    <link rel="icon" type="image/png" href="../assets/Welkinrim logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .page-hero { padding: 120px 0 60px; background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%); }
+        .page-hero h1 { font-size: 3rem; margin-bottom: 16px; }
+        .page-hero p { color: #666; font-size: 1.25rem; max-width: 700px; line-height: 1.6; }
+        .page-hero .stats { display: flex; gap: 40px; margin-top: 32px; }
+        .page-hero .stat-num { font-size: 1.5rem; font-weight: 700; color: #f6a604; }
+        .page-hero .stat-lbl { font-size: 0.875rem; color: #666; }
+        .products-section { padding: 60px 0 120px; }
+        .breadcrumb { background: #f8f9fa; padding: 20px 0; margin-top: 80px; border-bottom: 1px solid #e9ecef; }
+        .breadcrumb-nav { font-size: 0.875rem; color: #666; }
+        .breadcrumb-nav a { color: #f6a604; text-decoration: none; }
+        .breadcrumb-sep { margin: 0 12px; color: #999; }
+        .systems-info { background: #fff; padding: 60px 0; border-bottom: 1px solid #e9ecef; }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-top: 48px; }
+        .info-card { background: #f8f9ff; padding: 32px; border-radius: 12px; }
+        .info-card h3 { font-size: 1.5rem; margin-bottom: 16px; color: #1a1a1a; }
+        .info-card p { color: #666; line-height: 1.6; margin-bottom: 20px; }
+        .info-card .btn { display: inline-block; padding: 12px 24px; background: #f6a604; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.2s; }
+        .info-card .btn:hover { background: #e09503; transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
+    <nav id="main-nav"></nav>
+    <div class="breadcrumb"><div class="container"><nav class="breadcrumb-nav"><a href="../index.html">Home</a><span class="breadcrumb-sep">&rarr;</span><a href="../products.html">Products</a><span class="breadcrumb-sep">&rarr;</span><span>Propulsion Systems</span></nav></div></div>
+    <section class="page-hero"><div class="container"><h1>Complete Propulsion Systems</h1><p>Pre-matched motor, ESC, and propeller combinations engineered for optimal performance. Take the guesswork out of system integration with our tested and validated configurations.</p><div class="stats"><div><div class="stat-num">100+</div><div class="stat-lbl">Tested Combos</div></div><div><div class="stat-num">15%+</div><div class="stat-lbl">Performance Gain</div></div><div><div class="stat-num">24/7</div><div class="stat-lbl">Support</div></div></div></div></section>
+
+    <section class="systems-info" id="main-content">
+        <div class="container">
+            <h2>Why Integrated Systems?</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Motor Matchmaker</h3>
+                    <p>Use our intelligent Motor Matchmaker tool to find the perfect propulsion system for your specific application. Answer a few questions about your drone requirements and get instant recommendations.</p>
+                    <a href="../motor-matchmaker.html" class="btn">Find Your Perfect Match</a>
+                </div>
+                <div class="info-card">
+                    <h3>Custom Bundles</h3>
+                    <p>Need a specific configuration? Our engineering team can design custom propulsion bundles tailored to your exact specifications. From racing quads to heavy-lift platforms.</p>
+                    <a href="../contact.html" class="btn">Request Custom Bundle</a>
+                </div>
+                <div class="info-card">
+                    <h3>Technical Support</h3>
+                    <p>Every propulsion system comes with comprehensive documentation, integration guides, and direct access to our technical support team to ensure smooth installation and operation.</p>
+                    <a href="../contact.html" class="btn">Contact Support</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section">
+        <div class="container">
+            <h2 style="margin-bottom: 48px;">Featured Motors</h2>
+            <div id="dynamic-product-grid" data-category="all" data-brand="internal"></div>
+        </div>
+    </section>
+
+    <footer id="main-footer"></footer>
+    <script src="../shared.js"></script>
+    <script src="../motor-database.js"></script>
+    <script src="../scripts.js"></script>
+    <script src="product-page.js"></script>
+    <script src="motor-detail.js"></script>
+</body>
+</html>

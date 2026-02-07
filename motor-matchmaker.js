@@ -409,144 +409,189 @@ function updateCompareButton() {
     compareButton.disabled = count === 0 || count > 5;
 }
 
-// Show comparison drawer
+// Show comparison drawer with visual bar charts and best-in-class highlights
 function showComparison() {
     if (selectedMotors.size === 0) return;
-    
-    const motors = Array.from(selectedMotors).map(id => 
+
+    const motors = Array.from(selectedMotors).map(id =>
         searchResults.find(m => m.id === id)
     ).filter(Boolean);
-    
-    // Build comparison table
+
+    // Find best-in-class values (higher is better except weight, price, leadTime)
+    const bestValues = {
+        score: Math.max(...motors.map(m => m.score)),
+        maxThrust: Math.max(...motors.map(m => m.maxThrust)),
+        weight: Math.min(...motors.map(m => m.weight)),
+        efficiency: Math.max(...motors.map(m => m.efficiency)),
+        price: Math.min(...motors.map(m => m.price)),
+        leadTimeWeeks: Math.min(...motors.map(m => m.leadTimeWeeks))
+    };
+
+    // Helper to mark best value
+    function bestClass(motor, key, lowerIsBetter) {
+        const val = motor[key];
+        const best = bestValues[key];
+        if (motors.length < 2) return '';
+        return val === best ? ' class="best-value"' : '';
+    }
+
+    // Visual bar for a spec (percentage of max in group)
+    function specBar(value, maxInGroup, color) {
+        const pct = maxInGroup > 0 ? Math.round((value / maxInGroup) * 100) : 0;
+        return `<div class="spec-bar-track"><div class="spec-bar-fill" style="width:${pct}%;background:${color}"></div></div>`;
+    }
+
+    const maxThrust = Math.max(...motors.map(m => m.maxThrust));
+    const maxWeight = Math.max(...motors.map(m => m.weight));
+    const maxPrice = Math.max(...motors.map(m => m.price));
+    const maxKv = Math.max(...motors.map(m => m.kv));
+
+    // Build visual comparison cards
+    let cardsHtml = motors.map(m => {
+        const brandClass = m.source === 'internal' ? 'brand-welkinrim' : 'brand-external';
+        let scoreClass = 'score-fair';
+        if (m.score >= 90) scoreClass = 'score-excellent';
+        else if (m.score >= 75) scoreClass = 'score-good';
+
+        return `
+            <div class="compare-card">
+                <div class="compare-card-header">
+                    <span class="brand-badge ${brandClass}">${m.brand}</span>
+                    <div class="score-badge ${scoreClass}" style="width:36px;height:36px;font-size:0.85rem;">${m.score}</div>
+                </div>
+                <h4 class="compare-card-model">${m.model}</h4>
+
+                <div class="compare-bars">
+                    <div class="compare-bar-row">
+                        <span class="bar-label">Thrust</span>
+                        <span class="bar-value"${bestClass(m, 'maxThrust', false)}>${m.maxThrust}g</span>
+                    </div>
+                    ${specBar(m.maxThrust, maxThrust, '#4caf50')}
+
+                    <div class="compare-bar-row">
+                        <span class="bar-label">Efficiency</span>
+                        <span class="bar-value"${bestClass(m, 'efficiency', false)}>${(m.efficiency * 100).toFixed(0)}%</span>
+                    </div>
+                    ${specBar(m.efficiency, 1, '#2196f3')}
+
+                    <div class="compare-bar-row">
+                        <span class="bar-label">Weight</span>
+                        <span class="bar-value"${bestClass(m, 'weight', true)}>${m.weight}g</span>
+                    </div>
+                    ${specBar(m.weight, maxWeight, '#ff9800')}
+
+                    <div class="compare-bar-row">
+                        <span class="bar-label">KV</span>
+                        <span class="bar-value">${m.kv}</span>
+                    </div>
+                    ${specBar(m.kv, maxKv, '#9c27b0')}
+                </div>
+
+                <div class="compare-specs-grid">
+                    <div class="compare-spec"><span>Voltage</span><strong>${m.voltageMin}S-${m.voltageMax}S</strong></div>
+                    <div class="compare-spec"><span>Props</span><strong>${m.propRange}"</strong></div>
+                    <div class="compare-spec"><span>IP</span><strong>${m.ipRating || 'N/A'}</strong></div>
+                    <div class="compare-spec"><span>Lead</span><strong${bestClass(m, 'leadTimeWeeks', true)}>${m.leadTimeWeeks}w</strong></div>
+                </div>
+
+                <div class="compare-card-footer">
+                    <span class="compare-price"${bestClass(m, 'price', true)}>$${m.price}</span>
+                    <span class="compare-moq">MOQ: ${m.moq}</span>
+                </div>
+
+                <button class="btn btn-primary btn-small" style="width:100%;margin-top:12px;" onclick="requestQuote('${m.id}')">Get Quote</button>
+            </div>
+        `;
+    }).join('');
+
     let html = `
-        <h4>Comparing ${motors.length} Motors</h4>
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Specification</th>
-                    ${motors.map(m => `<th>${m.model}</th>`).join('')}
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Brand</td>
-                    ${motors.map(m => `<td>${m.brand}</td>`).join('')}
-                </tr>
-                <tr>
-                    <td>Score</td>
-                    ${motors.map(m => `<td><strong>${m.score}</strong></td>`).join('')}
-                </tr>
-                <tr>
-                    <td>Max Thrust</td>
-                    ${motors.map(m => `<td>${m.maxThrust}g</td>`).join('')}
-                </tr>
-                <tr>
-                    <td>Weight</td>
-                    ${motors.map(m => `<td>${m.weight}g</td>`).join('')}
-                </tr>
-                <tr>
-                    <td>KV Rating</td>
-                    ${motors.map(m => `<td>${m.kv}</td>`).join('')}
-                </tr>
-                <tr>
-                    <td>Efficiency</td>
-                    ${motors.map(m => `<td>${(m.efficiency * 100).toFixed(0)}%</td>`).join('')}
-                </tr>
-                <tr>
-                    <td>Voltage Range</td>
-                    ${motors.map(m => `<td>${m.voltageMin}S-${m.voltageMax}S</td>`).join('')}
-                </tr>
-                <tr>
-                    <td>Prop Range</td>
-                    ${motors.map(m => `<td>${m.propRange}"</td>`).join('')}
-                </tr>
-                <tr>
-                    <td>IP Rating</td>
-                    ${motors.map(m => `<td>${m.ipRating || 'N/A'}</td>`).join('')}
-                </tr>
-                <tr>
-                    <td>Price</td>
-                    ${motors.map(m => `<td>$${m.price}</td>`).join('')}
-                </tr>
-                <tr>
-                    <td>MOQ</td>
-                    ${motors.map(m => `<td>${m.moq}</td>`).join('')}
-                </tr>
-                <tr>
-                    <td>Lead Time</td>
-                    ${motors.map(m => `<td>${m.leadTimeWeeks}w</td>`).join('')}
-                </tr>
-            </tbody>
-        </table>
+        <div class="compare-header-row">
+            <h4>Comparing ${motors.length} Motors</h4>
+            <button class="btn-icon" onclick="shareComparison()" title="Share comparison">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                Share
+            </button>
+        </div>
+        <div class="compare-cards-grid">
+            ${cardsHtml}
+        </div>
         <div class="comparison-actions">
-            <button class="btn btn-primary" onclick="exportComparison()">Export PDF</button>
+            <button class="btn btn-primary" onclick="exportComparison()">Print / Export</button>
             <button class="btn btn-secondary" onclick="clearSelection()">Clear Selection</button>
         </div>
     `;
-    
+
     comparisonContent.innerHTML = html;
     comparisonDrawer.classList.add('open');
 }
 
-// View motor details (placeholder)
-function viewMotorDetails(motorId) {
-    const motor = motorDatabase.find(m => m.id === motorId);
-    if (motor) {
-        alert(`Motor Details:\n\nModel: ${motor.model}\nBrand: ${motor.brand}\nMax Thrust: ${motor.maxThrust}g\nEfficiency: ${(motor.efficiency * 100).toFixed(0)}%\n\nDatasheet: ${motor.datasheetUrl || 'Contact sales for details'}`);
-    }
-}
-
-// Request quote
-function requestQuote(motorId) {
-    const motor = motorDatabase.find(m => m.id === motorId);
-    if (!motor) return;
-    
-    const html = `
-        <h4>Request Quote for ${motor.model}</h4>
-        <form id="quote-form">
-            <div class="form-group">
-                <label>Motor Model</label>
-                <input type="text" value="${motor.brand} ${motor.model}" readonly>
-            </div>
-            <div class="form-group">
-                <label>Quantity Required</label>
-                <input type="number" id="quote-quantity" min="${motor.moq}" value="${motor.moq}" required>
-                <small>Minimum order quantity: ${motor.moq}</small>
-            </div>
-            <div class="form-group">
-                <label>Company Name</label>
-                <input type="text" id="quote-company" required>
-            </div>
-            <div class="form-group">
-                <label>Contact Email</label>
-                <input type="email" id="quote-email" required>
-            </div>
-            <div class="form-group">
-                <label>Additional Requirements</label>
-                <textarea id="quote-notes" rows="3"></textarea>
-            </div>
-            <div class="quote-summary">
-                <p>Estimated Unit Price: $${motor.price}</p>
-                <p>Estimated Lead Time: ${motor.leadTimeWeeks} weeks</p>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit Quote Request</button>
-        </form>
-    `;
-    
-    quoteModalBody.innerHTML = html;
-    quoteModal.classList.add('open');
-    
-    // Handle quote form submission
-    document.getElementById('quote-form').addEventListener('submit', (e) => {
-        e.preventDefault();
-        alert('Quote request submitted! Our sales team will contact you within 24 hours.');
-        quoteModal.classList.remove('open');
+// Share comparison via URL parameters
+function shareComparison() {
+    const ids = Array.from(selectedMotors).join(',');
+    const url = new URL(window.location.href);
+    url.searchParams.set('compare', ids);
+    navigator.clipboard.writeText(url.toString()).then(() => {
+        const btn = document.querySelector('.btn-icon');
+        if (btn) {
+            const original = btn.innerHTML;
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4caf50" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Copied!';
+            setTimeout(() => { btn.innerHTML = original; }, 2000);
+        }
     });
 }
 
-// Export comparison (placeholder)
+// Load comparison from URL on page load
+function loadComparisonFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    const compareIds = params.get('compare');
+    if (compareIds) {
+        compareIds.split(',').forEach(id => selectedMotors.add(id));
+    }
+}
+
+// View motor details - shows inline modal
+function viewMotorDetails(motorId) {
+    const motor = motorDatabase.find(m => m.id === motorId);
+    if (!motor) return;
+
+    const html = `
+        <h4>${motor.brand} ${motor.model}</h4>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0;">
+            <div><strong>Series:</strong> ${motor.series || 'N/A'}</div>
+            <div><strong>KV:</strong> ${motor.kv}</div>
+            <div><strong>Max Thrust:</strong> ${motor.maxThrust}g</div>
+            <div><strong>Weight:</strong> ${motor.weight}g</div>
+            <div><strong>Efficiency:</strong> ${(motor.efficiency * 100).toFixed(0)}%</div>
+            <div><strong>Max Current:</strong> ${motor.maxCurrent}A</div>
+            <div><strong>Voltage:</strong> ${motor.voltageMin}S-${motor.voltageMax}S</div>
+            <div><strong>Prop Range:</strong> ${motor.propRange}"</div>
+            <div><strong>IP Rating:</strong> ${motor.ipRating || 'N/A'}</div>
+            <div><strong>Price:</strong> $${motor.price}</div>
+            <div><strong>MOQ:</strong> ${motor.moq}</div>
+            <div><strong>Lead Time:</strong> ${motor.leadTimeWeeks}w</div>
+        </div>
+        ${motor.description ? '<p style="color:#666;margin-bottom:16px;">' + motor.description + '</p>' : ''}
+        <div style="display:flex;gap:12px;">
+            <button class="btn btn-primary" onclick="requestQuote('${motor.id}')">Get Quote</button>
+            <button class="btn btn-secondary" onclick="quoteModal.classList.remove('open')">Close</button>
+        </div>
+    `;
+
+    quoteModalBody.innerHTML = html;
+    quoteModal.classList.add('open');
+}
+
+// Request quote - redirect to contact page with motor info
+function requestQuote(motorId) {
+    const motor = motorDatabase.find(m => m.id === motorId);
+    if (!motor) return;
+
+    window.location.href = 'contact.html?motor=' + encodeURIComponent(motor.model) + '&brand=' + encodeURIComponent(motor.brand) + '&type=quote';
+}
+
+// Export comparison - print-friendly view
 function exportComparison() {
-    alert('PDF export feature coming soon! For now, you can take a screenshot of the comparison.');
+    window.print();
 }
 
 // Clear selection
@@ -571,4 +616,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeEventListeners();
     validateForm();
     setActiveNavigation();
+    loadComparisonFromURL();
 });

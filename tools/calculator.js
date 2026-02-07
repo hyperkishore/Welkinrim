@@ -1,63 +1,20 @@
 // Motor Performance Calculator
 class MotorCalculator {
     constructor() {
-        this.motorDatabase = [
-            {
-                name: 'WR1806-2300',
-                series: 'Micro',
-                maxThrust: 2.1,
-                maxPower: 380,
-                weight: 0.028,
-                efficiency: 0.94,
-                kv: 2300,
-                voltage: [11.1, 14.8, 18.5],
-                price: 89
-            },
-            {
-                name: 'WR2212-1000',
-                series: 'Commercial',
-                maxThrust: 8.5,
-                maxPower: 750,
-                weight: 0.135,
-                efficiency: 0.968,
-                kv: 1000,
-                voltage: [18.5, 22.2, 25.9],
-                price: 149
-            },
-            {
-                name: 'WR2815-900',
-                series: 'Commercial',
-                maxThrust: 25.4,
-                maxPower: 3200,
-                weight: 0.485,
-                efficiency: 0.988,
-                kv: 900,
-                voltage: [22.2, 29.6, 37.0],
-                price: 389
-            },
-            {
-                name: 'WR3508-680',
-                series: 'Commercial',
-                maxThrust: 18.2,
-                maxPower: 2100,
-                weight: 0.32,
-                efficiency: 0.975,
-                kv: 680,
-                voltage: [29.6, 37.0, 44.4],
-                price: 289
-            },
-            {
-                name: 'WR4020-400',
-                series: 'Industrial',
-                maxThrust: 45.2,
-                maxPower: 6800,
-                weight: 1.2,
-                efficiency: 0.99,
-                kv: 400,
-                voltage: [37.0, 44.4],
-                price: 749
-            }
-        ];
+        // Use global motorDatabase from motor-database.js, transform to calculator format
+        this.motorDatabase = (typeof motorDatabase !== 'undefined' ? motorDatabase : [])
+            .filter(m => m.source === 'internal') // Calculator only recommends WelkinRim motors
+            .map(m => ({
+                name: m.model,
+                series: m.series || 'Commercial',
+                maxThrust: m.maxThrust / 1000, // Convert grams to kg
+                maxPower: m.maxPower || (m.maxCurrent * m.voltageMax * 3.7),
+                weight: m.weight / 1000, // Convert grams to kg
+                efficiency: m.efficiency,
+                kv: m.kv,
+                voltage: m.voltage || [],
+                price: m.price
+            }));
     }
 
     // Main calculation function
@@ -503,15 +460,11 @@ function showMotorRecommendations(recommendations) {
 
 // Motor action functions
 function viewMotorSpecs(motorName) {
-    // In production, this would open the motor's detailed specification page
-    window.open(`../products/motors/${motorName.toLowerCase().replace('-', '')}.html`, '_blank');
+    window.location.href = '../motor-matchmaker.html';
 }
 
 function requestMotorQuote(motorName) {
-    // In production, this would open a quote form with pre-filled motor info
-    const subject = encodeURIComponent(`Quote Request for ${motorName}`);
-    const body = encodeURIComponent(`Hi WelkinRim team,\n\nI used your performance calculator and ${motorName} was recommended for my application.\n\nPlease provide pricing and availability information.\n\nThank you!`);
-    window.open(`mailto:sales@welkinrim.com?subject=${subject}&body=${body}`);
+    window.location.href = '../contact.html?motor=' + encodeURIComponent(motorName) + '&type=quote';
 }
 
 // Auto-calculate when inputs change (with debounce)
