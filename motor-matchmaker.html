@@ -20,22 +20,7 @@
 <body>
     <a href="#motor-search-form" class="skip-to-content">Skip to content</a>
     <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-container">
-            <div class="nav-brand">
-                <img src="assets/Welkinrim logo.png" alt="WelkinRim" class="nav-logo">
-            </div>
-            <div class="nav-menu" id="nav-menu">
-                <a href="products/commercial-motors.html" class="nav-link">Products</a>
-                <a href="index.html#industries" class="nav-link">Industries</a>
-                <a href="tools/calculator.html" class="nav-link">Resources</a>
-                <a href="motor-matchmaker.html" class="nav-link nav-link-active">Motor Matchmaker</a>
-                <a href="index.html#support" class="nav-link">Support</a>
-                <a href="index.html#company" class="nav-link">Company</a>
-                <a href="index.html#contact" class="nav-cta">Get Quote</a>
-            </div>
-        </div>
-    </nav>
+    <nav id="main-nav"></nav>
 
     <!-- Hero Section -->
     <section class="matchmaker-hero">
@@ -76,7 +61,19 @@
                         <!-- Required Fields -->
                         <div class="form-section">
                             <h3 class="form-section-title">Essential Parameters</h3>
-                            
+
+                            <div class="form-group">
+                                <label for="mission-type">Mission Type</label>
+                                <select id="mission-type" name="missionType">
+                                    <option value="">All Applications</option>
+                                    <option value="defence">Defence & Security</option>
+                                    <option value="agriculture">Agriculture & Farming</option>
+                                    <option value="commercial">Commercial & Delivery</option>
+                                    <option value="industrial">Industrial & Inspection</option>
+                                </select>
+                                <small class="field-help">Narrows results to mission-optimized motors</small>
+                            </div>
+
                             <div class="form-group">
                                 <label for="all-up-weight" class="required">All-Up Weight (kg)</label>
                                 <input type="number" id="all-up-weight" name="allUpWeight" 
@@ -309,70 +306,11 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4 class="footer-title">Products</h4>
-                    <ul class="footer-links">
-                        <li><a href="products/micro-motors.html">Micro Motors</a></li>
-                        <li><a href="products/commercial-motors.html">Commercial Motors</a></li>
-                        <li><a href="products/industrial-motors.html">Industrial Motors</a></li>
-                        <li><a href="motor-matchmaker.html">Motor Matchmaker</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4 class="footer-title">Resources</h4>
-                    <ul class="footer-links">
-                        <li><a href="resources/datasheets.html">Technical Specs</a></li>
-                        <li><a href="resources/guides.html">Installation Guides</a></li>
-                        <li><a href="tools/calculator.html">Performance Tools</a></li>
-                        <li><a href="resources/faq.html">FAQ</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4 class="footer-title">Support</h4>
-                    <ul class="footer-links">
-                        <li><a href="support.html">Technical Support</a></li>
-                        <li><a href="warranty.html">Warranty</a></li>
-                        <li><a href="distributors.html">Find Distributor</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4 class="footer-title">Company</h4>
-                    <ul class="footer-links">
-                        <li><a href="about.html">About WelkinRim</a></li>
-                        <li><a href="news.html">News & Updates</a></li>
-                        <li><a href="careers.html">Careers</a></li>
-                        <li><a href="partners.html">Partners</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <div class="footer-legal">
-                    <p>&copy; 2024 WelkinRim Technologies. All rights reserved.</p>
-                    <div class="footer-legal-links">
-                        <a href="privacy.html">Privacy Policy</a>
-                        <a href="terms.html">Terms of Service</a>
-                    </div>
-                </div>
-                <div class="footer-certifications">
-                    <img src="assets/iso-9001.svg" alt="ISO 9001 Certified" class="cert-badge">
-                    <img src="assets/ce-mark.svg" alt="CE Certified" class="cert-badge">
-                    <img src="assets/fcc-cert.svg" alt="FCC Certified" class="cert-badge">
-                </div>
-            </div>
-        </div>
-    </footer>
+    <footer id="main-footer"></footer>
 
-    <script src="scripts.js"></script>
     <script src="motor-database.js"></script>
+    <script src="shared.js"></script>
+    <script src="scripts.js"></script>
     <script src="motor-matchmaker.js"></script>
 </body>
 </html>

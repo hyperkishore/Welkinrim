@@ -6,6 +6,7 @@
         thrust: document.getElementById('thrust-filter'),
         voltage: document.getElementById('voltage-filter'),
         application: document.getElementById('application-filter'),
+        series: document.getElementById('series-filter'),
         sort: document.getElementById('sort-by')
     };
 
@@ -55,6 +56,13 @@
             if (visible && appFilter) {
                 const applications = (card.dataset.application || '').toLowerCase();
                 visible = applications.includes(appFilter);
+            }
+
+            // Series filter
+            const seriesFilter = filterSelects.series ? filterSelects.series.value : '';
+            if (visible && seriesFilter) {
+                const series = (card.dataset.series || '').toLowerCase();
+                visible = series === seriesFilter;
             }
 
             card.style.display = visible ? '' : 'none';

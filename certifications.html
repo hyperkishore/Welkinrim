@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications | WelkinRim - Quality & Compliance Standards</title>
+    <meta name="description" content="WelkinRim drone motors meet the highest industry certifications including MIL-STD-810H, MIL-STD-461G, IP67/IP68, DO-160G, ISO 9001:2015, and ITAR compliance.">
+    <meta name="keywords" content="WelkinRim certifications, MIL-STD-810H, MIL-STD-461G, IP67, IP68, DO-160G, ISO 9001, ITAR, drone motor certifications, defence drone motors">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Certifications | WelkinRim - Quality & Compliance Standards">
+    <meta property="og:description" content="Explore the certifications and compliance standards that make WelkinRim drone motors trusted by defence, aerospace, and commercial operators worldwide.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/welkinrim-og.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Skip to content */
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #fff;
+            color: #000;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-to-content:focus {
+            top: 0;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem 5%;
+            margin-top: 80px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .breadcrumb-nav {
+            font-size: 0.85rem;
+            color: #64748b;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb-nav a {
+            color: #3b82f6;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .breadcrumb-nav a:hover {
+            color: #60a5fa;
+            text-decoration: underline;
+        }
+
+        .breadcrumb-separator {
+            margin: 0 10px;
+            color: #475569;
+        }
+
+        .breadcrumb-current {
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(180deg, #000 0%, #111 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 30% 40%, rgba(59, 130, 246, 0.18) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(139, 92, 246, 0.18) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #3b82f6;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1.25rem;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 50px;
+            background: rgba(59, 130, 246, 0.08);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.35rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Sections */
+        .section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-dark {
+            background: #000;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Certifications Grid */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Glassmorphism Card */
+        .cert-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 2.5rem;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+            opacity: 0;
+            transform: translateY(30px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.4) 50%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .cert-card:hover {
+            border-color: rgba(59, 130, 246, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 40px rgba(59, 130, 246, 0.05);
+        }
+
+        .cert-card:hover::before {
+            opacity: 1;
+        }
+
+        .cert-card.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .cert-icon {
+            width: 56px;
+            height: 56px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            background: rgba(59, 130, 246, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.15);
+        }
+
+        .cert-icon svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .cert-icon--military {
+            background: rgba(239, 68, 68, 0.08);
+            border-color: rgba(239, 68, 68, 0.15);
+        }
+
+        .cert-icon--military svg {
+            color: #ef4444;
+        }
+
+        .cert-icon--protection {
+            background: rgba(16, 185, 129, 0.08);
+            border-color: rgba(16, 185, 129, 0.15);
+        }
+
+        .cert-icon--protection svg {
+            color: #10b981;
+        }
+
+        .cert-icon--aerospace {
+            background: rgba(139, 92, 246, 0.08);
+            border-color: rgba(139, 92, 246, 0.15);
+        }
+
+        .cert-icon--aerospace svg {
+            color: #8b5cf6;
+        }
+
+        .cert-icon--quality {
+            background: rgba(59, 130, 246, 0.08);
+            border-color: rgba(59, 130, 246, 0.15);
+        }
+
+        .cert-icon--quality svg {
+            color: #3b82f6;
+        }
+
+        .cert-icon--compliance {
+            background: rgba(245, 158, 11, 0.08);
+            border-color: rgba(245, 158, 11, 0.15);
+        }
+
+        .cert-icon--compliance svg {
+            color: #f59e0b;
+        }
+
+        .cert-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.75rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        .cert-badge--military {
+            color: #ef4444;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .cert-badge--protection {
+            color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .cert-badge--aerospace {
+            color: #8b5cf6;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .cert-badge--quality {
+            color: #3b82f6;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .cert-badge--compliance {
+            color: #f59e0b;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .cert-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+            background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cert-standard {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 1.25rem;
+            font-weight: 400;
+        }
+
+        .cert-description {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .cert-benefit {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .cert-benefit-icon {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+        }
+
+        .cert-benefit-icon svg {
+            width: 20px;
+            height: 20px;
+            color: #3b82f6;
+        }
+
+        .cert-benefit-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 0.25rem;
+        }
+
+        .cert-benefit-text {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 50% 50%, rgba(59, 130, 246, 0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 100%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn--primary {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            color: #fff;
+        }
+
+        .cta-btn--primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .cta-btn--secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .cta-btn--secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                height: auto;
+                min-height: 400px;
+                padding: 8rem 0 4rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 4rem 5%;
+            }
+
+            .certs-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .cert-card {
+                padding: 2rem;
+            }
+
+            .cert-name {
+                font-size: 1.3rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .cta-section {
+                padding: 5rem 5%;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .breadcrumb {
+                padding: 0.75rem 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
+
+    <nav id="main-nav"></nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="resources.html">Resources</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">Certifications</span>
+        </nav>
+    </div>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-label">Certifications & Compliance</span>
+                <h1>Built to the Highest<br>Standards on Earth</h1>
+                <p class="hero-subtitle">Every WelkinRim motor is engineered and tested to meet the most demanding military, aerospace, and industrial certification requirements worldwide.</p>
+            </div>
+        </section>
+
+        <!-- Certifications Grid -->
+        <section class="section section-dark">
+            <h2 class="section-title">Our Certifications</h2>
+            <p class="section-subtitle">From battlefield extremes to airborne systems, our certifications prove that WelkinRim motors perform where failure is not an option.</p>
+
+            <div class="certs-grid">
+
+                <!-- MIL-STD-810H -->
+                <article class="cert-card">
+                    <div class="cert-icon cert-icon--military">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <span class="cert-badge cert-badge--military">Military Standard</span>
+                    <h3 class="cert-name">MIL-STD-810H</h3>
+                    <p class="cert-standard">Environmental Engineering Considerations and Laboratory Tests</p>
+                    <p class="cert-description">Our motors are tested and certified to withstand the full spectrum of environmental extremes defined by MIL-STD-810H, including high and low temperature cycling, humidity exposure, mechanical vibration, operational shock, and sand and dust ingress. This standard ensures reliable performance in the harshest field conditions encountered by defence and tactical drone platforms.</p>
+                    <div class="cert-benefit">
+                        <div class="cert-benefit-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="cert-benefit-label">What this means for you</p>
+                            <p class="cert-benefit-text">Deploy with confidence in desert heat, arctic cold, tropical humidity, high-vibration airframes, and dusty operational theatres without motor degradation.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- MIL-STD-461G -->
+                <article class="cert-card">
+                    <div class="cert-icon cert-icon--military">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </div>
+                    <span class="cert-badge cert-badge--military">Military Standard</span>
+                    <h3 class="cert-name">MIL-STD-461G</h3>
+                    <p class="cert-standard">Requirements for the Control of Electromagnetic Interference</p>
+                    <p class="cert-description">WelkinRim motors comply with MIL-STD-461G electromagnetic interference and electromagnetic compatibility requirements. This certification verifies that our motors neither emit harmful electromagnetic radiation nor are susceptible to interference from external sources, ensuring clean operation alongside sensitive avionics, communications gear, and sensor payloads in defence environments.</p>
+                    <div class="cert-benefit">
+                        <div class="cert-benefit-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="cert-benefit-label">What this means for you</p>
+                            <p class="cert-benefit-text">Operate alongside sensitive communications, ISR payloads, and electronic warfare systems without signal degradation or electromagnetic interference.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- IP67 -->
+                <article class="cert-card">
+                    <div class="cert-icon cert-icon--protection">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <span class="cert-badge cert-badge--protection">Ingress Protection</span>
+                    <h3 class="cert-name">IP67 Rating</h3>
+                    <p class="cert-standard">Dust Tight + Temporary Water Immersion</p>
+                    <p class="cert-description">IP67-rated WelkinRim motors provide complete protection against dust ingress (level 6) and are tested to withstand temporary immersion in water up to 1 metre depth for 30 minutes (level 7). This rating ensures full operational capability in rain, mud, coastal spray, and environments where particulate contamination is a constant threat.</p>
+                    <div class="cert-benefit">
+                        <div class="cert-benefit-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="cert-benefit-label">What this means for you</p>
+                            <p class="cert-benefit-text">Fly confidently through rain, coastal conditions, and dusty environments. Emergency water landings and washdown cleaning will not compromise motor integrity.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- IP68 -->
+                <article class="cert-card">
+                    <div class="cert-icon cert-icon--protection">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                        </svg>
+                    </div>
+                    <span class="cert-badge cert-badge--protection">Ingress Protection</span>
+                    <h3 class="cert-name">IP68 Rating</h3>
+                    <p class="cert-standard">Dust Tight + Continuous Water Submersion</p>
+                    <p class="cert-description">Select WelkinRim motor configurations achieve IP68 certification, providing complete dust-tight sealing and the ability to withstand continuous submersion under pressure beyond 1 metre depth. This is the highest standard of ingress protection, designed for underwater drone applications, amphibious operations, and missions requiring sustained exposure to water.</p>
+                    <div class="cert-benefit">
+                        <div class="cert-benefit-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="cert-benefit-label">What this means for you</p>
+                            <p class="cert-benefit-text">Enable amphibious drone platforms and underwater applications. Motors maintain full performance during prolonged submersion and extreme wet-environment operations.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- DO-160G -->
+                <article class="cert-card">
+                    <div class="cert-icon cert-icon--aerospace">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+                        </svg>
+                    </div>
+                    <span class="cert-badge cert-badge--aerospace">Aerospace Standard</span>
+                    <h3 class="cert-name">DO-160G</h3>
+                    <p class="cert-standard">Environmental Conditions and Test Procedures for Airborne Equipment</p>
+                    <p class="cert-description">DO-160G certification confirms that WelkinRim motors meet the rigorous environmental test procedures required for airborne equipment. This covers altitude performance, temperature variation, vibration and shock, power input quality, voltage spikes, and electromagnetic compatibility specific to aviation-grade components used in manned and unmanned aerial systems.</p>
+                    <div class="cert-benefit">
+                        <div class="cert-benefit-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="cert-benefit-label">What this means for you</p>
+                            <p class="cert-benefit-text">Integrate WelkinRim motors into certified airborne platforms with confidence. Meets the environmental qualification demanded by aviation regulators and aerospace primes.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ISO 9001:2015 -->
+                <article class="cert-card">
+                    <div class="cert-icon cert-icon--quality">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="8" r="7"/>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                        </svg>
+                    </div>
+                    <span class="cert-badge cert-badge--quality">Quality Management</span>
+                    <h3 class="cert-name">ISO 9001:2015</h3>
+                    <p class="cert-standard">Quality Management Systems - Requirements</p>
+                    <p class="cert-description">WelkinRim maintains ISO 9001:2015 certification across all manufacturing and engineering operations. This internationally recognised standard ensures that our quality management system consistently delivers products that meet customer and regulatory requirements, with a structured framework for continuous improvement across every stage of design, production, and delivery.</p>
+                    <div class="cert-benefit">
+                        <div class="cert-benefit-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="cert-benefit-label">What this means for you</p>
+                            <p class="cert-benefit-text">Every motor you receive meets the same exacting quality standard. Traceable manufacturing, rigorous inspection, and a commitment to continuous process improvement ensure batch-to-batch consistency.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ITAR Compliance -->
+                <article class="cert-card">
+                    <div class="cert-icon cert-icon--compliance">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                    </div>
+                    <span class="cert-badge cert-badge--compliance">Export Compliance</span>
+                    <h3 class="cert-name">ITAR Compliant</h3>
+                    <p class="cert-standard">International Traffic in Arms Regulations</p>
+                    <p class="cert-description">WelkinRim is registered with the U.S. Directorate of Defense Trade Controls (DDTC) and maintains full compliance with ITAR regulations governing the export and import of defence-related articles and services. Our compliance programme includes secure data handling, personnel screening, export licence management, and comprehensive recordkeeping for all controlled items.</p>
+                    <div class="cert-benefit">
+                        <div class="cert-benefit-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="cert-benefit-label">What this means for you</p>
+                            <p class="cert-benefit-text">Procure WelkinRim motors for defence programmes with full regulatory confidence. Our ITAR compliance ensures seamless integration into controlled supply chains and government contracts.</p>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2 class="cta-title">Need Certification<br>Documentation?</h2>
+                <p class="cta-text">Our engineering team can provide detailed certification reports, compliance documentation, and test data to support your procurement, integration, and regulatory requirements.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="cta-btn cta-btn--primary">Request Documentation</a>
+                    <a href="products.html" class="cta-btn cta-btn--secondary">Explore Our Motors</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer"></footer>
+
+    <script src="shared.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+        // Reveal animation for certification cards
+        (function() {
+            const cards = document.querySelectorAll('.cert-card');
+            if (!cards.length) return;
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            cards.forEach(function(card, index) {
+                card.style.transitionDelay = (index * 0.08) + 's';
+                observer.observe(card);
+            });
+        })();
+    </script>
+</body>
+</html>

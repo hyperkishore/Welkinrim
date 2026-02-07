@@ -16,9 +16,10 @@
     // Determine active page
     function getActivePage() {
         const path = window.location.pathname.toLowerCase();
-        if (path.includes('product') || path.includes('micro-motor') || path.includes('industrial-motor') || path.includes('commercial-motor') || path.includes('propulsion')) return 'products';
-        if (path.includes('calculator') || path.includes('resource')) return 'resources';
+        if (path.includes('product') || path.includes('micro-motor') || path.includes('industrial-motor') || path.includes('commercial-motor') || path.includes('defence-motor') || path.includes('agriculture-motor') || path.includes('propulsion') || path.includes('configurator')) return 'products';
+        if (path.includes('calculator') || path.includes('resource') || path.includes('case-stud') || path.includes('certification')) return 'resources';
         if (path.includes('matchmaker')) return 'matchmaker';
+        if (path.includes('defence') || path.includes('agriculture') || path.includes('delivery') || path.includes('inspection') || path.includes('racing')) return 'solutions';
         if (path.includes('support') || path.includes('faq') || path.includes('warranty')) return 'support';
         if (path.includes('about') || path.includes('career') || path.includes('news') || path.includes('partner')) return 'company';
         if (path.includes('contact')) return 'contact';
@@ -47,11 +48,34 @@
                     </a>
                 </div>
                 <div class="nav-menu" id="nav-menu">
-                    <a href="${base}products.html" class="nav-link${activeClass('products')}">Products</a>
-                    <a href="${base}index.html#industries" class="nav-link">Industries</a>
-                    <a href="${base}resources.html" class="nav-link${activeClass('resources')}">Resources</a>
-                    <a href="${base}motor-matchmaker.html" class="nav-link${activeClass('matchmaker')}">Motor Matchmaker</a>
-                    <a href="${base}support.html" class="nav-link${activeClass('support')}">Support</a>
+                    <div class="nav-dropdown">
+                        <a href="${base}products.html" class="nav-link${activeClass('products')}">Products</a>
+                        <div class="nav-dropdown-menu">
+                            <a href="${base}products/commercial-motors.html" class="nav-dropdown-link">Motors</a>
+                            <a href="${base}products/defence-motors.html" class="nav-dropdown-link">Defence Series</a>
+                            <a href="${base}products/agriculture-motors.html" class="nav-dropdown-link">Agriculture Series</a>
+                            <a href="${base}configurator.html" class="nav-dropdown-link">Configurator</a>
+                            <a href="${base}motor-matchmaker.html" class="nav-dropdown-link">Motor Matchmaker</a>
+                        </div>
+                    </div>
+                    <div class="nav-dropdown">
+                        <a href="${base}index.html#solutions" class="nav-link${activeClass('solutions')}">Solutions</a>
+                        <div class="nav-dropdown-menu">
+                            <a href="${base}applications/defence.html" class="nav-dropdown-link">Defence</a>
+                            <a href="${base}applications/agriculture.html" class="nav-dropdown-link">Agriculture</a>
+                            <a href="${base}applications/delivery.html" class="nav-dropdown-link">Commercial</a>
+                            <a href="${base}applications/inspection.html" class="nav-dropdown-link">Industrial</a>
+                        </div>
+                    </div>
+                    <div class="nav-dropdown">
+                        <a href="${base}resources.html" class="nav-link${activeClass('resources')}">Resources</a>
+                        <div class="nav-dropdown-menu">
+                            <a href="${base}case-studies.html" class="nav-dropdown-link">Case Studies</a>
+                            <a href="${base}certifications.html" class="nav-dropdown-link">Certifications</a>
+                            <a href="${base}tools/calculator.html" class="nav-dropdown-link">Performance Tools</a>
+                            <a href="${base}support.html" class="nav-dropdown-link">Documentation</a>
+                        </div>
+                    </div>
                     <a href="${base}about.html" class="nav-link${activeClass('company')}">Company</a>
                     <a href="${base}contact.html" class="nav-cta">Get Quote</a>
                 </div>
@@ -74,28 +98,29 @@
                     <div class="footer-section">
                         <h4 class="footer-title">Products</h4>
                         <ul class="footer-links">
-                            <li><a href="${base}products/micro-motors.html">Micro Motors</a></li>
                             <li><a href="${base}products/commercial-motors.html">Commercial Motors</a></li>
+                            <li><a href="${base}products/defence-motors.html">Defence Motors</a></li>
+                            <li><a href="${base}products/agriculture-motors.html">Agriculture Motors</a></li>
                             <li><a href="${base}products/industrial-motors.html">Industrial Motors</a></li>
-                            <li><a href="${base}products/propulsion-systems.html">Complete Systems</a></li>
+                            <li><a href="${base}configurator.html">Configurator</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4 class="footer-title">Solutions</h4>
+                        <ul class="footer-links">
+                            <li><a href="${base}applications/defence.html">Defence</a></li>
+                            <li><a href="${base}applications/agriculture.html">Agriculture</a></li>
+                            <li><a href="${base}applications/delivery.html">Commercial</a></li>
+                            <li><a href="${base}applications/inspection.html">Industrial</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
                         <h4 class="footer-title">Resources</h4>
                         <ul class="footer-links">
+                            <li><a href="${base}case-studies.html">Case Studies</a></li>
+                            <li><a href="${base}certifications.html">Certifications</a></li>
                             <li><a href="${base}tools/calculator.html">Performance Calculator</a></li>
                             <li><a href="${base}motor-matchmaker.html">Motor Matchmaker</a></li>
-                            <li><a href="${base}support.html#faq">FAQ</a></li>
-                            <li><a href="${base}resources.html">All Resources</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h4 class="footer-title">Support</h4>
-                        <ul class="footer-links">
-                            <li><a href="${base}support.html">Technical Support</a></li>
-                            <li><a href="${base}support.html#warranty">Warranty</a></li>
-                            <li><a href="${base}distributors.html">Find Distributor</a></li>
-                            <li><a href="${base}contact.html">Contact Us</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
@@ -104,7 +129,7 @@
                             <li><a href="${base}about.html">About WelkinRim</a></li>
                             <li><a href="${base}news.html">News & Updates</a></li>
                             <li><a href="${base}careers.html">Careers</a></li>
-                            <li><a href="${base}partners.html">Partners</a></li>
+                            <li><a href="${base}contact.html">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -149,7 +174,7 @@
             });
 
             // Close menu when clicking a nav link
-            navMenu.querySelectorAll('.nav-link, .nav-cta').forEach(link => {
+            navMenu.querySelectorAll('.nav-link, .nav-cta, .nav-dropdown-link').forEach(link => {
                 link.addEventListener('click', () => {
                     navMenu.classList.remove('nav-menu-active');
                     navToggle.classList.remove('nav-toggle-active');

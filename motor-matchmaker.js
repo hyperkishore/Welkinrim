@@ -102,7 +102,8 @@ async function handleSearch(e) {
         kvPreference: formData.get('kvPreference') ? parseInt(formData.get('kvPreference')) : null,
         ipRating: formData.get('ipRating') || null,
         annualVolume: formData.get('annualVolume') ? parseInt(formData.get('annualVolume')) : null,
-        vendors: Array.from(formData.getAll('vendors'))
+        vendors: Array.from(formData.getAll('vendors')),
+        missionType: formData.get('missionType') || null
     };
     
     // Show loading state
@@ -122,19 +123,28 @@ async function handleSearch(e) {
     }
 }
 
+// Mission type series mapping
+const missionSeriesMap = {
+    defence: ['Defence', 'Industrial'],
+    agriculture: ['Agriculture', 'Commercial', 'Industrial'],
+    commercial: ['Commercial', 'Industrial'],
+    industrial: ['Industrial', 'Commercial']
+};
+
 // Search algorithm
 function searchMotors(params) {
     let results = [];
-    
+
     // Calculate required thrust per motor (assuming quadcopter by default)
-    const motorCount = 4; // Could be made dynamic based on form input
-    const totalThrust = params.allUpWeight * params.thrustRatio * 1000; // Convert to grams
+    const motorCount = 4;
+    const totalThrust = params.allUpWeight * params.thrustRatio * 1000;
     const thrustPerMotor = totalThrust / motorCount;
-    
+
     // Filter motors
     const filteredMotors = motorDatabase.filter(motor => {
-        // Hard filters
-        
+        // Mission type filter — prioritize but don't exclude
+        // (scoring will boost mission-matched motors instead)
+
         // Voltage compatibility
         if (motor.voltageMin > params.batteryVoltage || motor.voltageMax < params.batteryVoltage) {
             return false;
@@ -198,8 +208,34 @@ function searchMotors(params) {
 // Calculate suitability score (0-100)
 function calculateSuitabilityScore(motor, params, requiredThrust) {
     let score = 0;
-    
-    // Thrust factor (40%)
+
+    // Adjust weights based on mission type
+    let thrustWeight = 0.35;
+    let efficiencyWeight = 0.20;
+    let weightWeight = 0.15;
+    let flightTimeWeight = 0.15;
+    let costWeight = 0.10;
+    let missionBonusWeight = 0.05;
+
+    if (params.missionType === 'defence') {
+        // Defence: thrust and reliability matter more, cost matters less
+        thrustWeight = 0.35;
+        efficiencyWeight = 0.15;
+        weightWeight = 0.10;
+        flightTimeWeight = 0.15;
+        costWeight = 0.05;
+        missionBonusWeight = 0.20;
+    } else if (params.missionType === 'agriculture') {
+        // Agriculture: efficiency and flight time matter most
+        thrustWeight = 0.25;
+        efficiencyWeight = 0.25;
+        weightWeight = 0.10;
+        flightTimeWeight = 0.20;
+        costWeight = 0.05;
+        missionBonusWeight = 0.15;
+    }
+
+    // Thrust factor
     const thrustRatio = motor.maxThrust / requiredThrust;
     let thrustScore = 0;
     if (thrustRatio >= 1.0 && thrustRatio <= 1.5) {
@@ -211,37 +247,67 @@ function calculateSuitabilityScore(motor, params, requiredThrust) {
     } else {
         thrustScore = thrustRatio * 100;
     }
-    score += thrustScore * 0.4;
-    
-    // Efficiency (20%)
+    score += thrustScore * thrustWeight;
+
+    // Efficiency
     const efficiencyScore = motor.efficiency * 100;
-    score += efficiencyScore * 0.2;
-    
-    // Weight penalty (15%)
+    score += efficiencyScore * efficiencyWeight;
+
+    // Weight penalty
     let weightScore = 100;
     if (params.motorWeight) {
         const weightDiff = Math.abs(motor.weight - params.motorWeight) / params.motorWeight;
         weightScore = Math.max(0, 100 - weightDiff * 100);
     } else {
-        // Lighter is better if no preference
         weightScore = Math.max(0, 100 - (motor.weight / 500) * 50);
     }
-    score += weightScore * 0.15;
-    
-    // Flight time bonus (15%)
-    let flightTimeScore = 80; // Default decent score
+    score += weightScore * weightWeight;
+
+    // Flight time bonus
+    let flightTimeScore = 80;
     if (params.flightTime) {
-        // Estimate based on efficiency and weight
         const estimatedFlightTime = (30 * motor.efficiency) / (motor.weight / 100);
         flightTimeScore = Math.min(100, (estimatedFlightTime / params.flightTime) * 100);
     }
-    score += flightTimeScore * 0.15;
-    
-    // Cost penalty (10%)
-    const avgPrice = 100; // Baseline price
+    score += flightTimeScore * flightTimeWeight;
+
+    // Cost penalty
+    const avgPrice = 100;
     const costScore = Math.max(0, 100 - ((motor.price - avgPrice) / avgPrice) * 50);
-    score += costScore * 0.1;
-    
+    score += costScore * costWeight;
+
+    // Mission-type bonus
+    let missionScore = 50; // Neutral default
+    if (params.missionType) {
+        const preferredSeries = missionSeriesMap[params.missionType] || [];
+        if (preferredSeries.includes(motor.series)) {
+            missionScore = 100;
+        }
+
+        // Defence-specific: IP rating and MIL-STD boost
+        if (params.missionType === 'defence') {
+            if (motor.ipRating) {
+                const ipNum = parseInt(motor.ipRating.replace('IP', ''));
+                if (ipNum >= 67) missionScore = Math.min(100, missionScore + 15);
+                else if (ipNum >= 55) missionScore = Math.min(100, missionScore + 5);
+            }
+            if (motor.description && motor.description.toLowerCase().includes('mil-std')) {
+                missionScore = Math.min(100, missionScore + 10);
+            }
+        }
+
+        // Agriculture-specific: corrosion resistance and efficiency boost
+        if (params.missionType === 'agriculture') {
+            if (motor.description && (motor.description.toLowerCase().includes('corrosion') || motor.description.toLowerCase().includes('chemical'))) {
+                missionScore = Math.min(100, missionScore + 15);
+            }
+            if (motor.efficiency >= 0.92) {
+                missionScore = Math.min(100, missionScore + 5);
+            }
+        }
+    }
+    score += missionScore * missionBonusWeight;
+
     return Math.round(Math.min(100, Math.max(0, score)));
 }
 
@@ -603,18 +669,9 @@ function clearSelection() {
     comparisonDrawer.classList.remove('open');
 }
 
-// Add active navigation state
-function setActiveNavigation() {
-    const currentPath = window.location.pathname;
-    if (currentPath.includes('motor-matchmaker')) {
-        document.querySelector('.nav-link[href="motor-matchmaker.html"]').classList.add('nav-link-active');
-    }
-}
-
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
     initializeEventListeners();
     validateForm();
-    setActiveNavigation();
     loadComparisonFromURL();
 });

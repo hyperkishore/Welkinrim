@@ -3,111 +3,1470 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agricultural Spraying Drones | WelkinRim Heavy-Duty Motors</title>
-    <meta name="description" content="Heavy-lift motors for agricultural spraying applications. IP65+ rated, chemical resistant, designed for demanding farm operations.">
+    <title>Agricultural Drone Solutions | WelkinRim Heavy-Duty Motors</title>
+    <meta name="description" content="Heavy-lift motors for precision agriculture. IP65+ rated, chemical resistant, built for crop spraying, field mapping, livestock monitoring, and large-scale farm management.">
+    <meta name="keywords" content="agricultural drone motors, crop spraying drone, precision agriculture, farm drone, WelkinRim agriculture, drone seeding, crop health analysis">
     <link rel="icon" type="image/png" href="../assets/Welkinrim logo.png">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Agricultural Drone Solutions | WelkinRim Heavy-Duty Motors">
+    <meta property="og:description" content="Precision drone motors engineered for the toughest agricultural operations. Chemical resistant, weatherproof, built for thousands of acres.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="../assets/Welkinrim logo.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
+
     <style>
-        .page-hero { padding: 120px 0 60px; background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%); }
-        .page-hero h1 { font-size: 3rem; margin-bottom: 16px; }
-        .page-hero p { color: #666; font-size: 1.25rem; max-width: 700px; line-height: 1.6; }
-        .products-section { padding: 60px 0 120px; }
-        .breadcrumb { background: #f8f9fa; padding: 20px 0; margin-top: 80px; border-bottom: 1px solid #e9ecef; }
-        .breadcrumb-nav { font-size: 0.875rem; color: #666; }
-        .breadcrumb-nav a { color: #f6a604; text-decoration: none; }
-        .breadcrumb-sep { margin: 0 12px; color: #999; }
-        .requirements { background: #fff; padding: 60px 0; border-bottom: 1px solid #e9ecef; }
-        .req-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 32px; margin-top: 32px; }
-        .req-item { padding: 24px; background: #f8f9ff; border-radius: 8px; }
-        .req-item h3 { font-size: 1.25rem; margin-bottom: 12px; color: #1a1a1a; }
-        .req-item p { color: #666; line-height: 1.6; }
-        .benefits { background: #f8f9fa; padding: 60px 0; }
-        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 32px; }
-        .benefit-card { background: white; padding: 32px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        .benefit-card h3 { font-size: 1.5rem; margin-bottom: 16px; color: #1a1a1a; }
-        .benefit-card p { color: #666; line-height: 1.6; }
-        .cta-section { background: #1a1a1a; color: white; padding: 80px 0; text-align: center; }
-        .cta-section h2 { margin-bottom: 16px; }
-        .cta-section p { color: #ccc; margin-bottom: 32px; }
-        .cta-btn { display: inline-block; padding: 16px 32px; background: #f6a604; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: all 0.2s; }
-        .cta-btn:hover { background: #e09503; transform: translateY(-2px); }
+        /* ===== Base Reset & Dark Theme ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #fff;
+            color: #000;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-to-content:focus {
+            top: 0;
+        }
+
+        /* ===== Breadcrumb ===== */
+        .breadcrumb {
+            background: rgba(10, 10, 10, 0.95);
+            padding: 16px 0;
+            margin-top: 80px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(10px);
+        }
+
+        .breadcrumb .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .breadcrumb-nav {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .breadcrumb-nav a {
+            color: #22c55e;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .breadcrumb-nav a:hover {
+            color: #4ade80;
+        }
+
+        .breadcrumb-sep {
+            margin: 0 10px;
+            color: #334155;
+        }
+
+        .breadcrumb-nav span:last-child {
+            color: #94a3b8;
+        }
+
+        /* ===== Hero Section ===== */
+        .hero {
+            position: relative;
+            height: 85vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(180deg, #000 0%, #0a0a0a 50%, #000 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 25% 30%, rgba(34, 197, 94, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 75% 70%, rgba(34, 197, 94, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(22, 163, 74, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, #000, transparent);
+            pointer-events: none;
+        }
+
+        /* Animated grid lines for agricultural field effect */
+        .hero-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(rgba(34, 197, 94, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(34, 197, 94, 0.03) 1px, transparent 1px);
+            background-size: 80px 80px;
+            pointer-events: none;
+            animation: gridPulse 8s ease-in-out infinite;
+        }
+
+        @keyframes gridPulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+
+        /* Floating particles representing crop spray */
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .hero-particles span {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(34, 197, 94, 0.4);
+            border-radius: 50%;
+            animation: particleFall linear infinite;
+        }
+
+        .hero-particles span:nth-child(1) { left: 10%; animation-duration: 6s; animation-delay: 0s; }
+        .hero-particles span:nth-child(2) { left: 25%; animation-duration: 8s; animation-delay: 1s; width: 2px; height: 2px; }
+        .hero-particles span:nth-child(3) { left: 40%; animation-duration: 7s; animation-delay: 2s; }
+        .hero-particles span:nth-child(4) { left: 55%; animation-duration: 9s; animation-delay: 0.5s; width: 4px; height: 4px; }
+        .hero-particles span:nth-child(5) { left: 70%; animation-duration: 6.5s; animation-delay: 3s; }
+        .hero-particles span:nth-child(6) { left: 85%; animation-duration: 7.5s; animation-delay: 1.5s; width: 2px; height: 2px; }
+        .hero-particles span:nth-child(7) { left: 15%; animation-duration: 8.5s; animation-delay: 4s; }
+        .hero-particles span:nth-child(8) { left: 60%; animation-duration: 7s; animation-delay: 2.5s; width: 3px; height: 3px; }
+
+        @keyframes particleFall {
+            0% { top: -5%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 0.6; }
+            100% { top: 105%; opacity: 0; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 950px;
+            padding: 0 20px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #22c55e;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1.25rem;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 50px;
+            background: rgba(34, 197, 94, 0.08);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.05;
+            background: linear-gradient(135deg, #fff 0%, #86efac 50%, #22c55e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.35rem;
+            color: #94a3b8;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #22c55e, #4ade80);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero-stat-label {
+            font-size: 0.8rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.25rem;
+        }
+
+        /* ===== Sections ===== */
+        .section {
+            padding: 7rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-dark {
+            background: #000;
+        }
+
+        .section-alt {
+            background: #0a0a0a;
+        }
+
+        .section-full {
+            max-width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .section-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #22c55e;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-title-center {
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .section-subtitle-center {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== Use Case Cards ===== */
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .use-case-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .use-case-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #22c55e, transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .use-case-card:hover {
+            border-color: rgba(34, 197, 94, 0.25);
+            background: rgba(34, 197, 94, 0.03);
+            transform: translateY(-4px);
+        }
+
+        .use-case-card:hover::before {
+            opacity: 1;
+        }
+
+        .use-case-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: rgba(34, 197, 94, 0.08);
+            border: 1px solid rgba(34, 197, 94, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .use-case-icon svg {
+            width: 28px;
+            height: 28px;
+            color: #22c55e;
+        }
+
+        .use-case-card h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #fff;
+        }
+
+        .use-case-description {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .use-case-specs {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .use-case-spec {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+
+        .use-case-spec-label {
+            color: #64748b;
+        }
+
+        .use-case-spec-value {
+            color: #e2e8f0;
+            font-weight: 600;
+        }
+
+        .motor-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #22c55e;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            padding: 0.3rem 0.75rem;
+            border-radius: 6px;
+            margin-top: 0.5rem;
+        }
+
+        /* ===== Why WelkinRim Section ===== */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .why-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 2.5rem;
+            display: flex;
+            gap: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .why-card:hover {
+            border-color: rgba(34, 197, 94, 0.2);
+            background: rgba(34, 197, 94, 0.02);
+        }
+
+        .why-card-icon {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            border-radius: 12px;
+            background: rgba(34, 197, 94, 0.08);
+            border: 1px solid rgba(34, 197, 94, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .why-card-icon svg {
+            width: 24px;
+            height: 24px;
+            color: #22c55e;
+        }
+
+        .why-card-content h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .why-card-content p {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            line-height: 1.7;
+        }
+
+        .why-card-content ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 0.75rem;
+        }
+
+        .why-card-content ul li {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            padding: 0.3rem 0;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .why-card-content ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #22c55e;
+        }
+
+        /* ===== ROI Calculator Teaser ===== */
+        .roi-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .roi-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 30% 50%, rgba(34, 197, 94, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 50%, rgba(34, 197, 94, 0.05) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .roi-container {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .roi-content h2 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .roi-content p {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .roi-stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .roi-stat-card {
+            background: rgba(34, 197, 94, 0.05);
+            border: 1px solid rgba(34, 197, 94, 0.12);
+            border-radius: 16px;
+            padding: 1.75rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .roi-stat-card:hover {
+            border-color: rgba(34, 197, 94, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .roi-stat-number {
+            font-size: 2.25rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #22c55e, #4ade80);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            margin-bottom: 0.25rem;
+        }
+
+        .roi-stat-label {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            line-height: 1.4;
+        }
+
+        .roi-visual {
+            position: relative;
+        }
+
+        .roi-calculator-preview {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .roi-calculator-preview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #22c55e, #4ade80, #22c55e);
+        }
+
+        .roi-calc-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .roi-calc-header svg {
+            width: 24px;
+            height: 24px;
+            color: #22c55e;
+        }
+
+        .roi-calc-header span {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .roi-calc-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .roi-calc-row:last-child {
+            border-bottom: none;
+            padding-top: 1.25rem;
+            margin-top: 0.5rem;
+            border-top: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        .roi-calc-label {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        .roi-calc-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #e2e8f0;
+        }
+
+        .roi-calc-value.highlight {
+            font-size: 1.25rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #22c55e, #4ade80);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ===== Recommended Motors ===== */
+        .motors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .motor-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .motor-card:hover {
+            border-color: rgba(34, 197, 94, 0.25);
+            background: rgba(34, 197, 94, 0.03);
+            transform: translateY(-3px);
+        }
+
+        .motor-card-model {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #22c55e;
+            margin-bottom: 0.5rem;
+        }
+
+        .motor-card-name {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .motor-card-specs {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .motor-card-spec {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+        }
+
+        .motor-card-spec-label {
+            color: #64748b;
+        }
+
+        .motor-card-spec-value {
+            color: #e2e8f0;
+            font-weight: 500;
+        }
+
+        .motor-card-best-for {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        .motor-card-best-for strong {
+            color: #22c55e;
+        }
+
+        /* ===== CTA Section ===== */
+        .cta-section {
+            padding: 8rem 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 50% 50%, rgba(34, 197, 94, 0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 100%, rgba(34, 197, 94, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 3.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 0%, #86efac 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cta-btn--primary {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(34, 197, 94, 0.25);
+        }
+
+        .cta-btn--primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(34, 197, 94, 0.35);
+        }
+
+        .cta-btn--secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .cta-btn--secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .cta-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 1024px) {
+            .use-cases-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .roi-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: auto;
+                min-height: 500px;
+                padding: 10rem 0 5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.05rem;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .hero-stat-number {
+                font-size: 1.75rem;
+            }
+
+            .section {
+                padding: 4rem 5%;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .use-cases-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-card {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .roi-stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .motors-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            .cta-section {
+                padding: 5rem 5%;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .roi-content h2 {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
     <a href="#main-content" class="skip-to-content">Skip to content</a>
+
     <nav id="main-nav"></nav>
-    <div class="breadcrumb"><div class="container"><nav class="breadcrumb-nav"><a href="../index.html">Home</a><span class="breadcrumb-sep">&rarr;</span><a href="../applications.html">Applications</a><span class="breadcrumb-sep">&rarr;</span><span>Agriculture</span></nav></div></div>
 
-    <section class="page-hero">
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
         <div class="container">
-            <h1>Agricultural Spraying Solutions</h1>
-            <p>Heavy-duty motors engineered for the demanding conditions of agricultural drone operations. Chemical resistant, weatherproof, and built to handle heavy payloads across thousands of acres.</p>
+            <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="breadcrumb-sep">&rarr;</span>
+                <a href="../products.html">Solutions</a>
+                <span class="breadcrumb-sep">&rarr;</span>
+                <span>Agriculture</span>
+            </nav>
         </div>
-    </section>
+    </div>
 
-    <section class="requirements" id="main-content">
-        <div class="container">
-            <h2>Key Requirements for Agricultural Drones</h2>
-            <div class="req-grid">
-                <div class="req-item">
-                    <h3>IP65+ Protection</h3>
-                    <p>Complete protection against dust ingress and water jets from any direction. Essential for operation in spray environments.</p>
-                </div>
-                <div class="req-item">
-                    <h3>Heavy Payload</h3>
-                    <p>Sustained thrust delivery for 10-20 kg spray tank payloads with stable hover performance and responsive control.</p>
-                </div>
-                <div class="req-item">
-                    <h3>Chemical Resistance</h3>
-                    <p>Corrosion-resistant coatings and sealed construction to withstand exposure to pesticides, fertilizers, and harsh chemicals.</p>
-                </div>
-                <div class="req-item">
-                    <h3>Field Reliability</h3>
-                    <p>Extended service intervals and robust construction for continuous operation in remote locations with minimal maintenance.</p>
+    <main id="main-content">
+
+        <!-- ==================== HERO ==================== -->
+        <section class="hero">
+            <div class="hero-grid"></div>
+            <div class="hero-particles">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+            </div>
+            <div class="hero-content">
+                <span class="hero-label">Agricultural Solutions</span>
+                <h1>Precision Agriculture,<br>Powered From Above</h1>
+                <p class="hero-subtitle">Heavy-duty motors engineered for the toughest conditions in agriculture. Chemical resistant, weatherproof, and built to cover thousands of acres with unmatched precision.</p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">30+</div>
+                        <div class="hero-stat-label">Acres Per Charge</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">IP67</div>
+                        <div class="hero-stat-label">Protection Rating</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">3,200h</div>
+                        <div class="hero-stat-label">Motor Lifespan</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number">35%</div>
+                        <div class="hero-stat-label">Cost Reduction</div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="benefits">
-        <div class="container">
-            <h2>Benefits of WelkinRim Agricultural Motors</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <h3>Extended Coverage</h3>
-                    <p>High efficiency at heavy loads enables coverage of up to 30 acres per battery charge, maximizing productivity and reducing downtime.</p>
+        <!-- ==================== USE CASES ==================== -->
+        <section class="section section-dark">
+            <div class="section-label">Applications</div>
+            <h2 class="section-title">Agricultural Use Cases</h2>
+            <p class="section-subtitle">From precision spraying to large-scale farm management, WelkinRim motors power every phase of modern agricultural drone operations.</p>
+
+            <div class="use-cases-grid">
+
+                <!-- 1. Precision Crop Spraying -->
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v6M12 18v4M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M2 12h6M16 12h6M4.93 19.07l4.24-4.24M14.83 9.17l4.24-4.24"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                    </div>
+                    <h3>Precision Crop Spraying</h3>
+                    <p class="use-case-description">Uniform pesticide, herbicide, and fungicide application with centimeter-level accuracy. Variable-rate spraying adapts to real-time crop density data, reducing chemical waste by up to 40%.</p>
+                    <div class="use-case-specs">
+                        <div class="use-case-spec">
+                            <span class="use-case-spec-label">Coverage Rate</span>
+                            <span class="use-case-spec-value">12-18 acres/hr</span>
+                        </div>
+                        <div class="use-case-spec">
+                            <span class="use-case-spec-label">Payload Capacity</span>
+                            <span class="use-case-spec-value">16-25 kg</span>
+                        </div>
+                        <div class="use-case-spec">
+                            <span class="use-case-spec-label">Spray Width</span>
+                            <span class="use-case-spec-value">4-8 meters</span>
+                        </div>
+                    </div>
+                    <span class="motor-tag">WR-A4014-520</span>
                 </div>
-                <div class="benefit-card">
-                    <h3>Precision Application</h3>
-                    <p>Smooth torque delivery and responsive throttle control ensure uniform spray patterns and precise chemical application rates.</p>
+
+                <!-- 2. Field Mapping & Survey -->
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M3 9h18M3 15h18M9 3v18M15 3v18"/>
+                        </svg>
+                    </div>
+                    <h3>Field Mapping & Survey</h3>
+                    <p class="use-case-description">High-resolution orthomosaic mapping and 3D terrain modeling for precision land management. Generate elevation maps, drainage plans, and soil composition overlays in a single flight.</p>
+                    <div class="use-case-specs">
+                        <div class="use-case-spec">
+                            <span class="use-case-spec-label">Coverage Rate</span>
+                            <span class="use-case-spec-value">80-120 acres/hr</span>
+                        </div>
+                        <div class="use-case-spec">
+                            <span class="use-case-spec-label">Flight Altitude</span>
+                            <span class="use-case-spec-value">30-120 meters</span>
+                        </div>
+                        <div class="use-case-spec">
+                            <span class="use-case-spec-label">Resolution</span>
+                            <span class="use-case-spec-value">1.5 cm/pixel</span>
+                        </div>
+                    </div>
+                    <span class="motor-tag">WR-A3510-700</span>
                 </div>
-                <div class="benefit-card">
-                    <h3>Lower Operating Costs</h3>
-                    <p>Durable construction and extended service life reduce maintenance frequency and total cost of ownership by up to 35%.</p>
+
+                <!-- 3. Livestock Monitoring -->
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22c-4.97 0-9-2.69-9-6v-2c0-3.31 4.03-6 9-6s9 2.69 9 6v2c0 3.31-4.03 6-9 6z"/>
+                            <path d="M12 8V2M8 4l4-2 4 2"/>
+                            <circle cx="9" cy="14" r="1"/>
+                            <circle cx="15" cy="14" r="1"/>
+                        </svg>
+                    </div>
+                    <h3>Livestock Monitoring</h3>
+                    <p class="use-case-description">Autonomous herd tracking with thermal and visual cameras. Detect sick animals, count livestock across vast rangelands, and monitor grazing patterns to optimize pasture rotation schedules.</p>
+                    <div class="use-case-specs">
+                        <div class="use-case-spec">
+                            <span class="use-case-spec-label">Coverage Rate</span>
+                            <span class="use-case-spec-value">200+ acres/hr</span>
+                        </div>
+                        <div class="use-case-spec">
+                            <span class="use-case-spec-label">Flight Time</span>
+                            <span class="use-case-spec-value">45-55 minutes</span>
+                        </div>
+                        <div class="use-case-spec">
+                            <span class="use-case-spec-label">Detection Range</span>
+                            <span class="use-case-spec-value">Thermal + RGB</span>
+                        </div>
+                    </div>
+                    <span class="motor-tag">WR-A2815-850</span>
+                </div>
+
+                <!-- 4. Seeding & Fertilizing -->
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22V8"/>
+                            <path d="M5 12c0-4 3-7 7-7"/>
+                            <path d="M19 12c0-4-3-7-7-7"/>
+                            <path d="M7 20c0-3 2.24-5 5-5"/>
+                            <path d="M17 20c0-3-2.24-5-5-5"/>
+                            <circle cx="12" cy="5" r="2"/>
+                        </svg>
+                    </div>
+                    <h3>Seeding & Fertilizing</h3>
+                    <p class="use-case-description">Precision granular dispensing for direct seeding, cover crop planting, and targeted fertilizer application. Reach inaccessible terrain including hillsides, wetlands, and freshly planted paddies.</p>
+                    <div class="use-case-specs">
+                        <div class="use-case-spec">
+                            <span class="use-case-spec-label">Coverage Rate</span>
+                            <span class="use-case-spec-value">10-15 acres/hr</span>
+                        </div>
+                        <div class="use-case-spec">
+                            <span class="use-case-spec-label">Hopper Capacity</span>
+                            <span class="use-case-spec-value">20-30 kg</span>
+                        </div>
+                        <div class="use-case-spec">
+                            <span class="use-case-spec-label">Dispensing Accuracy</span>
+                            <span class="use-case-spec-value">&plusmn;5% volume</span>
+                        </div>
+                    </div>
+                    <span class="motor-tag">WR-A5012-400</span>
+                </div>
+
+                <!-- 5. Crop Health Analysis -->
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 5v-2M12 21v-2M5 12H3M21 12h-2"/>
+                        </svg>
+                    </div>
+                    <h3>Crop Health Analysis</h3>
+                    <p class="use-case-description">Multispectral and hyperspectral imaging for NDVI analysis, disease detection, and nutrient deficiency mapping. Identify problems weeks before they become visible to the naked eye.</p>
+                    <div class="use-case-specs">
+                        <div class="use-case-spec">
+                            <span class="use-case-spec-label">Coverage Rate</span>
+                            <span class="use-case-spec-value">100-150 acres/hr</span>
+                        </div>
+                        <div class="use-case-spec">
+                            <span class="use-case-spec-label">Spectral Bands</span>
+                            <span class="use-case-spec-value">5-10 channels</span>
+                        </div>
+                        <div class="use-case-spec">
+                            <span class="use-case-spec-label">Detection Accuracy</span>
+                            <span class="use-case-spec-value">95%+ stress ID</span>
+                        </div>
+                    </div>
+                    <span class="motor-tag">WR-A3510-700</span>
+                </div>
+
+                <!-- 6. Large-Scale Farm Management -->
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 21h18"/>
+                            <path d="M5 21V7l7-4 7 4v14"/>
+                            <path d="M9 21v-6h6v6"/>
+                            <path d="M9 9h.01M15 9h.01M9 13h.01M15 13h.01"/>
+                        </svg>
+                    </div>
+                    <h3>Large-Scale Farm Management</h3>
+                    <p class="use-case-description">Autonomous fleet operations covering 1,000+ acre properties. Coordinate multiple drones for simultaneous spraying, mapping, and monitoring with centralized fleet management software.</p>
+                    <div class="use-case-specs">
+                        <div class="use-case-spec">
+                            <span class="use-case-spec-label">Fleet Coverage</span>
+                            <span class="use-case-spec-value">1,000+ acres/day</span>
+                        </div>
+                        <div class="use-case-spec">
+                            <span class="use-case-spec-label">Coordination</span>
+                            <span class="use-case-spec-value">Up to 12 drones</span>
+                        </div>
+                        <div class="use-case-spec">
+                            <span class="use-case-spec-label">Autonomous Ops</span>
+                            <span class="use-case-spec-value">Waypoint + RTK</span>
+                        </div>
+                    </div>
+                    <span class="motor-tag">WR-A6018-300</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== WHY WELKINRIM ==================== -->
+        <section class="section section-alt section-full">
+            <div class="section-inner">
+                <div class="section-label">Engineered for Agriculture</div>
+                <h2 class="section-title">Why WelkinRim for Agriculture</h2>
+                <p class="section-subtitle">Every component is purpose-built to survive the extreme conditions of agricultural operations, from corrosive chemical spray to 14-hour field days in scorching heat.</p>
+
+                <div class="why-grid">
+
+                    <!-- Corrosion Resistance -->
+                    <div class="why-card">
+                        <div class="why-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <div class="why-card-content">
+                            <h3>Corrosion Resistance</h3>
+                            <p>Multi-layer nano-ceramic coating and IP67 sealing protect every motor from moisture, salt, dust, and UV degradation. Tested for 5,000+ hours of continuous outdoor exposure.</p>
+                            <ul>
+                                <li>Nano-ceramic barrier coating</li>
+                                <li>Stainless steel bearings</li>
+                                <li>IP67-rated full enclosure</li>
+                                <li>UV-stabilized external surfaces</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Chemical Compatibility -->
+                    <div class="why-card">
+                        <div class="why-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.18A1 1 0 0 0 5.596 22h12.808a1 1 0 0 0 .876-1.82l-5.069-9.757A2 2 0 0 1 14 9.527V2"/>
+                                <path d="M8.5 2h7M7 16h10"/>
+                            </svg>
+                        </div>
+                        <div class="why-card-content">
+                            <h3>Chemical Compatibility</h3>
+                            <p>Validated against 50+ common agricultural chemicals including glyphosate, paraquat, neonicotinoids, and liquid fertilizer compounds. Zero degradation after prolonged chemical contact.</p>
+                            <ul>
+                                <li>Tested with pesticides and herbicides</li>
+                                <li>Fertilizer-resistant wire insulation</li>
+                                <li>Chemical-proof connector seals</li>
+                                <li>Solvent-resistant epoxy potting</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Long Flight Times -->
+                    <div class="why-card">
+                        <div class="why-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                            </svg>
+                        </div>
+                        <div class="why-card-content">
+                            <h3>Long Flight Times</h3>
+                            <p>Industry-leading efficiency at heavy payloads extends flight times by 25-35% compared to conventional agricultural drone motors. Cover more acres per battery swap.</p>
+                            <ul>
+                                <li>93%+ peak efficiency under load</li>
+                                <li>Optimized for 15-25 kg payloads</li>
+                                <li>Low thermal losses at cruise</li>
+                                <li>30+ acres per battery charge</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Precision Control -->
+                    <div class="why-card">
+                        <div class="why-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <circle cx="12" cy="12" r="6"/>
+                                <circle cx="12" cy="12" r="2"/>
+                            </svg>
+                        </div>
+                        <div class="why-card-content">
+                            <h3>Precision Control</h3>
+                            <p>Smooth, linear torque response and ultra-fast throttle reaction enable centimeter-accurate positioning. Critical for uniform spray distribution and terrain-following flight.</p>
+                            <ul>
+                                <li>Sub-10ms throttle response</li>
+                                <li>FOC sinusoidal drive compatible</li>
+                                <li>Vibration-dampened rotor assembly</li>
+                                <li>RTK GPS integration-ready</li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="products-section">
-        <div class="container">
-            <h2 style="margin-bottom: 48px;">Recommended Motors for Agriculture</h2>
-            <div id="dynamic-product-grid" data-category="industrial" data-brand="all"></div>
-        </div>
-    </section>
+        <!-- ==================== ROI CALCULATOR TEASER ==================== -->
+        <section class="section section-dark roi-section">
+            <div class="roi-container">
+                <div class="roi-content">
+                    <div class="section-label">Return on Investment</div>
+                    <h2>The Economics of<br>Drone Agriculture</h2>
+                    <p>Switching to WelkinRim-powered agricultural drones delivers measurable savings from day one. Lower chemical consumption, reduced labor hours, and faster coverage translate directly to your bottom line.</p>
+                    <div class="roi-stats-grid">
+                        <div class="roi-stat-card">
+                            <div class="roi-stat-number">18</div>
+                            <div class="roi-stat-label">Acres sprayed per hour</div>
+                        </div>
+                        <div class="roi-stat-card">
+                            <div class="roi-stat-number">40%</div>
+                            <div class="roi-stat-label">Chemical savings vs ground rigs</div>
+                        </div>
+                        <div class="roi-stat-card">
+                            <div class="roi-stat-number">6x</div>
+                            <div class="roi-stat-label">Faster than manual spraying</div>
+                        </div>
+                        <div class="roi-stat-card">
+                            <div class="roi-stat-number">&lt;18mo</div>
+                            <div class="roi-stat-label">Average payback period</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="roi-visual">
+                    <div class="roi-calculator-preview">
+                        <div class="roi-calc-header">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="4" y="2" width="16" height="20" rx="2"/>
+                                <line x1="8" y1="6" x2="16" y2="6"/>
+                                <line x1="8" y1="10" x2="16" y2="10"/>
+                                <line x1="8" y1="14" x2="12" y2="14"/>
+                                <line x1="8" y1="18" x2="12" y2="18"/>
+                            </svg>
+                            <span>Cost Comparison (500 Acre Farm)</span>
+                        </div>
+                        <div class="roi-calc-row">
+                            <span class="roi-calc-label">Ground Rig Spraying</span>
+                            <span class="roi-calc-value">$8,500/season</span>
+                        </div>
+                        <div class="roi-calc-row">
+                            <span class="roi-calc-label">Manual Labor (spray crew)</span>
+                            <span class="roi-calc-value">$12,200/season</span>
+                        </div>
+                        <div class="roi-calc-row">
+                            <span class="roi-calc-label">Chemical Waste (over-spray)</span>
+                            <span class="roi-calc-value">$4,800/season</span>
+                        </div>
+                        <div class="roi-calc-row">
+                            <span class="roi-calc-label">WelkinRim Drone Fleet</span>
+                            <span class="roi-calc-value">$9,700/season</span>
+                        </div>
+                        <div class="roi-calc-row">
+                            <span class="roi-calc-label">Annual Savings</span>
+                            <span class="roi-calc-value highlight">$15,800/year</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <section class="cta-section">
-        <div class="container">
-            <h2>Optimize Your Agricultural Fleet</h2>
-            <p>Speak with our agricultural specialists to design the perfect propulsion system for your spraying operations.</p>
-            <a href="../contact.html" class="cta-btn">Request Consultation</a>
-        </div>
-    </section>
+        <!-- ==================== RECOMMENDED MOTORS ==================== -->
+        <section class="section section-alt section-full">
+            <div class="section-inner">
+                <div class="section-label">Motor Selection</div>
+                <h2 class="section-title section-title-center">Recommended Motors for Agriculture</h2>
+                <p class="section-subtitle section-subtitle-center">Purpose-selected from the WR-A series for agricultural payload demands, chemical exposure tolerance, and extended flight endurance.</p>
+
+                <div class="motors-grid">
+
+                    <div class="motor-card">
+                        <div class="motor-card-model">WR-A4014-520</div>
+                        <div class="motor-card-name">Heavy-Lift Spray Motor</div>
+                        <div class="motor-card-specs">
+                            <div class="motor-card-spec">
+                                <span class="motor-card-spec-label">KV Rating</span>
+                                <span class="motor-card-spec-value">520 KV</span>
+                            </div>
+                            <div class="motor-card-spec">
+                                <span class="motor-card-spec-label">Max Thrust</span>
+                                <span class="motor-card-spec-value">8.2 kg</span>
+                            </div>
+                            <div class="motor-card-spec">
+                                <span class="motor-card-spec-label">Weight</span>
+                                <span class="motor-card-spec-value">198 g</span>
+                            </div>
+                            <div class="motor-card-spec">
+                                <span class="motor-card-spec-label">IP Rating</span>
+                                <span class="motor-card-spec-value">IP67</span>
+                            </div>
+                        </div>
+                        <div class="motor-card-best-for"><strong>Best for:</strong> Precision crop spraying, heavy payload operations</div>
+                    </div>
+
+                    <div class="motor-card">
+                        <div class="motor-card-model">WR-A5012-400</div>
+                        <div class="motor-card-name">Max-Payload Agricultural Motor</div>
+                        <div class="motor-card-specs">
+                            <div class="motor-card-spec">
+                                <span class="motor-card-spec-label">KV Rating</span>
+                                <span class="motor-card-spec-value">400 KV</span>
+                            </div>
+                            <div class="motor-card-spec">
+                                <span class="motor-card-spec-label">Max Thrust</span>
+                                <span class="motor-card-spec-value">12.5 kg</span>
+                            </div>
+                            <div class="motor-card-spec">
+                                <span class="motor-card-spec-label">Weight</span>
+                                <span class="motor-card-spec-value">285 g</span>
+                            </div>
+                            <div class="motor-card-spec">
+                                <span class="motor-card-spec-label">IP Rating</span>
+                                <span class="motor-card-spec-value">IP67</span>
+                            </div>
+                        </div>
+                        <div class="motor-card-best-for"><strong>Best for:</strong> Seeding, fertilizing, maximum payload capacity</div>
+                    </div>
+
+                    <div class="motor-card">
+                        <div class="motor-card-model">WR-A3510-700</div>
+                        <div class="motor-card-name">Survey & Mapping Motor</div>
+                        <div class="motor-card-specs">
+                            <div class="motor-card-spec">
+                                <span class="motor-card-spec-label">KV Rating</span>
+                                <span class="motor-card-spec-value">700 KV</span>
+                            </div>
+                            <div class="motor-card-spec">
+                                <span class="motor-card-spec-label">Max Thrust</span>
+                                <span class="motor-card-spec-value">5.8 kg</span>
+                            </div>
+                            <div class="motor-card-spec">
+                                <span class="motor-card-spec-label">Weight</span>
+                                <span class="motor-card-spec-value">142 g</span>
+                            </div>
+                            <div class="motor-card-spec">
+                                <span class="motor-card-spec-label">IP Rating</span>
+                                <span class="motor-card-spec-value">IP65</span>
+                            </div>
+                        </div>
+                        <div class="motor-card-best-for"><strong>Best for:</strong> Field mapping, crop health analysis, survey flights</div>
+                    </div>
+
+                    <div class="motor-card">
+                        <div class="motor-card-model">WR-A6018-300</div>
+                        <div class="motor-card-name">Fleet Operations Motor</div>
+                        <div class="motor-card-specs">
+                            <div class="motor-card-spec">
+                                <span class="motor-card-spec-label">KV Rating</span>
+                                <span class="motor-card-spec-value">300 KV</span>
+                            </div>
+                            <div class="motor-card-spec">
+                                <span class="motor-card-spec-label">Max Thrust</span>
+                                <span class="motor-card-spec-value">18.0 kg</span>
+                            </div>
+                            <div class="motor-card-spec">
+                                <span class="motor-card-spec-label">Weight</span>
+                                <span class="motor-card-spec-value">410 g</span>
+                            </div>
+                            <div class="motor-card-spec">
+                                <span class="motor-card-spec-label">IP Rating</span>
+                                <span class="motor-card-spec-value">IP67</span>
+                            </div>
+                        </div>
+                        <div class="motor-card-best-for"><strong>Best for:</strong> Large-scale fleet management, heavy-lift operations</div>
+                    </div>
+
+                    <div class="motor-card">
+                        <div class="motor-card-model">WR-A2815-850</div>
+                        <div class="motor-card-name">Endurance Monitoring Motor</div>
+                        <div class="motor-card-specs">
+                            <div class="motor-card-spec">
+                                <span class="motor-card-spec-label">KV Rating</span>
+                                <span class="motor-card-spec-value">850 KV</span>
+                            </div>
+                            <div class="motor-card-spec">
+                                <span class="motor-card-spec-label">Max Thrust</span>
+                                <span class="motor-card-spec-value">3.4 kg</span>
+                            </div>
+                            <div class="motor-card-spec">
+                                <span class="motor-card-spec-label">Weight</span>
+                                <span class="motor-card-spec-value">95 g</span>
+                            </div>
+                            <div class="motor-card-spec">
+                                <span class="motor-card-spec-label">IP Rating</span>
+                                <span class="motor-card-spec-value">IP65</span>
+                            </div>
+                        </div>
+                        <div class="motor-card-best-for"><strong>Best for:</strong> Livestock monitoring, long-endurance patrol flights</div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== CTA ==================== -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Transform<br>Your Farm Operations?</h2>
+                <p class="cta-text">Configure a complete agricultural propulsion system tailored to your crop type, acreage, and operational requirements. Our agricultural specialists will help optimize every parameter.</p>
+                <div class="cta-buttons">
+                    <a href="../configurator.html?preset=agriculture" class="cta-btn cta-btn--primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 5v14M5 12h14"/>
+                        </svg>
+                        Configure Agriculture System
+                    </a>
+                    <a href="../contact.html" class="cta-btn cta-btn--secondary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                        Speak with a Specialist
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <footer id="main-footer"></footer>
+
     <script src="../shared.js"></script>
     <script src="../motor-database.js"></script>
     <script src="../scripts.js"></script>

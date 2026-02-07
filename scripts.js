@@ -607,5 +607,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const testimonialCards = document.querySelectorAll('.testimonial-card');
     testimonialCards.forEach(el => observer.observe(el));
 
+    // Hero use-case cycling animation
+    const useCases = document.querySelectorAll('.hero-use-case');
+    if (useCases.length > 0) {
+        let activeIndex = 0;
+        setInterval(() => {
+            useCases[activeIndex].classList.remove('active');
+            activeIndex = (activeIndex + 1) % useCases.length;
+            useCases[activeIndex].classList.add('active');
+        }, 2500);
+    }
+
     console.log('WelkinRim website initialized successfully');
 });

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propulsion Configurator | WelkinRim</title>
+    <meta name="description" content="Design your perfect drone propulsion system. Interactive configurator with live thrust, efficiency, and cost calculations.">
+    <link rel="icon" type="image/png" href="assets/Welkinrim logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="configurator.css">
+</head>
+<body class="configurator-page">
+    <a href="#configurator-main" class="skip-to-content">Skip to content</a>
+    <nav id="main-nav"></nav>
+
+    <!-- Hero -->
+    <section class="config-hero">
+        <div class="container">
+            <h1>Propulsion System Configurator</h1>
+            <p>Design your ideal propulsion setup. Select your mission, set requirements, and get live motor recommendations.</p>
+        </div>
+    </section>
+
+    <!-- Steps Bar -->
+    <div class="config-steps-bar" id="config-steps-bar">
+        <div class="config-step-indicator active" data-step="1">
+            <div class="config-step-num">1</div>
+            <div>Mission Profile</div>
+        </div>
+        <div class="config-step-indicator" data-step="2">
+            <div class="config-step-num">2</div>
+            <div>Requirements</div>
+        </div>
+        <div class="config-step-indicator" data-step="3">
+            <div class="config-step-num">3</div>
+            <div>Results</div>
+        </div>
+        <div class="config-step-indicator" data-step="4">
+            <div class="config-step-num">4</div>
+            <div>Summary</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="config-main" id="configurator-main">
+
+        <!-- Step 1: Mission Profile -->
+        <div class="config-panel active" id="step-1">
+            <h2 style="font-size:1.5rem;color:#fff;margin-bottom:8px;">Select Your Application</h2>
+            <p style="color:#94a3b8;margin-bottom:24px;">Choose the primary mission type for your drone platform.</p>
+            <div class="mission-grid" id="mission-grid">
+                <div class="mission-card" data-mission="defence">
+                    <div class="mission-card-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M20 4L32 10V22L20 36L8 22V10L20 4Z" stroke="#f6a604" stroke-width="2" fill="none"/><circle cx="20" cy="18" r="4" fill="rgba(246,166,4,0.3)"/></svg>
+                    </div>
+                    <div class="mission-card-title">Defence</div>
+                    <div class="mission-card-desc">Military & security operations</div>
+                </div>
+                <div class="mission-card" data-mission="agriculture">
+                    <div class="mission-card-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M8 32C8 32 14 14 20 10C26 14 32 32 32 32" stroke="#22c55e" stroke-width="2" fill="none"/><line x1="20" y1="10" x2="20" y2="32" stroke="#22c55e" stroke-width="1.5"/><line x1="4" y1="32" x2="36" y2="32" stroke="#22c55e" stroke-width="2"/></svg>
+                    </div>
+                    <div class="mission-card-title">Agriculture</div>
+                    <div class="mission-card-desc">Farming & crop management</div>
+                </div>
+                <div class="mission-card" data-mission="commercial">
+                    <div class="mission-card-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="8" y="14" width="24" height="16" rx="3" stroke="#3b82f6" stroke-width="2" fill="none"/><path d="M14 14V10a6 6 0 0112 0v4" stroke="#3b82f6" stroke-width="2"/></svg>
+                    </div>
+                    <div class="mission-card-title">Commercial</div>
+                    <div class="mission-card-desc">Delivery & logistics</div>
+                </div>
+                <div class="mission-card" data-mission="custom">
+                    <div class="mission-card-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="12" stroke="#8b5cf6" stroke-width="2" fill="none"/><path d="M20 14v6h6" stroke="#8b5cf6" stroke-width="2"/></svg>
+                    </div>
+                    <div class="mission-card-title">Custom</div>
+                    <div class="mission-card-desc">Research & specialty</div>
+                </div>
+            </div>
+
+            <div class="sub-category-row">
+                <div>
+                    <label class="config-label">Sub-Category</label>
+                    <select class="config-select" id="sub-category">
+                        <option value="">Select mission type first...</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="config-label">Operating Environment</label>
+                    <select class="config-select" id="environment">
+                        <option value="temperate">Temperate</option>
+                        <option value="desert">Desert / Arid</option>
+                        <option value="maritime">Maritime</option>
+                        <option value="arctic">Arctic</option>
+                        <option value="tropical">Tropical / Humid</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="config-nav">
+                <div></div>
+                <button class="config-btn config-btn-next" id="btn-next-1" disabled>Next: Requirements</button>
+            </div>
+        </div>
+
+        <!-- Step 2: Requirements -->
+        <div class="config-panel" id="step-2">
+            <h2 style="font-size:1.5rem;color:#fff;margin-bottom:8px;">Define Your Requirements</h2>
+            <p style="color:#94a3b8;margin-bottom:32px;">Set the performance parameters for your propulsion system.</p>
+            <div class="requirements-grid">
+                <div>
+                    <div class="req-slider-group">
+                        <div class="req-slider-header">
+                            <label class="config-label">Payload Weight</label>
+                            <span class="req-slider-value" id="payload-val">5.0 kg</span>
+                        </div>
+                        <input type="range" class="config-slider" id="payload-slider" min="0.5" max="50" step="0.5" value="5">
+                    </div>
+                    <div class="req-slider-group">
+                        <div class="req-slider-header">
+                            <label class="config-label">Target Flight Time</label>
+                            <span class="req-slider-value" id="flight-time-val">30 min</span>
+                        </div>
+                        <input type="range" class="config-slider" id="flight-time-slider" min="15" max="120" step="5" value="30">
+                    </div>
+                </div>
+                <div>
+                    <div class="req-slider-group">
+                        <div class="req-slider-header">
+                            <label class="config-label">Max Altitude</label>
+                            <span class="req-slider-value" id="altitude-val">500 m</span>
+                        </div>
+                        <input type="range" class="config-slider" id="altitude-slider" min="50" max="5000" step="50" value="500">
+                    </div>
+                    <div style="margin-bottom:24px;">
+                        <label class="config-label">Number of Motors</label>
+                        <select class="config-select" id="motor-count">
+                            <option value="4">4 Motors (Quadcopter)</option>
+                            <option value="6">6 Motors (Hexacopter)</option>
+                            <option value="8">8 Motors (Octocopter)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="config-nav">
+                <button class="config-btn config-btn-back" id="btn-back-2">Back</button>
+                <button class="config-btn config-btn-next" id="btn-next-2">Find Motors</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Results -->
+        <div class="config-panel" id="step-3">
+            <h2 style="font-size:1.5rem;color:#fff;margin-bottom:8px;">Motor Recommendations</h2>
+            <p style="color:#94a3b8;margin-bottom:32px;">Select a motor to see live system calculations. Motors are sorted by suitability score.</p>
+            <div class="results-layout">
+                <div class="motor-results-list" id="motor-results-list">
+                    <!-- Populated by JS -->
+                </div>
+                <div class="live-dashboard" id="live-dashboard">
+                    <div class="dashboard-title">Live System Specs</div>
+                    <div class="dashboard-gauges">
+                        <div class="dashboard-gauge">
+                            <div class="gauge-svg" id="gauge-thrust">
+                                <svg viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="42" stroke="rgba(246,166,4,0.15)" stroke-width="7" fill="none"/>
+                                    <circle cx="50" cy="50" r="42" stroke="#f6a604" stroke-width="7" fill="none" stroke-dasharray="264" stroke-dashoffset="264" stroke-linecap="round" transform="rotate(-90 50 50)" id="gauge-thrust-fill"/>
+                                </svg>
+                                <div class="gauge-center">
+                                    <span class="gauge-number" id="gauge-thrust-val">--</span>
+                                    <span class="gauge-label">Total Thrust</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-gauge">
+                            <div class="gauge-svg" id="gauge-ratio">
+                                <svg viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="42" stroke="rgba(34,197,94,0.15)" stroke-width="7" fill="none"/>
+                                    <circle cx="50" cy="50" r="42" stroke="#22c55e" stroke-width="7" fill="none" stroke-dasharray="264" stroke-dashoffset="264" stroke-linecap="round" transform="rotate(-90 50 50)" id="gauge-ratio-fill"/>
+                                </svg>
+                                <div class="gauge-center">
+                                    <span class="gauge-number" id="gauge-ratio-val">--</span>
+                                    <span class="gauge-label">T/W Ratio</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-gauge">
+                            <div class="gauge-svg" id="gauge-flight">
+                                <svg viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="42" stroke="rgba(59,130,246,0.15)" stroke-width="7" fill="none"/>
+                                    <circle cx="50" cy="50" r="42" stroke="#3b82f6" stroke-width="7" fill="none" stroke-dasharray="264" stroke-dashoffset="264" stroke-linecap="round" transform="rotate(-90 50 50)" id="gauge-flight-fill"/>
+                                </svg>
+                                <div class="gauge-center">
+                                    <span class="gauge-number" id="gauge-flight-val">--</span>
+                                    <span class="gauge-label">Est. Flight</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-gauge">
+                            <div class="gauge-svg" id="gauge-efficiency">
+                                <svg viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="42" stroke="rgba(139,92,246,0.15)" stroke-width="7" fill="none"/>
+                                    <circle cx="50" cy="50" r="42" stroke="#8b5cf6" stroke-width="7" fill="none" stroke-dasharray="264" stroke-dashoffset="264" stroke-linecap="round" transform="rotate(-90 50 50)" id="gauge-efficiency-fill"/>
+                                </svg>
+                                <div class="gauge-center">
+                                    <span class="gauge-number" id="gauge-efficiency-val">--</span>
+                                    <span class="gauge-label">Efficiency</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard-stats">
+                        <div class="dashboard-stat">
+                            <span class="dashboard-stat-label">System Weight</span>
+                            <span class="dashboard-stat-value" id="stat-weight">--</span>
+                        </div>
+                        <div class="dashboard-stat">
+                            <span class="dashboard-stat-label">Total System Cost</span>
+                            <span class="dashboard-stat-value" id="stat-cost">--</span>
+                        </div>
+                        <div class="dashboard-stat">
+                            <span class="dashboard-stat-label">Motor Count</span>
+                            <span class="dashboard-stat-value" id="stat-count">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="config-nav">
+                <button class="config-btn config-btn-back" id="btn-back-3">Back</button>
+                <button class="config-btn config-btn-next" id="btn-next-3" disabled>View Summary</button>
+            </div>
+        </div>
+
+        <!-- Step 4: Summary -->
+        <div class="config-panel" id="step-4">
+            <h2 style="font-size:1.5rem;color:#fff;margin-bottom:8px;">System Summary</h2>
+            <p style="color:#94a3b8;margin-bottom:32px;">Your configured propulsion system overview.</p>
+            <div class="summary-grid" id="summary-content">
+                <!-- Populated by JS -->
+            </div>
+            <div class="summary-actions">
+                <button class="config-btn config-btn-next" onclick="downloadSpec()">Download Spec Sheet</button>
+                <button class="config-btn config-btn-next" onclick="requestConfigQuote()" style="background:#22c55e;">Request Quote</button>
+                <button class="config-btn config-btn-back" onclick="saveConfiguration()">Save Configuration</button>
+            </div>
+            <div class="config-nav">
+                <button class="config-btn config-btn-back" id="btn-back-4">Back to Results</button>
+                <div></div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer id="main-footer"></footer>
+
+    <script src="motor-database.js"></script>
+    <script src="shared.js"></script>
+    <script src="scripts.js"></script>
+    <script src="quote-wizard.js"></script>
+    <script src="configurator.js"></script>
+</body>
+</html>

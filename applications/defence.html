@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defence & Military Drone Solutions | WelkinRim Tactical Motors</title>
+    <meta name="description" content="MIL-STD compliant drone motors for defence applications. IP67/68 rated, field-serviceable propulsion systems for surveillance, logistics, SAR, EOD, and border security.">
+    <link rel="icon" type="image/png" href="../assets/Welkinrim logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body { background: #000; color: #e0e0e0; }
+
+        /* Breadcrumb */
+        .breadcrumb { background: #0a0a0a; padding: 20px 0; margin-top: 80px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .breadcrumb-nav { font-size: 0.875rem; color: #888; }
+        .breadcrumb-nav a { color: #f6a604; text-decoration: none; }
+        .breadcrumb-nav a:hover { text-decoration: underline; }
+        .breadcrumb-sep { margin: 0 12px; color: #555; }
+
+        /* Hero */
+        .defence-hero {
+            position: relative;
+            padding: 140px 0 100px;
+            background: linear-gradient(160deg, #000 0%, #0a0f1a 30%, #0d1520 50%, #0a0a0a 100%);
+            overflow: hidden;
+            text-align: center;
+        }
+        .defence-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse 80% 50% at 50% 0%, rgba(246,166,4,0.06) 0%, transparent 60%),
+                radial-gradient(circle at 20% 80%, rgba(246,166,4,0.03) 0%, transparent 40%),
+                repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(255,255,255,0.015) 50px),
+                repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(255,255,255,0.015) 50px);
+            pointer-events: none;
+        }
+        .defence-hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 120px;
+            background: linear-gradient(to top, #000, transparent);
+            pointer-events: none;
+        }
+        .defence-hero .container { position: relative; z-index: 2; }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            border: 1px solid rgba(246,166,4,0.3);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #f6a604;
+            margin-bottom: 28px;
+            background: rgba(246,166,4,0.05);
+        }
+        .hero-badge svg { width: 14px; height: 14px; }
+        .defence-hero h1 {
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            color: #fff;
+            margin-bottom: 20px;
+            line-height: 1.05;
+        }
+        .defence-hero h1 span { color: #f6a604; }
+        .defence-hero p {
+            font-size: 1.25rem;
+            color: #999;
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 48px;
+            flex-wrap: wrap;
+        }
+        .hero-stat {
+            text-align: center;
+        }
+        .hero-stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #f6a604;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            letter-spacing: -0.03em;
+        }
+        .hero-stat-label {
+            font-size: 0.75rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 4px;
+        }
+
+        /* Use Cases Section */
+        .use-cases { padding: 100px 0; background: #000; }
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .section-header p {
+            color: #777;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .use-case-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 36px 28px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .use-case-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #f6a604, transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .use-case-card:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(246,166,4,0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(246,166,4,0.05);
+        }
+        .use-case-card:hover::before { opacity: 1; }
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: rgba(246,166,4,0.08);
+            border: 1px solid rgba(246,166,4,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        .card-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: #f6a604;
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .use-case-card h3 {
+            font-size: 1.25rem;
+            color: #fff;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        .use-case-card .card-desc {
+            color: #888;
+            font-size: 0.95rem;
+            line-height: 1.65;
+            margin-bottom: 20px;
+        }
+        .card-specs {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+        .spec-label {
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        .spec-value {
+            color: #f6a604;
+            font-weight: 600;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .motor-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(246,166,4,0.08);
+            border: 1px solid rgba(246,166,4,0.15);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #f6a604;
+            letter-spacing: 0.02em;
+        }
+
+        /* Why WelkinRim Section */
+        .why-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #0a0a0a 0%, #0d1117 50%, #0a0a0a 100%);
+            position: relative;
+        }
+        .why-section::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(246,166,4,0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            position: relative;
+            z-index: 1;
+        }
+        .why-card {
+            padding: 40px 32px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+        .why-card:hover {
+            background: rgba(255,255,255,0.04);
+            border-color: rgba(246,166,4,0.15);
+        }
+        .why-card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(246,166,4,0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .why-card-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: #f6a604;
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .why-card h3 {
+            font-size: 1.15rem;
+            color: #fff;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .why-card p {
+            color: #777;
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+        .why-card .detail-tag {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 5px 12px;
+            background: rgba(246,166,4,0.06);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #f6a604;
+            letter-spacing: 0.05em;
+        }
+
+        /* Testimonial */
+        .testimonial-section {
+            padding: 80px 0;
+            background: #000;
+        }
+        .testimonial-card {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 48px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            position: relative;
+            text-align: center;
+        }
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: -1px; left: 20%; right: 20%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(246,166,4,0.4), transparent);
+        }
+        .testimonial-quote-mark {
+            font-size: 4rem;
+            color: rgba(246,166,4,0.2);
+            line-height: 1;
+            margin-bottom: 8px;
+            font-family: Georgia, serif;
+        }
+        .testimonial-text {
+            font-size: 1.15rem;
+            color: #ccc;
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 28px;
+        }
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+        }
+        .testimonial-name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .testimonial-role {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        .testimonial-classification {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 4px 14px;
+            border: 1px solid rgba(246,166,4,0.2);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #f6a604;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
+            text-align: center;
+            position: relative;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(246,166,4,0.2), transparent);
+        }
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .cta-section p {
+            color: #777;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .cta-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 36px;
+            background: #f6a604;
+            color: #000;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.01em;
+            transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        .cta-btn-primary:hover {
+            background: #ffb824;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(246,166,4,0.25);
+        }
+        .cta-btn-primary svg { width: 18px; height: 18px; }
+        .cta-btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 36px;
+            background: transparent;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255,255,255,0.15);
+            transition: all 0.3s ease;
+        }
+        .cta-btn-secondary:hover {
+            border-color: rgba(246,166,4,0.4);
+            background: rgba(246,166,4,0.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .defence-hero { padding: 100px 0 70px; }
+            .defence-hero h1 { font-size: 2.2rem; }
+            .defence-hero p { font-size: 1.05rem; }
+            .hero-stats { gap: 24px; }
+            .hero-stat-value { font-size: 1.5rem; }
+            .use-cases { padding: 60px 0; }
+            .use-case-grid { grid-template-columns: 1fr; gap: 16px; }
+            .use-case-card { padding: 28px 22px; }
+            .why-section { padding: 60px 0; }
+            .why-grid { grid-template-columns: 1fr; gap: 16px; }
+            .why-card { padding: 28px 24px; }
+            .testimonial-section { padding: 60px 0; }
+            .testimonial-card { padding: 32px 24px; }
+            .testimonial-text { font-size: 1rem; }
+            .cta-section { padding: 60px 0; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .section-header { margin-bottom: 40px; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
+    <nav id="main-nav"></nav>
+    <div class="breadcrumb"><div class="container"><nav class="breadcrumb-nav"><a href="../index.html">Home</a><span class="breadcrumb-sep">&rarr;</span><a href="../applications.html">Solutions</a><span class="breadcrumb-sep">&rarr;</span><span>Defence</span></nav></div></div>
+
+    <!-- Hero -->
+    <section class="defence-hero">
+        <div class="container">
+            <div class="hero-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Mission-Critical Propulsion Systems
+            </div>
+            <h1>Built for the <span>Harshest Theatres</span></h1>
+            <p>WelkinRim WR-D series motors deliver uncompromising reliability in extreme operational environments. MIL-STD qualified, field-serviceable, and trusted by defence integrators worldwide.</p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-value">MIL-STD</div>
+                    <div class="hero-stat-label">Qualified</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">IP68</div>
+                    <div class="hero-stat-label">Ingress Protection</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">-40 to +85</div>
+                    <div class="hero-stat-label">Operating Range (&deg;C)</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">10,000+</div>
+                    <div class="hero-stat-label">Flight Hours MTBF</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="use-cases" id="main-content">
+        <div class="container">
+            <div class="section-header">
+                <h2>Operational Use Cases</h2>
+                <p>Purpose-built motor configurations for every defence mission profile, from covert ISR to heavy-lift logistics.</p>
+            </div>
+            <div class="use-case-grid">
+
+                <!-- Surveillance & Reconnaissance -->
+                <div class="use-case-card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 5c-7 0-10 7-10 7s3 7 10 7 10-7 10-7-3-7-10-7z"/></svg>
+                    </div>
+                    <h3>Surveillance & Reconnaissance</h3>
+                    <p class="card-desc">Ultra-quiet, high-endurance motors optimised for long-loiter ISR platforms. Minimal thermal and acoustic signatures enable covert operations in contested airspace.</p>
+                    <div class="card-specs">
+                        <div class="spec-row">
+                            <span class="spec-label">Endurance</span>
+                            <span class="spec-value">4+ Hours</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Payload</span>
+                            <span class="spec-value">2 - 5 kg Sensor Suite</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Noise @ 10m</span>
+                            <span class="spec-value">&lt; 55 dBA</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Motor</span>
+                            <span class="motor-tag">WR-D3510-600</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Heavy Cargo & Logistics -->
+                <div class="use-case-card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    </div>
+                    <h3>Heavy Cargo & Logistics</h3>
+                    <p class="card-desc">Maximum thrust density for forward-operating resupply missions. Engineered to lift critical supplies into austere landing zones under demanding environmental conditions.</p>
+                    <div class="card-specs">
+                        <div class="spec-row">
+                            <span class="spec-label">Max Payload</span>
+                            <span class="spec-value">25 - 80 kg</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Range</span>
+                            <span class="spec-value">50+ km Loaded</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Thrust/Weight</span>
+                            <span class="spec-value">2.8:1 Ratio</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Motor</span>
+                            <span class="motor-tag">WR-D8025-200</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search & Rescue -->
+                <div class="use-case-card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+                    </div>
+                    <h3>Search & Rescue</h3>
+                    <p class="card-desc">Reliable performance in extreme weather for time-critical casualty evacuation and search operations. Redundant motor architectures ensure mission completion in degraded conditions.</p>
+                    <div class="card-specs">
+                        <div class="spec-row">
+                            <span class="spec-label">Wind Tolerance</span>
+                            <span class="spec-value">50+ kt Gusts</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Payload</span>
+                            <span class="spec-value">10 - 30 kg CASEVAC</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Cold Start</span>
+                            <span class="spec-value">-40&deg;C Verified</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Motor</span>
+                            <span class="motor-tag">WR-D6020-280</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mine Detection & EOD -->
+                <div class="use-case-card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    </div>
+                    <h3>Mine Detection & EOD</h3>
+                    <p class="card-desc">Precision hovering and ultra-stable flight characteristics for mine clearance and explosive ordnance disposal. Sub-centimetre position hold for sensor-intensive sweep patterns.</p>
+                    <div class="card-specs">
+                        <div class="spec-row">
+                            <span class="spec-label">Position Hold</span>
+                            <span class="spec-value">&lt; 5 cm Drift</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Payload</span>
+                            <span class="spec-value">3 - 8 kg GPR/Sensor</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Hover Efficiency</span>
+                            <span class="spec-value">92% @ Cruise</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Motor</span>
+                            <span class="motor-tag">WR-D4014-450</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Communications Relay -->
+                <div class="use-case-card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg>
+                    </div>
+                    <h3>Communications Relay</h3>
+                    <p class="card-desc">Extended station-keeping for airborne communications nodes. Maximum endurance at altitude with minimal vibration to maintain antenna alignment and signal integrity.</p>
+                    <div class="card-specs">
+                        <div class="spec-row">
+                            <span class="spec-label">Station Keep</span>
+                            <span class="spec-value">6+ Hours</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Payload</span>
+                            <span class="spec-value">3 - 6 kg Comms Pack</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Vibration</span>
+                            <span class="spec-value">&lt; 0.02g RMS</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Motor</span>
+                            <span class="motor-tag">WR-D5016-350</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Border Security -->
+                <div class="use-case-card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+                    </div>
+                    <h3>Border Security</h3>
+                    <p class="card-desc">Autonomous persistent surveillance across vast perimeters. Optimised for continuous patrol cycles with rapid hot-swap motor replacement enabling 24/7 coverage with minimal fleet size.</p>
+                    <div class="card-specs">
+                        <div class="spec-row">
+                            <span class="spec-label">Patrol Range</span>
+                            <span class="spec-value">120+ km Circuit</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Payload</span>
+                            <span class="spec-value">4 - 8 kg EO/IR</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Motor Swap</span>
+                            <span class="spec-value">&lt; 90 sec Field</span>
+                        </div>
+                        <div class="spec-row">
+                            <span class="spec-label">Motor</span>
+                            <span class="motor-tag">WR-D4014-450</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why WelkinRim for Defence -->
+    <section class="why-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why WelkinRim for Defence</h2>
+                <p>Every WR-D series motor is engineered to exceed the demanding requirements of military and government operations.</p>
+            </div>
+            <div class="why-grid">
+
+                <div class="why-card">
+                    <div class="why-card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                    </div>
+                    <h3>MIL-STD Compliance</h3>
+                    <p>Tested and qualified to MIL-STD-810H for shock, vibration, humidity, altitude, temperature cycling, and sand/dust exposure. Full environmental qualification reports available under NDA.</p>
+                    <span class="detail-tag">MIL-STD-810H / MIL-STD-461G</span>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                    </div>
+                    <h3>IP67 / IP68 Ingress Protection</h3>
+                    <p>Fully sealed motor assemblies rated IP67 (standard) and IP68 (marine variant). Operate in driving rain, sandstorms, salt fog, and temporary submersion without performance degradation.</p>
+                    <span class="detail-tag">IP68 Marine Variant Available</span>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <h3>Field Serviceability</h3>
+                    <p>Tool-free quick-release motor mounts enable sub-90-second motor swaps in field conditions. No specialised equipment required. Designed for gloved operation in low-visibility environments.</p>
+                    <span class="detail-tag">&lt; 90 Second Hot-Swap</span>
+                </div>
+
+                <div class="why-card">
+                    <div class="why-card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+                    </div>
+                    <h3>Extreme Temperature Range</h3>
+                    <p>Verified operation from -40&deg;C to +85&deg;C continuous. Arctic-grade bearings and high-temperature winding insulation ensure consistent torque delivery across the full environmental envelope.</p>
+                    <span class="detail-tag">-40&deg;C to +85&deg;C Continuous</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="testimonial-section">
+        <div class="container">
+            <div class="testimonial-card">
+                <div class="testimonial-quote-mark">&ldquo;</div>
+                <p class="testimonial-text">We evaluated seven motor manufacturers before selecting WelkinRim for our Group 2 UAS programme. After 18 months of operational deployment and over 4,200 flight hours across three theatres, motor reliability has exceeded 99.94%. The field serviceability alone justified the selection.</p>
+                <div class="testimonial-author">
+                    <span class="testimonial-name">Programme Director, UAS Integration</span>
+                    <span class="testimonial-role">NATO-Allied Defence Contractor</span>
+                    <span class="testimonial-classification">Unclassified / Approved for Public Release</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Configure Your Defence System</h2>
+            <p>Select mission parameters and let our configurator recommend the optimal motor and propulsion package for your platform.</p>
+            <div class="cta-buttons">
+                <a href="../configurator.html?preset=defence" class="cta-btn-primary">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                    Configure Defence System
+                </a>
+                <a href="../contact.html" class="cta-btn-secondary">Contact Defence Sales Team</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="main-footer"></footer>
+    <script src="../shared.js"></script>
+    <script src="../motor-database.js"></script>
+    <script src="../scripts.js"></script>
+    <script src="../products/product-page.js"></script>
+    <script src="../products/motor-detail.js"></script>
+</body>
+</html>

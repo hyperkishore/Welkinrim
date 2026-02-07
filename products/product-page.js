@@ -50,6 +50,27 @@
             font-size: 0.75rem;
             font-weight: 600;
         }
+        .pcg-series-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .pcg-series-badge--defence {
+            background: rgba(246,166,4,0.15);
+            color: #f6a604;
+            border: 1px solid rgba(246,166,4,0.3);
+        }
+        .pcg-series-badge--agriculture {
+            background: rgba(34,197,94,0.15);
+            color: #22c55e;
+            border: 1px solid rgba(34,197,94,0.3);
+        }
         .pcg-info {
             padding: 32px;
             display: flex;
@@ -187,6 +208,12 @@
             case 'industrial':
                 motors = motors.filter(m => m.series === 'Industrial');
                 break;
+            case 'defence':
+                motors = motors.filter(m => m.series === 'Defence');
+                break;
+            case 'agriculture':
+                motors = motors.filter(m => m.series === 'Agriculture');
+                break;
             case 'all':
             default:
                 break;
@@ -219,11 +246,18 @@
             ? '<span style="background:#f6a604;color:white;padding:4px 10px;border-radius:4px;font-size:0.75rem;font-weight:600;">WelkinRim</span>'
             : '<span style="background:#e0e0e0;color:#333;padding:4px 10px;border-radius:4px;font-size:0.75rem;font-weight:600;">' + motor.brand + '</span>';
 
+        const seriesBadge = motor.series === 'Defence'
+            ? '<span class="pcg-series-badge pcg-series-badge--defence">Defence Grade</span>'
+            : motor.series === 'Agriculture'
+            ? '<span class="pcg-series-badge pcg-series-badge--agriculture">Agriculture</span>'
+            : '';
+
         return `
             <div class="product-card-generated" data-motor-id="${motor.id}">
                 <div class="pcg-image">
                     <img src="${imageSrc}" alt="${motor.model}" loading="lazy">
                     ${inStock ? '<div class="pcg-badge">In Stock</div>' : ''}
+                    ${seriesBadge}
                 </div>
                 <div class="pcg-info">
                     <div class="pcg-header">
