@@ -128,10 +128,14 @@
                 </div>
             </div>
         </div>
+        <div class="scroll-indicator" onclick="document.querySelector('.company-credentials').scrollIntoView({behavior:'smooth'})">
+            <span>Scroll</span>
+            <div class="scroll-indicator-arrow"></div>
+        </div>
     </section>
 
     <!-- Company Credentials -->
-    <section class="company-credentials">
+    <section class="company-credentials section-dark">
         <div class="container">
             <div class="credentials-grid">
                 <div class="credential-item">
@@ -163,10 +167,15 @@
     </section>
 
     <!-- Value Propositions -->
-    <section class="value-props">
+    <section class="value-props section-light">
+        <div class="section-divider section-divider-top">
+            <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,50 C300,0 900,0 1200,50 L1200,0 L0,0 Z" fill="#0d0d1a"/>
+            </svg>
+        </div>
         <div class="container">
-            <h2 class="section-title">Why Choose WelkinRim</h2>
-            <div class="value-grid">
+            <h2 class="section-title reveal-up">Why Choose WelkinRim</h2>
+            <div class="value-grid stagger-children">
                 <div class="value-card">
                     <div class="value-icon">
                         <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
@@ -223,10 +232,15 @@
     </section>
 
     <!-- Motor Selector Tool -->
-    <section class="motor-selector" id="motor-selector">
+    <section class="motor-selector section-dark" id="motor-selector">
+        <div class="section-divider section-divider-top">
+            <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,0 L1200,0 L1200,50 C900,0 300,0 0,50 Z" fill="#ffffff"/>
+            </svg>
+        </div>
         <div class="container">
-            <h2 class="section-title">Find Your Perfect Motor</h2>
-            <p class="section-subtitle">Answer a few questions to get personalized motor recommendations</p>
+            <h2 class="section-title reveal-up">Find Your Perfect Motor</h2>
+            <p class="section-subtitle reveal-up" data-delay="100">Answer a few questions to get personalized motor recommendations</p>
             
             <div class="selector-form">
                 <div class="form-group">
@@ -276,10 +290,15 @@
     </section>
 
     <!-- Product Categories -->
-    <section class="product-categories" id="products">
+    <section class="product-categories section-light" id="products">
+        <div class="section-divider section-divider-top">
+            <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,50 C300,0 900,0 1200,50 L1200,0 L0,0 Z" fill="#0a0a0a"/>
+            </svg>
+        </div>
         <div class="container">
-            <h2 class="section-title">Product Categories</h2>
-            <div class="category-grid">
+            <h2 class="section-title reveal-up">Product Categories</h2>
+            <div class="category-grid stagger-children">
                 <div class="category-card">
                     <div class="category-image">
                         <img src="assets/micro-motor.svg" alt="Micro Motors" loading="lazy">
@@ -322,8 +341,8 @@
     <!-- Featured Products -->
     <section class="featured-products">
         <div class="container">
-            <h2 class="section-title">Featured Products</h2>
-            <div class="product-grid">
+            <h2 class="section-title reveal-up">Featured Products</h2>
+            <div class="product-grid stagger-children">
                 <div class="product-card">
                     <div class="product-image">
                         <img src="assets/wr2815-motor.svg" alt="WR2815-900" loading="lazy">
@@ -387,10 +406,15 @@
     </section>
 
     <!-- Industries -->
-    <section class="industries" id="industries">
+    <section class="industries section-dark" id="industries">
+        <div class="section-divider section-divider-top">
+            <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,0 L1200,0 L1200,50 C900,0 300,0 0,50 Z" fill="#fafbfc"/>
+            </svg>
+        </div>
         <div class="container">
-            <h2 class="section-title">Industries We Serve</h2>
-            <div class="industry-grid">
+            <h2 class="section-title reveal-up">Industries We Serve</h2>
+            <div class="industry-grid stagger-children">
                 <div class="industry-card">
                     <div class="industry-icon">
                         <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
@@ -447,10 +471,15 @@
     </section>
 
     <!-- Technical Resources -->
-    <section class="resources" id="support">
+    <section class="resources section-light" id="support">
+        <div class="section-divider section-divider-top">
+            <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,50 C300,0 900,0 1200,50 L1200,0 L0,0 Z" fill="#0a0a0a"/>
+            </svg>
+        </div>
         <div class="container">
-            <h2 class="section-title">Technical Resources</h2>
-            <div class="resources-grid">
+            <h2 class="section-title reveal-up">Technical Resources</h2>
+            <div class="resources-grid stagger-children">
                 <div class="resource-card">
                     <div class="resource-icon">📊</div>
                     <h3 class="resource-title">Performance Calculator</h3>
@@ -486,7 +515,14 @@
     <section class="trusted-by">
         <div class="container">
             <p class="trusted-by-label">Trusted by industry leaders worldwide</p>
-            <div class="trusted-logos">
+            <div class="trusted-logos marquee-track">
+                <div class="trusted-logo-item">AgriDrone Systems</div>
+                <div class="trusted-logo-item">SkyLogistics</div>
+                <div class="trusted-logo-item">MIT Aerospace</div>
+                <div class="trusted-logo-item">DroneTech GmbH</div>
+                <div class="trusted-logo-item">AeroScan Industries</div>
+                <div class="trusted-logo-item">Pacific UAV</div>
+                <!-- Duplicated for seamless loop -->
                 <div class="trusted-logo-item">AgriDrone Systems</div>
                 <div class="trusted-logo-item">SkyLogistics</div>
                 <div class="trusted-logo-item">MIT Aerospace</div>
@@ -500,9 +536,9 @@
     <!-- Testimonials -->
     <section class="testimonials" id="company">
         <div class="container">
-            <h2 class="section-title">What Our Customers Say</h2>
-            <p class="section-subtitle">Real results from teams using WelkinRim motors in production</p>
-            <div class="testimonials-grid">
+            <h2 class="section-title reveal-up">What Our Customers Say</h2>
+            <p class="section-subtitle reveal-up" data-delay="100">Real results from teams using WelkinRim motors in production</p>
+            <div class="testimonials-grid stagger-children">
                 <div class="testimonial-card">
                     <div class="testimonial-industry-tag">Agriculture</div>
                     <div class="testimonial-rating">
@@ -554,9 +590,14 @@
 
     <!-- Contact CTA -->
     <section class="contact-cta" id="contact">
+        <div class="section-divider section-divider-top">
+            <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,0 L1200,0 L1200,50 C900,0 300,0 0,50 Z" fill="#fafbfc"/>
+            </svg>
+        </div>
         <div class="container">
             <div class="cta-content">
-                <h2 class="cta-title">Ready to Power Your Next Project?</h2>
+                <h2 class="cta-title reveal-up">Ready to Power Your <span class="gradient-text">Next Project</span>?</h2>
                 <p class="cta-description">Get technical support, custom solutions, or bulk pricing from our engineering team.</p>
                 <div class="cta-actions">
                     <a href="contact.html" class="btn btn-primary btn-large">Get Quote</a>
@@ -627,6 +668,13 @@
             </div>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
 
     <script src="motor-database.js" defer></script>
     <script src="scripts.js" defer></script>

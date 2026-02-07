@@ -52,6 +52,33 @@ document.addEventListener('DOMContentLoaded', function() {
             scrollProgress.style.width = progress + '%';
         }
 
+        // Back to top button
+        const backToTop = document.getElementById('back-to-top');
+        if (backToTop) {
+            if (currentScroll > window.innerHeight) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }
+
+        // Active section highlighting
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+        let currentSection = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 120;
+            if (currentScroll >= sectionTop) {
+                currentSection = section.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('nav-link-active');
+            if (link.getAttribute('href') === '#' + currentSection) {
+                link.classList.add('nav-link-active');
+            }
+        });
+
         lastScroll = currentScroll;
         scrollTicking = false;
     }
@@ -62,6 +89,14 @@ document.addEventListener('DOMContentLoaded', function() {
             scrollTicking = true;
         }
     });
+
+    // Back to top click handler
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (backToTopBtn) {
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 });
 
 // Motor Selector Tool
@@ -222,7 +257,43 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Intersection Observer for animations
+// ==========================================
+// SCROLL REVEAL SYSTEM
+// ==========================================
+
+class ScrollReveal {
+    constructor(options = {}) {
+        this.threshold = options.threshold || 0.1;
+        this.rootMargin = options.rootMargin || '0px 0px -60px 0px';
+        this.observer = new IntersectionObserver(this.handleIntersect.bind(this), {
+            threshold: this.threshold,
+            rootMargin: this.rootMargin
+        });
+    }
+
+    handleIntersect(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const delay = el.dataset.delay || 0;
+                setTimeout(() => {
+                    el.classList.add('reveal-active');
+                    el.classList.add('animate-in');
+                }, parseInt(delay));
+                this.observer.unobserve(el);
+            }
+        });
+    }
+
+    observe(elements) {
+        if (typeof elements === 'string') {
+            elements = document.querySelectorAll(elements);
+        }
+        elements.forEach(el => this.observer.observe(el));
+    }
+}
+
+// Legacy observer for backward compatibility
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -232,17 +303,23 @@ const observer = new IntersectionObserver(function(entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('animate-in');
+            entry.target.classList.add('reveal-active');
         }
     });
 }, observerOptions);
 
-// Observe elements for animation
+// Initialize ScrollReveal
 document.addEventListener('DOMContentLoaded', function() {
-    const animateElements = document.querySelectorAll('.value-card, .category-card, .product-card, .industry-card, .resource-card');
-    
-    animateElements.forEach(el => {
-        observer.observe(el);
-    });
+    const sr = new ScrollReveal();
+
+    // Observe all revealable elements
+    sr.observe('.reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale');
+
+    // Observe card elements
+    const animateElements = document.querySelectorAll(
+        '.value-card, .category-card, .product-card, .industry-card, .resource-card, .credential-item, .testimonial-card'
+    );
+    animateElements.forEach(el => observer.observe(el));
 });
 
 // Form validation and enhancement
@@ -442,10 +519,86 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// ==========================================
+// BUTTON RIPPLE EFFECT
+// ==========================================
+function initRipple() {
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.btn, .btn-primary, .nav-cta');
+        if (!btn) return;
+
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple');
+        const rect = btn.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+        ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+        btn.appendChild(ripple);
+
+        ripple.addEventListener('animationend', () => ripple.remove());
+    });
+}
+
+// ==========================================
+// MAGNETIC HOVER ON BUTTONS
+// ==========================================
+function initMagneticButtons() {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (isMobile || prefersReducedMotion) return;
+
+    const magneticBtns = document.querySelectorAll('.btn-primary, .btn-large, .nav-cta');
+    magneticBtns.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+        });
+
+        btn.addEventListener('mouseleave', () => {
+            btn.style.transform = '';
+        });
+    });
+}
+
+// ==========================================
+// 3D TILT EFFECT ON CARDS
+// ==========================================
+function initCardTilt() {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (isMobile || prefersReducedMotion) return;
+
+    const tiltCards = document.querySelectorAll('.product-card, .category-card, .value-card, .resource-card, .testimonial-card');
+
+    tiltCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / centerY * -4;
+            const rotateY = (x - centerX) / centerX * 4;
+
+            card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+        });
+    });
+}
+
 // Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize components
     loadDynamicContent();
+    initCardTilt();
+    initRipple();
+    initMagneticButtons();
 
     // Set up progressive enhancement
     document.body.classList.add('js-enabled');
