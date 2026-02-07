@@ -1135,64 +1135,61 @@ h6 { font-size: 1rem; font-weight: 500; }
 
 /* Resources */
 .resources {
-    padding: 120px 0;
-    padding-top: 140px;
+    padding: 80px 0;
+    padding-top: 120px;
     background: var(--gradient-light-section);
     position: relative;
 }
 
-.resources-grid {
+.resources-strip {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 32px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
-.resource-card {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
-    border-radius: 16px;
-    padding: 32px;
-    text-align: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.resource-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 50px rgba(23, 26, 32, 0.12);
-    border-color: rgba(246, 166, 4, 0.15);
-}
-
-.resource-icon {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    display: block;
-}
-
-.resource-title {
-    font-size: 1.25rem;
-    margin-bottom: 12px;
-}
-
-.resource-description {
-    color: #666;
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.resource-link {
-    color: #171a20;
-    text-decoration: none;
-    font-weight: 500;
-    display: inline-flex;
+.resource-item {
+    display: flex;
     align-items: center;
-    gap: 4px;
-    transition: gap 0.2s ease;
+    gap: 14px;
+    padding: 20px 24px;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 12px;
+    text-decoration: none;
+    color: #171a20;
+    transition: all 0.3s ease;
 }
 
-.resource-link:hover {
-    gap: 8px;
+.resource-item:hover {
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border-color: rgba(246, 166, 4, 0.2);
+}
+
+.resource-item svg {
+    flex-shrink: 0;
+    color: #6b7280;
+    transition: color 0.3s ease;
+}
+
+.resource-item:hover svg {
+    color: #f6a604;
+}
+
+.resource-item-title {
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.resource-item-arrow {
+    margin-left: auto;
+    color: #9ca3af;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.resource-item:hover .resource-item-arrow {
+    transform: translateX(3px);
+    color: #f6a604;
 }
 
 /* Contact CTA - Dramatic dark section */
@@ -1484,14 +1481,14 @@ h6 { font-size: 1rem; font-weight: 500; }
     .value-card,
     .category-card,
     .product-card,
-    .resource-card,
+    .resource-item,
     .testimonial-card {
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
     }
 
     .value-card,
-    .resource-card,
+    .resource-item,
     .testimonial-card {
         background: rgba(255, 255, 255, 0.95);
     }
@@ -1507,7 +1504,7 @@ h6 { font-size: 1rem; font-weight: 500; }
     .category-grid,
     .product-grid,
     .industry-grid,
-    .resources-grid,
+    .resources-strip,
     .testimonials-grid {
         grid-template-columns: 1fr;
     }
@@ -1565,7 +1562,7 @@ h6 { font-size: 1rem; font-weight: 500; }
     .value-card,
     .category-card,
     .product-card,
-    .resource-card,
+    .resource-item,
     .testimonial-card {
         background: rgba(255, 255, 255, 0.95);
     }
@@ -1766,7 +1763,7 @@ h6 { font-size: 1rem; font-weight: 500; }
 .value-card,
 .category-card,
 .product-card,
-.resource-card {
+.resource-item {
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -1775,11 +1772,11 @@ h6 { font-size: 1rem; font-weight: 500; }
 .value-card.animate-in,
 .category-card.animate-in,
 .product-card.animate-in,
-.resource-card.animate-in,
+.resource-item.animate-in,
 .value-card.reveal-active,
 .category-card.reveal-active,
 .product-card.reveal-active,
-.resource-card.reveal-active {
+.resource-item.reveal-active {
     opacity: 1;
     transform: translateY(0);
 }
@@ -1849,13 +1846,7 @@ h6 { font-size: 1rem; font-weight: 500; }
     transform: scale(1.1);
 }
 
-.resource-icon {
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.resource-card:hover .resource-icon {
-    transform: scale(1.15);
-}
+/* Resource item hover icon handled inline */
 
 /* Input Focus Glow */
 .form-select:focus,
@@ -2339,16 +2330,12 @@ body {
     .value-card,
     .category-card,
     .product-card,
-    .resource-card,
+    .resource-item,
     .testimonial-card,
     .industry-card,
     .credential-item {
         opacity: 1 !important;
         transform: none !important;
-    }
-
-    .hero-motor-image {
-        animation: none !important;
     }
 
     .marquee-track {

@@ -317,7 +317,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Observe card elements
     const animateElements = document.querySelectorAll(
-        '.value-card, .category-card, .product-card, .industry-card, .resource-card, .credential-item, .testimonial-card'
+        '.value-card, .category-card, .product-card, .industry-card, .resource-item, .credential-item, .testimonial-card'
     );
     animateElements.forEach(el => observer.observe(el));
 });
@@ -571,7 +571,7 @@ function initCardTilt() {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (isMobile || prefersReducedMotion) return;
 
-    const tiltCards = document.querySelectorAll('.product-card, .category-card, .value-card, .resource-card, .testimonial-card');
+    const tiltCards = document.querySelectorAll('.product-card, .category-card, .value-card, .testimonial-card');
 
     tiltCards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
