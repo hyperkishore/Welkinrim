@@ -428,19 +428,23 @@ h6 { font-size: 1rem; font-weight: 500; }
     z-index: 1;
 }
 
-/* Radial glow behind motor image */
+/* Radial glow — centered for single-column hero */
 .hero::after {
     content: '';
     position: absolute;
-    top: 50%;
-    right: 15%;
-    width: 500px;
-    height: 500px;
-    transform: translate(50%, -50%);
+    top: 40%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    transform: translate(-50%, -50%);
     background: var(--gradient-glow);
     border-radius: 50%;
     z-index: 1;
     pointer-events: none;
+}
+
+.hero--centered .hero-cta {
+    justify-content: center;
 }
 
 .hero-container {
@@ -455,8 +459,18 @@ h6 { font-size: 1rem; font-weight: 500; }
     z-index: 2;
 }
 
+.hero-container--single {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+}
+
 .hero-content {
     max-width: 560px;
+}
+
+.hero-content--centered {
+    max-width: 720px;
 }
 
 .hero-title {
@@ -493,7 +507,7 @@ h6 { font-size: 1rem; font-weight: 500; }
 
 .hero-stats {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin-bottom: 40px;
     padding: 30px 0;
@@ -1374,7 +1388,7 @@ h6 { font-size: 1rem; font-weight: 500; }
 /* Responsive Design */
 @media (max-width: 1024px) {
     .hero-stats {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 20px;
     }
 
@@ -1444,7 +1458,7 @@ h6 { font-size: 1rem; font-weight: 500; }
     }
 
     .hero-stats {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 15px;
     }
 
@@ -1453,37 +1467,12 @@ h6 { font-size: 1rem; font-weight: 500; }
         gap: 15px;
     }
 
-    .hero-motor-display {
-        max-width: 100%;
-        padding: 24px;
-    }
-
-    .hero-motor-image {
-        width: 200px;
-        height: 200px;
-    }
-
-    .hero-specs {
-        position: static;
-        transform: none;
-        margin-top: 20px;
-    }
-
     .hero-cta {
         justify-content: center;
     }
 
     .hero::after {
         display: none;
-    }
-
-    .scroll-indicator {
-        display: none;
-    }
-
-    /* Disable heavy effects on mobile */
-    .hero-motor-image {
-        animation: none;
     }
 
     .contact-cta::after {
