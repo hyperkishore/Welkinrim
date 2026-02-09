@@ -574,53 +574,11 @@ h6 { font-size: 1rem; font-weight: 500; }
     color: #fff;
 }
 
-.hero-visual {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-motor-display {
-    position: relative;
-    background: var(--glass-bg-light);
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: var(--shadow-elevated);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: var(--glass-blur);
-}
-
-.hero-motor-image {
-    width: 300px;
-    height: 300px;
-    object-fit: contain;
-    animation: heroFloat 6s ease-in-out infinite;
-    filter: drop-shadow(0 10px 30px rgba(246, 166, 4, 0.2));
-}
-
-@keyframes heroFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-}
-
 @keyframes heroFadeUp {
     to {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-.hero-specs {
-    position: absolute;
-    right: -20px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.06);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: var(--glass-blur);
 }
 
 .spec-item {
@@ -649,42 +607,6 @@ h6 { font-size: 1rem; font-weight: 500; }
 }
 
 /* Scroll Down Indicator */
-.scroll-indicator {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-
-.scroll-indicator:hover {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.scroll-indicator-arrow {
-    width: 20px;
-    height: 20px;
-    border-right: 2px solid currentColor;
-    border-bottom: 2px solid currentColor;
-    transform: rotate(45deg);
-    animation: scrollBounce 2s ease-in-out infinite;
-}
-
-@keyframes scrollBounce {
-    0%, 100% { transform: rotate(45deg) translateY(0); opacity: 1; }
-    50% { transform: rotate(45deg) translateY(6px); opacity: 0.5; }
-}
-
 /* ==========================================
    SECTION TRANSITIONS & SVG DIVIDERS
    ========================================== */
@@ -2416,29 +2338,6 @@ a:focus-visible {
    DEFENCE & AGRICULTURE ENHANCEMENTS
    ========================================== */
 
-/* Hero Use Cases Animation */
-.hero-use-cases {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 2rem;
-    font-size: 1rem;
-    color: rgba(255,255,255,0.5);
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.hero-use-case {
-    transition: color 0.4s ease, opacity 0.4s ease;
-}
-.hero-use-case.active {
-    color: #f6a604;
-}
-.hero-use-case-sep {
-    color: rgba(255,255,255,0.2);
-}
-
 /* Solutions Section */
 .solutions-section {
     padding: 100px 0;
@@ -2612,9 +2511,5 @@ a:focus-visible {
     .gauge-ring {
         width: 110px;
         height: 110px;
-    }
-    .hero-use-cases {
-        font-size: 0.85rem;
-        gap: 8px;
     }
 }

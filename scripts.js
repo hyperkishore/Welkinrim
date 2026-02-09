@@ -603,6 +603,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set up progressive enhancement
     document.body.classList.add('js-enabled');
 
+    // Motor selector button
+    const findMotorsBtn = document.getElementById('find-motors-btn');
+    if (findMotorsBtn) {
+        findMotorsBtn.addEventListener('click', findMotors);
+    }
+
     // Add testimonial cards to animation observer
     const testimonialCards = document.querySelectorAll('.testimonial-card');
     testimonialCards.forEach(el => observer.observe(el));
