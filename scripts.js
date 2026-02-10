@@ -317,7 +317,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Observe card elements
     const animateElements = document.querySelectorAll(
-        '.value-card, .category-card, .industry-card, .resource-item, .credential-item, .testimonial-card'
+        '.value-card, .category-card, .industry-card, .resource-item, .testimonial-card'
     );
     animateElements.forEach(el => observer.observe(el));
 });

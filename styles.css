@@ -656,50 +656,92 @@ h6 { font-size: 1rem; font-weight: 500; }
 
 /* Company Credentials */
 .company-credentials {
-    padding: 60px 0;
+    padding: 50px 0;
     background: #0d0d1a;
     border-bottom: none;
     position: relative;
 }
 
-.credentials-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 30px;
-    max-width: 900px;
-    margin: 0 auto;
+.credentials-certs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
 }
 
-.credential-item {
+.credentials-cert-badge {
+    height: 36px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.credentials-cert-badge:hover {
+    opacity: 1;
+}
+
+.credentials-divider {
+    width: 1px;
+    height: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 200px;
+    margin: 32px auto;
+}
+
+.client-marquee-label {
     text-align: center;
-    padding: 20px 10px;
-    background: rgba(255, 255, 255, 0.04);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    transition: all 0.3s ease;
-}
-
-.credential-item:hover {
-    transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-    border-color: rgba(246, 166, 4, 0.2);
-}
-
-.credential-number {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 8px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-}
-
-.credential-label {
-    font-size: 0.75rem;
-    color: rgba(255, 255, 255, 0.45);
-    font-weight: 500;
+    font-size: 0.7rem;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 24px;
+}
+
+.client-marquee {
+    overflow: hidden;
+    position: relative;
+}
+
+.client-marquee::before,
+.client-marquee::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.client-marquee::before {
+    left: 0;
+    background: linear-gradient(to right, #0d0d1a, transparent);
+}
+
+.client-marquee::after {
+    right: 0;
+    background: linear-gradient(to left, #0d0d1a, transparent);
+}
+
+.client-marquee-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: marqueeScroll 35s linear infinite;
+}
+
+.client-marquee-track:hover {
+    animation-play-state: paused;
+}
+
+.client-logo {
+    height: 28px;
+    opacity: 0.35;
+    padding: 0 40px;
+    transition: opacity 0.3s ease;
+}
+
+.client-logo:hover {
+    opacity: 0.7;
 }
 
 /* Value Propositions */
@@ -1224,9 +1266,8 @@ h6 { font-size: 1rem; font-weight: 500; }
         gap: 20px;
     }
 
-    .credentials-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
+    .credentials-cert-badge {
+        height: 30px;
     }
 
     .hero::after {
@@ -1294,9 +1335,8 @@ h6 { font-size: 1rem; font-weight: 500; }
         gap: 15px;
     }
 
-    .credentials-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
+    .credentials-certs {
+        gap: 24px;
     }
 
     .hero-cta {
@@ -1375,13 +1415,16 @@ h6 { font-size: 1rem; font-weight: 500; }
 }
 
 @media (max-width: 480px) {
-    .hero-stats,
-    .credentials-grid {
+    .hero-stats {
         grid-template-columns: 1fr;
     }
 
-    .credential-item {
-        padding: 15px;
+    .credentials-cert-badge {
+        height: 26px;
+    }
+
+    .client-logo {
+        padding: 0 28px;
     }
 
     .hero-cta .btn {
@@ -2158,13 +2201,13 @@ body {
     .category-card,
     .resource-item,
     .testimonial-card,
-    .industry-card,
-    .credential-item {
+    .industry-card {
         opacity: 1 !important;
         transform: none !important;
     }
 
-    .marquee-track {
+    .marquee-track,
+    .client-marquee-track {
         animation: none !important;
     }
 }
