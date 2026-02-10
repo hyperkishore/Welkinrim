@@ -1,3 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" width="160" height="40">
-  <text x="80" y="25" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="700" fill="#ffffff" letter-spacing="1.5" text-transform="uppercase">GARUDA AEROSPACE</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 44" width="220" height="44">
+  <!-- Eagle/bird wing icon -->
+  <path d="M8 26 C12 14, 22 10, 30 12 C24 16, 20 20, 18 26" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M14 22 C16 16, 24 12, 32 14" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round"/>
+  <text x="42" y="27" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13.5" font-weight="700" fill="#ffffff" letter-spacing="1.2">GARUDA AEROSPACE</text>
 </svg>

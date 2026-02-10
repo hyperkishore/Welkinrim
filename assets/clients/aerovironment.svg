@@ -1,3 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" width="160" height="40">
-  <text x="80" y="25" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#ffffff" letter-spacing="1.5" text-transform="uppercase">AEROVIRONMENT</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 44" width="210" height="44">
+  <!-- Stylized 'A' with arrow/flight path -->
+  <path d="M10 30 L20 10 L30 30" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="14" y1="23" x2="26" y2="23" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M24 16 L30 14 L28 20" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="42" y="27" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="700" fill="#ffffff" letter-spacing="1.5">AEROVIRONMENT</text>
 </svg>

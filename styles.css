@@ -654,37 +654,12 @@ h6 { font-size: 1rem; font-weight: 500; }
     height: 50px;
 }
 
-/* Company Credentials */
+/* Company Credentials — Client Marquee */
 .company-credentials {
-    padding: 50px 0;
+    padding: 44px 0;
     background: #0d0d1a;
     border-bottom: none;
     position: relative;
-}
-
-.credentials-certs {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 32px;
-}
-
-.credentials-cert-badge {
-    height: 36px;
-    opacity: 0.6;
-    transition: opacity 0.3s ease;
-}
-
-.credentials-cert-badge:hover {
-    opacity: 1;
-}
-
-.credentials-divider {
-    width: 1px;
-    height: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    max-width: 200px;
-    margin: 32px auto;
 }
 
 .client-marquee-label {
@@ -734,14 +709,14 @@ h6 { font-size: 1rem; font-weight: 500; }
 }
 
 .client-logo {
-    height: 28px;
-    opacity: 0.35;
-    padding: 0 40px;
+    height: 34px;
+    opacity: 0.45;
+    padding: 0 44px;
     transition: opacity 0.3s ease;
 }
 
 .client-logo:hover {
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 /* Value Propositions */
@@ -1266,10 +1241,6 @@ h6 { font-size: 1rem; font-weight: 500; }
         gap: 20px;
     }
 
-    .credentials-cert-badge {
-        height: 30px;
-    }
-
     .hero::after {
         width: 350px;
         height: 350px;
@@ -1333,10 +1304,6 @@ h6 { font-size: 1rem; font-weight: 500; }
     .hero-stats {
         grid-template-columns: repeat(3, 1fr);
         gap: 15px;
-    }
-
-    .credentials-certs {
-        gap: 24px;
     }
 
     .hero-cta {
@@ -1417,10 +1384,6 @@ h6 { font-size: 1rem; font-weight: 500; }
 @media (max-width: 480px) {
     .hero-stats {
         grid-template-columns: 1fr;
-    }
-
-    .credentials-cert-badge {
-        height: 26px;
     }
 
     .client-logo {
