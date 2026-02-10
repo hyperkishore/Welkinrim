@@ -881,10 +881,20 @@ h6 { font-size: 1rem; font-weight: 500; }
     margin-bottom: 16px;
 }
 
-.category-description {
-    color: #666;
+.category-spec-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
     margin-bottom: 24px;
-    line-height: 1.6;
+}
+
+.spec-pill {
+    background: rgba(23, 26, 32, 0.06);
+    color: #171a20;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 500;
 }
 
 .category-link {
@@ -900,103 +910,6 @@ h6 { font-size: 1rem; font-weight: 500; }
 
 .category-link:hover {
     gap: 8px;
-}
-
-/* Featured Products */
-.featured-products {
-    padding: 120px 0;
-    background: #f8f7f4;
-    position: relative;
-}
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px;
-}
-
-.product-card {
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 24px 60px rgba(23, 26, 32, 0.12);
-    border-color: rgba(246, 166, 4, 0.15);
-}
-
-.product-image {
-    position: relative;
-    height: 240px;
-    background: #f8f9fa;
-    overflow: hidden;
-}
-
-.product-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    padding: 20px;
-}
-
-.product-badge {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    background: #171a20;
-    color: white;
-    padding: 6px 14px;
-    border-radius: 50px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-}
-
-.product-info {
-    padding: 24px;
-}
-
-.product-name {
-    font-size: 1.25rem;
-    margin-bottom: 4px;
-}
-
-.product-category {
-    font-size: 0.875rem;
-    color: #666;
-    margin-bottom: 16px;
-}
-
-.product-specs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 24px;
-}
-
-.spec {
-    background: rgba(23, 26, 32, 0.05);
-    color: #171a20;
-    padding: 6px 12px;
-    border-radius: 50px;
-    font-size: 0.75rem;
-    font-weight: 500;
-}
-
-.product-actions {
-    display: flex;
-    gap: 12px;
-}
-
-.product-actions .btn {
-    flex: 1;
-    justify-content: center;
 }
 
 /* Industries */
@@ -1402,7 +1315,6 @@ h6 { font-size: 1rem; font-weight: 500; }
     .selector-form,
     .value-card,
     .category-card,
-    .product-card,
     .resource-item,
     .testimonial-card {
         backdrop-filter: none;
@@ -1424,7 +1336,6 @@ h6 { font-size: 1rem; font-weight: 500; }
     }
 
     .category-grid,
-    .product-grid,
     .industry-grid,
     .resources-strip,
     .testimonials-grid {
@@ -1483,7 +1394,6 @@ h6 { font-size: 1rem; font-weight: 500; }
 @supports not (backdrop-filter: blur(10px)) {
     .value-card,
     .category-card,
-    .product-card,
     .resource-item,
     .testimonial-card {
         background: rgba(255, 255, 255, 0.95);
@@ -1684,7 +1594,6 @@ h6 { font-size: 1rem; font-weight: 500; }
 /* Enhanced Card Hover Effects */
 .value-card,
 .category-card,
-.product-card,
 .resource-item {
     opacity: 0;
     transform: translateY(30px);
@@ -1693,11 +1602,9 @@ h6 { font-size: 1rem; font-weight: 500; }
 
 .value-card.animate-in,
 .category-card.animate-in,
-.product-card.animate-in,
 .resource-item.animate-in,
 .value-card.reveal-active,
 .category-card.reveal-active,
-.product-card.reveal-active,
 .resource-item.reveal-active {
     opacity: 1;
     transform: translateY(0);
@@ -1800,13 +1707,11 @@ textarea:focus {
 /* Form focus handled in main form definition above */
 
 /* Image Hover Effects */
-.category-image img,
-.product-image img {
+.category-image img {
     transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
-.category-card:hover .category-image img,
-.product-card:hover .product-image img {
+.category-card:hover .category-image img {
     transform: scale(1.08);
 }
 
@@ -2251,7 +2156,6 @@ body {
 
     .value-card,
     .category-card,
-    .product-card,
     .resource-item,
     .testimonial-card,
     .industry-card,
@@ -2328,7 +2232,6 @@ a:focus-visible {
         page-break-after: avoid;
     }
 
-    .product-card,
     .result-card {
         page-break-inside: avoid;
     }
