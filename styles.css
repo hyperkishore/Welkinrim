@@ -279,6 +279,12 @@ h6 { font-size: 1rem; font-weight: 500; }
     height: 40px;
     width: auto;
     max-width: 150px;
+    filter: brightness(0) invert(1);
+    transition: filter 0.4s ease;
+}
+
+.nav-scrolled .nav-logo {
+    filter: none;
 }
 
 .nav-brand-text {
@@ -344,6 +350,14 @@ h6 { font-size: 1rem; font-weight: 500; }
 
 .nav-link:hover {
     color: #ffffff;
+}
+
+.nav-scrolled {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
 }
 
 .nav-scrolled .nav-link {
