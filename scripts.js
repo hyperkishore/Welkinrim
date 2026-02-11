@@ -317,7 +317,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Observe card elements
     const animateElements = document.querySelectorAll(
-        '.value-card, .category-card, .industry-card, .resource-item, .testimonial-card'
+        '.value-card, .category-card, .industry-card, .resource-item, .testimonial-card, .field-story-card, .lab-article-card'
     );
     animateElements.forEach(el => observer.observe(el));
 });
@@ -592,6 +592,124 @@ function initCardTilt() {
     });
 }
 
+// ==========================================
+// MOTOR VISUAL SHOWCASE
+// ==========================================
+function initMotorShowcase() {
+    const motorData = {
+        wr3508: {
+            front: 'assets/wr3508-motor.svg',
+            side: 'assets/wr3508-side.svg',
+            back: 'assets/wr3508-back.svg',
+            specs: 'assets/wr3508-specs.svg',
+            thrust: '8.5 kg', weight: '185g', kv: '600KV', voltage: '6S LiPo', efficiency: '93%', ip: 'IP67'
+        },
+        wr2815: {
+            front: 'assets/wr2815-motor-detail.svg',
+            side: 'assets/wr2815-side.svg',
+            back: 'assets/wr2815-back.svg',
+            specs: 'assets/wr2815-specs.svg',
+            thrust: '5.2 kg', weight: '128g', kv: '900KV', voltage: '6S LiPo', efficiency: '91%', ip: 'IP65'
+        },
+        wr2212: {
+            front: 'assets/wr2212-motor.svg',
+            side: 'assets/wr2212-side.svg',
+            back: 'assets/wr2212-back.svg',
+            specs: 'assets/wr2212-specs.svg',
+            thrust: '2.1 kg', weight: '58g', kv: '1400KV', voltage: '4S LiPo', efficiency: '89%', ip: 'IP54'
+        }
+    };
+
+    let currentMotor = 'wr3508';
+    let currentView = 'front';
+
+    const img = document.getElementById('showcase-image');
+    const tabs = document.querySelectorAll('.showcase-tab');
+    const viewBtns = document.querySelectorAll('.showcase-view-btn');
+    if (!img || !tabs.length) return;
+
+    function updateImage() {
+        img.style.opacity = '0';
+        setTimeout(() => {
+            img.src = motorData[currentMotor][currentView];
+            img.alt = currentMotor.toUpperCase() + ' - ' + currentView + ' view';
+            img.style.opacity = '1';
+        }, 150);
+    }
+
+    function updateSpecs() {
+        const data = motorData[currentMotor];
+        document.getElementById('spec-thrust').textContent = data.thrust;
+        document.getElementById('spec-weight').textContent = data.weight;
+        document.getElementById('spec-kv').textContent = data.kv;
+        document.getElementById('spec-voltage').textContent = data.voltage;
+        document.getElementById('spec-efficiency').textContent = data.efficiency;
+        document.getElementById('spec-ip').textContent = data.ip;
+    }
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            currentMotor = tab.dataset.motor;
+            currentView = 'front';
+            viewBtns.forEach(b => b.classList.remove('active'));
+            viewBtns[0].classList.add('active');
+            updateImage();
+            updateSpecs();
+        });
+    });
+
+    viewBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            viewBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentView = btn.dataset.view;
+            updateImage();
+        });
+    });
+}
+
+// ==========================================
+// INLINE RFQ FORM
+// ==========================================
+function initRFQForm() {
+    const form = document.getElementById('rfq-form');
+    if (!form) return;
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const submitBtn = form.querySelector('.rfq-submit');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
+        const formData = new FormData(form);
+
+        fetch('https://formspree.io/f/xwpkpqyz', {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+            if (response.ok) {
+                form.style.display = 'none';
+                document.getElementById('rfq-success').style.display = 'block';
+            } else {
+                window.location.href = 'contact.html';
+            }
+        })
+        .catch(() => {
+            window.location.href = 'contact.html';
+        })
+        .finally(() => {
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        });
+    });
+}
+
 // Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize components
@@ -599,6 +717,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initCardTilt();
     initRipple();
     initMagneticButtons();
+    initMotorShowcase();
+    initRFQForm();
 
     // Set up progressive enhancement
     document.body.classList.add('js-enabled');

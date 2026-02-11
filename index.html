@@ -196,6 +196,79 @@
     </section>
 
 
+    <!-- In the Field: Case Studies -->
+    <section class="field-stories section-dark">
+        <div class="container">
+            <h2 class="section-title reveal-up" style="color:#fff;">In the Field</h2>
+            <p class="section-subtitle reveal-up" data-delay="100" style="color:#94a3b8;">Real deployments. Real results. See how WelkinRim motors perform when it matters most.</p>
+            <div class="field-stories-grid stagger-children">
+                <article class="field-story-card field-story-card--defence">
+                    <span class="field-story-badge field-story-badge--defence">Defence</span>
+                    <h3 class="field-story-title">Border Surveillance Fleet</h3>
+                    <p class="field-story-context">NATO-allied nation, contested airspace</p>
+                    <p class="field-story-desc">WR-D3510 motors powered a 24/7 autonomous surveillance network across 200km of border terrain, maintaining operations through sandstorms and sub-zero conditions.</p>
+                    <div class="field-story-stats">
+                        <div class="field-story-stat">
+                            <span class="field-story-stat-number">12,000+</span>
+                            <span class="field-story-stat-label">Flight Hours</span>
+                        </div>
+                        <div class="field-story-stat">
+                            <span class="field-story-stat-number">99.97%</span>
+                            <span class="field-story-stat-label">Uptime</span>
+                        </div>
+                        <div class="field-story-stat">
+                            <span class="field-story-stat-number">0</span>
+                            <span class="field-story-stat-label">Motor Failures</span>
+                        </div>
+                    </div>
+                    <a href="case-studies.html" class="field-story-link">Read Full Case Study →</a>
+                </article>
+                <article class="field-story-card field-story-card--agriculture">
+                    <span class="field-story-badge field-story-badge--agriculture">Agriculture</span>
+                    <h3 class="field-story-title">Precision Spraying Fleet</h3>
+                    <p class="field-story-context">Commercial farm operation, 5,000+ acres</p>
+                    <p class="field-story-desc">WR-A4010 motors enabled a fleet of 12 agricultural drones to cover 5,000 acres daily with centimetre-accurate pesticide application, reducing chemical usage by 40%.</p>
+                    <div class="field-story-stats">
+                        <div class="field-story-stat">
+                            <span class="field-story-stat-number">40%</span>
+                            <span class="field-story-stat-label">Less Chemical</span>
+                        </div>
+                        <div class="field-story-stat">
+                            <span class="field-story-stat-number">5,000</span>
+                            <span class="field-story-stat-label">Acres/Day</span>
+                        </div>
+                        <div class="field-story-stat">
+                            <span class="field-story-stat-number">3x</span>
+                            <span class="field-story-stat-label">ROI in Year 1</span>
+                        </div>
+                    </div>
+                    <a href="case-studies.html" class="field-story-link">Read Full Case Study →</a>
+                </article>
+                <article class="field-story-card field-story-card--commercial">
+                    <span class="field-story-badge field-story-badge--commercial">Commercial</span>
+                    <h3 class="field-story-title">Last-Mile Delivery Network</h3>
+                    <p class="field-story-context">Urban logistics provider, 15 cities</p>
+                    <p class="field-story-desc">WR-C2815 motors enabled rapid package delivery across dense urban environments, handling payloads up to 5kg with consistent 30-minute flight windows in all weather.</p>
+                    <div class="field-story-stats">
+                        <div class="field-story-stat">
+                            <span class="field-story-stat-number">50,000+</span>
+                            <span class="field-story-stat-label">Deliveries</span>
+                        </div>
+                        <div class="field-story-stat">
+                            <span class="field-story-stat-number">15</span>
+                            <span class="field-story-stat-label">Cities</span>
+                        </div>
+                        <div class="field-story-stat">
+                            <span class="field-story-stat-number">98.5%</span>
+                            <span class="field-story-stat-label">On-Time Rate</span>
+                        </div>
+                    </div>
+                    <a href="case-studies.html" class="field-story-link">Read Full Case Study →</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <!-- Motor Finder -->
     <section class="motor-selector section-dark" id="motor-selector">
         <div class="container">
@@ -315,13 +388,144 @@
     </section>
 
 
+    <!-- Motor Visual Showcase -->
+    <section class="motor-showcase section-light">
+        <div class="container">
+            <h2 class="section-title reveal-up">See the Engineering</h2>
+            <p class="section-subtitle reveal-up" data-delay="100">Explore our motors from every angle. Click to rotate, compare specs, and see the difference precision engineering makes.</p>
+            <div class="showcase-viewer reveal-up" data-delay="200">
+                <div class="showcase-tabs">
+                    <button class="showcase-tab active" data-motor="wr3508">WR3508</button>
+                    <button class="showcase-tab" data-motor="wr2815">WR2815</button>
+                    <button class="showcase-tab" data-motor="wr2212">WR2212</button>
+                </div>
+                <div class="showcase-body">
+                    <div class="showcase-stage">
+                        <img id="showcase-image" src="assets/wr3508-motor.svg" alt="WR3508 Motor - Front View">
+                    </div>
+                    <div class="showcase-sidebar">
+                        <div class="showcase-views">
+                            <button class="showcase-view-btn active" data-view="front">Front</button>
+                            <button class="showcase-view-btn" data-view="side">Side</button>
+                            <button class="showcase-view-btn" data-view="back">Back</button>
+                            <button class="showcase-view-btn" data-view="specs">Specs</button>
+                        </div>
+                        <div class="showcase-specs" id="showcase-specs">
+                            <div class="showcase-spec">
+                                <span class="showcase-spec-label">Max Thrust</span>
+                                <span class="showcase-spec-value" id="spec-thrust">8.5 kg</span>
+                            </div>
+                            <div class="showcase-spec">
+                                <span class="showcase-spec-label">Weight</span>
+                                <span class="showcase-spec-value" id="spec-weight">185g</span>
+                            </div>
+                            <div class="showcase-spec">
+                                <span class="showcase-spec-label">KV Rating</span>
+                                <span class="showcase-spec-value" id="spec-kv">600KV</span>
+                            </div>
+                            <div class="showcase-spec">
+                                <span class="showcase-spec-label">Voltage</span>
+                                <span class="showcase-spec-value" id="spec-voltage">6S LiPo</span>
+                            </div>
+                            <div class="showcase-spec">
+                                <span class="showcase-spec-label">Efficiency</span>
+                                <span class="showcase-spec-value" id="spec-efficiency">93%</span>
+                            </div>
+                            <div class="showcase-spec">
+                                <span class="showcase-spec-label">IP Rating</span>
+                                <span class="showcase-spec-value" id="spec-ip">IP67</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="comparison-section section-light">
+        <div class="container">
+            <h2 class="section-title reveal-up">How WelkinRim Compares</h2>
+            <p class="section-subtitle reveal-up" data-delay="100">See why defence contractors and agriculture fleets choose WelkinRim over the competition.</p>
+            <div class="comparison-table-wrapper reveal-up" data-delay="200">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th class="comparison-col--highlight">WelkinRim</th>
+                            <th>T-Motor</th>
+                            <th>Sunnysky</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Peak Efficiency</td>
+                            <td class="comparison-col--highlight comparison-value--best">93.2%</td>
+                            <td>89.5%</td>
+                            <td>86.1%</td>
+                        </tr>
+                        <tr>
+                            <td>IP Rating</td>
+                            <td class="comparison-col--highlight comparison-value--best">IP68</td>
+                            <td>IP54</td>
+                            <td>None</td>
+                        </tr>
+                        <tr>
+                            <td>Operating Range</td>
+                            <td class="comparison-col--highlight comparison-value--best">-40&deg;C to +80&deg;C</td>
+                            <td>-10&deg;C to +50&deg;C</td>
+                            <td>0&deg;C to +40&deg;C</td>
+                        </tr>
+                        <tr>
+                            <td>MIL-STD Compliance</td>
+                            <td class="comparison-col--highlight comparison-value--best">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#22c55e" opacity="0.15"/><path d="M6 10l3 3 5-6" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </td>
+                            <td>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#ef4444" opacity="0.15"/><path d="M7 7l6 6M13 7l-6 6" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/></svg>
+                            </td>
+                            <td>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#ef4444" opacity="0.15"/><path d="M7 7l6 6M13 7l-6 6" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/></svg>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Max Thrust Range</td>
+                            <td class="comparison-col--highlight comparison-value--best">0.8 – 35.8 kg</td>
+                            <td>0.5 – 30 kg</td>
+                            <td>0.3 – 12 kg</td>
+                        </tr>
+                        <tr>
+                            <td>Defence-Grade Series</td>
+                            <td class="comparison-col--highlight comparison-value--best">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#22c55e" opacity="0.15"/><path d="M6 10l3 3 5-6" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </td>
+                            <td>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#ef4444" opacity="0.15"/><path d="M7 7l6 6M13 7l-6 6" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/></svg>
+                            </td>
+                            <td>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#ef4444" opacity="0.15"/><path d="M7 7l6 6M13 7l-6 6" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/></svg>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Agriculture-Grade Series</td>
+                            <td class="comparison-col--highlight comparison-value--best">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#22c55e" opacity="0.15"/><path d="M6 10l3 3 5-6" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </td>
+                            <td>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#22c55e" opacity="0.15"/><path d="M6 10l3 3 5-6" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </td>
+                            <td>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#ef4444" opacity="0.15"/><path d="M7 7l6 6M13 7l-6 6" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/></svg>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
     <!-- Technical Resources -->
     <section class="resources section-light" id="support">
-        <div class="section-divider section-divider-top">
-            <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0,50 C300,0 900,0 1200,50 L1200,0 L0,0 Z" fill="#0a0a0a"/>
-            </svg>
-        </div>
         <div class="container">
             <h2 class="section-title reveal-up">Technical Resources</h2>
             <div class="resources-strip stagger-children">
@@ -345,20 +549,112 @@
     </section>
 
 
-    <!-- Contact CTA -->
-    <section class="contact-cta" id="contact">
+    <!-- From the Lab: Blog -->
+    <section class="lab-blog section-light">
+        <div class="container">
+            <h2 class="section-title reveal-up">From the Lab</h2>
+            <p class="section-subtitle reveal-up" data-delay="100">Engineering insights, test results, and technical deep-dives from the WelkinRim R&D team.</p>
+            <div class="lab-blog-grid stagger-children">
+                <article class="lab-article-card">
+                    <span class="lab-article-tag lab-article-tag--engineering">Engineering</span>
+                    <h3 class="lab-article-title">Why IP68 Matters for Mission-Critical Drones</h3>
+                    <p class="lab-article-excerpt">Most drone motors claim water resistance. We explain the difference between IP54 and IP68 — and why it determines whether your fleet survives monsoon season.</p>
+                    <div class="lab-article-meta">
+                        <span>Jan 15, 2025</span>
+                        <span>6 min read</span>
+                    </div>
+                    <a href="blog.html" class="lab-article-link">Read Article →</a>
+                </article>
+                <article class="lab-article-card">
+                    <span class="lab-article-tag lab-article-tag--testing">Testing</span>
+                    <h3 class="lab-article-title">Extreme Environment Testing: -40&deg;C to +80&deg;C Results</h3>
+                    <p class="lab-article-excerpt">We put WR-D3510 through 500 hours of thermal cycling. Here are the vibration, efficiency, and bearing wear results — with comparison data against competitors.</p>
+                    <div class="lab-article-meta">
+                        <span>Dec 8, 2024</span>
+                        <span>8 min read</span>
+                    </div>
+                    <a href="blog.html" class="lab-article-link">Read Article →</a>
+                </article>
+                <article class="lab-article-card">
+                    <span class="lab-article-tag lab-article-tag--agriculture">Agriculture</span>
+                    <h3 class="lab-article-title">Chemical Resistance Protocol: How We Test for Agriculture</h3>
+                    <p class="lab-article-excerpt">Agricultural drones face constant exposure to fertilisers and pesticides. Our proprietary coating process protects motors where others corrode within months.</p>
+                    <div class="lab-article-meta">
+                        <span>Nov 22, 2024</span>
+                        <span>5 min read</span>
+                    </div>
+                    <a href="blog.html" class="lab-article-link">Read Article →</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inline RFQ Form -->
+    <section class="rfq-cta" id="contact">
         <div class="section-divider section-divider-top">
             <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0,0 L1200,0 L1200,50 C900,0 300,0 0,50 Z" fill="#fafbfc"/>
             </svg>
         </div>
         <div class="container">
-            <div class="cta-content">
-                <h2 class="cta-title reveal-up">Ready to Power Your <span class="gradient-text">Next Project</span>?</h2>
-                <p class="cta-description">Get technical support, custom solutions, or bulk pricing from our engineering team.</p>
-                <div class="cta-actions">
-                    <a href="contact.html" class="btn btn-primary btn-large">Get Quote</a>
-                    <a href="support.html" class="btn btn-outline btn-large">Technical Support</a>
+            <div class="rfq-layout">
+                <div class="rfq-info">
+                    <h2 class="rfq-title reveal-up">Get a Custom Quote in <span class="gradient-text">24 Hours</span></h2>
+                    <p class="rfq-description">Tell us about your project and our engineering team will recommend the right motor configuration for your mission profile.</p>
+                    <div class="rfq-trust-signals">
+                        <div class="rfq-trust-item">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#22c55e" opacity="0.15"/><path d="M6 10l3 3 5-6" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>No obligation quote</span>
+                        </div>
+                        <div class="rfq-trust-item">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#22c55e" opacity="0.15"/><path d="M6 10l3 3 5-6" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>24-hour response</span>
+                        </div>
+                        <div class="rfq-trust-item">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="10" fill="#22c55e" opacity="0.15"/><path d="M6 10l3 3 5-6" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            <span>Engineering team review</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="rfq-form-card">
+                    <form id="rfq-form" class="rfq-form">
+                        <div class="rfq-form-group">
+                            <label for="rfq-company">Company Name</label>
+                            <input type="text" id="rfq-company" name="company" required placeholder="Your company">
+                        </div>
+                        <div class="rfq-form-group">
+                            <label for="rfq-email">Work Email</label>
+                            <input type="email" id="rfq-email" name="email" required placeholder="you@company.com">
+                        </div>
+                        <div class="rfq-form-group">
+                            <label for="rfq-application">Application</label>
+                            <select id="rfq-application" name="application" required>
+                                <option value="">Select application</option>
+                                <option value="defence">Defence & Security</option>
+                                <option value="agriculture">Agriculture & Farming</option>
+                                <option value="commercial">Commercial Delivery</option>
+                                <option value="inspection">Industrial Inspection</option>
+                                <option value="research">Research & Development</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="rfq-form-group">
+                            <label for="rfq-quantity">Est. Quantity</label>
+                            <select id="rfq-quantity" name="quantity" required>
+                                <option value="">Select quantity</option>
+                                <option value="1-10">1 – 10 units</option>
+                                <option value="10-50">10 – 50 units</option>
+                                <option value="50-200">50 – 200 units</option>
+                                <option value="200+">200+ units</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-large rfq-submit">Get Quote</button>
+                    </form>
+                    <div class="rfq-success" id="rfq-success" style="display:none;">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="24" fill="#22c55e" opacity="0.15"/><path d="M16 24l6 6 10-12" stroke="#22c55e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <h3>Quote Request Received</h3>
+                        <p>Our engineering team will review your requirements and respond within 24 hours.</p>
+                    </div>
                 </div>
             </div>
         </div>
