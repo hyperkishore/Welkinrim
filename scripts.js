@@ -710,6 +710,188 @@ function initRFQForm() {
     });
 }
 
+// ==========================================
+// FAQ ACCORDION
+// ==========================================
+function initFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    if (!faqItems.length) return;
+
+    faqItems.forEach(item => {
+        const btn = item.querySelector('.faq-question');
+        btn.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            // Close all
+            faqItems.forEach(i => {
+                i.classList.remove('active');
+                i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            });
+            // Toggle current
+            if (!isActive) {
+                item.classList.add('active');
+                btn.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+}
+
+// ==========================================
+// STICKY MOBILE CTA
+// ==========================================
+function initStickyCTA() {
+    const stickyCta = document.getElementById('sticky-cta');
+    if (!stickyCta) return;
+
+    // Add to existing scroll handler via separate observer
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+
+    const ctaObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                stickyCta.classList.remove('visible');
+            } else {
+                stickyCta.classList.add('visible');
+            }
+        });
+    }, { threshold: 0 });
+
+    ctaObserver.observe(hero);
+}
+
+// ==========================================
+// FIELD STORY STATS COUNT-UP
+// ==========================================
+function initFieldStatsCountUp() {
+    const statContainers = document.querySelectorAll('.field-story-stats');
+    if (!statContainers.length) return;
+
+    const countObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const numbers = entry.target.querySelectorAll('.field-story-stat-number');
+                numbers.forEach(el => {
+                    const text = el.textContent;
+                    const hasPlus = text.includes('+');
+                    const hasPercent = text.includes('%');
+                    const hasX = text.endsWith('x');
+                    let target = parseFloat(text.replace(/[^0-9.]/g, ''));
+                    if (isNaN(target)) return;
+
+                    const duration = 1800;
+                    const increment = target / (duration / 16);
+                    let current = 0;
+
+                    const update = () => {
+                        current += increment;
+                        if (current < target) {
+                            let display = Math.floor(current);
+                            if (display >= 1000) display = display.toLocaleString();
+                            el.textContent = display + (hasPlus ? '+' : '') + (hasPercent ? '%' : '') + (hasX ? 'x' : '');
+                            requestAnimationFrame(update);
+                        } else {
+                            el.textContent = text;
+                        }
+                    };
+                    update();
+                });
+                countObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    statContainers.forEach(el => countObserver.observe(el));
+}
+
+// ==========================================
+// EXIT INTENT POPUP
+// ==========================================
+function initExitIntent() {
+    const popup = document.getElementById('exit-popup');
+    if (!popup) return;
+
+    let shown = false;
+    const sessionKey = 'welkinrim_exit_shown';
+    if (sessionStorage.getItem(sessionKey)) return;
+
+    // Only show after 30 seconds on page
+    let canShow = false;
+    setTimeout(() => { canShow = true; }, 30000);
+
+    document.addEventListener('mouseleave', (e) => {
+        if (e.clientY <= 0 && canShow && !shown) {
+            shown = true;
+            sessionStorage.setItem(sessionKey, '1');
+            popup.classList.add('active');
+        }
+    });
+
+    // Close handlers
+    const closeBtn = document.getElementById('exit-popup-close');
+    const overlay = popup.querySelector('.exit-popup-overlay');
+
+    if (closeBtn) closeBtn.addEventListener('click', () => popup.classList.remove('active'));
+    if (overlay) overlay.addEventListener('click', () => popup.classList.remove('active'));
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && popup.classList.contains('active')) {
+            popup.classList.remove('active');
+        }
+    });
+
+    // Form submit
+    const form = document.getElementById('exit-popup-form');
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const emailInput = form.querySelector('input[type="email"]');
+            const submitBtn = form.querySelector('.exit-popup-submit');
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+            fetch('https://formspree.io/f/xwpkpqyz', {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(() => {
+                form.innerHTML = '<p style="color:#22c55e;font-weight:600;font-size:1.1rem;">Check your inbox!</p>';
+            }).catch(() => {
+                form.innerHTML = '<p style="color:#22c55e;font-weight:600;font-size:1.1rem;">Check your inbox!</p>';
+            });
+        });
+    }
+}
+
+// ==========================================
+// MOBILE NAV POLISH
+// ==========================================
+function initMobileNavPolish() {
+    const navMenu = document.getElementById('nav-menu');
+    const navToggle = document.getElementById('nav-toggle');
+    if (!navMenu || !navToggle) return;
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+        if (navMenu.classList.contains('nav-menu-active') &&
+            !navMenu.contains(e.target) &&
+            !navToggle.contains(e.target)) {
+            navMenu.classList.remove('nav-menu-active');
+            navToggle.classList.remove('nav-toggle-active');
+            document.body.classList.remove('menu-open');
+        }
+    });
+
+    // ESC key to close
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('nav-menu-active')) {
+            navMenu.classList.remove('nav-menu-active');
+            navToggle.classList.remove('nav-toggle-active');
+            document.body.classList.remove('menu-open');
+        }
+    });
+}
+
 // Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize components
@@ -719,6 +901,11 @@ document.addEventListener('DOMContentLoaded', function() {
     initMagneticButtons();
     initMotorShowcase();
     initRFQForm();
+    initFAQ();
+    initStickyCTA();
+    initFieldStatsCountUp();
+    initExitIntent();
+    initMobileNavPolish();
 
     // Set up progressive enhancement
     document.body.classList.add('js-enabled');
@@ -730,7 +917,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Add testimonial cards to animation observer
-    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    const testimonialCards = document.querySelectorAll('.testimonial-card, .testimonial-card--dark');
     testimonialCards.forEach(el => observer.observe(el));
 
     console.log('WelkinRim website initialized successfully');

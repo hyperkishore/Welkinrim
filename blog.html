@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | WelkinRim - Engineering Insights & Research</title>
+    <meta name="description" content="Technical deep-dives from the WelkinRim R&D team. IP68 testing, extreme environment results, chemical resistance protocols, and drone motor engineering insights.">
+    <meta property="og:title" content="Blog | WelkinRim - Engineering Insights">
+    <meta property="og:description" content="Technical insights from the WelkinRim R&D lab. IP68 testing, extreme environments, and chemical resistance.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://welkinrim.com/assets/Welkinrim logo.png">
+    <link rel="icon" type="image/png" href="assets/Welkinrim logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Blog page-specific styles */
+        .blog-hero {
+            min-height: 50vh;
+            padding-top: var(--nav-height);
+            display: flex;
+            align-items: center;
+            background: var(--gradient-hero);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        .blog-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                repeating-linear-gradient(0deg, var(--grid-color) 0px, var(--grid-color) 1px, transparent 1px, transparent var(--grid-size)),
+                repeating-linear-gradient(90deg, var(--grid-color) 0px, var(--grid-color) 1px, transparent 1px, transparent var(--grid-size));
+            z-index: 1;
+        }
+        .blog-hero::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 500px;
+            transform: translate(-50%, -50%);
+            background: var(--gradient-glow);
+            border-radius: 50%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .blog-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .blog-hero-badge {
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border: 1px solid rgba(246,166,4,0.3);
+            background: rgba(246,166,4,0.08);
+            color: #f6a604;
+            margin-bottom: 24px;
+        }
+        .blog-hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 16px;
+            letter-spacing: -0.03em;
+        }
+        .blog-hero p {
+            font-size: clamp(1rem, 1.4vw, 1.15rem);
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+        }
+
+        /* Article Section */
+        .blog-article {
+            padding: 100px 0;
+            position: relative;
+        }
+        .blog-article:nth-child(odd) {
+            background: var(--gradient-light-section);
+        }
+        .blog-article:nth-child(even) {
+            background: #fff;
+        }
+
+        .blog-article-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .blog-article-tag {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+        }
+        .blog-article-tag--engineering { background: rgba(59,130,246,0.1); color: #3b82f6; }
+        .blog-article-tag--testing { background: rgba(246,166,4,0.1); color: #f6a604; }
+        .blog-article-tag--agriculture { background: rgba(34,197,94,0.1); color: #22c55e; }
+
+        .blog-article-title {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 600;
+            color: #171a20;
+            margin-bottom: 12px;
+        }
+        .blog-article-meta {
+            font-size: 0.85rem;
+            color: #9ca3af;
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .blog-article-body {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .blog-article-body h3 {
+            font-size: 1.3rem;
+            color: #171a20;
+            margin: 32px 0 12px;
+        }
+        .blog-article-body p {
+            color: #4a5568;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* Key Takeaway Box */
+        .blog-takeaway {
+            background: rgba(246,166,4,0.06);
+            border-left: 3px solid #f6a604;
+            border-radius: 0 12px 12px 0;
+            padding: 24px 28px;
+            margin: 32px 0;
+        }
+        .blog-takeaway-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #f6a604;
+            margin-bottom: 8px;
+        }
+        .blog-takeaway p {
+            color: #171a20;
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+
+        /* Related Motor Link */
+        .blog-motor-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(23,26,32,0.04);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 50px;
+            text-decoration: none;
+            color: #171a20;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-top: 16px;
+        }
+        .blog-motor-link:hover {
+            background: #171a20;
+            color: #fff;
+            border-color: #171a20;
+        }
+
+        /* Blog CTA */
+        .blog-cta {
+            padding: 120px 0;
+            background: var(--gradient-hero);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .blog-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                repeating-linear-gradient(0deg, var(--grid-color) 0px, var(--grid-color) 1px, transparent 1px, transparent var(--grid-size)),
+                repeating-linear-gradient(90deg, var(--grid-color) 0px, var(--grid-color) 1px, transparent 1px, transparent var(--grid-size));
+            z-index: 1;
+        }
+        .blog-cta .container { position: relative; z-index: 2; }
+
+        @media (max-width: 768px) {
+            .blog-hero { min-height: 45vh; }
+            .blog-article { padding: 80px 0; }
+            .blog-cta { padding: 80px 0; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html"><img src="assets/Welkinrim logo.png" alt="WelkinRim" class="nav-logo"></a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="products/commercial-motors.html" class="nav-link">Products</a>
+                <a href="index.html#solutions" class="nav-link">Solutions</a>
+                <a href="tools/calculator.html" class="nav-link">Resources</a>
+                <a href="motor-matchmaker.html" class="nav-link">Motor Matchmaker</a>
+                <a href="index.html#support" class="nav-link">Support</a>
+                <a href="about.html" class="nav-link">Company</a>
+                <a href="index.html#contact" class="nav-cta">Get Quote</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <!-- Hero -->
+        <section class="blog-hero">
+            <div class="blog-hero-content">
+                <span class="blog-hero-badge">From the Lab</span>
+                <h1>Engineering Insights &<br><span class="gradient-text">Technical Deep-Dives</span></h1>
+                <p>Research findings, test data, and engineering analysis from the WelkinRim R&D team.</p>
+            </div>
+        </section>
+
+        <!-- Article 1: IP68 -->
+        <article class="blog-article" id="ip68-matters">
+            <div class="container">
+                <div class="blog-article-header reveal-up">
+                    <span class="blog-article-tag blog-article-tag--engineering">Engineering</span>
+                    <h2 class="blog-article-title">Why IP68 Matters for Mission-Critical Drones</h2>
+                    <div class="blog-article-meta">
+                        <span>Jan 15, 2025</span>
+                        <span>6 min read</span>
+                    </div>
+                </div>
+                <div class="blog-article-body reveal-up" data-delay="100">
+                    <p>Most drone motor manufacturers claim some level of water resistance. Marketing materials reference IP ratings liberally, often without third-party testing to back the claims. For operators deploying fleets in monsoon regions, coastal environments, or industrial washdown scenarios, the difference between IP54 and IP68 can mean the difference between a functioning fleet and a grounded one.</p>
+
+                    <h3>Understanding the IP Scale</h3>
+                    <p>The Ingress Protection (IP) rating system uses two digits. The first digit (0-6) measures dust protection. The second digit (0-9K) measures water protection. IP54 means partial dust protection and splash resistance. IP68 means complete dust-tight sealing and continuous submersion capability.</p>
+                    <p>At WelkinRim, our IP68-rated Defence and Industrial series motors are tested at 2 metres depth for 30 minutes, with full electrical load applied during submersion. This simulates real-world scenarios like emergency water landings, heavy rainfall operations, and agricultural chemical washdown.</p>
+
+                    <h3>What Fails at IP54</h3>
+                    <p>In our testing lab, we subject competitors' IP54-rated motors to standardised environmental chambers. Within 200 hours of simulated monsoon conditions (95% humidity, cyclic temperature between 5-45 degrees C, intermittent direct water spray), bearing corrosion begins. By 400 hours, winding insulation degrades. Most IP54 motors show measurable efficiency loss within 600 hours of humid operation.</p>
+
+                    <h3>Our Sealing Approach</h3>
+                    <p>WelkinRim IP68 motors use a triple-barrier sealing system: shaft labyrinth seal, O-ring compression housing, and conformal-coated windings. Each barrier is independently tested, meaning even if one fails, the motor continues operating. The entire assembly undergoes thermal shock testing from -40 degrees C to +80 degrees C to verify seal integrity across the full operating envelope.</p>
+
+                    <div class="blog-takeaway">
+                        <div class="blog-takeaway-label">Key Takeaway</div>
+                        <p>If your drones operate in any environment with moisture, chemical exposure, or temperature cycling, IP54 is insufficient. IP68 is the minimum standard for motors expected to exceed 5,000 flight hours without bearing replacement.</p>
+                    </div>
+
+                    <a href="products/industrial-motors.html" class="blog-motor-link">Explore IP68-Rated Motors &rarr;</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Article 2: Extreme Environment Testing -->
+        <article class="blog-article" id="extreme-testing">
+            <div class="container">
+                <div class="blog-article-header reveal-up">
+                    <span class="blog-article-tag blog-article-tag--testing">Testing</span>
+                    <h2 class="blog-article-title">Extreme Environment Testing: -40&deg;C to +80&deg;C Results</h2>
+                    <div class="blog-article-meta">
+                        <span>Dec 8, 2024</span>
+                        <span>8 min read</span>
+                    </div>
+                </div>
+                <div class="blog-article-body reveal-up" data-delay="100">
+                    <p>When a defence contractor requests motors rated for -40 degrees C to +80 degrees C operation, they need more than a datasheet number. They need validated test data showing consistent performance across the full thermal envelope under load. This article presents the results of our 500-hour thermal cycling programme conducted on the WR-D3510 Defence Series motor.</p>
+
+                    <h3>Test Protocol</h3>
+                    <p>We placed six WR-D3510 units in a MIL-STD-810H compliant thermal cycling chamber. Each cycle ran from -40 degrees C (2-hour soak) to +80 degrees C (2-hour soak) with a 30-minute transition ramp. Motors operated at 75% rated load throughout, with vibration, efficiency, and bearing temperature logged at 1-second intervals.</p>
+
+                    <h3>Vibration Results</h3>
+                    <p>Across 500 hours (approximately 125 full thermal cycles), vibration amplitude remained within 0.02g of baseline measurements. No resonance drift was detected, indicating that thermal expansion and contraction did not compromise bearing preload or shaft alignment. By comparison, two competitor motors tested alongside showed measurable vibration increase after 50 cycles.</p>
+
+                    <h3>Efficiency Under Temperature</h3>
+                    <p>At -40 degrees C, bearing drag increases due to lubricant viscosity. Our motors showed a 1.8% efficiency reduction at extreme cold versus room temperature — significantly better than the 4-6% drop measured in competitor units. At +80 degrees C, winding resistance increases, but our high-temperature magnet wire maintains 92.1% efficiency compared to 93.2% at room temperature.</p>
+
+                    <h3>Bearing Wear Analysis</h3>
+                    <p>Post-test bearing inspection using scanning electron microscopy (SEM) showed no pitting, spalling, or abnormal wear patterns. Lubricant analysis showed consistent viscosity and no contamination. All six test units were certified for continued service after the 500-hour programme.</p>
+
+                    <div class="blog-takeaway">
+                        <div class="blog-takeaway-label">Key Takeaway</div>
+                        <p>The WR-D3510 maintains over 92% efficiency across a 120-degree temperature range with zero degradation after 500 hours of continuous thermal cycling. For operations spanning from Arctic surveillance to desert border patrol, these results validate real-world deployment confidence.</p>
+                    </div>
+
+                    <a href="products/commercial-motors.html" class="blog-motor-link">View WR-D3510 Specs &rarr;</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Article 3: Chemical Resistance -->
+        <article class="blog-article" id="chemical-resistance">
+            <div class="container">
+                <div class="blog-article-header reveal-up">
+                    <span class="blog-article-tag blog-article-tag--agriculture">Agriculture</span>
+                    <h2 class="blog-article-title">Chemical Resistance Protocol: How We Test for Agriculture</h2>
+                    <div class="blog-article-meta">
+                        <span>Nov 22, 2024</span>
+                        <span>5 min read</span>
+                    </div>
+                </div>
+                <div class="blog-article-body reveal-up" data-delay="100">
+                    <p>Agricultural drones face an operating environment that destroys conventional motors. Daily exposure to glyphosate, chlorpyrifos, liquid fertilisers, and other agrochemicals attacks exposed metal surfaces, degrades rubber seals, and corrodes electrical connections. Standard IP-rated motors are not designed for chemical resistance — only water and dust resistance.</p>
+
+                    <h3>The Agricultural Chemical Challenge</h3>
+                    <p>Common agricultural chemicals have pH values ranging from highly acidic (pH 2-3 for some pesticides) to strongly alkaline (pH 10-11 for certain fertilisers). This pH range exceeds the tolerance of standard anodised aluminium housings and nitrile rubber seals. We tested 14 common agricultural chemicals against standard motor components and found measurable corrosion within 72 hours of direct contact.</p>
+
+                    <h3>Our Coating Process</h3>
+                    <p>WelkinRim Agriculture Series motors use a proprietary three-layer protection system. The first layer is electroless nickel plating on all exposed aluminium surfaces, providing a baseline chemical barrier. The second layer is a fluoropolymer conformal coating applied to all electrical connections, winding terminations, and PCB components. The third layer is a PTFE-infused topcoat on the motor housing exterior that actively repels liquid chemicals.</p>
+
+                    <h3>Validation Testing</h3>
+                    <p>We subject every Agriculture Series motor to a 200-hour chemical immersion test. Motors are partially submerged in a rotating solution of the six most common agricultural chemicals at field concentration, while operating at 50% rated load. Post-test inspection includes salt spray testing (ASTM B117), cross-hatch adhesion testing of coatings, and full electrical performance verification.</p>
+
+                    <div class="blog-takeaway">
+                        <div class="blog-takeaway-label">Key Takeaway</div>
+                        <p>Standard IP ratings do not protect against chemical corrosion. Agricultural drone motors require purpose-built chemical resistance coatings validated through real-world chemical exposure testing. WelkinRim Agriculture Series motors are the only motors on the market with published chemical immersion test data.</p>
+                    </div>
+
+                    <a href="products/commercial-motors.html" class="blog-motor-link">Explore Agriculture Motors &rarr;</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- CTA -->
+        <section class="blog-cta">
+            <div class="container">
+                <h2 class="section-title reveal-up" style="color:#fff;">Want to discuss<br><span class="gradient-text">motor specifications?</span></h2>
+                <p class="section-subtitle reveal-up" data-delay="100" style="color:rgba(255,255,255,0.6);margin-bottom:40px;">Our engineering team is ready to help you select the right motor for your application.</p>
+                <div class="hero-cta" style="justify-content:center;">
+                    <a href="index.html#contact" class="btn btn-primary">Talk to Engineering</a>
+                    <a href="case-studies.html" class="btn btn-secondary">View Case Studies</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="products/micro-motors.html">Micro Motors</a></li>
+                        <li><a href="products/commercial-motors.html">Commercial Motors</a></li>
+                        <li><a href="products/industrial-motors.html">Industrial Motors</a></li>
+                        <li><a href="products/propulsion-systems.html">Complete Systems</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="products/commercial-motors.html">Technical Specs</a></li>
+                        <li><a href="tools/calculator.html">Performance Tools</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="support.html">Technical Support</a></li>
+                        <li><a href="warranty.html">Warranty</a></li>
+                        <li><a href="distributors.html">Find Distributor</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About WelkinRim</a></li>
+                        <li><a href="news.html">News & Updates</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <p>&copy; 2025 WelkinRim Technologies. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <script src="scripts.js" defer></script>
+</body>
+</html>
