@@ -1,21 +1,29 @@
 <svg width="80" height="40" viewBox="0 0 80 40" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="isoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#2E7D32;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#388E3C;stop-opacity:1" />
+    <linearGradient id="iso9001Bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#065f46"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="iso9001Shine" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0"/>
     </linearGradient>
   </defs>
-  
+
   <!-- Badge background -->
-  <rect width="80" height="40" rx="6" fill="url(#isoGradient)" stroke="#1B5E20" stroke-width="1"/>
-  
+  <rect width="80" height="40" rx="6" fill="url(#iso9001Bg)"/>
+  <rect width="80" height="40" rx="6" fill="url(#iso9001Shine)"/>
+
+  <!-- Subtle inner border -->
+  <rect x="1.5" y="1.5" width="77" height="37" rx="5" fill="none" stroke="#10b981" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- Checkmark circle icon on left -->
+  <circle cx="14" cy="15" r="5.5" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.9"/>
+  <path d="M11 15 L13 17.5 L17.5 12.5" stroke="#ffffff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
   <!-- ISO text -->
-  <text x="40" y="16" font-family="Arial, sans-serif" font-size="12" font-weight="bold" 
-        text-anchor="middle" fill="white">ISO</text>
-  <text x="40" y="30" font-family="Arial, sans-serif" font-size="8" font-weight="bold" 
-        text-anchor="middle" fill="white">9001</text>
-  
-  <!-- Quality mark -->
-  <circle cx="15" cy="12" r="4" fill="none" stroke="white" stroke-width="1"/>
-  <path d="M 13 12 L 15 14 L 18 10" stroke="white" stroke-width="1.5" fill="none"/>
+  <text x="46" y="17" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" text-anchor="middle" fill="#ffffff" letter-spacing="1">ISO</text>
+
+  <!-- 9001:2015 text -->
+  <text x="40" y="31" font-family="'Inter', sans-serif" font-size="7" font-weight="500" text-anchor="middle" fill="#ffffff" opacity="0.85">9001:2015</text>
 </svg>

@@ -1,25 +1,87 @@
 <svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="side2815Grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#e0e0e0;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#f6a604;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#d0d0d0;stop-opacity:1" />
+    <linearGradient id="s2Bell" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d1d5db"/>
+      <stop offset="30%" stop-color="#9ca3af"/>
+      <stop offset="60%" stop-color="#6b7280"/>
+      <stop offset="100%" stop-color="#4b5563"/>
     </linearGradient>
+    <linearGradient id="s2Stator" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1f2937"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="s2Shaft" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#9ca3af"/>
+      <stop offset="50%" stop-color="#e5e7eb"/>
+      <stop offset="100%" stop-color="#9ca3af"/>
+    </linearGradient>
+    <linearGradient id="s2Copper" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#92400e"/>
+    </linearGradient>
+    <filter id="s2Shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
   </defs>
-  
-  <!-- Side view of larger motor -->
-  <rect x="20" y="55" width="110" height="40" fill="url(#side2815Grad)" stroke="#333" stroke-width="2"/>
-  
-  <!-- Shaft (larger) -->
-  <rect x="130" y="70" width="25" height="10" fill="#666" stroke="#333" stroke-width="1"/>
-  
-  <!-- Enhanced cooling fins -->
-  <rect x="25" y="50" width="100" height="3" fill="#999"/>
-  <rect x="25" y="47" width="100" height="2" fill="#999"/>
-  <rect x="25" y="98" width="100" height="3" fill="#999"/>
-  <rect x="25" y="101" width="100" height="2" fill="#999"/>
-  
-  <!-- Side view label -->
-  <text x="75" y="115" font-family="Arial, sans-serif" font-size="8" 
-        text-anchor="middle" fill="#666">Side View</text>
+
+  <!-- Side view - WR2815 (28mm dia, 15mm height - taller than WR2212) -->
+  <g transform="translate(75, 68)" filter="url(#s2Shadow)">
+    <!-- Stator body (taller than WR2212) -->
+    <rect x="-50" y="4" width="100" height="18" rx="2" fill="url(#s2Stator)" stroke="#1e293b" stroke-width="0.5"/>
+
+    <!-- Copper windings visible from side (9 coils for 28mm) -->
+    <g opacity="0.6">
+      <rect x="-45" y="6" width="7" height="14" rx="1" fill="url(#s2Copper)"/>
+      <rect x="-35" y="6" width="7" height="14" rx="1" fill="url(#s2Copper)"/>
+      <rect x="-25" y="6" width="7" height="14" rx="1" fill="url(#s2Copper)"/>
+      <rect x="-15" y="6" width="7" height="14" rx="1" fill="url(#s2Copper)"/>
+      <rect x="-5" y="6" width="7" height="14" rx="1" fill="url(#s2Copper)"/>
+      <rect x="5" y="6" width="7" height="14" rx="1" fill="url(#s2Copper)"/>
+      <rect x="15" y="6" width="7" height="14" rx="1" fill="url(#s2Copper)"/>
+      <rect x="25" y="6" width="7" height="14" rx="1" fill="url(#s2Copper)"/>
+      <rect x="35" y="6" width="7" height="14" rx="1" fill="url(#s2Copper)"/>
+    </g>
+
+    <!-- Bell housing (top section, taller than WR2212) -->
+    <rect x="-52" y="-20" width="104" height="24" rx="3" fill="url(#s2Bell)" stroke="#4b5563" stroke-width="0.5"/>
+
+    <!-- Orange accent stripe on bell top edge -->
+    <rect x="-52" y="-21" width="104" height="3" rx="1.5" fill="#f6a604"/>
+
+    <!-- Vent slots on side -->
+    <g opacity="0.3">
+      <rect x="-38" y="-15" width="1.5" height="15" rx="0.75" fill="#374151"/>
+      <rect x="-28" y="-15" width="1.5" height="15" rx="0.75" fill="#374151"/>
+      <rect x="-18" y="-15" width="1.5" height="15" rx="0.75" fill="#374151"/>
+      <rect x="-8" y="-15" width="1.5" height="15" rx="0.75" fill="#374151"/>
+      <rect x="2" y="-15" width="1.5" height="15" rx="0.75" fill="#374151"/>
+      <rect x="12" y="-15" width="1.5" height="15" rx="0.75" fill="#374151"/>
+      <rect x="22" y="-15" width="1.5" height="15" rx="0.75" fill="#374151"/>
+      <rect x="32" y="-15" width="1.5" height="15" rx="0.75" fill="#374151"/>
+    </g>
+
+    <!-- Shaft (thicker for WR2815) -->
+    <rect x="-3.5" y="-38" width="7" height="20" rx="3.5" fill="url(#s2Shaft)" stroke="#6b7280" stroke-width="0.3"/>
+
+    <!-- Prop adapter -->
+    <rect x="-6" y="-40" width="12" height="4" rx="2" fill="#9ca3af" stroke="#6b7280" stroke-width="0.3"/>
+    <rect x="-4" y="-42" width="8" height="3" rx="1.5" fill="#f6a604"/>
+
+    <!-- Base mounting plate -->
+    <rect x="-56" y="22" width="112" height="4" rx="2" fill="#0f172a" stroke="#1e293b" stroke-width="0.5"/>
+
+    <!-- Mounting holes visible from side -->
+    <circle cx="-44" cy="24" r="2.5" fill="#050810"/>
+    <circle cx="44" cy="24" r="2.5" fill="#050810"/>
+
+    <!-- Wire leads -->
+    <g stroke-width="1.5" fill="none" stroke-linecap="round">
+      <path d="M-35 26 Q-40 34 -44 42" stroke="#dc2626"/>
+      <path d="M-31 26 Q-37 36 -40 44" stroke="#1d4ed8"/>
+      <path d="M-27 26 Q-33 37 -36 46" stroke="#f6a604"/>
+    </g>
+  </g>
+
+  <!-- Label -->
+  <text x="75" y="130" font-family="'Inter', sans-serif" font-size="9" font-weight="600" text-anchor="middle" fill="#6b7280">Side View</text>
 </svg>

@@ -1,27 +1,90 @@
 <svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <radialGradient id="back3508Grad" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" style="stop-color:#f6a604;stop-opacity:1" />
-      <stop offset="70%" style="stop-color:#e0e0e0;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#c0c0c0;stop-opacity:1" />
+    <radialGradient id="b3Base" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1f2937"/>
+      <stop offset="60%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#0f172a"/>
     </radialGradient>
+    <radialGradient id="b3Ring" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#374151"/>
+      <stop offset="100%" stop-color="#1f2937"/>
+    </radialGradient>
+    <filter id="b3Shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
   </defs>
-  
-  <!-- Back view -->
-  <circle cx="75" cy="75" r="47" fill="url(#back3508Grad)" stroke="#333" stroke-width="2"/>
-  
-  <!-- Wire terminals -->
-  <circle cx="75" cy="42" r="4" fill="#8B4513"/>
-  <circle cx="93" cy="58" r="4" fill="#FF0000"/>
-  <circle cx="75" cy="108" r="4" fill="#000000"/>
-  
-  <!-- Mounting holes -->
-  <circle cx="52" cy="52" r="3" fill="#333"/>
-  <circle cx="98" cy="52" r="3" fill="#333"/>
-  <circle cx="98" cy="98" r="3" fill="#333"/>
-  <circle cx="52" cy="98" r="3" fill="#333"/>
-  
-  <!-- Back view label -->
-  <text x="75" y="135" font-family="Arial, sans-serif" font-size="8" 
-        text-anchor="middle" fill="#666">Back View</text>
+
+  <!-- Back view - WR3508 (larger motor, 14 stator teeth, bigger bore) -->
+  <g transform="translate(75, 66)" filter="url(#b3Shadow)">
+    <!-- Outer housing ring (larger radius) -->
+    <circle cx="0" cy="0" r="54" fill="url(#b3Base)" stroke="#1e293b" stroke-width="1"/>
+
+    <!-- Stator lamination ring -->
+    <circle cx="0" cy="0" r="48" fill="url(#b3Ring)" stroke="#374151" stroke-width="0.5"/>
+
+    <!-- Stator teeth (14 radial teeth for larger motor) -->
+    <g stroke="#4b5563" stroke-width="1" opacity="0.4">
+      <line x1="0" y1="-48" x2="0" y2="-22"/>
+      <line x1="17" y1="-45" x2="8" y2="-20"/>
+      <line x1="32" y1="-37" x2="15" y2="-16"/>
+      <line x1="43" y1="-23" x2="19" y2="-10"/>
+      <line x1="48" y1="-5" x2="22" y2="-2"/>
+      <line x1="45" y1="14" x2="20" y2="7"/>
+      <line x1="36" y1="32" x2="16" y2="14"/>
+      <line x1="20" y1="44" x2="9" y2="20"/>
+      <line x1="0" y1="48" x2="0" y2="22"/>
+      <line x1="-20" y1="44" x2="-9" y2="20"/>
+      <line x1="-36" y1="32" x2="-16" y2="14"/>
+      <line x1="-45" y1="14" x2="-20" y2="7"/>
+      <line x1="-48" y1="-5" x2="-22" y2="-2"/>
+      <line x1="-43" y1="-23" x2="-19" y2="-10"/>
+      <line x1="-32" y1="-37" x2="-15" y2="-16"/>
+      <line x1="-17" y1="-45" x2="-8" y2="-20"/>
+    </g>
+
+    <!-- Copper windings (between teeth - 14 coils visible) -->
+    <g opacity="0.5">
+      <circle cx="9" cy="-33" r="4.5" fill="#b45309"/>
+      <circle cx="25" cy="-27" r="4.5" fill="#b45309"/>
+      <circle cx="36" cy="-14" r="4.5" fill="#b45309"/>
+      <circle cx="38" cy="4" r="4.5" fill="#b45309"/>
+      <circle cx="32" cy="22" r="4.5" fill="#b45309"/>
+      <circle cx="18" cy="34" r="4.5" fill="#b45309"/>
+      <circle cx="0" cy="36" r="4.5" fill="#b45309"/>
+      <circle cx="-18" cy="34" r="4.5" fill="#b45309"/>
+      <circle cx="-32" cy="22" r="4.5" fill="#b45309"/>
+      <circle cx="-38" cy="4" r="4.5" fill="#b45309"/>
+      <circle cx="-36" cy="-14" r="4.5" fill="#b45309"/>
+      <circle cx="-25" cy="-27" r="4.5" fill="#b45309"/>
+      <circle cx="-9" cy="-33" r="4.5" fill="#b45309"/>
+    </g>
+
+    <!-- Center bore (larger for bigger motor) -->
+    <circle cx="0" cy="0" r="17" fill="#0f172a" stroke="#1e293b" stroke-width="0.5"/>
+    <circle cx="0" cy="0" r="12" fill="#050810"/>
+
+    <!-- Bearing hint -->
+    <circle cx="0" cy="0" r="8" fill="none" stroke="#1e293b" stroke-width="0.5" stroke-dasharray="2,1.5"/>
+
+    <!-- Mounting holes (M3 x 25mm pattern - wider spacing) -->
+    <circle cx="-36" cy="-36" r="3.5" fill="#050810" stroke="#374151" stroke-width="0.5"/>
+    <circle cx="36" cy="-36" r="3.5" fill="#050810" stroke="#374151" stroke-width="0.5"/>
+    <circle cx="36" cy="36" r="3.5" fill="#050810" stroke="#374151" stroke-width="0.5"/>
+    <circle cx="-36" cy="36" r="3.5" fill="#050810" stroke="#374151" stroke-width="0.5"/>
+
+    <!-- Wire terminal pads (3 phase, larger) -->
+    <g>
+      <rect x="-22" y="42" width="10" height="12" rx="2.5" fill="#dc2626" stroke="#991b1b" stroke-width="0.5"/>
+      <rect x="-7" y="44" width="10" height="12" rx="2.5" fill="#1d4ed8" stroke="#1e3a8a" stroke-width="0.5"/>
+      <rect x="8" y="42" width="10" height="12" rx="2.5" fill="#f6a604" stroke="#d97706" stroke-width="0.5"/>
+    </g>
+
+    <!-- Terminal labels -->
+    <text x="-17" y="50" font-family="'Inter', sans-serif" font-size="5" font-weight="600" text-anchor="middle" fill="#fff">A</text>
+    <text x="-2" y="52" font-family="'Inter', sans-serif" font-size="5" font-weight="600" text-anchor="middle" fill="#fff">B</text>
+    <text x="13" y="50" font-family="'Inter', sans-serif" font-size="5" font-weight="600" text-anchor="middle" fill="#fff">C</text>
+  </g>
+
+  <!-- Label -->
+  <text x="75" y="134" font-family="'Inter', sans-serif" font-size="9" font-weight="600" text-anchor="middle" fill="#6b7280">Back View</text>
 </svg>
