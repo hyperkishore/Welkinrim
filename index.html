@@ -107,10 +107,10 @@
     </section>
 
     <!-- Solutions Section -->
-    <section class="solutions-section section-dark" id="solutions">
+    <section class="solutions-section section-light" id="solutions">
         <div class="container">
-            <h2 class="section-title reveal-up" style="color:#fff;">Mission-Critical Propulsion Solutions</h2>
-            <p class="section-subtitle reveal-up" data-delay="100" style="color:#94a3b8;">Purpose-built motor systems for defence and agriculture — two industries where failure is not an option.</p>
+            <h2 class="section-title reveal-up">Mission-Critical Propulsion Solutions</h2>
+            <p class="section-subtitle reveal-up" data-delay="100">Purpose-built motor systems for defence and agriculture — two industries where failure is not an option.</p>
             <div class="solutions-grid stagger-children">
                 <div class="solution-card solution-card--defence">
                     <span class="solution-badge solution-badge--defence">Mission-Critical</span>
@@ -197,10 +197,10 @@
 
 
     <!-- In the Field: Case Studies -->
-    <section class="field-stories section-dark">
+    <section class="field-stories section-light">
         <div class="container">
-            <h2 class="section-title reveal-up" style="color:#fff;">In the Field</h2>
-            <p class="section-subtitle reveal-up" data-delay="100" style="color:#94a3b8;">Real deployments. Real results. See how WelkinRim motors perform when it matters most.</p>
+            <h2 class="section-title reveal-up">In the Field</h2>
+            <p class="section-subtitle reveal-up" data-delay="100">Real deployments. Real results. See how WelkinRim motors perform when it matters most.</p>
             <div class="field-stories-grid stagger-children">
                 <article class="field-story-card field-story-card--defence">
                     <span class="field-story-badge field-story-badge--defence">Defence</span>
@@ -316,7 +316,7 @@
     </section>
 
     <!-- Motor Finder -->
-    <section class="motor-selector section-dark" id="motor-selector">
+    <section class="motor-selector section-light" id="motor-selector">
         <div class="container">
             <h2 class="section-title reveal-up">Find Your Motor</h2>
             <p class="section-subtitle reveal-up" data-delay="100">Select your requirements and get instant recommendations</p>
@@ -372,17 +372,13 @@
         </div>
     </section>
 
-    <!-- Product Categories -->
-    <section class="product-categories section-light" id="products">
-        <div class="section-divider section-divider-top">
-            <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0,50 C300,0 900,0 1200,50 L1200,0 L0,0 Z" fill="#0a0a0a"/>
-            </svg>
-        </div>
+    <!-- Explore Our Motors (merged Product Categories + Showcase) -->
+    <section class="motors-section section-dark" id="products">
         <div class="container">
-            <h2 class="section-title reveal-up">Product Categories</h2>
+            <h2 class="section-title reveal-up">Explore Our Motors</h2>
+            <p class="section-subtitle reveal-up" data-delay="100">Select a category to see detailed specs, views, and the engineering that sets WelkinRim apart.</p>
             <div class="category-grid stagger-children">
-                <div class="category-card">
+                <div class="category-card active" data-category="micro">
                     <div class="category-image">
                         <img src="assets/micro-motor.svg" alt="Micro Motors" loading="lazy">
                     </div>
@@ -398,7 +394,7 @@
                     </div>
                 </div>
 
-                <div class="category-card">
+                <div class="category-card" data-category="commercial">
                     <div class="category-image">
                         <img src="assets/commercial-motor.svg" alt="Commercial Motors" loading="lazy">
                     </div>
@@ -414,7 +410,7 @@
                     </div>
                 </div>
 
-                <div class="category-card">
+                <div class="category-card" data-category="industrial">
                     <div class="category-image">
                         <img src="assets/industrial-motor.svg" alt="Industrial Motors" loading="lazy">
                     </div>
@@ -430,24 +426,16 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-
-    <!-- Motor Visual Showcase -->
-    <section class="motor-showcase section-light">
-        <div class="container">
-            <h2 class="section-title reveal-up">See the Engineering</h2>
-            <p class="section-subtitle reveal-up" data-delay="100">Explore our motors from every angle. Click to rotate, compare specs, and see the difference precision engineering makes.</p>
             <div class="showcase-viewer reveal-up" data-delay="200">
                 <div class="showcase-tabs">
-                    <button class="showcase-tab active" data-motor="wr3508">WR3508</button>
+                    <button class="showcase-tab active" data-motor="wr2212">WR2212</button>
                     <button class="showcase-tab" data-motor="wr2815">WR2815</button>
-                    <button class="showcase-tab" data-motor="wr2212">WR2212</button>
+                    <button class="showcase-tab" data-motor="wr3508">WR3508</button>
                 </div>
                 <div class="showcase-body">
                     <div class="showcase-stage">
-                        <img id="showcase-image" src="assets/wr3508-motor.svg" alt="WR3508 Motor - Front View" loading="lazy" decoding="async">
+                        <img id="showcase-image" src="assets/wr2212-motor.svg" alt="WR2212 Motor - Front View" loading="lazy" decoding="async">
                     </div>
                     <div class="showcase-sidebar">
                         <div class="showcase-views">
@@ -459,27 +447,27 @@
                         <div class="showcase-specs" id="showcase-specs">
                             <div class="showcase-spec">
                                 <span class="showcase-spec-label">Max Thrust</span>
-                                <span class="showcase-spec-value" id="spec-thrust">8.5 kg</span>
+                                <span class="showcase-spec-value" id="spec-thrust">2.1 kg</span>
                             </div>
                             <div class="showcase-spec">
                                 <span class="showcase-spec-label">Weight</span>
-                                <span class="showcase-spec-value" id="spec-weight">185g</span>
+                                <span class="showcase-spec-value" id="spec-weight">58g</span>
                             </div>
                             <div class="showcase-spec">
                                 <span class="showcase-spec-label">KV Rating</span>
-                                <span class="showcase-spec-value" id="spec-kv">600KV</span>
+                                <span class="showcase-spec-value" id="spec-kv">1400KV</span>
                             </div>
                             <div class="showcase-spec">
                                 <span class="showcase-spec-label">Voltage</span>
-                                <span class="showcase-spec-value" id="spec-voltage">6S LiPo</span>
+                                <span class="showcase-spec-value" id="spec-voltage">4S LiPo</span>
                             </div>
                             <div class="showcase-spec">
                                 <span class="showcase-spec-label">Efficiency</span>
-                                <span class="showcase-spec-value" id="spec-efficiency">93%</span>
+                                <span class="showcase-spec-value" id="spec-efficiency">89%</span>
                             </div>
                             <div class="showcase-spec">
                                 <span class="showcase-spec-label">IP Rating</span>
-                                <span class="showcase-spec-value" id="spec-ip">IP67</span>
+                                <span class="showcase-spec-value" id="spec-ip">IP54</span>
                             </div>
                         </div>
                     </div>
@@ -571,7 +559,7 @@
     </section>
 
     <!-- Certifications & Compliance -->
-    <section class="cert-strip section-light">
+    <section class="cert-strip section-dark">
         <div class="container">
             <h2 class="section-title reveal-up">Certifications & Compliance</h2>
             <p class="section-subtitle reveal-up" data-delay="100">Every motor independently tested and certified to the highest international standards.</p>
@@ -626,7 +614,7 @@
 
 
     <!-- From the Lab: Blog -->
-    <section class="lab-blog section-light">
+    <section class="lab-blog section-dark">
         <div class="container">
             <h2 class="section-title reveal-up">From the Lab</h2>
             <p class="section-subtitle reveal-up" data-delay="100">Engineering insights, test results, and technical deep-dives from the WelkinRim R&D team.</p>
@@ -731,11 +719,6 @@
 
     <!-- Inline RFQ Form -->
     <section class="rfq-cta" id="contact">
-        <div class="section-divider section-divider-top">
-            <svg viewBox="0 0 1200 50" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0,0 L1200,0 L1200,50 C900,0 300,0 0,50 Z" fill="#fafbfc"/>
-            </svg>
-        </div>
         <div class="container">
             <div class="rfq-layout">
                 <div class="rfq-info">

@@ -3552,3 +3552,367 @@ a:focus-visible {
         grid-template-columns: 1fr 1fr;
     }
 }
+
+/* ==========================================
+   v1.2.12 — ALTERNATING BACKGROUNDS + MERGED MOTORS
+   ========================================== */
+
+/* --- Solutions on LIGHT background --- */
+.solutions-section.section-light {
+    background: var(--gradient-light-section);
+    overflow: hidden;
+}
+.solutions-section.section-light::before {
+    background: radial-gradient(circle, rgba(23,26,32,0.02) 0%, transparent 70%);
+}
+.solutions-section.section-light .section-title {
+    color: #171a20;
+}
+.solutions-section.section-light .section-subtitle {
+    color: #4a5568;
+}
+.solutions-section.section-light .solution-card {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    backdrop-filter: none;
+}
+.solutions-section.section-light .solution-card:hover {
+    box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+}
+.solutions-section.section-light .solution-card--defence:hover {
+    border-color: rgba(246,166,4,0.4);
+    box-shadow: 0 16px 48px rgba(246,166,4,0.1);
+}
+.solutions-section.section-light .solution-card--agriculture:hover {
+    border-color: rgba(34,197,94,0.4);
+    box-shadow: 0 16px 48px rgba(34,197,94,0.1);
+}
+.solutions-section.section-light .solution-title {
+    color: #171a20;
+}
+.solutions-section.section-light .solution-desc {
+    color: #4a5568;
+}
+.solutions-section.section-light .spec-label {
+    color: #6b7280;
+}
+.solutions-section.section-light .solution-spec-row {
+    border-bottom-color: rgba(0,0,0,0.06);
+}
+.solutions-section.section-light .solution-badge--defence {
+    background: rgba(246,166,4,0.06);
+    border-color: rgba(246,166,4,0.2);
+}
+.solutions-section.section-light .solution-badge--agriculture {
+    background: rgba(34,197,94,0.06);
+    border-color: rgba(34,197,94,0.2);
+}
+.solutions-section.section-light .solution-motor-tag--defence {
+    background: rgba(246,166,4,0.06);
+    border-color: rgba(246,166,4,0.15);
+}
+.solutions-section.section-light .solution-motor-tag--agriculture {
+    background: rgba(34,197,94,0.06);
+    border-color: rgba(34,197,94,0.15);
+}
+.solutions-section.section-light .btn-primary {
+    background: #171a20;
+    color: #fff;
+}
+.solutions-section.section-light .btn-primary:hover {
+    background: #000;
+}
+
+/* --- Case Studies on LIGHT background --- */
+.field-stories.section-light {
+    background: var(--gradient-light-section);
+}
+.field-stories.section-light .section-title {
+    color: #171a20;
+}
+.field-stories.section-light .section-subtitle {
+    color: #4a5568;
+}
+.field-stories.section-light .field-story-card {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    backdrop-filter: none;
+}
+.field-stories.section-light .field-story-card:hover {
+    box-shadow: 0 16px 48px rgba(0,0,0,0.1);
+}
+.field-stories.section-light .field-story-card--defence:hover {
+    border-color: rgba(246,166,4,0.4);
+    box-shadow: 0 16px 48px rgba(246,166,4,0.1);
+}
+.field-stories.section-light .field-story-card--agriculture:hover {
+    border-color: rgba(34,197,94,0.4);
+    box-shadow: 0 16px 48px rgba(34,197,94,0.1);
+}
+.field-stories.section-light .field-story-card--commercial:hover {
+    border-color: rgba(59,130,246,0.4);
+    box-shadow: 0 16px 48px rgba(59,130,246,0.1);
+}
+.field-stories.section-light .field-story-title {
+    color: #171a20;
+}
+.field-stories.section-light .field-story-context {
+    color: #6b7280;
+}
+.field-stories.section-light .field-story-desc {
+    color: #4a5568;
+}
+.field-stories.section-light .field-story-stats {
+    border-top-color: rgba(0,0,0,0.06);
+}
+.field-stories.section-light .field-story-stat-number {
+    color: #171a20;
+}
+.field-stories.section-light .field-story-stat-label {
+    color: #6b7280;
+}
+.field-stories.section-light .field-story-link {
+    color: #171a20;
+}
+.field-stories.section-light .field-story-link:hover {
+    color: #f6a604;
+}
+
+/* --- Motor Finder on LIGHT background --- */
+.motor-selector.section-light {
+    background: var(--gradient-light-section);
+    padding-top: 120px;
+}
+.motor-selector.section-light .section-title {
+    color: #171a20;
+}
+.motor-selector.section-light .section-subtitle {
+    color: #4a5568;
+}
+.motor-selector.section-light .selector-form {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    backdrop-filter: none;
+}
+.motor-selector.section-light .form-group label {
+    color: #4a5568;
+}
+.motor-selector.section-light .form-select {
+    background-color: #f8f9fa;
+    border: 1px solid rgba(0,0,0,0.12);
+    color: #171a20;
+}
+.motor-selector.section-light .form-select option {
+    background: #fff;
+    color: #171a20;
+}
+.motor-selector.section-light .configurator-link {
+    color: #6b7280;
+}
+
+/* --- Explore Our Motors (merged section, DARK) --- */
+.motors-section {
+    padding: 120px 0;
+    background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
+    position: relative;
+    overflow: hidden;
+}
+.motors-section .section-title {
+    color: #fff;
+}
+.motors-section .section-subtitle {
+    color: rgba(255,255,255,0.6);
+}
+.motors-section .category-grid {
+    margin-bottom: 48px;
+}
+.motors-section .category-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.motors-section .category-card:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.15);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+}
+.motors-section .category-card.active {
+    border-color: rgba(246,166,4,0.5);
+    box-shadow: 0 0 0 1px rgba(246,166,4,0.3), 0 16px 48px rgba(246,166,4,0.1);
+}
+.motors-section .category-image {
+    background: rgba(255,255,255,0.03);
+}
+.motors-section .category-title {
+    color: #fff;
+}
+.motors-section .category-specs {
+    color: rgba(255,255,255,0.5);
+}
+.motors-section .spec-pill {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.7);
+}
+.motors-section .category-link {
+    color: rgba(255,255,255,0.7);
+}
+.motors-section .category-link:hover {
+    color: #f6a604;
+}
+
+/* Showcase viewer on dark background */
+.motors-section .showcase-viewer {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+}
+.motors-section .showcase-tabs {
+    border-bottom-color: rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.02);
+}
+.motors-section .showcase-tab {
+    color: rgba(255,255,255,0.5);
+}
+.motors-section .showcase-tab.active {
+    color: #fff;
+}
+.motors-section .showcase-tab:hover {
+    color: rgba(255,255,255,0.8);
+}
+.motors-section .showcase-stage {
+    background: rgba(255,255,255,0.03);
+}
+.motors-section .showcase-sidebar {
+    border-left-color: rgba(255,255,255,0.08);
+}
+.motors-section .showcase-view-btn {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.6);
+}
+.motors-section .showcase-view-btn.active {
+    background: #f6a604;
+    color: #fff;
+    border-color: #f6a604;
+}
+.motors-section .showcase-view-btn:hover:not(.active) {
+    border-color: rgba(255,255,255,0.3);
+    color: #fff;
+}
+.motors-section .showcase-spec {
+    border-bottom-color: rgba(255,255,255,0.06);
+}
+.motors-section .showcase-spec-label {
+    color: rgba(255,255,255,0.5);
+}
+.motors-section .showcase-spec-value {
+    color: #fff;
+}
+
+/* --- Certifications on DARK background --- */
+.cert-strip.section-dark {
+    background: linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%);
+}
+.cert-strip.section-dark .section-title {
+    color: #fff;
+}
+.cert-strip.section-dark .section-subtitle {
+    color: rgba(255,255,255,0.6);
+}
+.cert-strip.section-dark .cert-strip-item svg circle,
+.cert-strip.section-dark .cert-strip-item svg rect {
+    stroke: rgba(255,255,255,0.6);
+}
+.cert-strip.section-dark .cert-strip-item svg text {
+    fill: rgba(255,255,255,0.8);
+}
+.cert-strip.section-dark .cert-strip-item svg path[stroke] {
+    stroke: #22c55e;
+}
+.cert-strip.section-dark .cert-strip-label {
+    color: #fff;
+}
+.cert-strip.section-dark .cert-strip-desc {
+    color: rgba(255,255,255,0.5);
+}
+
+/* --- Blog on DARK background --- */
+.lab-blog.section-dark {
+    background: linear-gradient(180deg, #0d0d1a 0%, #0a0a0a 100%);
+}
+.lab-blog.section-dark .section-title {
+    color: #fff;
+}
+.lab-blog.section-dark .section-subtitle {
+    color: rgba(255,255,255,0.6);
+}
+.lab-blog.section-dark .lab-article-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: none;
+    backdrop-filter: blur(20px);
+}
+.lab-blog.section-dark .lab-article-card:hover {
+    border-color: rgba(246,166,4,0.3);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+}
+.lab-blog.section-dark .lab-article-title {
+    color: #fff;
+}
+.lab-blog.section-dark .lab-article-excerpt {
+    color: rgba(255,255,255,0.6);
+}
+.lab-blog.section-dark .lab-article-meta {
+    color: rgba(255,255,255,0.4);
+}
+.lab-blog.section-dark .lab-article-link {
+    color: rgba(255,255,255,0.7);
+}
+.lab-blog.section-dark .lab-article-link:hover {
+    color: #f6a604;
+}
+.lab-blog.section-dark .lab-article-tag--engineering {
+    background: rgba(59,130,246,0.15);
+}
+.lab-blog.section-dark .lab-article-tag--testing {
+    background: rgba(246,166,4,0.15);
+}
+.lab-blog.section-dark .lab-article-tag--agriculture {
+    background: rgba(34,197,94,0.15);
+}
+
+/* Responsive for merged motors section */
+@media (max-width: 1024px) {
+    .motors-section .showcase-body {
+        grid-template-columns: 1fr;
+    }
+    .motors-section .showcase-sidebar {
+        border-left: none;
+        border-top: 1px solid rgba(255,255,255,0.08);
+    }
+}
+
+@media (max-width: 768px) {
+    .motors-section {
+        padding: 80px 0;
+    }
+    .motors-section .category-grid {
+        grid-template-columns: 1fr;
+    }
+    .motors-section .category-card {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+    .lab-blog.section-dark .lab-article-card {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgba(255,255,255,0.06);
+    }
+    .field-stories.section-light .field-story-card {
+        background: rgba(255,255,255,0.95);
+    }
+}

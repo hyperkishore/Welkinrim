@@ -620,12 +620,20 @@ function initMotorShowcase() {
         }
     };
 
-    let currentMotor = 'wr3508';
+    // Map category cards to default motors
+    const categoryMotorMap = {
+        micro: 'wr2212',
+        commercial: 'wr2815',
+        industrial: 'wr3508'
+    };
+
+    let currentMotor = 'wr2212';
     let currentView = 'front';
 
     const img = document.getElementById('showcase-image');
     const tabs = document.querySelectorAll('.showcase-tab');
     const viewBtns = document.querySelectorAll('.showcase-view-btn');
+    const categoryCards = document.querySelectorAll('.motors-section .category-card');
     if (!img || !tabs.length) return;
 
     function updateImage() {
@@ -647,16 +655,37 @@ function initMotorShowcase() {
         document.getElementById('spec-ip').textContent = data.ip;
     }
 
+    function selectMotor(motor) {
+        currentMotor = motor;
+        currentView = 'front';
+        tabs.forEach(t => t.classList.remove('active'));
+        tabs.forEach(t => { if (t.dataset.motor === motor) t.classList.add('active'); });
+        viewBtns.forEach(b => b.classList.remove('active'));
+        viewBtns[0].classList.add('active');
+        updateImage();
+        updateSpecs();
+    }
+
+    // Category card clicks
+    categoryCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            if (e.target.closest('.category-link')) return; // let links navigate
+            categoryCards.forEach(c => c.classList.remove('active'));
+            card.classList.add('active');
+            const category = card.dataset.category;
+            const motor = categoryMotorMap[category];
+            if (motor) selectMotor(motor);
+        });
+    });
+
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
-            tabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-            currentMotor = tab.dataset.motor;
-            currentView = 'front';
-            viewBtns.forEach(b => b.classList.remove('active'));
-            viewBtns[0].classList.add('active');
-            updateImage();
-            updateSpecs();
+            selectMotor(tab.dataset.motor);
+            // Also highlight matching category card
+            const motorCategoryMap = { wr2212: 'micro', wr2815: 'commercial', wr3508: 'industrial' };
+            const cat = motorCategoryMap[tab.dataset.motor];
+            categoryCards.forEach(c => c.classList.remove('active'));
+            categoryCards.forEach(c => { if (c.dataset.category === cat) c.classList.add('active'); });
         });
     });
 
