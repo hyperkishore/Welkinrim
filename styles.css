@@ -3726,41 +3726,47 @@ a:focus-visible {
 .motors-section .section-subtitle {
     color: rgba(255,255,255,0.6);
 }
-.motors-section .category-grid {
-    margin-bottom: 48px;
+/* Motor category tab pills */
+.motor-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 32px;
 }
-.motors-section .category-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
+.motor-tab {
+    padding: 10px 24px;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.7);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.3s ease;
 }
-.motors-section .category-card:hover {
-    background: rgba(255,255,255,0.06);
-    border-color: rgba(255,255,255,0.15);
-    box-shadow: 0 16px 48px rgba(0,0,0,0.3);
-}
-.motors-section .category-card.active {
-    border-color: rgba(246,166,4,0.5);
-    box-shadow: 0 0 0 1px rgba(246,166,4,0.3), 0 16px 48px rgba(246,166,4,0.1);
-}
-.motors-section .category-image {
-    background: rgba(255,255,255,0.03);
-}
-.motors-section .category-title {
+.motor-tab:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.25);
     color: #fff;
 }
-.motors-section .category-specs {
-    color: rgba(255,255,255,0.5);
+.motor-tab.active {
+    background: #f6a604;
+    border-color: #f6a604;
+    color: #fff;
+    font-weight: 600;
 }
-.motors-section .spec-pill {
-    background: rgba(255,255,255,0.08);
+.motor-explore-link {
+    display: block;
+    text-align: center;
+    margin-top: 24px;
     color: rgba(255,255,255,0.7);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
-.motors-section .category-link {
-    color: rgba(255,255,255,0.7);
-}
-.motors-section .category-link:hover {
+.motor-explore-link:hover {
     color: #f6a604;
 }
 
@@ -3900,12 +3906,8 @@ a:focus-visible {
     .motors-section {
         padding: 80px 0;
     }
-    .motors-section .category-grid {
-        grid-template-columns: 1fr;
-    }
-    .motors-section .category-card {
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
+    .motor-tabs {
+        flex-wrap: wrap;
     }
     .lab-blog.section-dark .lab-article-card {
         backdrop-filter: none;

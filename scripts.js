@@ -317,7 +317,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Observe card elements
     const animateElements = document.querySelectorAll(
-        '.value-card, .category-card, .industry-card, .resource-item, .testimonial-card, .field-story-card, .lab-article-card'
+        '.value-card, .industry-card, .resource-item, .testimonial-card, .field-story-card, .lab-article-card'
     );
     animateElements.forEach(el => observer.observe(el));
 });
@@ -571,7 +571,7 @@ function initCardTilt() {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (isMobile || prefersReducedMotion) return;
 
-    const tiltCards = document.querySelectorAll('.category-card, .value-card, .testimonial-card');
+    const tiltCards = document.querySelectorAll('.value-card, .testimonial-card');
 
     tiltCards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
@@ -630,10 +630,22 @@ function initMotorShowcase() {
     let currentMotor = 'wr2212';
     let currentView = 'front';
 
+    const categoryLinks = {
+        micro: 'products/micro-motors.html',
+        commercial: 'products/commercial-motors.html',
+        industrial: 'products/industrial-motors.html'
+    };
+    const categoryLabels = {
+        micro: 'Micro Motors',
+        commercial: 'Commercial Motors',
+        industrial: 'Industrial Motors'
+    };
+
     const img = document.getElementById('showcase-image');
     const tabs = document.querySelectorAll('.showcase-tab');
     const viewBtns = document.querySelectorAll('.showcase-view-btn');
-    const categoryCards = document.querySelectorAll('.motors-section .category-card');
+    const motorTabs = document.querySelectorAll('.motor-tab');
+    const exploreLink = document.getElementById('motor-explore-link');
     if (!img || !tabs.length) return;
 
     function updateImage() {
@@ -655,7 +667,7 @@ function initMotorShowcase() {
         document.getElementById('spec-ip').textContent = data.ip;
     }
 
-    function selectMotor(motor) {
+    function selectMotor(motor, category) {
         currentMotor = motor;
         currentView = 'front';
         tabs.forEach(t => t.classList.remove('active'));
@@ -664,28 +676,31 @@ function initMotorShowcase() {
         viewBtns[0].classList.add('active');
         updateImage();
         updateSpecs();
+        if (category && exploreLink) {
+            exploreLink.href = categoryLinks[category];
+            exploreLink.textContent = 'View all ' + categoryLabels[category] + ' →';
+        }
     }
 
-    // Category card clicks
-    categoryCards.forEach(card => {
-        card.addEventListener('click', (e) => {
-            if (e.target.closest('.category-link')) return; // let links navigate
-            categoryCards.forEach(c => c.classList.remove('active'));
-            card.classList.add('active');
-            const category = card.dataset.category;
+    // Motor tab clicks
+    motorTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            motorTabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            const category = tab.dataset.category;
             const motor = categoryMotorMap[category];
-            if (motor) selectMotor(motor);
+            if (motor) selectMotor(motor, category);
         });
     });
 
+    // Showcase tab clicks (sync motor tabs)
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
-            selectMotor(tab.dataset.motor);
-            // Also highlight matching category card
             const motorCategoryMap = { wr2212: 'micro', wr2815: 'commercial', wr3508: 'industrial' };
             const cat = motorCategoryMap[tab.dataset.motor];
-            categoryCards.forEach(c => c.classList.remove('active'));
-            categoryCards.forEach(c => { if (c.dataset.category === cat) c.classList.add('active'); });
+            selectMotor(tab.dataset.motor, cat);
+            motorTabs.forEach(t => t.classList.remove('active'));
+            motorTabs.forEach(t => { if (t.dataset.category === cat) t.classList.add('active'); });
         });
     });
 
