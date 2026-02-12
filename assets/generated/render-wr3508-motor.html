@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1024px;
+    height: 1024px;
+    background: radial-gradient(ellipse at 50% 35%, #161625 0%, #0c0c18 40%, #050510 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  }
+
+  .scene {
+    position: relative;
+    width: 800px;
+    height: 900px;
+  }
+
+  /* Soft ambient glow behind motor */
+  .ambient {
+    position: absolute;
+    width: 650px;
+    height: 400px;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse, rgba(246,166,4,0.04) 0%, transparent 65%);
+  }
+
+  /* Motor container - centered */
+  .motor {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* ===== PROP ADAPTER / NUT ===== */
+  .prop-nut {
+    position: absolute;
+    width: 52px;
+    height: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -100px;
+    background: linear-gradient(180deg, #fbbf24 0%, #f6a604 40%, #d97706 80%, #b45309 100%);
+    border-radius: 12px 12px 5px 5px;
+    box-shadow:
+      0 -3px 10px rgba(246,166,4,0.3),
+      inset 0 3px 4px rgba(255,255,255,0.35),
+      inset 0 -2px 3px rgba(0,0,0,0.2);
+  }
+  .prop-nut::after {
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 13px;
+    background: radial-gradient(circle, #92400e 30%, #b45309 100%);
+    border-radius: 50%;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+  }
+
+  /* ===== SHAFT ===== */
+  .shaft {
+    position: absolute;
+    width: 20px;
+    height: 105px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -80px;
+    background: linear-gradient(90deg,
+      #6b7280 0%, #9ca3af 10%, #d1d5db 30%, #f3f4f6 48%,
+      #e5e7eb 52%, #d1d5db 60%, #9ca3af 80%, #6b7280 100%
+    );
+    border-radius: 10px 10px 0 0;
+    box-shadow: 3px 0 8px rgba(0,0,0,0.3), -2px 0 4px rgba(0,0,0,0.15);
+  }
+  /* Shaft collar */
+  .shaft::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: -6px;
+    right: -6px;
+    height: 14px;
+    background: linear-gradient(90deg, #4b5563, #6b7280, #9ca3af, #d1d5db, #9ca3af, #6b7280, #4b5563);
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+
+  /* ===== BELL HOUSING TOP (elliptical face for 3D) ===== */
+  .bell-top-face {
+    position: absolute;
+    width: 420px;
+    height: 95px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -10px;
+    border-radius: 50%;
+    background: conic-gradient(
+      from 225deg at 50% 50%,
+      #6b7280 0deg, #9ca3af 30deg, #c8ccd2 60deg,
+      #e5e7eb 90deg, #f3f4f6 120deg, #e5e7eb 150deg,
+      #c8ccd2 180deg, #9ca3af 210deg, #7a8290 240deg,
+      #6b7280 270deg, #7a8290 300deg, #9ca3af 330deg,
+      #6b7280 360deg
+    );
+    box-shadow:
+      0 -4px 12px rgba(0,0,0,0.15),
+      inset 0 0 30px rgba(255,255,255,0.08);
+    z-index: 4;
+  }
+
+  /* Concentric machining rings on top */
+  .bell-top-face::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    height: 70px;
+    border-radius: 50%;
+    border: 1px solid rgba(150,150,160,0.2);
+    box-shadow:
+      0 0 0 18px rgba(150,150,160,0.04),
+      0 0 0 36px rgba(150,150,160,0.03),
+      0 0 0 60px rgba(150,150,160,0.02);
+  }
+
+  /* Center hub on top */
+  .bell-top-face::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 24px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, #4b5563 0%, #374151 60%, #1f2937 100%);
+    border: 1px solid #6b7280;
+    box-shadow: inset 0 1px 3px rgba(255,255,255,0.1);
+  }
+
+  /* ===== ORANGE ACCENT RING (top edge) ===== */
+  .accent-ring {
+    position: absolute;
+    width: 428px;
+    height: 98px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -11px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    background: transparent;
+    box-shadow:
+      0 0 0 4px #f6a604,
+      0 0 20px rgba(246,166,4,0.3),
+      0 0 50px rgba(246,166,4,0.1);
+    z-index: 5;
+  }
+  /* Glow effect */
+  .accent-ring::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border-radius: 50%;
+    border: 2px solid rgba(246,166,4,0.15);
+  }
+
+  /* ===== BELL HOUSING SIDE (very flat/short for pancake profile) ===== */
+  .bell-side {
+    position: absolute;
+    width: 420px;
+    height: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 30px;
+    background: linear-gradient(180deg,
+      #c8ccd2 0%,
+      #b0b5bd 5%,
+      #a0a5ae 10%,
+      #9ca3af 15%,
+      #8a8f9a 25%,
+      #7a8290 40%,
+      #6b7280 55%,
+      #5f6672 70%,
+      #525960 85%,
+      #4b5563 100%
+    );
+    border-radius: 0 0 8px 8px;
+    box-shadow:
+      8px 0 20px rgba(0,0,0,0.3),
+      -8px 0 20px rgba(0,0,0,0.3),
+      0 8px 20px rgba(0,0,0,0.4);
+    z-index: 2;
+  }
+
+  /* Machining lines */
+  .bell-side::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(0deg,
+      transparent 0px, transparent 4px,
+      rgba(255,255,255,0.02) 4px, rgba(255,255,255,0.02) 5px
+    );
+    border-radius: inherit;
+  }
+
+  /* Left-side highlight reflection */
+  .bell-side::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 20px;
+    width: 5px;
+    height: 65px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.02) 100%);
+    border-radius: 3px;
+    filter: blur(2px);
+  }
+
+  /* ===== VENTILATION SLOTS ===== */
+  .vents-container {
+    position: absolute;
+    width: 420px;
+    height: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 0 60px;
+    z-index: 3;
+  }
+
+  .vent-slot {
+    width: 4px;
+    height: 55px;
+    background: linear-gradient(180deg,
+      rgba(17,24,39,0.6) 0%,
+      rgba(10,15,25,0.8) 50%,
+      rgba(17,24,39,0.5) 100%
+    );
+    border-radius: 2px;
+    box-shadow:
+      1px 0 1px rgba(255,255,255,0.06),
+      -1px 0 1px rgba(0,0,0,0.3);
+  }
+
+  /* ===== STATOR SECTION ===== */
+  .stator {
+    position: absolute;
+    width: 410px;
+    height: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 118px;
+    background: linear-gradient(180deg,
+      #1f2937 0%,
+      #1a2030 20%,
+      #141b27 50%,
+      #111827 80%,
+      #0f172a 100%
+    );
+    border-radius: 4px 4px 6px 6px;
+    box-shadow:
+      6px 0 16px rgba(0,0,0,0.4),
+      -6px 0 16px rgba(0,0,0,0.4),
+      0 8px 24px rgba(0,0,0,0.5);
+    z-index: 1;
+  }
+
+  /* ===== COPPER WINDINGS ===== */
+  .windings-row {
+    position: absolute;
+    width: 410px;
+    height: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 118px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px 18px;
+    z-index: 1;
+  }
+
+  .copper {
+    flex: 1;
+    height: 38px;
+    border-radius: 4px;
+    box-shadow:
+      inset 0 2px 3px rgba(255,200,50,0.15),
+      inset 0 -2px 3px rgba(0,0,0,0.3),
+      1px 0 1px rgba(255,255,255,0.04);
+  }
+
+  .copper:nth-child(1)  { background: linear-gradient(180deg, #c27803 0%, #a16207 40%, #854d0e 100%); opacity: 0.7; }
+  .copper:nth-child(2)  { background: linear-gradient(180deg, #d97706 0%, #b45309 40%, #92400e 100%); opacity: 0.8; }
+  .copper:nth-child(3)  { background: linear-gradient(180deg, #e5890a 0%, #c27803 40%, #a16207 100%); opacity: 0.9; }
+  .copper:nth-child(4)  { background: linear-gradient(180deg, #d97706 0%, #b45309 40%, #92400e 100%); opacity: 0.85; }
+  .copper:nth-child(5)  { background: linear-gradient(180deg, #ca8a04 0%, #a16207 40%, #854d0e 100%); opacity: 0.8; }
+  .copper:nth-child(6)  { background: linear-gradient(180deg, #e5890a 0%, #c27803 40%, #a16207 100%); opacity: 0.9; }
+  .copper:nth-child(7)  { background: linear-gradient(180deg, #d97706 0%, #b45309 40%, #92400e 100%); opacity: 0.85; }
+  .copper:nth-child(8)  { background: linear-gradient(180deg, #ca8a04 0%, #a16207 40%, #854d0e 100%); opacity: 0.75; }
+  .copper:nth-child(9)  { background: linear-gradient(180deg, #d97706 0%, #b45309 40%, #92400e 100%); opacity: 0.8; }
+  .copper:nth-child(10) { background: linear-gradient(180deg, #e5890a 0%, #c27803 40%, #a16207 100%); opacity: 0.85; }
+  .copper:nth-child(11) { background: linear-gradient(180deg, #c27803 0%, #a16207 40%, #854d0e 100%); opacity: 0.7; }
+  .copper:nth-child(12) { background: linear-gradient(180deg, #d97706 0%, #b45309 40%, #92400e 100%); opacity: 0.8; }
+  .copper:nth-child(13) { background: linear-gradient(180deg, #ca8a04 0%, #a16207 40%, #854d0e 100%); opacity: 0.75; }
+  .copper:nth-child(14) { background: linear-gradient(180deg, #b45309 0%, #92400e 40%, #78350f 100%); opacity: 0.65; }
+
+  /* ===== BELL BOTTOM EDGE (elliptical) ===== */
+  .bell-bottom-edge {
+    position: absolute;
+    width: 424px;
+    height: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 108px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #4b5563 0%, #374151 100%);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+    z-index: 2;
+  }
+
+  /* ===== BASE MOUNTING PLATE ===== */
+  .base-plate {
+    position: absolute;
+    width: 450px;
+    height: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 175px;
+    background: linear-gradient(180deg, #1e293b 0%, #0f172a 50%, #0d1117 100%);
+    border-radius: 4px;
+    box-shadow:
+      0 6px 16px rgba(0,0,0,0.5),
+      inset 0 1px 1px rgba(255,255,255,0.05);
+    z-index: 1;
+  }
+
+  /* Mounting holes */
+  .mount {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: 176px;
+    background: radial-gradient(circle at 40% 40%, #0a0a12 0%, #050510 100%);
+    border-radius: 50%;
+    border: 1.5px solid #374151;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.8);
+    z-index: 2;
+  }
+  .mount.m1 { left: calc(50% - 200px); }
+  .mount.m2 { left: calc(50% - 9px); }
+  .mount.m3 { left: calc(50% + 182px); }
+
+  /* ===== WIRES ===== */
+  .wire-group {
+    position: absolute;
+    top: 186px;
+    left: calc(50% - 65px);
+    z-index: 1;
+  }
+
+  .wire {
+    position: absolute;
+    width: 7px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+  }
+
+  .wire.red {
+    left: 0;
+    height: 130px;
+    background: linear-gradient(180deg, #ef4444 0%, #dc2626 30%, #b91c1c 70%, #991b1b 100%);
+    transform: rotate(-6deg);
+    transform-origin: top center;
+  }
+  .wire.blue {
+    left: 30px;
+    height: 140px;
+    background: linear-gradient(180deg, #3b82f6 0%, #2563eb 30%, #1d4ed8 70%, #1e3a8a 100%);
+    transform: rotate(-2deg);
+    transform-origin: top center;
+  }
+  .wire.orange {
+    left: 60px;
+    height: 125px;
+    background: linear-gradient(180deg, #f6a604 0%, #d97706 30%, #b45309 70%, #92400e 100%);
+    transform: rotate(3deg);
+    transform-origin: top center;
+  }
+
+  /* Wire connector tips */
+  .wire::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: -1px;
+    width: 9px;
+    height: 16px;
+    background: #374151;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+
+  /* ===== FLOOR REFLECTION / SHADOW ===== */
+  .floor-shadow {
+    position: absolute;
+    width: 520px;
+    height: 60px;
+    left: 50%;
+    top: 360px;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse at 50% 30%, rgba(0,0,0,0.45) 0%, transparent 65%);
+    filter: blur(12px);
+  }
+
+  /* Subtle orange reflected light on floor */
+  .floor-accent {
+    position: absolute;
+    width: 240px;
+    height: 30px;
+    left: 50%;
+    top: 340px;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(246,166,4,0.05) 0%, transparent 80%);
+    filter: blur(8px);
+  }
+
+  /* ===== LABEL ===== */
+  .label {
+    position: absolute;
+    bottom: 95px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+  }
+
+  .label .model-name {
+    font-size: 34px;
+    font-weight: 700;
+    color: #e5e7eb;
+    letter-spacing: 4px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+  }
+
+  .label .specs-line {
+    font-size: 14px;
+    color: #6b7280;
+    letter-spacing: 2px;
+    margin-top: 10px;
+  }
+
+  .label .brand-name {
+    font-size: 12px;
+    color: #f6a604;
+    letter-spacing: 5px;
+    margin-top: 14px;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  /* Bright specular highlight on bell */
+  .specular {
+    position: absolute;
+    width: 8px;
+    height: 30px;
+    left: calc(50% - 130px);
+    top: 36px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.0) 100%);
+    border-radius: 4px;
+    filter: blur(3px);
+    z-index: 3;
+  }
+
+  .specular2 {
+    position: absolute;
+    width: 4px;
+    height: 20px;
+    left: calc(50% + 110px);
+    top: 45px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+    border-radius: 3px;
+    filter: blur(2px);
+    z-index: 3;
+  }
+
+  /* Rim light (edge light) on right side */
+  .rim-light {
+    position: absolute;
+    width: 3px;
+    height: 80px;
+    left: calc(50% + 207px);
+    top: 34px;
+    background: linear-gradient(180deg,
+      rgba(255,255,255,0.08) 0%,
+      rgba(255,255,255,0.04) 50%,
+      transparent 100%
+    );
+    border-radius: 2px;
+    z-index: 3;
+  }
+</style>
+</head>
+<body>
+  <div class="scene">
+    <div class="ambient"></div>
+
+    <div class="motor">
+      <!-- Shaft & prop adapter -->
+      <div class="prop-nut"></div>
+      <div class="shaft"></div>
+
+      <!-- Bell housing top face (3D ellipse) -->
+      <div class="accent-ring"></div>
+      <div class="bell-top-face"></div>
+
+      <!-- Bell housing sides -->
+      <div class="bell-side"></div>
+
+      <!-- Ventilation slots on bell -->
+      <div class="vents-container">
+        <div class="vent-slot"></div>
+        <div class="vent-slot"></div>
+        <div class="vent-slot"></div>
+        <div class="vent-slot"></div>
+        <div class="vent-slot"></div>
+        <div class="vent-slot"></div>
+        <div class="vent-slot"></div>
+        <div class="vent-slot"></div>
+        <div class="vent-slot"></div>
+        <div class="vent-slot"></div>
+        <div class="vent-slot"></div>
+        <div class="vent-slot"></div>
+        <div class="vent-slot"></div>
+      </div>
+
+      <!-- Specular highlights -->
+      <div class="specular"></div>
+      <div class="specular2"></div>
+      <div class="rim-light"></div>
+
+      <!-- Transition: bell bottom edge -->
+      <div class="bell-bottom-edge"></div>
+
+      <!-- Stator body -->
+      <div class="stator"></div>
+
+      <!-- Copper windings -->
+      <div class="windings-row">
+        <div class="copper"></div>
+        <div class="copper"></div>
+        <div class="copper"></div>
+        <div class="copper"></div>
+        <div class="copper"></div>
+        <div class="copper"></div>
+        <div class="copper"></div>
+        <div class="copper"></div>
+        <div class="copper"></div>
+        <div class="copper"></div>
+        <div class="copper"></div>
+        <div class="copper"></div>
+        <div class="copper"></div>
+        <div class="copper"></div>
+      </div>
+
+      <!-- Base mounting plate -->
+      <div class="base-plate"></div>
+      <div class="mount m1"></div>
+      <div class="mount m2"></div>
+      <div class="mount m3"></div>
+
+      <!-- Wires -->
+      <div class="wire-group">
+        <div class="wire red"></div>
+        <div class="wire blue"></div>
+        <div class="wire orange"></div>
+      </div>
+
+      <!-- Floor effects -->
+      <div class="floor-shadow"></div>
+      <div class="floor-accent"></div>
+    </div>
+
+    <!-- Label -->
+    <div class="label">
+      <div class="model-name">WR3508-700</div>
+      <div class="specs-line">18kg thrust &middot; 2000W &middot; 250g</div>
+      <div class="brand-name">WelkinRim</div>
+    </div>
+  </div>
+</body>
+</html>

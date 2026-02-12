@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px;
+    height: 600px;
+    background: linear-gradient(135deg, #0a0a16 0%, #0d0d1a 30%, #111125 60%, #0a0a16 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  }
+
+  .banner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Ambient light */
+  .glow {
+    position: absolute;
+    width: 800px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse, rgba(246,166,4,0.03) 0%, transparent 60%);
+  }
+
+  /* Grid of 3 motors */
+  .motors {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .motor-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  /* Center motor is larger (hero) */
+  .motor-card.center { transform: scale(1.15) translateY(-15px); }
+
+  /* === MINI MOTOR RENDER === */
+  .mini-motor {
+    position: relative;
+    width: var(--mw, 180px);
+    height: 200px;
+  }
+
+  /* Bell top */
+  .mt {
+    position: absolute;
+    width: var(--mw, 180px);
+    height: calc(var(--mw, 180px) * 0.24);
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20px;
+    border-radius: 50%;
+    background: conic-gradient(
+      from 225deg,
+      #6b7280, #9ca3af, #c8ccd2, #e5e7eb, #f3f4f6,
+      #e5e7eb, #c8ccd2, #9ca3af, #7a8290, #6b7280,
+      #7a8290, #9ca3af, #6b7280
+    );
+    z-index: 3;
+  }
+
+  /* Accent ring */
+  .ar {
+    position: absolute;
+    width: calc(var(--mw, 180px) + 4px);
+    height: calc(var(--mw, 180px) * 0.25);
+    left: 50%;
+    transform: translateX(-50%);
+    top: 19px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px #f6a604, 0 0 15px rgba(246,166,4,0.25);
+    z-index: 4;
+  }
+
+  /* Bell side */
+  .ms {
+    position: absolute;
+    width: var(--mw, 180px);
+    height: var(--mh, 72px);
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(20px + var(--mw, 180px) * 0.12);
+    background: linear-gradient(180deg,
+      #c8ccd2 0%, #9ca3af 20%, #7a8290 45%,
+      #6b7280 65%, #525960 85%, #4b5563 100%
+    );
+    border-radius: 0 0 5px 5px;
+    box-shadow: 4px 0 12px rgba(0,0,0,0.3), -4px 0 12px rgba(0,0,0,0.3);
+    z-index: 2;
+  }
+
+  /* Vents */
+  .ms::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(90deg,
+      transparent 0px, transparent 14px,
+      rgba(17,24,39,0.4) 14px, rgba(17,24,39,0.4) 17px
+    );
+    border-radius: inherit;
+  }
+
+  /* Stator */
+  .st {
+    position: absolute;
+    width: calc(var(--mw, 180px) - 8px);
+    height: 42px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(20px + var(--mw, 180px) * 0.12 + var(--mh, 72px));
+    background: linear-gradient(180deg, #1f2937, #111827, #0f172a);
+    border-radius: 3px 3px 4px 4px;
+    z-index: 1;
+  }
+
+  /* Copper windings on stator */
+  .st::before {
+    content: '';
+    position: absolute;
+    inset: 6px 8px;
+    background: repeating-linear-gradient(90deg,
+      #d97706 0px, #d97706 10px,
+      #b45309 10px, #b45309 12px,
+      #a16207 12px, #a16207 22px,
+      #92400e 22px, #92400e 24px
+    );
+    border-radius: 2px;
+    opacity: 0.7;
+  }
+
+  /* Shaft */
+  .sh {
+    position: absolute;
+    width: 8px;
+    height: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -20px;
+    background: linear-gradient(90deg, #6b7280, #d1d5db, #f3f4f6, #d1d5db, #6b7280);
+    border-radius: 4px 4px 0 0;
+    z-index: 5;
+  }
+
+  /* Prop nut */
+  .pn {
+    position: absolute;
+    width: 18px;
+    height: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -26px;
+    background: linear-gradient(180deg, #fbbf24, #f6a604, #d97706);
+    border-radius: 5px 5px 2px 2px;
+    box-shadow: 0 -2px 6px rgba(246,166,4,0.2);
+    z-index: 6;
+  }
+
+  /* Floor shadow per motor */
+  .fs {
+    position: absolute;
+    width: calc(var(--mw, 180px) + 40px);
+    height: 20px;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(0,0,0,0.4) 0%, transparent 65%);
+    filter: blur(6px);
+  }
+
+  /* Motor info below */
+  .motor-info {
+    text-align: center;
+    margin-top: 16px;
+    position: relative;
+    z-index: 5;
+  }
+
+  .motor-info .name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #e5e7eb;
+    letter-spacing: 2px;
+  }
+
+  .motor-info .detail {
+    font-size: 11px;
+    color: #6b7280;
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+
+  .motor-card.center .motor-info .name {
+    color: #f6a604;
+    font-size: 18px;
+  }
+
+  /* Series label at top */
+  .series-label {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+  }
+  .series-label .title {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: #f6a604;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+  .series-label .subtitle {
+    font-size: 24px;
+    font-weight: 700;
+    color: #e5e7eb;
+    letter-spacing: 3px;
+    margin-top: 4px;
+  }
+
+  /* Brand at bottom */
+  .brand {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    color: #4b5563;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  /* Decorative line */
+  .deco-line {
+    position: absolute;
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #f6a604, transparent);
+    opacity: 0.3;
+  }
+</style>
+</head>
+<body>
+  <div class="banner">
+    <div class="glow"></div>
+
+    <div class="series-label">
+      <div class="title">WelkinRim</div>
+      <div class="subtitle">Commercial Series</div>
+    </div>
+
+    <div class="motors">
+      <!-- WR2212 (small) -->
+      <div class="motor-card" style="--mw: 150px; --mh: 60px;">
+        <div class="mini-motor">
+          <div class="pn"></div>
+          <div class="sh"></div>
+          <div class="ar"></div>
+          <div class="mt"></div>
+          <div class="ms"></div>
+          <div class="st"></div>
+          <div class="fs"></div>
+        </div>
+        <div class="motor-info">
+          <div class="name">WR2212</div>
+          <div class="detail">8.5kg &middot; 750W &middot; 135g</div>
+        </div>
+      </div>
+
+      <!-- WR2815 (center, featured) -->
+      <div class="motor-card center" style="--mw: 190px; --mh: 78px;">
+        <div class="mini-motor">
+          <div class="pn"></div>
+          <div class="sh"></div>
+          <div class="ar"></div>
+          <div class="mt"></div>
+          <div class="ms"></div>
+          <div class="st"></div>
+          <div class="fs"></div>
+        </div>
+        <div class="motor-info">
+          <div class="name">WR2815</div>
+          <div class="detail">12kg &middot; 1200W &middot; 180g</div>
+        </div>
+      </div>
+
+      <!-- WR3508 (flat/wide) -->
+      <div class="motor-card" style="--mw: 210px; --mh: 48px;">
+        <div class="mini-motor">
+          <div class="pn"></div>
+          <div class="sh"></div>
+          <div class="ar"></div>
+          <div class="mt"></div>
+          <div class="ms"></div>
+          <div class="st"></div>
+          <div class="fs"></div>
+        </div>
+        <div class="motor-info">
+          <div class="name">WR3508</div>
+          <div class="detail">18kg &middot; 2000W &middot; 250g</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="deco-line"></div>
+    <div class="brand">Engineered for Flight</div>
+  </div>
+</body>
+</html>

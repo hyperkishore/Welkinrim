@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(ellipse at 50% 40%, #161625 0%, #0c0c18 40%, #050510 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  }
+  .scene { position: relative; width: 700px; height: 700px; }
+  .drawing {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Technical drawing style - outlined motor profile */
+  .outline {
+    position: absolute;
+    width: 360px;
+    height: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    border: 2px solid #4b5563;
+    border-radius: 8px 8px 4px 4px;
+    background: rgba(31,41,55,0.1);
+  }
+
+  /* Bell section - very flat/wide */
+  .bell-outline {
+    position: absolute;
+    width: 360px;
+    height: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    border: 2px solid #6b7280;
+    border-radius: 8px 8px 0 0;
+    background: rgba(156,163,175,0.06);
+  }
+
+  /* Stator section */
+  .stator-outline {
+    position: absolute;
+    width: 348px;
+    height: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50px;
+    border: 2px solid #4b5563;
+    border-bottom: 2px solid #4b5563;
+    background: rgba(31,41,55,0.12);
+  }
+
+  /* Shaft outline */
+  .shaft-outline {
+    position: absolute;
+    width: 14px;
+    height: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -45px;
+    border: 1.5px solid #6b7280;
+    border-radius: 7px 7px 0 0;
+    background: transparent;
+  }
+
+  /* Center line */
+  .center-line {
+    position: absolute;
+    width: 1px;
+    height: 155px;
+    left: 50%;
+    top: -55px;
+    background: repeating-linear-gradient(180deg,
+      #f6a604 0px, #f6a604 6px,
+      transparent 6px, transparent 10px
+    );
+    opacity: 0.4;
+  }
+
+  /* === DIMENSION LINES === */
+  /* Width dimension */
+  .dim-width {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 364px;
+    height: 20px;
+  }
+  .dim-width::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #f6a604;
+  }
+  .dim-width::after {
+    content: '42mm';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    font-weight: 600;
+    color: #f6a604;
+    background: #0c0c18;
+    padding: 0 8px;
+    letter-spacing: 1px;
+  }
+  /* Width arrows */
+  .dim-width .arrow-l, .dim-width .arrow-r {
+    position: absolute;
+    top: 4px;
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+  }
+  .dim-width .arrow-l {
+    left: -1px;
+    border-right: 10px solid #f6a604;
+  }
+  .dim-width .arrow-r {
+    right: -1px;
+    border-left: 10px solid #f6a604;
+  }
+  /* Width extension lines */
+  .dim-width .ext-l, .dim-width .ext-r {
+    position: absolute;
+    width: 1.5px;
+    height: 50px;
+    background: #f6a604;
+    opacity: 0.5;
+    top: -10px;
+  }
+  .dim-width .ext-l { left: 0; }
+  .dim-width .ext-r { right: 0; }
+
+  /* Height dimension */
+  .dim-height {
+    position: absolute;
+    left: calc(50% + 200px);
+    top: 0;
+    width: 20px;
+    height: 90px;
+  }
+  .dim-height::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #f6a604;
+  }
+  .dim-height::after {
+    content: '18mm';
+    position: absolute;
+    top: 50%;
+    left: 22px;
+    transform: translateY(-50%);
+    font-size: 14px;
+    font-weight: 600;
+    color: #f6a604;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+  .dim-height .arrow-t, .dim-height .arrow-b {
+    position: absolute;
+    left: 4px;
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+  }
+  .dim-height .arrow-t {
+    top: -1px;
+    border-bottom: 10px solid #f6a604;
+  }
+  .dim-height .arrow-b {
+    bottom: -1px;
+    border-top: 10px solid #f6a604;
+  }
+  .dim-height .ext-t, .dim-height .ext-b {
+    position: absolute;
+    height: 1.5px;
+    width: 30px;
+    background: #f6a604;
+    opacity: 0.5;
+    left: -5px;
+  }
+  .dim-height .ext-t { top: 0; }
+  .dim-height .ext-b { bottom: 0; }
+
+  /* Shaft callout */
+  .callout-shaft {
+    position: absolute;
+    top: -40px;
+    left: calc(50% + 30px);
+  }
+  .callout-shaft .line {
+    width: 60px;
+    height: 1px;
+    background: #94a3b8;
+    transform: rotate(-30deg);
+    transform-origin: left center;
+  }
+  .callout-shaft .text {
+    position: absolute;
+    top: -22px;
+    left: 50px;
+    font-size: 12px;
+    color: #94a3b8;
+    white-space: nowrap;
+    letter-spacing: 1px;
+  }
+
+  /* Mounting callout */
+  .callout-mount {
+    position: absolute;
+    top: 108px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+  .callout-mount .text {
+    font-size: 12px;
+    color: #94a3b8;
+    letter-spacing: 1px;
+  }
+  /* Mounting pattern dots */
+  .mdot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1.5px solid #94a3b8;
+    top: 78px;
+  }
+  .mdot.l { left: calc(50% - 130px); }
+  .mdot.r { left: calc(50% + 120px); }
+  .mdot-line {
+    position: absolute;
+    height: 1px;
+    background: repeating-linear-gradient(90deg, #94a3b8 0px, #94a3b8 4px, transparent 4px, transparent 8px);
+    top: 113px;
+    left: calc(50% - 125px);
+    width: 250px;
+    opacity: 0.5;
+  }
+
+  /* === SPECS TABLE === */
+  .specs {
+    position: absolute;
+    top: 165px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 40px;
+    width: 340px;
+  }
+  .spec {
+    font-size: 13px;
+    color: #94a3b8;
+    letter-spacing: 0.5px;
+  }
+  .spec span { color: #e5e7eb; font-weight: 600; }
+
+  /* Label */
+  .lbl {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+  .lbl .nm { font-size: 13px; color: #6b7280; letter-spacing: 3px; text-transform: uppercase; }
+  .lbl .md { font-size: 28px; font-weight: 700; color: #e5e7eb; letter-spacing: 3px; margin-top: 6px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+  .lbl .br { font-size: 11px; color: #f6a604; letter-spacing: 4px; margin-top: 10px; text-transform: uppercase; opacity: 0.7; }
+</style>
+</head>
+<body>
+  <div class="scene">
+    <div class="drawing">
+      <div class="center-line"></div>
+      <div class="shaft-outline"></div>
+      <div class="bell-outline"></div>
+      <div class="stator-outline"></div>
+
+      <!-- Width dimension -->
+      <div class="dim-width">
+        <div class="arrow-l"></div>
+        <div class="arrow-r"></div>
+        <div class="ext-l"></div>
+        <div class="ext-r"></div>
+      </div>
+
+      <!-- Height dimension -->
+      <div class="dim-height">
+        <div class="arrow-t"></div>
+        <div class="arrow-b"></div>
+        <div class="ext-t"></div>
+        <div class="ext-b"></div>
+      </div>
+
+      <!-- Shaft callout -->
+      <div class="callout-shaft">
+        <div class="line"></div>
+        <div class="text">M5 shaft</div>
+      </div>
+
+      <!-- Mounting pattern -->
+      <div class="mdot l"></div>
+      <div class="mdot r"></div>
+      <div class="mdot-line"></div>
+      <div class="callout-mount">
+        <div class="text">M4 x 25mm mounting</div>
+      </div>
+
+      <!-- Specs table -->
+      <div class="specs">
+        <div class="spec">Weight: <span>250g</span></div>
+        <div class="spec">KV: <span>700</span></div>
+        <div class="spec">Max Power: <span>2000W</span></div>
+        <div class="spec">Config: <span>12N14P</span></div>
+        <div class="spec">Max Thrust: <span>18kg</span></div>
+        <div class="spec">Voltage: <span>6-12S LiPo</span></div>
+      </div>
+    </div>
+
+    <div class="lbl">
+      <div class="nm">Specifications</div>
+      <div class="md">WR3508-700</div>
+      <div class="br">WelkinRim</div>
+    </div>
+  </div>
+</body>
+</html>

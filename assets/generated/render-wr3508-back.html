@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(ellipse at 50% 40%, #161625 0%, #0c0c18 40%, #050510 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  }
+  .scene { position: relative; width: 700px; height: 700px; }
+  .motor {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* === OUTER HOUSING === */
+  .housing {
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%,
+      #1f2937 0%, #111827 40%, #0f172a 70%, #0d1117 100%
+    );
+    box-shadow:
+      0 0 40px rgba(0,0,0,0.5),
+      inset 0 0 30px rgba(0,0,0,0.3),
+      inset 2px 2px 8px rgba(255,255,255,0.03);
+  }
+
+  /* === STATOR RING === */
+  .stator-ring {
+    position: absolute;
+    width: 330px;
+    height: 330px;
+    left: 50%;
+    top: 25px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: radial-gradient(circle at 45% 40%,
+      #374151 0%, #1f2937 60%, #111827 100%
+    );
+    border: 1px solid rgba(55,65,81,0.3);
+  }
+
+  /* === STATOR TEETH (radial lines) === */
+  .tooth {
+    position: absolute;
+    width: 2.5px;
+    background: rgba(75,85,99,0.4);
+    left: 50%;
+    top: 50%;
+    transform-origin: bottom center;
+  }
+  .tooth { height: 95px; }
+  .tooth:nth-child(1)  { transform: translateX(-50%) rotate(0deg) translateY(-95px); }
+  .tooth:nth-child(2)  { transform: translateX(-50%) rotate(30deg) translateY(-95px); }
+  .tooth:nth-child(3)  { transform: translateX(-50%) rotate(60deg) translateY(-95px); }
+  .tooth:nth-child(4)  { transform: translateX(-50%) rotate(90deg) translateY(-95px); }
+  .tooth:nth-child(5)  { transform: translateX(-50%) rotate(120deg) translateY(-95px); }
+  .tooth:nth-child(6)  { transform: translateX(-50%) rotate(150deg) translateY(-95px); }
+  .tooth:nth-child(7)  { transform: translateX(-50%) rotate(180deg) translateY(-95px); }
+  .tooth:nth-child(8)  { transform: translateX(-50%) rotate(210deg) translateY(-95px); }
+  .tooth:nth-child(9)  { transform: translateX(-50%) rotate(240deg) translateY(-95px); }
+  .tooth:nth-child(10) { transform: translateX(-50%) rotate(270deg) translateY(-95px); }
+  .tooth:nth-child(11) { transform: translateX(-50%) rotate(300deg) translateY(-95px); }
+  .tooth:nth-child(12) { transform: translateX(-50%) rotate(330deg) translateY(-95px); }
+
+  /* Teeth container positioned at housing center */
+  .teeth {
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
+
+  /* === COPPER WINDINGS (circles between teeth) === */
+  .winding {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    box-shadow: inset 0 1px 3px rgba(255,200,50,0.1), inset 0 -1px 3px rgba(0,0,0,0.3);
+  }
+  /* Position windings in a circle pattern - larger ring for 380px housing */
+  .winding:nth-child(1)  { background: radial-gradient(circle at 40% 35%, #d97706, #92400e); top: 45px;  left: 50%; transform: translateX(-50%); opacity: 0.7; }
+  .winding:nth-child(2)  { background: radial-gradient(circle at 40% 35%, #e5890a, #a16207); top: 65px;  left: calc(50% + 84px); opacity: 0.8; }
+  .winding:nth-child(3)  { background: radial-gradient(circle at 40% 35%, #d97706, #92400e); top: 115px; left: calc(50% + 130px); opacity: 0.85; }
+  .winding:nth-child(4)  { background: radial-gradient(circle at 40% 35%, #ca8a04, #854d0e); top: 180px; left: calc(50% + 142px); opacity: 0.8; }
+  .winding:nth-child(5)  { background: radial-gradient(circle at 40% 35%, #d97706, #92400e); top: 245px; left: calc(50% + 115px); opacity: 0.75; }
+  .winding:nth-child(6)  { background: radial-gradient(circle at 40% 35%, #e5890a, #a16207); top: 292px; left: calc(50% + 62px); opacity: 0.7; }
+  .winding:nth-child(7)  { background: radial-gradient(circle at 40% 35%, #d97706, #92400e); top: 308px; left: 50%; transform: translateX(-50%); opacity: 0.65; }
+  .winding:nth-child(8)  { background: radial-gradient(circle at 40% 35%, #ca8a04, #854d0e); top: 292px; left: calc(50% - 96px); opacity: 0.7; }
+  .winding:nth-child(9)  { background: radial-gradient(circle at 40% 35%, #d97706, #92400e); top: 245px; left: calc(50% - 149px); opacity: 0.75; }
+  .winding:nth-child(10) { background: radial-gradient(circle at 40% 35%, #e5890a, #a16207); top: 180px; left: calc(50% - 176px); opacity: 0.8; }
+  .winding:nth-child(11) { background: radial-gradient(circle at 40% 35%, #d97706, #92400e); top: 115px; left: calc(50% - 164px); opacity: 0.85; }
+  .winding:nth-child(12) { background: radial-gradient(circle at 40% 35%, #ca8a04, #854d0e); top: 65px;  left: calc(50% - 118px); opacity: 0.8; }
+
+  .windings-container {
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
+
+  /* === CENTER BORE === */
+  .bore {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    left: 50%;
+    top: 135px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: radial-gradient(circle at 45% 40%, #111827 0%, #0f172a 50%, #050510 100%);
+    border: 1px solid rgba(30,41,59,0.5);
+    box-shadow: inset 0 3px 10px rgba(0,0,0,0.6);
+  }
+  .bore::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: #050510;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.8);
+  }
+
+  /* === MOUNTING HOLES === */
+  .mhole {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, #0a0a12, #050510);
+    border: 1.5px solid #374151;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.8);
+  }
+  .mhole.tl { top: 10px;  left: calc(50% - 168px); }
+  .mhole.tr { top: 10px;  left: calc(50% + 144px); }
+  .mhole.bl { top: 344px; left: calc(50% - 168px); }
+  .mhole.br { top: 344px; left: calc(50% + 144px); }
+
+  /* === WIRE TERMINAL PADS === */
+  .terminals {
+    position: absolute;
+    top: 345px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+  }
+  .terminal {
+    width: 32px;
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+  }
+  .terminal.red { background: linear-gradient(180deg, #ef4444, #dc2626, #991b1b); border: 1px solid #7f1d1d; }
+  .terminal.blue { background: linear-gradient(180deg, #3b82f6, #2563eb, #1e3a8a); border: 1px solid #1e3a8a; }
+  .terminal.orange { background: linear-gradient(180deg, #f6a604, #d97706, #92400e); border: 1px solid #78350f; }
+
+  /* Shadow */
+  .shadow {
+    position: absolute;
+    width: 440px;
+    height: 60px;
+    left: 50%;
+    top: 410px;
+    transform: translateX(-50%);
+    background: radial-gradient(ellipse, rgba(0,0,0,0.35) 0%, transparent 65%);
+    filter: blur(10px);
+  }
+
+  /* Label */
+  .lbl {
+    position: absolute;
+    bottom: 55px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+  .lbl .nm { font-size: 13px; color: #6b7280; letter-spacing: 3px; text-transform: uppercase; }
+  .lbl .md { font-size: 28px; font-weight: 700; color: #e5e7eb; letter-spacing: 3px; margin-top: 6px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+  .lbl .br { font-size: 11px; color: #f6a604; letter-spacing: 4px; margin-top: 10px; text-transform: uppercase; opacity: 0.7; }
+</style>
+</head>
+<body>
+  <div class="scene">
+    <div class="motor">
+      <div class="housing"></div>
+      <div class="stator-ring"></div>
+      <div class="teeth">
+        <div class="tooth"></div><div class="tooth"></div><div class="tooth"></div>
+        <div class="tooth"></div><div class="tooth"></div><div class="tooth"></div>
+        <div class="tooth"></div><div class="tooth"></div><div class="tooth"></div>
+        <div class="tooth"></div><div class="tooth"></div><div class="tooth"></div>
+      </div>
+      <div class="windings-container">
+        <div class="winding"></div><div class="winding"></div><div class="winding"></div>
+        <div class="winding"></div><div class="winding"></div><div class="winding"></div>
+        <div class="winding"></div><div class="winding"></div><div class="winding"></div>
+        <div class="winding"></div><div class="winding"></div><div class="winding"></div>
+      </div>
+      <div class="bore"></div>
+      <div class="mhole tl"></div>
+      <div class="mhole tr"></div>
+      <div class="mhole bl"></div>
+      <div class="mhole br"></div>
+      <div class="terminals">
+        <div class="terminal red"></div>
+        <div class="terminal blue"></div>
+        <div class="terminal orange"></div>
+      </div>
+      <div class="shadow"></div>
+    </div>
+    <div class="lbl">
+      <div class="nm">Back View</div>
+      <div class="md">WR3508-700</div>
+      <div class="br">WelkinRim</div>
+    </div>
+  </div>
+</body>
+</html>
