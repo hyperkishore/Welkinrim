@@ -3,7 +3,7 @@
 ## Project Overview
 WelkinRim is a **real** drone motor manufacturer company. Static HTML/CSS/JS site (no framework). Served locally at `localhost:8765`.
 
-**Current version:** 1.2.19
+**Current version:** 1.2.20
 **Repo:** https://github.com/hyperkishore/Welkinrim.git
 **Live site:** https://hyperkishore.github.io/Welkinrim/
 **Branch:** main
@@ -81,8 +81,31 @@ WelkinRim is a **real** drone motor manufacturer company. Static HTML/CSS/JS sit
 | #36 | anduril.svg | assets/clients/anduril.svg | Client Logos |
 | #37 | aerovironment.svg | assets/clients/aerovironment.svg | Client Logos |
 
+### Generated v2 Assets (PNG renders — `assets/generated/`)
+
+Created via HTML/CSS 3D rendering + Playwright screenshots. Dark studio backgrounds, CSS gradient metallic surfaces. These are OK but **NOT the target quality**. The goal is photorealistic 3D product renders like real motor manufacturer product shots (reference: `assets/36d2a06500.jpg` — MAD 4014 motor).
+
+| # | File | Size | Replaces |
+|---|------|------|----------|
+| #38 | hero-motor-v2.png | 1024x1024 | #1 |
+| #39 | commercial-motors-hero-v2.png | 1200x600 | #5 |
+| #40 | hero-motor-v2.png (WR2212 front) | 1024x1024 | #6 |
+| #41 | wr2212-side-v2.png | 800x800 | #7 |
+| #42 | wr2212-back-v2.png | 800x800 | #8 |
+| #43 | wr2212-specs-v2.png | 800x800 | #9 |
+| #44 | wr2815-motor-v2.png | 1024x1024 | #10 |
+| #45 | wr2815-side-v2.png | 800x800 | #12 |
+| #46 | wr2815-back-v2.png | 800x800 | #13 |
+| #47 | wr2815-specs-v2.png | 800x800 | #14 |
+| #48 | wr3508-motor-v2.png | 1024x1024 | #15 |
+| #49 | wr3508-side-v2.png | 800x800 | #16 |
+| #50 | wr3508-back-v2.png | 800x800 | #17 |
+| #51 | wr3508-specs-v2.png | 800x800 | #18 |
+
+Each PNG has a corresponding HTML render template in `assets/generated/render-*.html`.
+
 ### Asset Quality Assessment
-All 25 SVG motor illustrations, product views, certification badges, and branding assets were redesigned in v1.2.17 with professional metallic gradients, detailed bell housing/stator/copper windings, consistent design language, and transparent backgrounds. Client logos (#29-#37) remain unchanged.
+The original SVGs (#1-#37) and the generated v2 PNGs (#38-#51) are both placeholder-quality. The goal is **photorealistic 3D product renders** — professional studio lighting, realistic metallic materials (matte dark aluminum), proper shadows, white or dark gradient backgrounds. Reference style: LIG Power (ligpower.com) and MAD Motors product photography. Client logos (#29-#37) are fine as-is.
 
 ---
 
@@ -153,12 +176,35 @@ We researched and cataloged 110+ design-related MCP servers, skills, and plugins
 
 ## Next Steps
 
-The user wants to redesign the visual assets. Priorities:
-1. Review current asset quality in browser at `localhost:8765/asset-library.html`
-2. Use installed design tools (iconify, huggingface, recraft once keyed) to create better motor illustrations
-3. Replace low-quality SVGs with professional alternatives
-4. Consider getting API keys for recraft and svgmaker for direct SVG generation
-5. Install additional tools from `DESIGN-TOOLS.md` as needed (91 more available)
+Generate **photorealistic 3D product renders** of WelkinRim motors (WR2212, WR2815, WR3508). Target quality: professional product photography like MAD Motors / LIG Power / T-Motor catalog images.
+
+**Current blockers & solutions:**
+1. **HuggingFace GPU quota** — Anonymous quota is 0s. Need `HF_TOKEN` env var (free at hf.co/settings/tokens)
+2. **Claude-in-Chrome** — Needed to use browser-based AI image generators (FLUX, Z-Image). See troubleshooting below.
+3. **Recraft API** — Best option for direct API image gen. Need `RECRAFT_API_TOKEN` env var.
+
+**Priority order:**
+1. Get Claude-in-Chrome working → use FLUX.2 Klein or Z-Image via browser
+2. OR set `HF_TOKEN` → use Z-Image MCP tool directly
+3. OR set `RECRAFT_API_TOKEN` → use Recraft for highest quality renders
+4. Replace current v2 PNGs with photorealistic versions
+5. Update asset-library.html for review
+
+### Claude-in-Chrome Troubleshooting
+
+**Setup files (all present and correct):**
+- Native host config: `~/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.anthropic.claude_code_browser_extension.json`
+- Native host binary: `~/.claude/chrome/chrome-native-host` (shell script → exec Claude Code v2.1.39)
+- Claude Code binary: `~/.local/share/claude/versions/2.1.39`
+- Extension ID: `fcoeoabgfenejglbffodgkkbkcdhcgfn`
+
+**If extension won't connect:**
+1. Fully quit Chrome (Cmd+Q), then reopen
+2. Click Claude extension icon in toolbar to activate
+3. Ensure logged into claude.ai with same account as Claude Code
+4. Check: `~/Library/Application Support/Google/Chrome/NativeMessagingHosts/` should have `com.anthropic.claude_code_browser_extension.json` (NOT `.backup`)
+5. The old `com.anthropic.claude_browser_extension.json` should be `.backup` (already done)
+6. If still failing, try: restart Claude Code, then restart Chrome
 
 ---
 
