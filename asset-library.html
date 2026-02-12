@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asset Library | WelkinRim</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/png" href="assets/Welkinrim logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .asset-library-hero {
+            min-height: 20vh;
+            padding-top: calc(var(--nav-height) + 3rem);
+            padding-bottom: 2rem;
+            background: var(--gradient-hero);
+            text-align: center;
+        }
+        .asset-library-hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+        .asset-library-hero .asset-count {
+            color: #94a3b8;
+            font-size: 1rem;
+            font-family: var(--font-body);
+        }
+        .asset-library-hero .asset-count span {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .asset-section {
+            padding: 2rem 0;
+        }
+        .asset-section:nth-child(odd) {
+            background: #0a0c10;
+        }
+        .asset-section:nth-child(even) {
+            background: #0f1117;
+        }
+        .asset-section-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .asset-section-title .count-badge {
+            background: rgba(246,166,4,0.15);
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+        }
+
+        .asset-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+        }
+        @media (max-width: 1024px) {
+            .asset-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .asset-grid { grid-template-columns: 1fr; }
+        }
+
+        .asset-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .asset-card:hover {
+            border-color: rgba(246,166,4,0.3);
+            transform: translateY(-2px);
+        }
+
+        .asset-preview {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            /* Checkerboard for transparent assets */
+            background-image:
+                linear-gradient(45deg, #1a1d25 25%, transparent 25%),
+                linear-gradient(-45deg, #1a1d25 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #1a1d25 75%),
+                linear-gradient(-45deg, transparent 75%, #1a1d25 75%);
+            background-size: 16px 16px;
+            background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+            background-color: #13151b;
+        }
+        .asset-preview img,
+        .asset-preview svg {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .asset-number {
+            position: absolute;
+            top: 0.5rem;
+            left: 0.5rem;
+            background: var(--accent);
+            color: #000;
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 800;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            z-index: 2;
+        }
+
+        .asset-info {
+            padding: 0.75rem 1rem 1rem;
+        }
+        .asset-filename {
+            font-family: 'Inter', monospace;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #e2e8f0;
+            margin-bottom: 0.25rem;
+            word-break: break-all;
+        }
+        .asset-path {
+            font-family: 'Inter', monospace;
+            font-size: 0.7rem;
+            color: #64748b;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: color 0.2s;
+            word-break: break-all;
+        }
+        .asset-path:hover {
+            color: var(--accent);
+        }
+        .asset-path::after {
+            content: ' (click to copy)';
+            font-size: 0.6rem;
+            opacity: 0.5;
+        }
+        .asset-used-in {
+            font-size: 0.7rem;
+            color: #94a3b8;
+        }
+        .asset-used-in strong {
+            color: #cbd5e1;
+            font-weight: 600;
+        }
+        .asset-unused {
+            color: #475569;
+            font-style: italic;
+        }
+
+        /* Copy toast */
+        .copy-toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--accent);
+            color: #000;
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 9999;
+            opacity: 0;
+            transition: transform 0.3s, opacity 0.3s;
+            pointer-events: none;
+        }
+        .copy-toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="assets/Welkinrim logo.png" alt="WelkinRim" class="nav-logo">
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="products/commercial-motors.html" class="nav-link">Products</a>
+                <a href="index.html#solutions" class="nav-link">Solutions</a>
+                <a href="tools/calculator.html" class="nav-link">Resources</a>
+                <a href="motor-matchmaker.html" class="nav-link">Motor Matchmaker</a>
+                <a href="index.html#support" class="nav-link">Support</a>
+                <a href="about.html" class="nav-link">Company</a>
+                <a href="index.html#contact" class="nav-cta">Get Quote</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="asset-library-hero">
+        <div class="container">
+            <h1>WelkinRim Asset Library</h1>
+            <p class="asset-count"><span>37</span> assets</p>
+        </div>
+    </div>
+
+    <!-- Motor Illustrations -->
+    <section class="asset-section">
+        <div class="container">
+            <h2 class="asset-section-title">Motor Illustrations <span class="count-badge">5</span></h2>
+            <div class="asset-grid">
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#1</span>
+                        <img src="assets/hero-motor.svg" alt="Hero Motor">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">hero-motor.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/hero-motor.svg">assets/hero-motor.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> products.html hero</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#2</span>
+                        <img src="assets/micro-motor.svg" alt="Micro Motor">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">micro-motor.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/micro-motor.svg">assets/micro-motor.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> products.html category icon</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#3</span>
+                        <img src="assets/commercial-motor.svg" alt="Commercial Motor">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">commercial-motor.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/commercial-motor.svg">assets/commercial-motor.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> products.html category icon</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#4</span>
+                        <img src="assets/industrial-motor.svg" alt="Industrial Motor">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">industrial-motor.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/industrial-motor.svg">assets/industrial-motor.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> products.html category icon</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#5</span>
+                        <img src="assets/commercial-motors-hero.svg" alt="Commercial Motors Hero">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">commercial-motors-hero.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/commercial-motors-hero.svg">assets/commercial-motors-hero.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> products/commercial-motors.html hero</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Motor Product: WR2212 -->
+    <section class="asset-section">
+        <div class="container">
+            <h2 class="asset-section-title">Motor Product: WR2212 <span class="count-badge">4</span></h2>
+            <div class="asset-grid">
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#6</span>
+                        <img src="assets/wr2212-motor.svg" alt="WR2212 Front">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">wr2212-motor.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/wr2212-motor.svg">assets/wr2212-motor.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> index.html showcase, commercial-motors.html</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#7</span>
+                        <img src="assets/wr2212-side.svg" alt="WR2212 Side">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">wr2212-side.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/wr2212-side.svg">assets/wr2212-side.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> commercial-motors.html thumbnail</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#8</span>
+                        <img src="assets/wr2212-back.svg" alt="WR2212 Back">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">wr2212-back.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/wr2212-back.svg">assets/wr2212-back.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> commercial-motors.html thumbnail</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#9</span>
+                        <img src="assets/wr2212-specs.svg" alt="WR2212 Specs">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">wr2212-specs.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/wr2212-specs.svg">assets/wr2212-specs.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> commercial-motors.html thumbnail</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Motor Product: WR2815 -->
+    <section class="asset-section">
+        <div class="container">
+            <h2 class="asset-section-title">Motor Product: WR2815 <span class="count-badge">5</span></h2>
+            <div class="asset-grid">
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#10</span>
+                        <img src="assets/wr2815-motor.svg" alt="WR2815 Front">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">wr2815-motor.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/wr2815-motor.svg">assets/wr2815-motor.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> motor-database.js</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#11</span>
+                        <img src="assets/wr2815-motor-detail.svg" alt="WR2815 Detail">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">wr2815-motor-detail.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/wr2815-motor-detail.svg">assets/wr2815-motor-detail.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> commercial-motors.html product image</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#12</span>
+                        <img src="assets/wr2815-side.svg" alt="WR2815 Side">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">wr2815-side.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/wr2815-side.svg">assets/wr2815-side.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> commercial-motors.html thumbnail</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#13</span>
+                        <img src="assets/wr2815-back.svg" alt="WR2815 Back">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">wr2815-back.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/wr2815-back.svg">assets/wr2815-back.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> commercial-motors.html thumbnail</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#14</span>
+                        <img src="assets/wr2815-specs.svg" alt="WR2815 Specs">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">wr2815-specs.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/wr2815-specs.svg">assets/wr2815-specs.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> commercial-motors.html thumbnail</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Motor Product: WR3508 -->
+    <section class="asset-section">
+        <div class="container">
+            <h2 class="asset-section-title">Motor Product: WR3508 <span class="count-badge">4</span></h2>
+            <div class="asset-grid">
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#15</span>
+                        <img src="assets/wr3508-motor.svg" alt="WR3508 Front">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">wr3508-motor.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/wr3508-motor.svg">assets/wr3508-motor.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> commercial-motors.html product image</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#16</span>
+                        <img src="assets/wr3508-side.svg" alt="WR3508 Side">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">wr3508-side.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/wr3508-side.svg">assets/wr3508-side.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> commercial-motors.html thumbnail</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#17</span>
+                        <img src="assets/wr3508-back.svg" alt="WR3508 Back">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">wr3508-back.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/wr3508-back.svg">assets/wr3508-back.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> commercial-motors.html thumbnail</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#18</span>
+                        <img src="assets/wr3508-specs.svg" alt="WR3508 Specs">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">wr3508-specs.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/wr3508-specs.svg">assets/wr3508-specs.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> commercial-motors.html thumbnail</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Motor Product: Other -->
+    <section class="asset-section">
+        <div class="container">
+            <h2 class="asset-section-title">Motor Product: Other <span class="count-badge">2</span></h2>
+            <div class="asset-grid">
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#19</span>
+                        <img src="assets/wr1806-motor.svg" alt="WR1806 Motor">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">wr1806-motor.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/wr1806-motor.svg">assets/wr1806-motor.svg</div>
+                        <div class="asset-used-in asset-unused">Unused</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#20</span>
+                        <img src="assets/wr4020-motor.svg" alt="WR4020 Motor">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">wr4020-motor.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/wr4020-motor.svg">assets/wr4020-motor.svg</div>
+                        <div class="asset-used-in asset-unused">Unused</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certification Badges -->
+    <section class="asset-section">
+        <div class="container">
+            <h2 class="asset-section-title">Certification Badges <span class="count-badge">3</span></h2>
+            <div class="asset-grid">
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#21</span>
+                        <img src="assets/iso-9001.svg" alt="ISO 9001">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">iso-9001.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/iso-9001.svg">assets/iso-9001.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> index.html, calculator.html, commercial-motors.html footer</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#22</span>
+                        <img src="assets/ce-mark.svg" alt="CE Mark">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">ce-mark.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/ce-mark.svg">assets/ce-mark.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> index.html, calculator.html, commercial-motors.html footer</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#23</span>
+                        <img src="assets/fcc-cert.svg" alt="FCC Cert">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">fcc-cert.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/fcc-cert.svg">assets/fcc-cert.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> index.html, calculator.html, commercial-motors.html footer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Branding -->
+    <section class="asset-section">
+        <div class="container">
+            <h2 class="asset-section-title">Branding <span class="count-badge">3</span></h2>
+            <div class="asset-grid">
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#24</span>
+                        <img src="assets/logo.svg" alt="Logo SVG">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">logo.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/logo.svg">assets/logo.svg</div>
+                        <div class="asset-used-in asset-unused">Unused</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#25</span>
+                        <img src="assets/favicon.svg" alt="Favicon SVG">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">favicon.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/favicon.svg">assets/favicon.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> products.html favicon</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#26</span>
+                        <img src="assets/Welkinrim logo.png" alt="Welkinrim Logo PNG">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">Welkinrim logo.png</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/Welkinrim logo.png">assets/Welkinrim logo.png</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> All pages (nav logo, favicon, og:image)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photography -->
+    <section class="asset-section">
+        <div class="container">
+            <h2 class="asset-section-title">Photography <span class="count-badge">2</span></h2>
+            <div class="asset-grid">
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#27</span>
+                        <img src="assets/36d2a06500.jpg" alt="Motor Photo">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">36d2a06500.jpg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/36d2a06500.jpg">assets/36d2a06500.jpg</div>
+                        <div class="asset-used-in asset-unused">Unused</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#28</span>
+                        <img src="assets/MADV68VTOLDronebrushlessmotor.webp" alt="VTOL Drone Motor">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">MADV68VTOLDronebrushlessmotor.webp</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/MADV68VTOLDronebrushlessmotor.webp">assets/MADV68VTOLDronebrushlessmotor.webp</div>
+                        <div class="asset-used-in asset-unused">Unused</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Logos -->
+    <section class="asset-section">
+        <div class="container">
+            <h2 class="asset-section-title">Client Logos <span class="count-badge">9</span></h2>
+            <div class="asset-grid">
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#29</span>
+                        <img src="assets/clients/ideaforge.svg" alt="ideaForge">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">ideaforge.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/clients/ideaforge.svg">assets/clients/ideaforge.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> index.html client marquee</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#30</span>
+                        <img src="assets/clients/garuda-aerospace.svg" alt="Garuda Aerospace">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">garuda-aerospace.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/clients/garuda-aerospace.svg">assets/clients/garuda-aerospace.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> index.html client marquee</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#31</span>
+                        <img src="assets/clients/iotechworld.svg" alt="IoTechWorld">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">iotechworld.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/clients/iotechworld.svg">assets/clients/iotechworld.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> index.html client marquee</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#32</span>
+                        <img src="assets/clients/parrot.svg" alt="Parrot">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">parrot.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/clients/parrot.svg">assets/clients/parrot.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> index.html client marquee</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#33</span>
+                        <img src="assets/clients/thales.svg" alt="Thales Group">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">thales.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/clients/thales.svg">assets/clients/thales.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> index.html client marquee</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#34</span>
+                        <img src="assets/clients/wingcopter.svg" alt="Wingcopter">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">wingcopter.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/clients/wingcopter.svg">assets/clients/wingcopter.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> index.html client marquee</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#35</span>
+                        <img src="assets/clients/skydio.svg" alt="Skydio">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">skydio.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/clients/skydio.svg">assets/clients/skydio.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> index.html client marquee</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#36</span>
+                        <img src="assets/clients/anduril.svg" alt="Anduril Industries">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">anduril.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/clients/anduril.svg">assets/clients/anduril.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> index.html client marquee</div>
+                    </div>
+                </div>
+                <div class="asset-card">
+                    <div class="asset-preview">
+                        <span class="asset-number">#37</span>
+                        <img src="assets/clients/aerovironment.svg" alt="AeroVironment">
+                    </div>
+                    <div class="asset-info">
+                        <div class="asset-filename">aerovironment.svg</div>
+                        <div class="asset-path" onclick="copyPath(this)" data-path="assets/clients/aerovironment.svg">assets/clients/aerovironment.svg</div>
+                        <div class="asset-used-in"><strong>Used in:</strong> index.html client marquee</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 class="footer-title">Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="products/micro-motors.html">Micro Motors</a></li>
+                        <li><a href="products/commercial-motors.html">Commercial Motors</a></li>
+                        <li><a href="products/industrial-motors.html">Industrial Motors</a></li>
+                        <li><a href="products/propulsion-systems.html">Complete Systems</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="products/commercial-motors.html">Technical Specs</a></li>
+                        <li><a href="products/commercial-motors.html">Installation Guides</a></li>
+                        <li><a href="tools/calculator.html">Performance Tools</a></li>
+                        <li><a href="support.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="support.html">Technical Support</a></li>
+                        <li><a href="warranty.html">Warranty</a></li>
+                        <li><a href="distributors.html">Find Distributor</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About WelkinRim</a></li>
+                        <li><a href="news.html">News & Updates</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="partners.html">Partners</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <p>&copy; 2025 WelkinRim Technologies. All rights reserved.</p>
+                    <div class="footer-legal-links">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                    </div>
+                </div>
+                <div class="footer-certifications">
+                    <img src="assets/iso-9001.svg" alt="ISO 9001 Certified" class="cert-badge">
+                    <img src="assets/ce-mark.svg" alt="CE Certified" class="cert-badge">
+                    <img src="assets/fcc-cert.svg" alt="FCC Certified" class="cert-badge">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Copy toast -->
+    <div class="copy-toast" id="copy-toast">Copied to clipboard</div>
+
+    <script>
+        // Copy path to clipboard
+        function copyPath(el) {
+            const path = el.getAttribute('data-path');
+            navigator.clipboard.writeText(path).then(function() {
+                var toast = document.getElementById('copy-toast');
+                toast.textContent = 'Copied: ' + path;
+                toast.classList.add('show');
+                setTimeout(function() { toast.classList.remove('show'); }, 1500);
+            });
+        }
+
+        // Mobile nav toggle
+        var toggle = document.getElementById('nav-toggle');
+        var menu = document.getElementById('nav-menu');
+        if (toggle && menu) {
+            toggle.addEventListener('click', function() {
+                menu.classList.toggle('active');
+                toggle.classList.toggle('active');
+                toggle.setAttribute('aria-expanded', menu.classList.contains('active'));
+            });
+        }
+    </script>
+</body>
+</html>
