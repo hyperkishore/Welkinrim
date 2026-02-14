@@ -1,0 +1,55 @@
+# WelkinRim Technologies
+
+> German-engineered precision drone motors and propulsion systems for defence, agriculture, and commercial UAV applications.
+
+## Company Overview
+WelkinRim Technologies is a drone motor manufacturer based in Munich, Germany. We design and manufacture brushless propulsion systems for unmanned aerial vehicles (UAVs/drones), specialising in mission-critical applications where motor failure is not an option.
+
+## Products
+
+### Defence-Grade Motors (WR-D Series)
+- **WR-D3510**: MIL-STD-810H certified, IP68 sealed, -40°C to +80°C operating range, up to 50kg payload
+- **WR-D5015**: Heavy-lift defence motor, 72+ hour endurance, zero-failure field record
+- Deployed in 500+ defence operations across 50+ countries
+
+### Agriculture Motors (WR-A Series)
+- **WR-A2812**: Chemical-resistant IP65 motor for spray drones
+- **WR-A4010**: High-endurance agriculture motor, 30+ acres/charge coverage
+- Proprietary coating resists fertiliser and pesticide corrosion
+
+### Commercial Motors
+- **WR2212**: Micro motor, 2.1kg thrust, 58g weight, ideal for FPV and inspection
+- **WR2815**: Mid-range commercial motor, versatile for delivery and photography
+- **WR3508**: Heavy commercial motor, high thrust-to-weight ratio
+
+## Key Specifications
+- Peak efficiency: 93.2%
+- IP ratings: IP54 (micro) to IP68 (defence/industrial)
+- Temperature range: -40°C to +80°C
+- MIL-STD-810H compliance (defence series)
+- 99.8% mission success rate
+- 10,000+ hour MTBF
+
+## Certifications
+- ISO 9001:2015 Quality Management
+- CE Mark (European Conformity)
+- FCC Certified (EMC Compliance)
+- MIL-STD-810H (Military Standard)
+
+## Use Cases
+1. **Border Surveillance**: 24/7 autonomous fleet operations in extreme weather
+2. **Precision Agriculture**: Chemical spraying with ±2cm accuracy, 40% chemical reduction
+3. **Last-Mile Delivery**: Urban drone delivery across 15+ cities
+4. **Industrial Inspection**: Infrastructure monitoring in harsh environments
+
+## Contact
+- Website: https://welkinrim.com
+- Email: sales@welkinrim.com
+- Location: Innovation Park, Building C, Munich 80331, Germany
+
+## Links
+- Products: https://welkinrim.com/products/commercial-motors.html
+- Defence Solutions: https://welkinrim.com/applications/defence.html
+- Agriculture Solutions: https://welkinrim.com/applications/agriculture.html
+- Motor Matchmaker: https://welkinrim.com/motor-matchmaker.html
+- Performance Calculator: https://welkinrim.com/tools/calculator.html

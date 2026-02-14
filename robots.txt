@@ -4,6 +4,10 @@
 User-agent: *
 Allow: /
 Disallow: /__pycache__/
+Disallow: /assets/generated/render-*
 
 # Sitemap location
 Sitemap: https://welkinrim.com/sitemap.xml
+
+# LLM-readable content
+# See https://welkinrim.com/llms.txt for structured product and company information

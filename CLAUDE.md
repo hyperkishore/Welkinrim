@@ -3,10 +3,16 @@
 ## Project Overview
 WelkinRim is a **real** drone motor manufacturer company. Static HTML/CSS/JS site (no framework). Served locally at `localhost:8765`.
 
-**Current version:** 1.2.22
+**Current version:** 1.2.24
 **Repo:** https://github.com/hyperkishore/Welkinrim.git
 **Live site:** https://hyperkishore.github.io/Welkinrim/
 **Branch:** main
+
+---
+
+## Browser Automation
+
+**IMPORTANT:** Always use `mcp__claude-in-chrome__*` tools for ALL browser automation (screenshots, page interaction, testing). NEVER use `mcp__playwright__*` tools. Claude in Chrome connects to the user's actual Chrome browser with logged-in sessions and cookies, which is the preferred workflow.
 
 ---
 
