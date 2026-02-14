@@ -3,7 +3,7 @@
 ## Project Overview
 WelkinRim is a **real** drone motor manufacturer company. Static HTML/CSS/JS site (no framework). Served locally at `localhost:8765`.
 
-**Current version:** 1.2.24
+**Current version:** 1.2.25
 **Repo:** https://github.com/hyperkishore/Welkinrim.git
 **Live site:** https://hyperkishore.github.io/Welkinrim/
 **Branch:** main
@@ -300,8 +300,25 @@ Full catalog with install commands is in `DESIGN-TOOLS.md`.
 - **Page pattern:** Self-contained `<style>` blocks for page-specific CSS (see blog.html, asset-library.html)
 - **Shared CSS:** `styles.css` for global styles, CSS variables for theming
 - **Nav/Footer:** Copy from index.html for consistency; adjust links to use relative paths from page location
-- **Dark theme:** `--gradient-hero` for dark sections, alternating `section-dark`/`section-light`
+- **Dark theme:** Fully dark site since v1.2.24. All sections use `section-dark`. No more `section-light`.
 - **Orange accent:** `var(--accent)` = `#f6a604`
 - **Fonts:** Plus Jakarta Sans (headings), Inter (body)
 - **No build step:** Plain HTML/CSS/JS, no bundler
 - **Local server:** `python3 -m http.server 8765`
+
+---
+
+## Hero A/B Testing Panel (removed in v1.2.25)
+
+The homepage previously had a localhost-only A/B variant switcher panel for testing different hero backgrounds. It was removed in v1.2.25 after locking "Workshop Hands" as the production hero.
+
+**To restore for future A/B testing:** Check git history at commit `c951159` (v1.2.24) — the full panel script was at the bottom of `index.html` inside a `location.hostname === 'localhost'` guard. It supported 7 variants:
+- Original (clean gradient)
+- Subtle Glow (epic motor, screen blend 25%)
+- Bold Glow (epic motor, screen blend 30%)
+- Workshop Hands (current production — `workshop-hands-v1.png`)
+- Lab Tweezers (`workshop-lab-v1.png`)
+- Exploded View (`workshop-exploded-v1.png`)
+- Gemini Workshop (`workshop-gemini-ref.png`)
+
+**Hero background images** are still in `assets/generated/` and can be reused.
