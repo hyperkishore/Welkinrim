@@ -598,23 +598,23 @@ function initCardTilt() {
 function initMotorShowcase() {
     const motorData = {
         wr3508: {
-            front: 'assets/wr3508-motor.svg',
-            side: 'assets/wr3508-side.svg',
-            back: 'assets/wr3508-back.svg',
+            front: 'assets/generated/wr3508-motor-v4.jpg',
+            side: 'assets/generated/wr3508-side-v4.jpg',
+            back: 'assets/generated/wr3508-back-v4.jpg',
             specs: 'assets/wr3508-specs.svg',
             thrust: '8.5 kg', weight: '185g', kv: '600KV', voltage: '6S LiPo', efficiency: '93%', ip: 'IP67'
         },
         wr2815: {
-            front: 'assets/wr2815-motor-detail.svg',
-            side: 'assets/wr2815-side.svg',
-            back: 'assets/wr2815-back.svg',
+            front: 'assets/generated/wr2815-motor-v4.jpg',
+            side: 'assets/generated/wr2815-side-v4.jpg',
+            back: 'assets/generated/wr2815-back-v4.jpg',
             specs: 'assets/wr2815-specs.svg',
             thrust: '5.2 kg', weight: '128g', kv: '900KV', voltage: '6S LiPo', efficiency: '91%', ip: 'IP65'
         },
         wr2212: {
-            front: 'assets/wr2212-motor.svg',
-            side: 'assets/wr2212-side.svg',
-            back: 'assets/wr2212-back.svg',
+            front: 'assets/generated/wr2212-motor-v4.jpg',
+            side: 'assets/generated/wr2212-side-v4.jpg',
+            back: 'assets/generated/wr2212-back-v4.jpg',
             specs: 'assets/wr2212-specs.svg',
             thrust: '2.1 kg', weight: '58g', kv: '1400KV', voltage: '4S LiPo', efficiency: '89%', ip: 'IP54'
         }
