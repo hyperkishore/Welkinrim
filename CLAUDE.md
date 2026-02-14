@@ -3,7 +3,7 @@
 ## Project Overview
 WelkinRim is a **real** drone motor manufacturer company. Static HTML/CSS/JS site (no framework). Served locally at `localhost:8765`.
 
-**Current version:** 1.2.21
+**Current version:** 1.2.22
 **Repo:** https://github.com/hyperkishore/Welkinrim.git
 **Live site:** https://hyperkishore.github.io/Welkinrim/
 **Branch:** main
@@ -31,15 +31,99 @@ WelkinRim is a **real** drone motor manufacturer company. Static HTML/CSS/JS sit
 - `scripts.js` — Main JS
 - `motor-database.js` — Motor specs data
 - `VERSION` — Current version number
+- `.env` — API keys (gitignored, NEVER commit)
 - `DESIGN-TOOLS.md` — Complete catalog of 110+ design MCP servers/skills/plugins
+
+---
+
+## API Keys & Secrets
+
+All API keys live in `.env` (gitignored). **NEVER hardcode keys in source files or commit them.**
+
+```bash
+# .env contents:
+GOOGLE_API_KEY=...    # Google Gemini / Nano Banana image gen (free tier: 500 img/day)
+HF_TOKEN=...          # HuggingFace Inference API (FLUX.1 Schnell)
+# OPENAI_API_KEY=...  # OpenAI GPT Image 1.5 (not yet set up)
+# REPLICATE_API_TOKEN=... # Replicate FLUX.2 Pro (not yet set up)
+```
+
+**To load keys in shell scripts:**
+```bash
+source /Users/kishore/Desktop/Claude-experiments/welkinrim/.env
+curl -H "Authorization: Bearer $HF_TOKEN" ...
+```
+
+**MCP servers read keys via env vars** — configured at install time, not from `.env` directly.
+
+---
+
+## Image Generation Pipeline
+
+### Goal
+Replace all placeholder SVG/PNG motor assets with **photorealistic 3D product renders** matching professional motor manufacturer catalogs (MAD Motors, LIG Power, T-Motor, Hobbywing).
+
+### Reference Style
+- **Primary reference:** Hobbywing XRotor M4006 — open bell design with triangular cutouts, copper windings visible through slots, black anodized aluminum, bold white branding, floor reflection, dramatic edge lighting
+- **Other references:** `assets/36d2a06500.jpg` (MAD 4014), LIG Power product photography
+
+### Models Available (best to worst for our use case)
+
+| Model | Access Method | Quality | Text Rendering | Status |
+|-------|-------------|---------|----------------|--------|
+| **Nano Banana Pro** (Google Gemini) | `imagegen` MCP / Google AI API | Excellent | Good | Ready (free tier) |
+| **GPT Image 1.5** (OpenAI) | `imagegen` MCP / OpenAI API | Excellent | Best | Need `OPENAI_API_KEY` |
+| **FLUX.2 Pro** (Black Forest Labs) | `imagegen` MCP / Replicate API | Excellent | OK | Need `REPLICATE_API_TOKEN` |
+| **FLUX.1 Schnell** (Black Forest Labs) | HF Inference API (curl) | Good | Poor | Ready (HF_TOKEN) |
+
+### How to Get Missing API Keys
+
+**OpenAI (GPT Image 1.5):**
+1. Go to https://platform.openai.com/api-keys
+2. Create new secret key
+3. Add billing at https://platform.openai.com/settings/organization/billing
+4. Add to `.env` as `OPENAI_API_KEY=sk-...`
+5. Reinstall imagegen MCP with: `claude mcp add-json imagegen '{"command":"npx","args":["-y","@fastmcp-me/imagegen-mcp"],"env":{"GOOGLE_API_KEY":"...","OPENAI_API_KEY":"sk-..."}}'`
+
+**Replicate (FLUX.2 Pro):**
+1. Go to https://replicate.com/account/api-tokens
+2. Create token
+3. Add to `.env` as `REPLICATE_API_TOKEN=r8_...`
+4. Reinstall imagegen MCP with the token added to env
+
+### Direct API Generation (FLUX.1 Schnell via curl)
+
+This works right now without any MCP. Used to generate v3 and v4 assets:
+
+```bash
+source .env
+curl -s -X POST \
+  "https://router.huggingface.co/hf-inference/models/black-forest-labs/FLUX.1-schnell" \
+  -H "Authorization: Bearer $HF_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"inputs": "your prompt here"}' \
+  --output image.jpg
+```
+
+- Returns JPEG directly (~3 seconds per image)
+- No GPU quota limits with token (unlike ZeroGPU Spaces)
+- Quality: good photorealism but **poor text rendering** (garbles brand names/model numbers)
+
+### Known Limitations of FLUX.1 Schnell
+- Text rendering is unreliable: "WelkinRim" → "Welikjm", "WR3508" → "WR308"
+- Motor proportions don't always match real outrunner geometry
+- Random symbols/characters appear on PCB/stator areas
+- All 3 motor models look too similar (not distinct enough)
+
+**Solution:** Use newer models (Nano Banana, GPT Image 1.5) which handle text and fine details much better. Generate without text, then overlay branding via CSS/image editor.
 
 ---
 
 ## Asset Library & Numbering System
 
-`asset-library.html` is an internal reference page showing all 37 visual assets with numbered IDs. Use these numbers to reference specific assets (e.g., "put #7 in the hero" = wr2212-side.svg).
+`asset-library.html` is an internal reference page showing all 73 visual assets with numbered IDs. Use these numbers to reference specific assets (e.g., "put #7 in the hero" = wr2212-side.svg).
 
-### Asset Index
+### Asset Index — Original SVGs (#1-#37)
 
 | # | File | Path | Category |
 |---|------|------|----------|
@@ -63,55 +147,61 @@ WelkinRim is a **real** drone motor manufacturer company. Static HTML/CSS/JS sit
 | #18 | wr3508-specs.svg | assets/wr3508-specs.svg | WR3508 Views |
 | #19 | wr1806-motor.svg | assets/wr1806-motor.svg | Other Motors (unused) |
 | #20 | wr4020-motor.svg | assets/wr4020-motor.svg | Other Motors (unused) |
-| #21 | iso-9001.svg | assets/iso-9001.svg | Cert Badges |
-| #22 | ce-mark.svg | assets/ce-mark.svg | Cert Badges |
-| #23 | fcc-cert.svg | assets/fcc-cert.svg | Cert Badges |
-| #24 | logo.svg | assets/logo.svg | Branding (unused) |
-| #25 | favicon.svg | assets/favicon.svg | Branding |
-| #26 | Welkinrim logo.png | assets/Welkinrim logo.png | Branding |
-| #27 | 36d2a06500.jpg | assets/36d2a06500.jpg | Photography (unused) |
-| #28 | MADV68VTOLDronebrushlessmotor.webp | assets/MADV68VTOLDronebrushlessmotor.webp | Photography (unused) |
-| #29 | ideaforge.svg | assets/clients/ideaforge.svg | Client Logos |
-| #30 | garuda-aerospace.svg | assets/clients/garuda-aerospace.svg | Client Logos |
-| #31 | iotechworld.svg | assets/clients/iotechworld.svg | Client Logos |
-| #32 | parrot.svg | assets/clients/parrot.svg | Client Logos |
-| #33 | thales.svg | assets/clients/thales.svg | Client Logos |
-| #34 | wingcopter.svg | assets/clients/wingcopter.svg | Client Logos |
-| #35 | skydio.svg | assets/clients/skydio.svg | Client Logos |
-| #36 | anduril.svg | assets/clients/anduril.svg | Client Logos |
-| #37 | aerovironment.svg | assets/clients/aerovironment.svg | Client Logos |
+| #21-#23 | iso-9001.svg, ce-mark.svg, fcc-cert.svg | assets/ | Cert Badges |
+| #24-#26 | logo.svg, favicon.svg, Welkinrim logo.png | assets/ | Branding |
+| #27-#28 | 36d2a06500.jpg, MADV68VTOLDronebrushlessmotor.webp | assets/ | Photography (unused) |
+| #29-#37 | ideaforge.svg through aerovironment.svg | assets/clients/ | Client Logos |
 
-### Generated v2 Assets (PNG renders — `assets/generated/`)
+### Generated v2 Assets — CSS Renders (#38-#51)
 
-Created via HTML/CSS 3D rendering + Playwright screenshots. Dark studio backgrounds, CSS gradient metallic surfaces. These are OK but **NOT the target quality**. The goal is photorealistic 3D product renders like real motor manufacturer product shots (reference: `assets/36d2a06500.jpg` — MAD 4014 motor).
+Created via HTML/CSS 3D rendering + Playwright screenshots. Dark studio backgrounds, CSS gradient metallic surfaces. **Placeholder quality — not production-ready.**
 
-| # | File | Size | Replaces |
-|---|------|------|----------|
-| #38 | hero-motor-v2.png | 1024x1024 | #1 |
-| #39 | commercial-motors-hero-v2.png | 1200x600 | #5 |
-| #40 | hero-motor-v2.png (WR2212 front) | 1024x1024 | #6 |
-| #41 | wr2212-side-v2.png | 800x800 | #7 |
-| #42 | wr2212-back-v2.png | 800x800 | #8 |
-| #43 | wr2212-specs-v2.png | 800x800 | #9 |
-| #44 | wr2815-motor-v2.png | 1024x1024 | #10 |
-| #45 | wr2815-side-v2.png | 800x800 | #12 |
-| #46 | wr2815-back-v2.png | 800x800 | #13 |
-| #47 | wr2815-specs-v2.png | 800x800 | #14 |
-| #48 | wr3508-motor-v2.png | 1024x1024 | #15 |
-| #49 | wr3508-side-v2.png | 800x800 | #16 |
-| #50 | wr3508-back-v2.png | 800x800 | #17 |
-| #51 | wr3508-specs-v2.png | 800x800 | #18 |
+| # | File | Replaces |
+|---|------|----------|
+| #38-#39 | hero-motor-v2.png, commercial-motors-hero-v2.png | #1, #5 |
+| #40-#43 | WR2212 front/side/back/specs v2.png | #6-#9 |
+| #44-#47 | WR2815 motor/side/back/specs v2.png | #10, #12-#14 |
+| #48-#51 | WR3508 motor/side/back/specs v2.png | #15-#18 |
 
-Each PNG has a corresponding HTML render template in `assets/generated/render-*.html`.
+### Generated v3 Assets — FLUX.1 Schnell AI Renders (#52-#62)
 
-### Asset Quality Assessment
-The original SVGs (#1-#37) and the generated v2 PNGs (#38-#51) are both placeholder-quality. The goal is **photorealistic 3D product renders** — professional studio lighting, realistic metallic materials (matte dark aluminum), proper shadows, white or dark gradient backgrounds. Reference style: LIG Power (ligpower.com) and MAD Motors product photography. Client logos (#29-#37) are fine as-is.
+Generated via HuggingFace Inference API (FLUX.1 Schnell). Generic studio product photography style. **Better than v2 but text rendering is poor.**
+
+| # | File | Replaces |
+|---|------|----------|
+| #52 | hero-motor-v3.jpg | #1 |
+| #53 | commercial-motors-hero-v3.jpg | #5 |
+| #54-#56 | wr2212 motor/side/back v3.jpg | #6-#8 |
+| #57-#59 | wr2815 motor/side/back v3.jpg | #10, #12-#13 |
+| #60-#62 | wr3508 motor/side/back v3.jpg | #15-#17 |
+
+### Generated v4 Assets — Hobbywing Style AI Renders (#63-#73)
+
+Generated via FLUX.1 Schnell with Hobbywing XRotor M4006-inspired prompts. Open bell with triangular cutouts, copper windings visible, black anodized aluminum, white studio background. **Best style so far but still has text rendering issues.**
+
+| # | File | Replaces |
+|---|------|----------|
+| #63 | hero-motor-v4.jpg | #1 |
+| #64 | commercial-motors-hero-v4.jpg | #5 |
+| #65-#67 | wr2212 motor/side/back v4.jpg | #6-#8 |
+| #68-#70 | wr2815 motor/side/back v4.jpg | #10, #12-#13 |
+| #71-#73 | wr3508 motor/side/back v4.jpg | #15-#17 |
+
+### Asset Quality Summary
+
+| Version | Method | Pros | Cons | Production Ready? |
+|---------|--------|------|------|-------------------|
+| v1 (SVG) | Hand-drawn SVGs | Clean, scalable | Flat, not photorealistic | No |
+| v2 (PNG) | HTML/CSS + Playwright | 3D-ish look | Dark, plasticky, not realistic | No |
+| v3 (JPG) | FLUX.1 Schnell | Photorealistic lighting | Garbled text, generic style | No |
+| v4 (JPG) | FLUX.1 Schnell + Hobbywing style | Best style match | Still garbled text, some wrong geometry | No |
+| **v5 (planned)** | Nano Banana / GPT Image 1.5 | Latest models, better text | Needs API keys | Pending |
 
 ---
 
 ## Installed Design Tools
 
-### MCP Servers (13 installed)
+### MCP Servers (14 installed)
 
 **Working:**
 - `icons8mcp` — 368,865+ icons across 116 styles
@@ -121,6 +211,7 @@ The original SVGs (#1-#37) and the generated v2 PNGs (#38-#51) are both placehol
 - `playwright` — Cross-browser screenshots + visual testing
 - `flowbite` — 60+ Tailwind UI components + AI theme generator
 - `huggingface` — HF Spaces for AI image gen (FLUX.1, etc.)
+- `imagegen` — **Multi-model image gen** (Nano Banana/Gemini, GPT Image, FLUX via Replicate). Configured with `GOOGLE_API_KEY`. Scope: user-level (all projects).
 
 **Needs Authentication/API Keys:**
 - `figma` — Official Figma MCP (needs Figma login at https://mcp.figma.com/mcp)
@@ -132,6 +223,22 @@ The original SVGs (#1-#37) and the generated v2 PNGs (#38-#51) are both placehol
 - `lottiefiles` — Lottie animation search
 - `shadcn` — shadcn/ui components
 
+### imagegen MCP — Multi-Model Image Generation
+
+The `imagegen` MCP server (`@fastmcp-me/imagegen-mcp`) is the primary image generation tool. It supports multiple models through a unified interface:
+
+**Currently enabled:**
+- Nano Banana (Google Gemini) — via `GOOGLE_API_KEY`
+
+**Can be enabled by adding keys:**
+- GPT Image 1 (OpenAI) — needs `OPENAI_API_KEY` added to MCP env
+- FLUX 1.1 Pro (via Replicate) — needs `REPLICATE_API_TOKEN` added to MCP env
+
+**To add more keys to the MCP:**
+```bash
+claude mcp add-json imagegen '{"command":"npx","args":["-y","@fastmcp-me/imagegen-mcp"],"env":{"GOOGLE_API_KEY":"...","OPENAI_API_KEY":"sk-...","REPLICATE_API_TOKEN":"r8_..."}}'
+```
+
 ### Claude Code Skills (6 design skills installed in `.agents/skills/`)
 - `canvas-design` — Museum/magazine quality visual art
 - `frontend-design` — Bold design for React + Tailwind (anti-"AI slop")
@@ -142,55 +249,29 @@ The original SVGs (#1-#37) and the generated v2 PNGs (#38-#51) are both placehol
 
 ### Full Tool Catalog — 110+ Tools Identified
 
-We researched and cataloged 110+ design-related MCP servers, skills, and plugins. Only 19 are installed so far (13 MCP servers + 6 skills). The full catalog with install commands is in `DESIGN-TOOLS.md`.
-
-**What's NOT yet installed, by category:**
-
-| Category | Tools Available | Highlights |
-|----------|----------------|------------|
-| **Figma (additional)** | 7 more | Framelink, figma-developer-mcp, figma-mcp-pro, talk-to-figma, html.to.design |
-| **Canva** | 2 | Official Canva AI Connector, Composio Canva MCP |
-| **Adobe/Illustrator** | 5 | Unified Adobe MCP (PS+AI+Premiere+InDesign), Illustrator-specific MCPs |
-| **SVG Generation** | 3 more | SVG Maker (erkamkavak), EverArt Forge, mcp-svg-to-fonts |
-| **Image Generation AI** | 18 | Stability AI (SD3.5), DALL-E 3, Replicate Flux, FAL AI, PiAPI (Midjourney), Gemini, ComfyUI (local), HF Space |
-| **Design Systems** | 7 more | 21st.dev Magic, Magic UI, Magic Patterns, daisyUI Blueprint, v0 (Vercel), WebForge |
-| **Animation/Motion** | 3 more | Allyson (animate SVGs), GSAP Master, Motion.dev |
-| **Color Palette** | 2 | Color Scheme MCP, Colors and Fonts MCP |
-| **Image Processing** | 2 more | Cloudinary MCP, MCP Image Optimizer |
-| **Stock Images** | 3 | Unsplash Smart, Stock Images (multi-provider), Stocky |
-| **Logo/Branding** | 4 | Superdesign, BrandSnap, Logo.dev, Auto Favicon |
-| **Diagramming** | 2 more | Excalidraw MCP, Mermaid MCP |
-| **Other Design Apps** | 4 | Sketch MCP, Penpot MCP, Framer MCP, Blender MCP (3D) |
-| **Additional Skills** | 7+ | ui-ux-pro-max (22K installs), web-design-guidelines (91K installs), tailwind-design-system, visual-design-foundations, interaction-design, baoyu-infographic, baoyu-image-gen |
-
-**To install any of these:** Open `DESIGN-TOOLS.md`, find the tool, copy the install command. Most are one-liners like `claude mcp add name -- npx -y package-name`.
-
-**Key tools to prioritize installing next:**
-- `recraft` API key — best-in-class SVG illustration generation
-- `svgmaker` API key — text-to-SVG with editing
-- Stability AI or DALL-E 3 — for raster image generation
-- Additional Figma MCPs — if user has Figma files to work from
-- GSAP Master — for adding animations to the site
+Full catalog with install commands is in `DESIGN-TOOLS.md`.
 
 ---
 
 ## Next Steps
 
-Generate **photorealistic 3D product renders** of WelkinRim motors (WR2212, WR2815, WR3508). Target quality: professional product photography like MAD Motors / LIG Power / T-Motor catalog images.
+### Immediate: Generate v5 Assets with Modern Models
+1. Test Nano Banana (Gemini) via `imagegen` MCP — already configured
+2. Get `OPENAI_API_KEY` → enable GPT Image 1.5 (best text rendering)
+3. Get `REPLICATE_API_TOKEN` → enable FLUX.2 Pro (best photorealism)
+4. Generate v5 motor renders using best model for each view
+5. Compare v5 against v4, pick best per-asset
+6. Replace website assets with final selections
 
-**Current blockers & solutions:**
-1. **HuggingFace GPU quota** — Anonymous quota is 0s. Need `HF_TOKEN` env var (free at hf.co/settings/tokens)
-2. **Claude-in-Chrome** — Needed to use browser-based AI image generators (FLUX, Z-Image). See troubleshooting below.
-3. **Recraft API** — Best option for direct API image gen. Need `RECRAFT_API_TOKEN` env var.
+### Strategy: Mix Models Per Use Case
+- **Hero shots** (need "wow" factor): Nano Banana or GPT Image 1.5
+- **Product detail views** (need accuracy): GPT Image 1.5 (best at text/logos)
+- **Side/back views** (need consistency): FLUX.2 Pro or Nano Banana
+- **Text overlays**: Generate clean images WITHOUT text, add branding via CSS
 
-**Priority order:**
-1. Get Claude-in-Chrome working → use FLUX.2 Klein or Z-Image via browser
-2. OR set `HF_TOKEN` → use Z-Image MCP tool directly
-3. OR set `RECRAFT_API_TOKEN` → use Recraft for highest quality renders
-4. Replace current v2 PNGs with photorealistic versions
-5. Update asset-library.html for review
+---
 
-### Claude-in-Chrome Troubleshooting
+## Claude-in-Chrome Troubleshooting
 
 **Setup files (all present and correct):**
 - Native host config: `~/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.anthropic.claude_code_browser_extension.json`

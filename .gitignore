@@ -49,3 +49,18 @@ build/
 
 # OS generated files
 Icon?
+
+# Temporary screenshots (root only)
+/hero-*.png
+/homepage-*.png
+
+# AI generation outputs
+outputs/
+
+# Python cache
+__pycache__/
+
+# Agent/skill directories
+.agent/
+.agents/
+.cursor/
