@@ -25,8 +25,8 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: #1a1a1a;
-            background: #ffffff;
+            color: #fff;
+            background: #0a0a0f;
         }
 
         /* Skip to content link */
@@ -136,7 +136,7 @@
 
         .section-subtitle {
             font-size: 1.2rem;
-            color: #666;
+            color: rgba(255,255,255,0.5);
             text-align: center;
             margin-bottom: 60px;
             max-width: 700px;
@@ -153,8 +153,8 @@
         }
 
         .category-card {
-            background: #ffffff;
-            border: 1px solid #e0e0e0;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
             border-radius: 12px;
             padding: 40px 30px;
             transition: all 0.3s ease;
@@ -169,14 +169,14 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #000000, #404040);
+            background: linear-gradient(90deg, #f6a604, #f6a604);
             transform: scaleX(0);
             transition: transform 0.3s ease;
         }
 
         .category-card:hover {
-            border-color: #000000;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border-color: rgba(255,255,255,0.2);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
             transform: translateY(-5px);
         }
 
@@ -195,17 +195,17 @@
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 15px;
-            color: #000000;
+            color: #fff;
         }
 
         .category-description {
-            color: #666;
+            color: rgba(255,255,255,0.5);
             margin-bottom: 20px;
             line-height: 1.7;
         }
 
         .category-specs {
-            background: #f8f8f8;
+            background: rgba(255,255,255,0.04);
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 25px;
@@ -215,7 +215,7 @@
             display: flex;
             justify-content: space-between;
             padding: 8px 0;
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
         .spec-row:last-child {
@@ -224,11 +224,11 @@
 
         .spec-label {
             font-weight: 600;
-            color: #333;
+            color: rgba(255,255,255,0.7);
         }
 
         .spec-value {
-            color: #666;
+            color: rgba(255,255,255,0.5);
         }
 
         .featured-motors {
@@ -238,7 +238,7 @@
         .featured-motors-title {
             font-size: 0.9rem;
             font-weight: 600;
-            color: #666;
+            color: rgba(255,255,255,0.5);
             text-transform: uppercase;
             letter-spacing: 0.05em;
             margin-bottom: 10px;
@@ -251,60 +251,60 @@
 
         .motor-list li {
             padding: 6px 0;
-            color: #333;
+            color: rgba(255,255,255,0.7);
             font-size: 0.95rem;
         }
 
         .motor-list li::before {
             content: '→';
             margin-right: 8px;
-            color: #000;
+            color: #f6a604;
             font-weight: 700;
         }
 
         .btn {
             display: inline-block;
             padding: 14px 32px;
-            background: #000000;
-            color: #ffffff;
+            background: #f6a604;
+            color: #000;
             text-decoration: none;
             border-radius: 6px;
             font-weight: 600;
             transition: all 0.3s ease;
-            border: 2px solid #000000;
+            border: 2px solid #f6a604;
             text-align: center;
             cursor: pointer;
         }
 
         .btn:hover {
-            background: #ffffff;
-            color: #000000;
+            background: #ffb824;
+            color: #000;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 12px rgba(246, 166, 4, 0.3);
         }
 
         .btn-outline {
             background: transparent;
-            color: #000000;
-            border: 2px solid #000000;
+            color: #fff;
+            border: 2px solid rgba(255,255,255,0.2);
         }
 
         .btn-outline:hover {
-            background: #000000;
-            color: #ffffff;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
         }
 
         /* Comparison Table */
         .comparison-section {
-            background: #f8f8f8;
+            background: #0a0a0f;
             padding: 80px 20px;
         }
 
         .comparison-table-wrapper {
             overflow-x: auto;
-            background: #ffffff;
+            background: rgba(255,255,255,0.03);
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .comparison-table {
@@ -322,7 +322,7 @@
         .comparison-table td {
             padding: 20px;
             text-align: left;
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
         .comparison-table th {
@@ -333,7 +333,7 @@
         }
 
         .comparison-table tbody tr:hover {
-            background: #f8f8f8;
+            background: rgba(255,255,255,0.04);
         }
 
         .comparison-table tbody tr:last-child td {
@@ -342,7 +342,7 @@
 
         .table-highlight {
             font-weight: 700;
-            color: #000000;
+            color: #fff;
         }
 
         /* CTA Section */
