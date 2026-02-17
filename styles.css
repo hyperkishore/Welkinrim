@@ -2733,19 +2733,20 @@ a:focus-visible {
 }
 
 .showcase-viewer {
-    background: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.03);
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 4px 30px rgba(0,0,0,0.06);
-    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+    border: 1px solid rgba(255,255,255,0.08);
     max-width: 900px;
     margin: 0 auto;
+    backdrop-filter: blur(20px);
 }
 
 .showcase-tabs {
     display: flex;
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-    background: rgba(0,0,0,0.02);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background: rgba(0,0,0,0.2);
 }
 
 .showcase-tab {
@@ -2756,7 +2757,7 @@ a:focus-visible {
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 600;
     font-size: 0.95rem;
-    color: #666;
+    color: rgba(255,255,255,0.45);
     cursor: pointer;
     position: relative;
     transition: color 0.3s ease;
@@ -2774,9 +2775,9 @@ a:focus-visible {
     transition: transform 0.3s ease;
 }
 
-.showcase-tab.active { color: #171a20; }
+.showcase-tab.active { color: #fff; }
 .showcase-tab.active::after { transform: scaleX(1); }
-.showcase-tab:hover { color: #171a20; }
+.showcase-tab:hover { color: #fff; }
 
 .showcase-body {
     display: grid;
@@ -2789,7 +2790,16 @@ a:focus-visible {
     align-items: center;
     justify-content: center;
     padding: 40px;
-    background: #fafbfc;
+    background: linear-gradient(145deg, #1a1a24 0%, #12121a 100%);
+    position: relative;
+}
+
+.showcase-stage::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(246,166,4,0.04) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 .showcase-stage img {
@@ -2797,6 +2807,10 @@ a:focus-visible {
     max-height: 280px;
     object-fit: contain;
     transition: opacity 0.3s ease;
+    border-radius: 12px;
+    background: #f0f0f2;
+    padding: 8px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
 }
 
 .showcase-sidebar {
@@ -2804,7 +2818,7 @@ a:focus-visible {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    border-left: 1px solid rgba(0,0,0,0.06);
+    border-left: 1px solid rgba(255,255,255,0.08);
 }
 
 .showcase-views {
@@ -2815,27 +2829,27 @@ a:focus-visible {
 
 .showcase-view-btn {
     padding: 8px 4px;
-    border: 1px solid rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.12);
     border-radius: 50px;
-    background: #fff;
+    background: rgba(255,255,255,0.04);
     font-family: 'Inter', sans-serif;
     font-size: 0.78rem;
     font-weight: 500;
-    color: #666;
+    color: rgba(255,255,255,0.5);
     cursor: pointer;
     transition: all 0.2s ease;
     text-align: center;
 }
 
 .showcase-view-btn.active {
-    background: #171a20;
-    color: #fff;
-    border-color: #171a20;
+    background: var(--accent);
+    color: #0a0a0a;
+    border-color: var(--accent);
 }
 
 .showcase-view-btn:hover:not(.active) {
-    border-color: #171a20;
-    color: #171a20;
+    border-color: rgba(255,255,255,0.3);
+    color: #fff;
 }
 
 .showcase-specs {
@@ -2849,21 +2863,21 @@ a:focus-visible {
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
 .showcase-spec:last-child { border-bottom: none; }
 
 .showcase-spec-label {
     font-size: 0.8rem;
-    color: #666;
+    color: rgba(255,255,255,0.5);
     font-weight: 500;
 }
 
 .showcase-spec-value {
     font-size: 0.85rem;
     font-weight: 600;
-    color: #171a20;
+    color: #fff;
 }
 
 /* ==========================================
@@ -3277,7 +3291,7 @@ a:focus-visible {
     .lab-article-card {
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
-        background: rgba(255,255,255,0.95);
+        background: rgba(255,255,255,0.04);
     }
 
     .motor-showcase {
