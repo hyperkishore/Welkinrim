@@ -210,13 +210,14 @@ h6 { font-size: 1rem; font-weight: 500; }
 }
 
 .btn-primary {
-    background-color: #171a20;
-    color: white;
+    background: var(--gradient-accent);
+    color: #0a0a0a;
     border: none;
+    font-weight: 600;
 }
 
 .btn-primary:hover {
-    background-color: #000000;
+    box-shadow: var(--shadow-glow-sm);
     transform: scale(1.02);
 }
 
@@ -1072,8 +1073,8 @@ h6 { font-size: 1rem; font-weight: 500; }
     align-items: center;
     gap: 14px;
     padding: 20px 24px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 12px;
     text-decoration: none;
     color: #ffffff;
@@ -1405,7 +1406,7 @@ h6 { font-size: 1rem; font-weight: 500; }
     .value-card,
     .resource-item,
     .testimonial-card {
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 255, 255, 0.06);
     }
 
     .selector-form {
@@ -1476,7 +1477,7 @@ h6 { font-size: 1rem; font-weight: 500; }
     .category-card,
     .resource-item,
     .testimonial-card {
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 255, 255, 0.06);
     }
 
     .selector-form {
@@ -3440,11 +3441,11 @@ a:focus-visible {
 }
 
 .faq-item {
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.15);
 }
 
 .faq-item:first-child {
-    border-top: 1px solid rgba(255,255,255,0.08);
+    border-top: 1px solid rgba(255,255,255,0.15);
 }
 
 .faq-question {
@@ -3964,12 +3965,12 @@ a:focus-visible {
     color: #fff;
 }
 .resources.section-dark .resource-item {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
     color: #fff;
 }
 .resources.section-dark .resource-item:hover {
-    background: rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.1);
     box-shadow: 0 8px 24px rgba(0,0,0,0.3);
     border-color: rgba(246,166,4,0.3);
 }
@@ -4000,10 +4001,10 @@ a:focus-visible {
     color: rgba(255,255,255,0.6);
 }
 .faq-section.section-dark .faq-item {
-    border-bottom-color: rgba(255,255,255,0.08);
+    border-bottom-color: rgba(255,255,255,0.15);
 }
 .faq-section.section-dark .faq-item:first-child {
-    border-top-color: rgba(255,255,255,0.08);
+    border-top-color: rgba(255,255,255,0.15);
 }
 .faq-section.section-dark .faq-question {
     color: #fff;
