@@ -382,93 +382,153 @@
             '</div>';
     }
 
+    // ── Toast Notification ─────────────────────────────────
+    function showToast(message, type) {
+        // Remove any existing toast
+        var existing = document.querySelector('.config-toast');
+        if (existing) existing.remove();
+
+        var iconSvg = '';
+        var borderColor = 'rgba(255,255,255,0.1)';
+        if (type === 'success') {
+            iconSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>';
+            borderColor = 'rgba(34,197,94,0.3)';
+        } else if (type === 'error') {
+            iconSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>';
+            borderColor = 'rgba(239,68,68,0.3)';
+        } else {
+            iconSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f6a604" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>';
+            borderColor = 'rgba(246,166,4,0.3)';
+        }
+
+        var toast = document.createElement('div');
+        toast.className = 'config-toast';
+        toast.style.borderColor = borderColor;
+        toast.innerHTML = iconSvg + '<span>' + escHtml(message) + '</span>';
+        document.body.appendChild(toast);
+
+        // Trigger animation
+        requestAnimationFrame(function() {
+            requestAnimationFrame(function() {
+                toast.classList.add('visible');
+            });
+        });
+
+        // Auto-dismiss
+        setTimeout(function() {
+            toast.classList.remove('visible');
+            setTimeout(function() { toast.remove(); }, 400);
+        }, 3000);
+    }
+
     // ── Actions ────────────────────────────────────────────
     window.downloadSpec = function() {
-        if (!selectedMotor) return;
-        const m = selectedMotor;
-        const count = config.motorCount;
-        const totalThrust = (m.maxThrust * count / 1000);
-        const motorWeight = (m.weight * count / 1000);
-        const systemWeight = motorWeight + config.payload + 1.5;
-        const twRatio = totalThrust / systemWeight;
+        if (!selectedMotor) { showToast('No motor selected', 'error'); return; }
+        var m = selectedMotor;
+        var count = config.motorCount;
+        var totalThrust = (m.maxThrust * count / 1000);
+        var motorWeight = (m.weight * count / 1000);
+        var systemWeight = motorWeight + config.payload + 1.5;
+        var twRatio = totalThrust / systemWeight;
+        var estFlight = Math.round(config.flightTime * m.efficiency * (twRatio > 2 ? 1.1 : twRatio > 1.5 ? 1.0 : 0.8));
+        var date = new Date().toISOString().split('T')[0];
 
-        const text = [
-            'WelkinRim Propulsion System Specification',
-            '==========================================',
+        var text = [
+            '╔══════════════════════════════════════════════════════╗',
+            '║    WelkinRim Propulsion System Specification         ║',
+            '╚══════════════════════════════════════════════════════╝',
             '',
-            'Mission: ' + (config.mission || 'N/A'),
-            'Sub-Category: ' + (config.subCategory || 'General'),
-            'Environment: ' + config.environment,
+            'Generated: ' + date,
+            'Configuration ID: WR-' + Date.now().toString(36).toUpperCase(),
             '',
-            'REQUIREMENTS',
-            '  Payload: ' + config.payload.toFixed(1) + ' kg',
-            '  Target Flight Time: ' + config.flightTime + ' min',
-            '  Max Altitude: ' + config.altitude + ' m',
+            '── MISSION PROFILE ──────────────────────────────────',
+            '  Application:      ' + (config.mission || 'N/A').charAt(0).toUpperCase() + (config.mission || '').slice(1),
+            '  Sub-Category:     ' + (config.subCategory || 'General'),
+            '  Environment:      ' + config.environment.charAt(0).toUpperCase() + config.environment.slice(1),
             '',
-            'SELECTED MOTOR',
-            '  Model: ' + m.brand + ' ' + m.model,
-            '  Series: ' + m.series,
-            '  Quantity: ' + count,
-            '  Max Thrust: ' + (m.maxThrust / 1000).toFixed(1) + ' kg per motor',
-            '  Weight: ' + m.weight + 'g per motor',
-            '  Efficiency: ' + (m.efficiency * 100).toFixed(0) + '%',
-            '  KV: ' + m.kv,
-            '  IP Rating: ' + (m.ipRating || 'N/A'),
+            '── REQUIREMENTS ─────────────────────────────────────',
+            '  Payload:          ' + config.payload.toFixed(1) + ' kg',
+            '  Target Flight:    ' + config.flightTime + ' min',
+            '  Max Altitude:     ' + config.altitude.toLocaleString() + ' m',
+            '  Motor Count:      ' + count,
             '',
-            'SYSTEM PERFORMANCE',
-            '  Total Thrust: ' + totalThrust.toFixed(1) + ' kg',
-            '  Thrust-to-Weight Ratio: ' + twRatio.toFixed(1) + ':1',
-            '  Estimated System Weight: ' + systemWeight.toFixed(1) + ' kg',
+            '── SELECTED MOTOR ───────────────────────────────────',
+            '  Model:            ' + m.brand + ' ' + m.model,
+            '  Series:           ' + m.series,
+            '  Quantity:         ' + count + ' units',
+            '  Max Thrust:       ' + (m.maxThrust / 1000).toFixed(1) + ' kg per motor',
+            '  Weight:           ' + m.weight + 'g per motor',
+            '  Efficiency:       ' + (m.efficiency * 100).toFixed(0) + '%',
+            '  KV Rating:        ' + m.kv,
+            '  IP Rating:        ' + (m.ipRating || 'N/A'),
+            '  Suitability:      ' + (m.suitabilityScore || '--') + '/100',
             '',
-            'COST',
-            '  Unit Price: $' + m.price,
+            '── SYSTEM PERFORMANCE ───────────────────────────────',
+            '  Total Thrust:     ' + totalThrust.toFixed(1) + ' kg',
+            '  T/W Ratio:        ' + twRatio.toFixed(1) + ':1',
+            '  Est. Flight Time: ' + estFlight + ' min',
+            '  Motor Weight:     ' + motorWeight.toFixed(2) + ' kg (total)',
+            '  System Weight:    ' + systemWeight.toFixed(1) + ' kg (est.)',
+            '',
+            '── COST ESTIMATE ────────────────────────────────────',
+            '  Unit Price:       $' + m.price,
             '  Total Motor Cost: $' + (m.price * count).toLocaleString(),
+            '  Note: Final pricing may vary. Contact sales for volume discounts.',
             '',
-            'Generated by WelkinRim Configurator',
-            'https://welkinrim.com/configurator.html'
+            '─────────────────────────────────────────────────────',
+            'Generated by WelkinRim Propulsion Configurator',
+            'https://welkinrim.com/configurator.html',
+            'Contact: sales@welkinrim.com'
         ].join('\n');
 
-        const blob = new Blob([text], { type: 'text/plain' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
+        var blob = new Blob([text], { type: 'text/plain' });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
         a.href = url;
-        a.download = 'WelkinRim-System-Spec-' + m.model + '.txt';
+        a.download = 'WelkinRim-Spec-' + m.model + '-' + date + '.txt';
+        document.body.appendChild(a);
         a.click();
+        document.body.removeChild(a);
         URL.revokeObjectURL(url);
+
+        showToast('Spec sheet downloaded', 'success');
     };
 
     window.requestConfigQuote = function() {
-        if (!selectedMotor) return;
-        // Use quote wizard if available
+        if (!selectedMotor) { showToast('No motor selected', 'error'); return; }
+        // Use quote wizard if available (loaded from quote-wizard.js)
         if (typeof addToQuote === 'function') {
             addToQuote(selectedMotor.id);
             if (typeof openQuoteWizard === 'function') {
                 openQuoteWizard(2);
+                return;
             }
-        } else {
-            window.location.href = 'contact.html?motor=' + encodeURIComponent(selectedMotor.model) + '&brand=' + encodeURIComponent(selectedMotor.brand) + '&type=quote&qty=' + config.motorCount;
         }
+        // Fallback: try openQuoteModal from shared.js
+        if (typeof openQuoteModal === 'function') {
+            openQuoteModal(selectedMotor.model);
+            return;
+        }
+        // Final fallback: navigate to contact page with params
+        window.location.href = 'contact.html?motor=' + encodeURIComponent(selectedMotor.model) +
+            '&brand=' + encodeURIComponent(selectedMotor.brand) +
+            '&type=quote&qty=' + config.motorCount;
     };
 
     window.saveConfiguration = function() {
+        if (!selectedMotor) { showToast('Complete configuration first', 'error'); return; }
         try {
-            sessionStorage.setItem('welkinrim_config', JSON.stringify({
+            var saved = {
                 config: config,
-                selectedMotorId: selectedMotor ? selectedMotor.id : null,
+                selectedMotorId: selectedMotor.id,
+                selectedMotorLabel: selectedMotor.brand + ' ' + selectedMotor.model,
                 timestamp: Date.now()
-            }));
-            // Visual feedback
-            var btn = event.target;
-            var orig = btn.textContent;
-            btn.textContent = 'Saved!';
-            btn.style.borderColor = '#22c55e';
-            btn.style.color = '#22c55e';
-            setTimeout(function() {
-                btn.textContent = orig;
-                btn.style.borderColor = '';
-                btn.style.color = '';
-            }, 2000);
-        } catch (e) { /* ignore */ }
+            };
+            localStorage.setItem('welkinrim_config', JSON.stringify(saved));
+            showToast('Configuration saved', 'success');
+        } catch (e) {
+            showToast('Could not save configuration', 'error');
+        }
     };
 
     // ── Navigation Buttons ─────────────────────────────────
@@ -478,6 +538,95 @@
     document.getElementById('btn-back-3').addEventListener('click', function() { goToStep(2); });
     document.getElementById('btn-next-3').addEventListener('click', function() { goToStep(4); });
     document.getElementById('btn-back-4').addEventListener('click', function() { goToStep(3); });
+
+    // ── Load Saved Configuration ────────────────────────────
+    function checkSavedConfig() {
+        try {
+            var raw = localStorage.getItem('welkinrim_config');
+            if (!raw) return;
+            var saved = JSON.parse(raw);
+            if (!saved || !saved.config || !saved.timestamp) return;
+
+            // Show the banner
+            var banner = document.getElementById('saved-config-banner');
+            var textEl = document.getElementById('saved-config-text');
+            if (!banner || !textEl) return;
+
+            var ago = timeSince(saved.timestamp);
+            var label = saved.selectedMotorLabel || 'Unknown motor';
+            textEl.textContent = 'Saved: ' + label + ' (' + ago + ')';
+            banner.style.display = '';
+
+            document.getElementById('load-config-btn').addEventListener('click', function() {
+                loadSavedConfig(saved);
+                banner.style.display = 'none';
+            });
+            document.getElementById('dismiss-config-btn').addEventListener('click', function() {
+                banner.style.display = 'none';
+            });
+        } catch (e) { /* ignore corrupt data */ }
+    }
+
+    function loadSavedConfig(saved) {
+        var c = saved.config;
+        if (!c) return;
+
+        // Restore mission
+        if (c.mission && SUB_CATEGORIES[c.mission]) {
+            selectMission(c.mission);
+            var card = missionGrid.querySelector('[data-mission="' + c.mission + '"]');
+            if (card) card.classList.add('selected');
+        }
+
+        // Restore sub-category
+        if (c.subCategory) {
+            config.subCategory = c.subCategory;
+            // Wait for sub-category options to be populated
+            setTimeout(function() {
+                subCategorySelect.value = c.subCategory;
+            }, 50);
+        }
+
+        // Restore environment
+        if (c.environment) {
+            config.environment = c.environment;
+            environmentSelect.value = c.environment;
+        }
+
+        // Restore sliders
+        if (c.payload) {
+            config.payload = c.payload;
+            payloadSlider.value = c.payload;
+        }
+        if (c.flightTime) {
+            config.flightTime = c.flightTime;
+            flightTimeSlider.value = c.flightTime;
+        }
+        if (c.altitude) {
+            config.altitude = c.altitude;
+            altitudeSlider.value = c.altitude;
+        }
+        if (c.motorCount) {
+            config.motorCount = c.motorCount;
+            motorCountSelect.value = c.motorCount;
+        }
+
+        updateSliderDisplays();
+        showToast('Configuration restored', 'success');
+    }
+
+    function timeSince(ts) {
+        var seconds = Math.floor((Date.now() - ts) / 1000);
+        if (seconds < 60) return 'just now';
+        var minutes = Math.floor(seconds / 60);
+        if (minutes < 60) return minutes + 'min ago';
+        var hours = Math.floor(minutes / 60);
+        if (hours < 24) return hours + 'h ago';
+        var days = Math.floor(hours / 24);
+        if (days === 1) return 'yesterday';
+        if (days < 30) return days + ' days ago';
+        return new Date(ts).toLocaleDateString();
+    }
 
     // ── Utilities ──────────────────────────────────────────
     function escHtml(str) {
@@ -489,5 +638,6 @@
     // ── Init ───────────────────────────────────────────────
     updateSliderDisplays();
     applyPreset();
+    checkSavedConfig();
 
 })();

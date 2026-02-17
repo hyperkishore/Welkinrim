@@ -516,6 +516,62 @@
     box-shadow: none;
 }
 
+/* Toast Notification */
+.config-toast {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #1e293b;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #fff;
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    z-index: 10000;
+    opacity: 0;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 90vw;
+}
+.config-toast.visible {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+.config-toast svg {
+    flex-shrink: 0;
+}
+
+/* Saved Configuration Banner */
+.saved-config-banner {
+    background: rgba(246,166,4,0.08);
+    border: 1px solid rgba(246,166,4,0.25);
+    border-radius: 12px;
+    padding: 14px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.saved-config-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #e2e8f0;
+    font-size: 0.88rem;
+}
+.saved-config-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .results-layout {
