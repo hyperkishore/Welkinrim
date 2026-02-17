@@ -3,7 +3,7 @@
 ## Project Overview
 WelkinRim is a **real** drone motor manufacturer company. Static HTML/CSS/JS site (no framework). Served locally at `localhost:8765`.
 
-**Current version:** 1.2.27
+**Current version:** 1.2.28
 **Repo:** https://github.com/hyperkishore/Welkinrim.git
 **Live site:** https://hyperkishore.github.io/Welkinrim/
 **Branch:** main
@@ -278,6 +278,11 @@ Full catalog with install commands is in `DESIGN-TOOLS.md`.
 ---
 
 ## Claude-in-Chrome Troubleshooting
+
+**Chrome Profile:** Always use the **Kishore Natarajan** profile (`Profile 1`). To open Chrome with this profile:
+```bash
+open -a "Google Chrome" --args --profile-directory="Profile 1"
+```
 
 **Setup files (all present and correct):**
 - Native host config: `~/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.anthropic.claude_code_browser_extension.json`
