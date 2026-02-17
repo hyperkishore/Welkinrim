@@ -231,7 +231,11 @@ function viewSpecs(motorName) {
 }
 
 function requestQuote(motorName) {
-    window.location.href = 'contact.html?motor=' + encodeURIComponent(motorName) + '&type=quote';
+    if (typeof openQuoteModal === 'function') {
+        openQuoteModal(motorName);
+    } else {
+        window.location.href = 'contact.html?motor=' + encodeURIComponent(motorName) + '&type=quote';
+    }
 }
 
 // Smooth scrolling for navigation links
@@ -963,6 +967,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add testimonial cards to animation observer
     const testimonialCards = document.querySelectorAll('.testimonial-card, .testimonial-card--dark');
     testimonialCards.forEach(el => observer.observe(el));
+
+    // Intercept all "Get Quote" nav CTAs and sticky CTA to open Quick Quote modal
+    if (typeof openQuoteModal === 'function') {
+        document.querySelectorAll('.nav-cta, .sticky-cta-btn').forEach(function(el) {
+            el.addEventListener('click', function(e) {
+                e.preventDefault();
+                openQuoteModal();
+            });
+        });
+    }
 
     console.log('WelkinRim website initialized successfully');
 });

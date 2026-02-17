@@ -647,12 +647,16 @@ function viewMotorDetails(motorId) {
     quoteModal.classList.add('open');
 }
 
-// Request quote - redirect to contact page with motor info
+// Request quote - open Quick Quote modal or redirect to contact page
 function requestQuote(motorId) {
     const motor = motorDatabase.find(m => m.id === motorId);
     if (!motor) return;
 
-    window.location.href = 'contact.html?motor=' + encodeURIComponent(motor.model) + '&brand=' + encodeURIComponent(motor.brand) + '&type=quote';
+    if (typeof openQuoteModal === 'function') {
+        openQuoteModal(motor.model);
+    } else {
+        window.location.href = 'contact.html?motor=' + encodeURIComponent(motor.model) + '&brand=' + encodeURIComponent(motor.brand) + '&type=quote';
+    }
 }
 
 // Export comparison - print-friendly view

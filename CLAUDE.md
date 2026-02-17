@@ -3,7 +3,7 @@
 ## Project Overview
 WelkinRim is a **real** drone motor manufacturer company. Static HTML/CSS/JS site (no framework). Served locally at `localhost:8765`.
 
-**Current version:** 1.2.33
+**Current version:** 1.2.35
 **Repo:** https://github.com/hyperkishore/Welkinrim.git
 **Live site:** https://hyperkishore.github.io/Welkinrim/
 **Branch:** main

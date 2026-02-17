@@ -320,7 +320,7 @@
                         <span class="mdm-price-note">${motor.moq > 1 ? 'MOQ: ' + motor.moq + ' units' : 'per unit'}</span>
                     </div>
                     <div class="mdm-ctas">
-                        <a href="${base}contact.html?motor=${encodeURIComponent(motor.model)}&brand=${encodeURIComponent(motor.brand)}&type=quote" class="btn btn-primary">Get Quote</a>
+                        <button class="btn btn-primary" onclick="if(typeof openQuoteModal==='function'){openQuoteModal('${motor.model}')}else{window.location.href='${base}contact.html?motor=${encodeURIComponent(motor.model)}&brand=${encodeURIComponent(motor.brand)}&type=quote'}">Get Quote</button>
                         ${motor.datasheetUrl ? '<a href="' + motor.datasheetUrl + '" class="btn btn-outline" target="_blank">Datasheet</a>' : ''}
                         <button class="btn btn-secondary" onclick="closeMotorDetail()">Close</button>
                     </div>

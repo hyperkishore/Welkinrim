@@ -187,6 +187,318 @@
 
     initMobileNav();
 
+    // ==========================================
+    // QUICK QUOTE MODAL
+    // ==========================================
+
+    // Inject modal styles
+    var qqStyleEl = document.createElement('style');
+    qqStyleEl.textContent = `
+        .qq-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
+        }
+        .qq-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .qq-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.92);
+            z-index: 10001;
+            background: #0f0f16;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            width: 90%;
+            max-width: 440px;
+            padding: 36px 32px 32px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(246,166,4,0.06);
+        }
+        .qq-modal.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .qq-close {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            color: rgba(255,255,255,0.5);
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, color 0.2s;
+            line-height: 1;
+        }
+        .qq-close:hover {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+        .qq-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 0 4px;
+        }
+        .qq-subtitle {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+            margin: 0 0 24px;
+        }
+        .qq-motor-badge {
+            display: inline-block;
+            background: rgba(246,166,4,0.12);
+            color: #f6a604;
+            padding: 2px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-left: 4px;
+        }
+        .qq-field {
+            margin-bottom: 16px;
+        }
+        .qq-label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .qq-input {
+            width: 100%;
+            padding: 12px 14px;
+            background: #0a0a0f;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+            box-sizing: border-box;
+        }
+        .qq-input::placeholder {
+            color: rgba(255,255,255,0.25);
+        }
+        .qq-input:focus {
+            border-color: rgba(246,166,4,0.5);
+            box-shadow: 0 0 0 3px rgba(246,166,4,0.1);
+        }
+        .qq-submit {
+            width: 100%;
+            padding: 14px 24px;
+            background: #f6a604;
+            color: #0a0a0f;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            margin-top: 8px;
+        }
+        .qq-submit:hover {
+            background: #e09800;
+        }
+        .qq-submit:active {
+            transform: scale(0.98);
+        }
+        .qq-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .qq-success {
+            text-align: center;
+            padding: 20px 0;
+        }
+        .qq-success-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(34,197,94,0.12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+        .qq-success-icon svg {
+            width: 28px;
+            height: 28px;
+            color: #22c55e;
+        }
+        .qq-success-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 0 8px;
+        }
+        .qq-success-text {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+            margin: 0;
+        }
+        @media (max-width: 480px) {
+            .qq-modal {
+                width: 95%;
+                padding: 28px 20px 24px;
+            }
+        }
+    `;
+    document.head.appendChild(qqStyleEl);
+
+    // Inject modal HTML into body
+    var qqOverlayEl = document.createElement('div');
+    qqOverlayEl.className = 'qq-overlay';
+    qqOverlayEl.id = 'qq-overlay';
+    document.body.appendChild(qqOverlayEl);
+
+    var qqModalEl = document.createElement('div');
+    qqModalEl.className = 'qq-modal';
+    qqModalEl.id = 'qq-modal';
+    qqModalEl.setAttribute('role', 'dialog');
+    qqModalEl.setAttribute('aria-label', 'Request a Quote');
+    qqModalEl.innerHTML = '<button class="qq-close" id="qq-close" aria-label="Close">&times;</button>'
+        + '<div id="qq-form-view">'
+        + '<h2 class="qq-title">Request a Quote</h2>'
+        + '<p class="qq-subtitle" id="qq-subtitle">Tell us what you need</p>'
+        + '<form id="qq-form" action="https://formspree.io/f/xwpkpqyz" method="POST">'
+        + '<input type="hidden" name="_source" value="quick-quote-modal">'
+        + '<input type="hidden" name="motor" id="qq-motor-hidden" value="">'
+        + '<div class="qq-field"><label class="qq-label" for="qq-email">Email *</label>'
+        + '<input class="qq-input" type="email" id="qq-email" name="email" placeholder="you@company.com" required></div>'
+        + '<div class="qq-field"><label class="qq-label" for="qq-company">Company Name</label>'
+        + '<input class="qq-input" type="text" id="qq-company" name="company" placeholder="Your company"></div>'
+        + '<div class="qq-field"><label class="qq-label" for="qq-quantity">Quantity Needed</label>'
+        + '<input class="qq-input" type="text" id="qq-quantity" name="quantity" placeholder="e.g. 50 units"></div>'
+        + '<button type="submit" class="qq-submit" id="qq-submit">Get Quote</button>'
+        + '</form></div>'
+        + '<div id="qq-success-view" class="qq-success" style="display:none;">'
+        + '<div class="qq-success-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>'
+        + '<h3 class="qq-success-title">Quote Request Sent</h3>'
+        + '<p class="qq-success-text">We\'ll get back to you within 24 hours.</p>'
+        + '</div>';
+    document.body.appendChild(qqModalEl);
+
+    // Modal open/close logic
+    function qqOpen(motorName) {
+        var subtitle = document.getElementById('qq-subtitle');
+        var hiddenMotor = document.getElementById('qq-motor-hidden');
+        var formView = document.getElementById('qq-form-view');
+        var successView = document.getElementById('qq-success-view');
+        var form = document.getElementById('qq-form');
+
+        // Reset to form state
+        formView.style.display = '';
+        successView.style.display = 'none';
+        form.reset();
+
+        if (motorName) {
+            subtitle.innerHTML = 'Motor: <span class="qq-motor-badge">' + motorName + '</span>';
+            hiddenMotor.value = motorName;
+        } else {
+            subtitle.textContent = 'Tell us what you need';
+            hiddenMotor.value = '';
+        }
+
+        qqOverlayEl.classList.add('active');
+        qqModalEl.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        // Focus first input after animation
+        setTimeout(function() {
+            document.getElementById('qq-email').focus();
+        }, 300);
+    }
+
+    function qqClose() {
+        qqOverlayEl.classList.remove('active');
+        qqModalEl.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Close handlers
+    document.getElementById('qq-close').addEventListener('click', qqClose);
+    qqOverlayEl.addEventListener('click', qqClose);
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && qqModalEl.classList.contains('active')) {
+            qqClose();
+        }
+    });
+
+    // Form submission via fetch
+    document.getElementById('qq-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var form = this;
+        var submitBtn = document.getElementById('qq-submit');
+        var originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
+        fetch('https://formspree.io/f/xwpkpqyz', {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+        })
+        .then(function(response) {
+            if (response.ok) {
+                document.getElementById('qq-form-view').style.display = 'none';
+                document.getElementById('qq-success-view').style.display = '';
+                // Auto-close after 3 seconds
+                setTimeout(qqClose, 3000);
+            } else {
+                submitBtn.textContent = 'Error \u2013 Try Again';
+                submitBtn.disabled = false;
+                setTimeout(function() { submitBtn.textContent = originalText; }, 2000);
+            }
+        })
+        .catch(function() {
+            submitBtn.textContent = 'Error \u2013 Try Again';
+            submitBtn.disabled = false;
+            setTimeout(function() { submitBtn.textContent = originalText; }, 2000);
+        });
+    });
+
+    // Expose globally so any page can call openQuoteModal(motorName)
+    window.openQuoteModal = qqOpen;
+
+    // Intercept nav CTA "Get Quote" button to open modal instead of navigating
+    if (navPlaceholder) {
+        var navCtaBtn = navPlaceholder.querySelector('.nav-cta');
+        if (navCtaBtn) {
+            navCtaBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                qqOpen();
+            });
+            navCtaBtn.href = '#';
+        }
+    }
+
     // ─── WhatsApp Floating Button ───
     (function injectWhatsApp() {
         var style = document.createElement('style');

@@ -464,7 +464,11 @@ function viewMotorSpecs(motorName) {
 }
 
 function requestMotorQuote(motorName) {
-    window.location.href = '../contact.html?motor=' + encodeURIComponent(motorName) + '&type=quote';
+    if (typeof openQuoteModal === 'function') {
+        openQuoteModal(motorName);
+    } else {
+        window.location.href = '../contact.html?motor=' + encodeURIComponent(motorName) + '&type=quote';
+    }
 }
 
 // Auto-calculate when inputs change (with debounce)

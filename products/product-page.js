@@ -300,7 +300,7 @@
                         </div>
                         <div class="pcg-buttons">
                             <button class="btn btn-outline btn-small" onclick="showMotorDetail('${motor.id}')">View Details</button>
-                            <a href="${base}contact.html?motor=${encodeURIComponent(motor.model)}&brand=${encodeURIComponent(motor.brand)}&type=quote" class="btn btn-primary btn-small">Get Quote</a>
+                            <button class="btn btn-primary btn-small" onclick="if(typeof openQuoteModal==='function'){openQuoteModal('${motor.model}')}else{window.location.href='${base}contact.html?motor=${encodeURIComponent(motor.model)}&brand=${encodeURIComponent(motor.brand)}&type=quote'}">Get Quote</button>
                         </div>
                     </div>
                 </div>
