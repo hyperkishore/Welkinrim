@@ -421,77 +421,222 @@
         }, 3000);
     }
 
+    // ── Email Gate ─────────────────────────────────────────
+    var emailGateOverlay = null;
+
+    function createEmailGateOverlay() {
+        if (emailGateOverlay) return emailGateOverlay;
+
+        var overlay = document.createElement('div');
+        overlay.className = 'email-gate-overlay';
+        overlay.innerHTML =
+            '<div class="email-gate-modal">' +
+                '<button class="email-gate-close" type="button" aria-label="Close">&times;</button>' +
+                '<div class="email-gate-icon">' +
+                    '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f6a604" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>' +
+                '</div>' +
+                '<h3>Download Spec Sheet</h3>' +
+                '<p>Enter your email to receive the full specification sheet. You only need to do this once.</p>' +
+                '<form class="email-gate-form" id="email-gate-form">' +
+                    '<input type="email" class="email-gate-input" id="email-gate-email" placeholder="work@company.com" required autocomplete="email">' +
+                    '<input type="text" class="email-gate-input" id="email-gate-company" placeholder="Company name (optional)" autocomplete="organization">' +
+                    '<button type="submit" class="email-gate-submit" id="email-gate-submit">Download Spec Sheet</button>' +
+                '</form>' +
+                '<div class="email-gate-disclaimer">We respect your privacy. No spam, ever.</div>' +
+            '</div>';
+
+        document.body.appendChild(overlay);
+        emailGateOverlay = overlay;
+
+        // Close on backdrop click
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) closeEmailGate();
+        });
+
+        // Close button
+        overlay.querySelector('.email-gate-close').addEventListener('click', function() {
+            closeEmailGate();
+        });
+
+        // Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && overlay.classList.contains('visible')) {
+                closeEmailGate();
+            }
+        });
+
+        return overlay;
+    }
+
+    function closeEmailGate() {
+        if (emailGateOverlay) {
+            emailGateOverlay.classList.remove('visible');
+            document.body.style.overflow = '';
+        }
+    }
+
+    function requireEmail(callback) {
+        // Check localStorage for existing email
+        var stored = localStorage.getItem('welkinrim_user_email');
+        if (stored) {
+            callback();
+            return;
+        }
+
+        var overlay = createEmailGateOverlay();
+        var form = document.getElementById('email-gate-form');
+        var emailInput = document.getElementById('email-gate-email');
+        var companyInput = document.getElementById('email-gate-company');
+        var submitBtn = document.getElementById('email-gate-submit');
+
+        // Reset state
+        emailInput.value = '';
+        companyInput.value = '';
+        emailInput.classList.remove('error');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Download Spec Sheet';
+
+        // Show overlay
+        overlay.classList.add('visible');
+        document.body.style.overflow = 'hidden';
+
+        // Focus the email input after animation
+        setTimeout(function() { emailInput.focus(); }, 300);
+
+        // Remove any previous submit handler to avoid duplicates
+        var newForm = form.cloneNode(true);
+        form.parentNode.replaceChild(newForm, form);
+
+        // Re-grab references after cloneNode
+        var freshEmailInput = document.getElementById('email-gate-email');
+        var freshCompanyInput = document.getElementById('email-gate-company');
+        var freshSubmitBtn = document.getElementById('email-gate-submit');
+
+        newForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var email = freshEmailInput.value.trim();
+            var company = freshCompanyInput.value.trim();
+
+            // Validate email
+            if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                freshEmailInput.classList.add('error');
+                freshEmailInput.focus();
+                return;
+            }
+            freshEmailInput.classList.remove('error');
+
+            // Disable button during submission
+            freshSubmitBtn.disabled = true;
+            freshSubmitBtn.textContent = 'Sending...';
+
+            // Build motor name for the Formspree submission
+            var motorName = selectedMotor ? (selectedMotor.brand + ' ' + selectedMotor.model) : 'Unknown';
+
+            // Send to Formspree
+            var formData = new FormData();
+            formData.append('email', email);
+            formData.append('company', company);
+            formData.append('_source', 'configurator-spec-download');
+            formData.append('motor', motorName);
+
+            fetch('https://formspree.io/f/xwpkpqyz', {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(function(response) {
+                // Save to localStorage regardless of response (don't block user on network issues)
+                localStorage.setItem('welkinrim_user_email', email);
+                if (company) localStorage.setItem('welkinrim_user_company', company);
+
+                closeEmailGate();
+                showToast('Thank you!', 'success');
+                callback();
+            }).catch(function() {
+                // Still allow download on network error — save email locally
+                localStorage.setItem('welkinrim_user_email', email);
+                if (company) localStorage.setItem('welkinrim_user_company', company);
+
+                closeEmailGate();
+                callback();
+            });
+        });
+    }
+
     // ── Actions ────────────────────────────────────────────
     window.downloadSpec = function() {
         if (!selectedMotor) { showToast('No motor selected', 'error'); return; }
-        var m = selectedMotor;
-        var count = config.motorCount;
-        var totalThrust = (m.maxThrust * count / 1000);
-        var motorWeight = (m.weight * count / 1000);
-        var systemWeight = motorWeight + config.payload + 1.5;
-        var twRatio = totalThrust / systemWeight;
-        var estFlight = Math.round(config.flightTime * m.efficiency * (twRatio > 2 ? 1.1 : twRatio > 1.5 ? 1.0 : 0.8));
-        var date = new Date().toISOString().split('T')[0];
 
-        var text = [
-            '╔══════════════════════════════════════════════════════╗',
-            '║    WelkinRim Propulsion System Specification         ║',
-            '╚══════════════════════════════════════════════════════╝',
-            '',
-            'Generated: ' + date,
-            'Configuration ID: WR-' + Date.now().toString(36).toUpperCase(),
-            '',
-            '── MISSION PROFILE ──────────────────────────────────',
-            '  Application:      ' + (config.mission || 'N/A').charAt(0).toUpperCase() + (config.mission || '').slice(1),
-            '  Sub-Category:     ' + (config.subCategory || 'General'),
-            '  Environment:      ' + config.environment.charAt(0).toUpperCase() + config.environment.slice(1),
-            '',
-            '── REQUIREMENTS ─────────────────────────────────────',
-            '  Payload:          ' + config.payload.toFixed(1) + ' kg',
-            '  Target Flight:    ' + config.flightTime + ' min',
-            '  Max Altitude:     ' + config.altitude.toLocaleString() + ' m',
-            '  Motor Count:      ' + count,
-            '',
-            '── SELECTED MOTOR ───────────────────────────────────',
-            '  Model:            ' + m.brand + ' ' + m.model,
-            '  Series:           ' + m.series,
-            '  Quantity:         ' + count + ' units',
-            '  Max Thrust:       ' + (m.maxThrust / 1000).toFixed(1) + ' kg per motor',
-            '  Weight:           ' + m.weight + 'g per motor',
-            '  Efficiency:       ' + (m.efficiency * 100).toFixed(0) + '%',
-            '  KV Rating:        ' + m.kv,
-            '  IP Rating:        ' + (m.ipRating || 'N/A'),
-            '  Suitability:      ' + (m.suitabilityScore || '--') + '/100',
-            '',
-            '── SYSTEM PERFORMANCE ───────────────────────────────',
-            '  Total Thrust:     ' + totalThrust.toFixed(1) + ' kg',
-            '  T/W Ratio:        ' + twRatio.toFixed(1) + ':1',
-            '  Est. Flight Time: ' + estFlight + ' min',
-            '  Motor Weight:     ' + motorWeight.toFixed(2) + ' kg (total)',
-            '  System Weight:    ' + systemWeight.toFixed(1) + ' kg (est.)',
-            '',
-            '── COST ESTIMATE ────────────────────────────────────',
-            '  Unit Price:       $' + m.price,
-            '  Total Motor Cost: $' + (m.price * count).toLocaleString(),
-            '  Note: Final pricing may vary. Contact sales for volume discounts.',
-            '',
-            '─────────────────────────────────────────────────────',
-            'Generated by WelkinRim Propulsion Configurator',
-            'https://welkinrim.com/configurator.html',
-            'Contact: sales@welkinrim.com'
-        ].join('\n');
+        requireEmail(function() {
+            var m = selectedMotor;
+            var count = config.motorCount;
+            var totalThrust = (m.maxThrust * count / 1000);
+            var motorWeight = (m.weight * count / 1000);
+            var systemWeight = motorWeight + config.payload + 1.5;
+            var twRatio = totalThrust / systemWeight;
+            var estFlight = Math.round(config.flightTime * m.efficiency * (twRatio > 2 ? 1.1 : twRatio > 1.5 ? 1.0 : 0.8));
+            var date = new Date().toISOString().split('T')[0];
 
-        var blob = new Blob([text], { type: 'text/plain' });
-        var url = URL.createObjectURL(blob);
-        var a = document.createElement('a');
-        a.href = url;
-        a.download = 'WelkinRim-Spec-' + m.model + '-' + date + '.txt';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
+            var text = [
+                '╔══════════════════════════════════════════════════════╗',
+                '║    WelkinRim Propulsion System Specification         ║',
+                '╚══════════════════════════════════════════════════════╝',
+                '',
+                'Generated: ' + date,
+                'Configuration ID: WR-' + Date.now().toString(36).toUpperCase(),
+                '',
+                '── MISSION PROFILE ──────────────────────────────────',
+                '  Application:      ' + (config.mission || 'N/A').charAt(0).toUpperCase() + (config.mission || '').slice(1),
+                '  Sub-Category:     ' + (config.subCategory || 'General'),
+                '  Environment:      ' + config.environment.charAt(0).toUpperCase() + config.environment.slice(1),
+                '',
+                '── REQUIREMENTS ─────────────────────────────────────',
+                '  Payload:          ' + config.payload.toFixed(1) + ' kg',
+                '  Target Flight:    ' + config.flightTime + ' min',
+                '  Max Altitude:     ' + config.altitude.toLocaleString() + ' m',
+                '  Motor Count:      ' + count,
+                '',
+                '── SELECTED MOTOR ───────────────────────────────────',
+                '  Model:            ' + m.brand + ' ' + m.model,
+                '  Series:           ' + m.series,
+                '  Quantity:         ' + count + ' units',
+                '  Max Thrust:       ' + (m.maxThrust / 1000).toFixed(1) + ' kg per motor',
+                '  Weight:           ' + m.weight + 'g per motor',
+                '  Efficiency:       ' + (m.efficiency * 100).toFixed(0) + '%',
+                '  KV Rating:        ' + m.kv,
+                '  IP Rating:        ' + (m.ipRating || 'N/A'),
+                '  Suitability:      ' + (m.suitabilityScore || '--') + '/100',
+                '',
+                '── SYSTEM PERFORMANCE ───────────────────────────────',
+                '  Total Thrust:     ' + totalThrust.toFixed(1) + ' kg',
+                '  T/W Ratio:        ' + twRatio.toFixed(1) + ':1',
+                '  Est. Flight Time: ' + estFlight + ' min',
+                '  Motor Weight:     ' + motorWeight.toFixed(2) + ' kg (total)',
+                '  System Weight:    ' + systemWeight.toFixed(1) + ' kg (est.)',
+                '',
+                '── COST ESTIMATE ────────────────────────────────────',
+                '  Unit Price:       $' + m.price,
+                '  Total Motor Cost: $' + (m.price * count).toLocaleString(),
+                '  Note: Final pricing may vary. Contact sales for volume discounts.',
+                '',
+                '─────────────────────────────────────────────────────',
+                'Generated by WelkinRim Propulsion Configurator',
+                'https://welkinrim.com/configurator.html',
+                'Contact: sales@welkinrim.com'
+            ].join('\n');
 
-        showToast('Spec sheet downloaded', 'success');
+            var blob = new Blob([text], { type: 'text/plain' });
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = 'WelkinRim-Spec-' + m.model + '-' + date + '.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            showToast('Spec sheet downloaded', 'success');
+        });
     };
 
     window.requestConfigQuote = function() {
