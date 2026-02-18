@@ -186,7 +186,7 @@ document.addEventListener('click', function(e) {
                 </div>
                 <div class="footer-bottom">
                     <div class="footer-legal">
-                        <p>&copy; 2025 WelkinRim Technologies. All rights reserved.</p>
+                        <p>&copy; 2026 WelkinRim Technologies. All rights reserved.</p>
                         <div class="footer-legal-links">
                             <a href="${base}privacy.html">Privacy Policy</a>
                             <a href="${base}terms.html">Terms of Service</a>
