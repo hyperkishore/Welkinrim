@@ -68,7 +68,7 @@ document.addEventListener('click', function(e) {
     function getActivePage() {
         const path = window.location.pathname.toLowerCase();
         if (path.includes('product') || path.includes('micro-motor') || path.includes('industrial-motor') || path.includes('commercial-motor') || path.includes('defence-motor') || path.includes('agriculture-motor') || path.includes('propulsion') || path.includes('configurator')) return 'products';
-        if (path.includes('calculator') || path.includes('resource') || path.includes('case-stud') || path.includes('certification')) return 'resources';
+        if (path.includes('calculator') || path.includes('resource') || path.includes('case-stud') || path.includes('certification') || path.includes('datasheet')) return 'resources';
         if (path.includes('matchmaker')) return 'matchmaker';
         if (path.includes('defence') || path.includes('agriculture') || path.includes('delivery') || path.includes('inspection') || path.includes('racing')) return 'solutions';
         if (path.includes('support') || path.includes('faq') || path.includes('warranty')) return 'support';
