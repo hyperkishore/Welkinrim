@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Datasheets | WelkinRim</title>
+    <meta name="description" content="Technical datasheets for WelkinRim drone motors. Full specifications, performance data, and engineering documentation for the Micro, Commercial, Industrial, Defence, and Agriculture motor series.">
+    <meta name="keywords" content="drone motor datasheet, WelkinRim specifications, brushless motor specs, UAV motor technical data">
+    <link rel="canonical" href="https://welkinrim.com/datasheets.html">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://welkinrim.com/datasheets.html">
+    <meta property="og:title" content="Technical Datasheets | WelkinRim">
+    <meta property="og:description" content="Technical datasheets for WelkinRim drone motors. Full specifications, performance data, and engineering documentation.">
+    <meta property="og:image" content="https://welkinrim.com/assets/Welkinrim logo.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Technical Datasheets | WelkinRim">
+    <meta name="twitter:description" content="Technical datasheets for WelkinRim drone motors. Full specifications, performance data, and engineering documentation.">
+    <meta name="twitter:image" content="https://welkinrim.com/assets/Welkinrim logo.png">
+    <link rel="icon" type="image/png" href="assets/Welkinrim logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ── Hero ── */
+        .resources-hero {
+            background: linear-gradient(135deg, #0a0a0f 0%, #0f0f16 100%);
+            padding: 120px 20px 80px;
+            text-align: center;
+            color: white;
+        }
+        .resources-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+        .resources-hero p {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.5);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ── Motor Listing Grid ── */
+        .motor-listing {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px 100px;
+        }
+        .motor-listing h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #f6a604;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 12px;
+        }
+        .series-section {
+            margin-bottom: 48px;
+        }
+        .series-section h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .listing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .listing-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 28px 24px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .listing-card:hover {
+            border-color: #f6a604;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+        }
+        .listing-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .listing-card-model {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .listing-card-series {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #f6a604;
+            background: rgba(246,166,4,0.1);
+            padding: 3px 10px;
+            border-radius: 6px;
+        }
+        .listing-card-specs {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+        }
+        .listing-card-specs span {
+            white-space: nowrap;
+        }
+        .listing-card-specs strong {
+            color: rgba(255,255,255,0.8);
+            font-weight: 600;
+        }
+        .listing-card-desc {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.4);
+            line-height: 1.5;
+        }
+        .listing-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255,255,255,0.04);
+        }
+        .listing-card-price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .listing-card-link {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #f6a604;
+        }
+        .listing-card-link::after {
+            content: ' \2192';
+        }
+
+        /* ── Single Motor Datasheet View ── */
+        .datasheet-container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 60px 20px 100px;
+        }
+        .datasheet-breadcrumb {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 32px;
+        }
+        .datasheet-breadcrumb a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .datasheet-breadcrumb a:hover {
+            color: #f6a604;
+        }
+        .datasheet-breadcrumb span {
+            margin: 0 8px;
+        }
+
+        .datasheet-header {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            margin-bottom: 48px;
+        }
+        .datasheet-image {
+            width: 220px;
+            height: 220px;
+            flex-shrink: 0;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .datasheet-image img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+        }
+        .datasheet-title-block {
+            flex: 1;
+        }
+        .datasheet-brand {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #f6a604;
+            margin-bottom: 8px;
+        }
+        .datasheet-model {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+            line-height: 1.1;
+        }
+        .datasheet-series-badge {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #f6a604;
+            background: rgba(246,166,4,0.1);
+            padding: 4px 14px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+        }
+        .datasheet-description {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+        .datasheet-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .datasheet-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            text-decoration: none;
+        }
+        .datasheet-btn-primary {
+            background: #f6a604;
+            color: #0a0a0f;
+        }
+        .datasheet-btn-primary:hover {
+            background: #e09800;
+        }
+        .datasheet-btn-secondary {
+            background: rgba(255,255,255,0.06);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .datasheet-btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        /* Specs sections */
+        .datasheet-section {
+            margin-bottom: 40px;
+        }
+        .datasheet-section-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .specs-table tr {
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .specs-table tr:last-child {
+            border-bottom: none;
+        }
+        .specs-table td {
+            padding: 14px 0;
+            vertical-align: top;
+        }
+        .specs-table td:first-child {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.5);
+            width: 45%;
+            padding-right: 20px;
+        }
+        .specs-table td:last-child {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #fff;
+        }
+        .spec-highlight {
+            color: #f6a604 !important;
+        }
+
+        /* Applications tags */
+        .app-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .app-tag {
+            display: inline-block;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            padding: 6px 16px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.7);
+            text-transform: capitalize;
+        }
+
+        /* Availability block */
+        .availability-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+        }
+        .availability-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        .availability-card-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 6px;
+        }
+        .availability-card-value {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .availability-card-value.in-stock {
+            color: #22c55e;
+        }
+        .availability-card-value.out-of-stock {
+            color: rgba(255,255,255,0.3);
+        }
+
+        /* Not found state */
+        .not-found {
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .not-found h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .not-found p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 32px;
+        }
+        .not-found a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: #f6a604;
+            color: #0a0a0f;
+            border-radius: 10px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .not-found a:hover {
+            background: #e09800;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .resources-hero h1 { font-size: 2.5rem; }
+            .resources-hero p { font-size: 1.1rem; }
+            .datasheet-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .datasheet-image { width: 180px; height: 180px; }
+            .datasheet-model { font-size: 2rem; }
+            .datasheet-actions { justify-content: center; }
+            .listing-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ── Print Styles ── */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            body {
+                background: #fff !important;
+                color: #111 !important;
+                font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+                font-size: 11pt;
+                line-height: 1.5;
+            }
+
+            /* Hide navigation, footer, buttons, and non-essential elements */
+            #main-nav,
+            #main-footer,
+            .wa-float,
+            .qq-overlay,
+            .qq-modal,
+            .datasheet-actions,
+            .datasheet-breadcrumb,
+            .resources-hero,
+            .scroll-progress {
+                display: none !important;
+            }
+
+            /* Print header */
+            .datasheet-container::before {
+                content: 'WelkinRim Technologies \2014 Technical Datasheet';
+                display: block;
+                font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+                font-size: 10pt;
+                font-weight: 700;
+                color: #333;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                padding-bottom: 12px;
+                margin-bottom: 24px;
+                border-bottom: 2px solid #f6a604;
+            }
+
+            /* Print footer */
+            .datasheet-container::after {
+                content: 'Generated from welkinrim.com \2014 For the latest specifications, visit https://welkinrim.com/datasheets.html';
+                display: block;
+                font-size: 8pt;
+                color: #666;
+                text-align: center;
+                padding-top: 20px;
+                margin-top: 40px;
+                border-top: 1px solid #ddd;
+            }
+
+            .datasheet-container {
+                max-width: 100%;
+                padding: 0;
+                margin: 0;
+            }
+            .datasheet-header {
+                flex-direction: row;
+                gap: 24px;
+                margin-bottom: 32px;
+            }
+            .datasheet-image {
+                width: 140px;
+                height: 140px;
+                background: #f5f5f5 !important;
+                border: 1px solid #ddd !important;
+                border-radius: 8px;
+            }
+            .datasheet-brand { color: #f6a604 !important; }
+            .datasheet-model {
+                color: #111 !important;
+                font-size: 22pt;
+            }
+            .datasheet-series-badge {
+                color: #f6a604 !important;
+                background: #fff3d6 !important;
+                border: 1px solid #f6a604;
+            }
+            .datasheet-description { color: #444 !important; }
+            .datasheet-section-title {
+                color: #111 !important;
+                border-bottom-color: #ddd !important;
+            }
+            .specs-table td:first-child { color: #555 !important; }
+            .specs-table td:last-child { color: #111 !important; }
+            .specs-table tr { border-bottom-color: #eee !important; }
+            .spec-highlight { color: #c88000 !important; }
+            .app-tag {
+                background: #f5f5f5 !important;
+                border-color: #ddd !important;
+                color: #333 !important;
+            }
+            .availability-card {
+                background: #f9f9f9 !important;
+                border-color: #ddd !important;
+            }
+            .availability-card-label { color: #666 !important; }
+            .availability-card-value { color: #111 !important; }
+            .availability-card-value.in-stock { color: #16a34a !important; }
+
+            @page {
+                margin: 1.5cm;
+                size: A4;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav id="main-nav"></nav>
+
+    <main id="main-content">
+        <section class="resources-hero" id="datasheet-hero">
+            <h1>Technical Datasheets</h1>
+            <p>Full specifications, performance data, and engineering documentation for every WelkinRim motor</p>
+        </section>
+
+        <div id="datasheet-content">
+            <!-- Populated by JavaScript -->
+        </div>
+    </main>
+
+    <footer id="main-footer"></footer>
+
+    <script src="shared.js" defer></script>
+    <script src="motor-database.js" defer></script>
+    <script>
+    (function() {
+        'use strict';
+
+        var container = document.getElementById('datasheet-content');
+        var heroSection = document.getElementById('datasheet-hero');
+        var params = new URLSearchParams(window.location.search);
+        var motorId = params.get('motor');
+
+        // Filter to WelkinRim motors only
+        var internalMotors = motorDatabase.filter(function(m) {
+            return m.source === 'internal';
+        });
+
+        // Format application name for display
+        function formatApp(app) {
+            return app.replace(/-/g, ' ').replace(/\b\w/g, function(c) { return c.toUpperCase(); });
+        }
+
+        // Format voltage cell string
+        function formatVoltage(motor) {
+            var cells = motor.voltageMin + 'S - ' + motor.voltageMax + 'S';
+            if (motor.voltage && motor.voltage.length === 2) {
+                cells += ' (' + motor.voltage[0] + 'V - ' + motor.voltage[1] + 'V)';
+            }
+            return cells;
+        }
+
+        // Format payload range
+        function formatPayload(range) {
+            if (range === '15+') return '15+ kg';
+            if (range === '0-1') return '0 - 1 kg';
+            return range + ' kg';
+        }
+
+        if (motorId) {
+            // ── Single Motor Datasheet View ──
+            var motor = null;
+            for (var i = 0; i < internalMotors.length; i++) {
+                if (internalMotors[i].id === motorId) {
+                    motor = internalMotors[i];
+                    break;
+                }
+            }
+
+            if (!motor) {
+                // Motor not found
+                container.innerHTML =
+                    '<div class="not-found">' +
+                        '<h2>Motor Not Found</h2>' +
+                        '<p>The motor ID "' + motorId.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '" was not found in our database.</p>' +
+                        '<a href="datasheets.html">Browse All Datasheets</a>' +
+                    '</div>';
+                return;
+            }
+
+            // Update page title and meta
+            document.title = 'Technical Datasheet \u2014 ' + motor.model + ' | WelkinRim';
+            var metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc) {
+                metaDesc.setAttribute('content', motor.model + ' technical datasheet. ' + motor.description + '. KV: ' + motor.kv + ', Max Thrust: ' + motor.maxThrust + 'g, Weight: ' + motor.weight + 'g.');
+            }
+
+            // Update hero
+            heroSection.querySelector('h1').textContent = motor.model;
+            heroSection.querySelector('p').textContent = motor.series + ' Series \u2014 Technical Datasheet';
+
+            // Build datasheet
+            var html = '<div class="datasheet-container">';
+
+            // Breadcrumb
+            html += '<nav class="datasheet-breadcrumb">' +
+                '<a href="index.html">Home</a><span>/</span>' +
+                '<a href="datasheets.html">Datasheets</a><span>/</span>' +
+                '<strong style="color:rgba(255,255,255,0.7)">' + motor.model + '</strong>' +
+                '</nav>';
+
+            // Header with image
+            html += '<div class="datasheet-header">' +
+                '<div class="datasheet-image">' +
+                    '<img src="' + motor.image + '" alt="' + motor.model + ' Motor">' +
+                '</div>' +
+                '<div class="datasheet-title-block">' +
+                    '<div class="datasheet-brand">' + motor.brand + '</div>' +
+                    '<h1 class="datasheet-model">' + motor.model + '</h1>' +
+                    '<div class="datasheet-series-badge">' + motor.series + ' Series</div>' +
+                    '<p class="datasheet-description">' + motor.description + '</p>' +
+                    '<div class="datasheet-actions">' +
+                        '<button class="datasheet-btn datasheet-btn-primary" onclick="openQuoteModal(\'' + motor.model + '\')">Request a Quote</button>' +
+                        '<button class="datasheet-btn datasheet-btn-secondary" onclick="window.print()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>Print / Save as PDF</button>' +
+                    '</div>' +
+                '</div>' +
+            '</div>';
+
+            // Electrical specifications
+            html += '<div class="datasheet-section">' +
+                '<h2 class="datasheet-section-title">Electrical Specifications</h2>' +
+                '<table class="specs-table">' +
+                    '<tr><td>KV Rating</td><td class="spec-highlight">' + motor.kv.toLocaleString() + ' RPM/V</td></tr>' +
+                    '<tr><td>Max Continuous Current</td><td>' + motor.maxCurrent + ' A</td></tr>' +
+                    '<tr><td>Max Power</td><td class="spec-highlight">' + motor.maxPower.toLocaleString() + ' W</td></tr>' +
+                    '<tr><td>Voltage Range</td><td>' + formatVoltage(motor) + '</td></tr>' +
+                    '<tr><td>Efficiency</td><td>' + (motor.efficiency * 100).toFixed(0) + '%</td></tr>' +
+                '</table>' +
+            '</div>';
+
+            // Mechanical specifications
+            html += '<div class="datasheet-section">' +
+                '<h2 class="datasheet-section-title">Mechanical Specifications</h2>' +
+                '<table class="specs-table">' +
+                    '<tr><td>Weight</td><td>' + motor.weight + ' g</td></tr>' +
+                    '<tr><td>Max Thrust</td><td class="spec-highlight">' + motor.maxThrust.toLocaleString() + ' g (' + (motor.maxThrust / 1000).toFixed(2) + ' kg)</td></tr>' +
+                    '<tr><td>Recommended Propeller Range</td><td>' + motor.propRange + '"</td></tr>' +
+                    '<tr><td>Thrust-to-Weight Ratio</td><td>' + (motor.maxThrust / motor.weight).toFixed(1) + ':1</td></tr>' +
+                    '<tr><td>Payload Category</td><td>' + formatPayload(motor.payloadRange) + '</td></tr>' +
+                '</table>' +
+            '</div>';
+
+            // Environmental ratings
+            html += '<div class="datasheet-section">' +
+                '<h2 class="datasheet-section-title">Environmental Ratings</h2>' +
+                '<table class="specs-table">' +
+                    '<tr><td>IP Rating</td><td class="spec-highlight">' + (motor.ipRating || 'N/A') + '</td></tr>';
+            if (motor.series === 'Defence') {
+                html += '<tr><td>Military Standard</td><td>MIL-STD-810H</td></tr>';
+            }
+            if (motor.description.indexOf('DO-160G') !== -1) {
+                html += '<tr><td>Airborne Certification</td><td>DO-160G</td></tr>';
+            }
+            if (motor.description.indexOf('MIL-STD-461G') !== -1) {
+                html += '<tr><td>EMI/EMC Standard</td><td>MIL-STD-461G</td></tr>';
+            }
+            if (motor.series === 'Agriculture') {
+                html += '<tr><td>Chemical Resistance</td><td>Nano-coated / Epoxy sealed</td></tr>';
+            }
+            html += '</table></div>';
+
+            // Applications
+            html += '<div class="datasheet-section">' +
+                '<h2 class="datasheet-section-title">Applications</h2>' +
+                '<div class="app-tags">';
+            motor.applications.forEach(function(app) {
+                html += '<span class="app-tag">' + formatApp(app) + '</span>';
+            });
+            html += '</div></div>';
+
+            // Availability & Pricing
+            var stockLabel = motor.stockQty > 0 ? motor.stockQty + ' units' : 'Made to Order';
+            var stockClass = motor.stockQty > 0 ? 'in-stock' : 'out-of-stock';
+            html += '<div class="datasheet-section">' +
+                '<h2 class="datasheet-section-title">Availability & Pricing</h2>' +
+                '<div class="availability-grid">' +
+                    '<div class="availability-card">' +
+                        '<div class="availability-card-label">Unit Price</div>' +
+                        '<div class="availability-card-value">$' + motor.price.toLocaleString() + '</div>' +
+                    '</div>' +
+                    '<div class="availability-card">' +
+                        '<div class="availability-card-label">Minimum Order</div>' +
+                        '<div class="availability-card-value">' + motor.moq + ' unit' + (motor.moq > 1 ? 's' : '') + '</div>' +
+                    '</div>' +
+                    '<div class="availability-card">' +
+                        '<div class="availability-card-label">Stock</div>' +
+                        '<div class="availability-card-value ' + stockClass + '">' + stockLabel + '</div>' +
+                    '</div>' +
+                    '<div class="availability-card">' +
+                        '<div class="availability-card-label">Lead Time</div>' +
+                        '<div class="availability-card-value">' + motor.leadTimeWeeks + ' week' + (motor.leadTimeWeeks > 1 ? 's' : '') + '</div>' +
+                    '</div>' +
+                '</div>' +
+            '</div>';
+
+            html += '</div>'; // .datasheet-container
+            container.innerHTML = html;
+
+        } else {
+            // ── Listing View: All WelkinRim Motors ──
+            // Group by series
+            var seriesOrder = ['Micro', 'Commercial', 'Industrial', 'Defence', 'Agriculture'];
+            var grouped = {};
+            internalMotors.forEach(function(m) {
+                if (!grouped[m.series]) grouped[m.series] = [];
+                grouped[m.series].push(m);
+            });
+
+            var listingHtml = '<div class="motor-listing">';
+            listingHtml += '<h2>Select a motor to view its full datasheet</h2>';
+
+            seriesOrder.forEach(function(series) {
+                if (!grouped[series] || grouped[series].length === 0) return;
+                listingHtml += '<div class="series-section">';
+                listingHtml += '<h3>' + series + ' Series</h3>';
+                listingHtml += '<div class="listing-grid">';
+
+                grouped[series].forEach(function(m) {
+                    listingHtml += '<a href="datasheets.html?motor=' + m.id + '" class="listing-card">' +
+                        '<div class="listing-card-header">' +
+                            '<span class="listing-card-model">' + m.model + '</span>' +
+                            '<span class="listing-card-series">' + m.series + '</span>' +
+                        '</div>' +
+                        '<div class="listing-card-specs">' +
+                            '<span><strong>' + m.kv + '</strong> KV</span>' +
+                            '<span><strong>' + (m.maxThrust / 1000).toFixed(1) + '</strong> kg thrust</span>' +
+                            '<span><strong>' + m.weight + '</strong> g</span>' +
+                            '<span><strong>' + (m.ipRating || 'N/A') + '</strong></span>' +
+                        '</div>' +
+                        '<div class="listing-card-desc">' + m.description + '</div>' +
+                        '<div class="listing-card-footer">' +
+                            '<span class="listing-card-price">$' + m.price.toLocaleString() + '</span>' +
+                            '<span class="listing-card-link">View Datasheet</span>' +
+                        '</div>' +
+                    '</a>';
+                });
+
+                listingHtml += '</div></div>';
+            });
+
+            listingHtml += '</div>';
+            container.innerHTML = listingHtml;
+        }
+    })();
+    </script>
+</body>
+</html>

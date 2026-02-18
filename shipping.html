@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordering &amp; Shipping Information | WelkinRim</title>
+    <meta name="description" content="Learn about WelkinRim's minimum order quantities, lead times, global shipping coverage, and payment terms for drone motors.">
+    <meta name="keywords" content="WelkinRim ordering, drone motor shipping, MOQ, lead times, global delivery, payment terms">
+    <link rel="canonical" href="https://welkinrim.com/shipping.html">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ordering & Shipping Information | WelkinRim">
+    <meta property="og:description" content="Minimum order quantities, lead times, global shipping to 50+ countries, and payment terms for WelkinRim drone motors.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://welkinrim.com/shipping.html">
+    <meta property="og:image" content="https://welkinrim.com/assets/Welkinrim logo.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Ordering & Shipping Information | WelkinRim">
+    <meta name="twitter:description" content="Learn about WelkinRim's minimum order quantities, lead times, global shipping coverage, and payment terms for drone motors.">
+    <meta name="twitter:image" content="https://welkinrim.com/assets/Welkinrim logo.png">
+    <link rel="icon" type="image/png" href="assets/Welkinrim logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ── Shipping Page Styles ── */
+
+        /* Hero */
+        .shipping-hero {
+            padding: 140px 20px 80px;
+            background: linear-gradient(135deg, #0a0a0f 0%, #0f0f16 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .shipping-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                repeating-linear-gradient(0deg, var(--grid-color) 0px, var(--grid-color) 1px, transparent 1px, transparent var(--grid-size)),
+                repeating-linear-gradient(90deg, var(--grid-color) 0px, var(--grid-color) 1px, transparent 1px, transparent var(--grid-size));
+            z-index: 1;
+        }
+        .shipping-hero::after {
+            content: '';
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            transform: translate(-50%, -50%);
+            background: var(--gradient-glow);
+            border-radius: 50%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .shipping-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        .shipping-hero-badge {
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border: 1px solid rgba(246,166,4,0.3);
+            background: rgba(246,166,4,0.08);
+            color: #f6a604;
+            margin-bottom: 24px;
+        }
+        .shipping-hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 16px;
+            letter-spacing: -0.03em;
+        }
+        .shipping-hero p {
+            font-size: clamp(1rem, 1.4vw, 1.15rem);
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+        }
+
+        /* Sections */
+        .shipping-section {
+            padding: 100px 0;
+            position: relative;
+        }
+        .shipping-section:nth-child(odd) {
+            background: linear-gradient(180deg, #0a0a0f 0%, #0f0f16 100%);
+        }
+        .shipping-section:nth-child(even) {
+            background: linear-gradient(180deg, #0f0f16 0%, #0a0a0f 100%);
+        }
+        .shipping-section-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+        .shipping-section-label {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+            background: rgba(246,166,4,0.1);
+            color: #f6a604;
+        }
+        .shipping-section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .shipping-section-desc {
+            font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+            color: rgba(255,255,255,0.5);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* MOQ Cards */
+        .moq-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .moq-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 36px 28px;
+            position: relative;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+        .moq-card:hover {
+            border-color: rgba(246,166,4,0.25);
+            transform: translateY(-2px);
+        }
+        .moq-card--featured {
+            border-color: rgba(246,166,4,0.2);
+        }
+        .moq-card--featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #f6a604, #f59e0b, transparent);
+            border-radius: 12px 12px 0 0;
+        }
+        .moq-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            background: rgba(246,166,4,0.08);
+        }
+        .moq-icon svg {
+            width: 24px;
+            height: 24px;
+            color: #f6a604;
+        }
+        .moq-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .moq-quantity {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            color: #f6a604;
+            margin-bottom: 4px;
+            line-height: 1.2;
+        }
+        .moq-quantity-label {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+        }
+        .moq-card p {
+            font-size: 0.92rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+        }
+        .moq-detail {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.5);
+        }
+        .moq-detail svg {
+            width: 14px;
+            height: 14px;
+            color: #f6a604;
+            flex-shrink: 0;
+        }
+
+        /* Lead Times Table */
+        .lead-times-table-wrap {
+            max-width: 900px;
+            margin: 0 auto;
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .lead-times-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+        }
+        .lead-times-table thead th {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.04);
+            padding: 16px 24px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .lead-times-table tbody td {
+            padding: 18px 24px;
+            color: rgba(255,255,255,0.7);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            vertical-align: top;
+        }
+        .lead-times-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .lead-times-table tbody tr:hover {
+            background: rgba(255,255,255,0.02);
+        }
+        .lead-times-table .lt-order-type {
+            color: #fff;
+            font-weight: 500;
+        }
+        .lead-times-table .lt-time {
+            color: #f6a604;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .lead-times-table .lt-notes {
+            color: rgba(255,255,255,0.45);
+            font-size: 0.85rem;
+        }
+
+        /* Shipping Info Grid */
+        .shipping-info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .shipping-info-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 32px 28px;
+            transition: border-color 0.3s ease;
+        }
+        .shipping-info-card:hover {
+            border-color: rgba(255,255,255,0.12);
+        }
+        .shipping-info-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .shipping-info-card h3 svg {
+            width: 18px;
+            height: 18px;
+            color: #f6a604;
+            flex-shrink: 0;
+        }
+        .shipping-info-card p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.7;
+        }
+        .shipping-info-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .shipping-info-card ul li {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+            padding: 6px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            line-height: 1.5;
+        }
+        .shipping-info-card ul li::before {
+            content: '';
+            display: block;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #f6a604;
+            flex-shrink: 0;
+            margin-top: 8px;
+        }
+
+        /* Payment Terms */
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .payment-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 28px 24px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            transition: border-color 0.3s ease;
+        }
+        .payment-card:hover {
+            border-color: rgba(255,255,255,0.12);
+        }
+        .payment-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: rgba(246,166,4,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .payment-icon svg {
+            width: 20px;
+            height: 20px;
+            color: #f6a604;
+        }
+        .payment-card h3 {
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 6px;
+        }
+        .payment-card p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.55);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .shipping-cta {
+            padding: 120px 0;
+            background: var(--gradient-hero);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .shipping-cta::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                repeating-linear-gradient(0deg, var(--grid-color) 0px, var(--grid-color) 1px, transparent 1px, transparent var(--grid-size)),
+                repeating-linear-gradient(90deg, var(--grid-color) 0px, var(--grid-color) 1px, transparent 1px, transparent var(--grid-size));
+            z-index: 1;
+        }
+        .shipping-cta .container {
+            position: relative;
+            z-index: 2;
+        }
+        .shipping-cta h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .shipping-cta p {
+            font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+            color: rgba(255,255,255,0.5);
+            max-width: 540px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        .shipping-cta-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-cta-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: #f6a604;
+            color: #0a0a0a;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-cta-primary:hover {
+            background: #fbbf24;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(246,166,4,0.3);
+        }
+        .btn-cta-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: transparent;
+            color: rgba(255,255,255,0.8);
+            font-family: var(--font-heading);
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.15);
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-cta-secondary:hover {
+            border-color: rgba(246,166,4,0.4);
+            color: #f6a604;
+            background: rgba(246,166,4,0.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .shipping-hero {
+                padding: 120px 20px 60px;
+            }
+            .shipping-section {
+                padding: 72px 0;
+            }
+            .moq-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .shipping-info-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .payment-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .lead-times-table thead th,
+            .lead-times-table tbody td {
+                padding: 14px 16px;
+            }
+            .shipping-cta {
+                padding: 80px 0;
+            }
+            .shipping-cta-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn-cta-primary,
+            .btn-cta-secondary {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
+
+    <!-- Navigation (injected by shared.js) -->
+    <nav id="main-nav"></nav>
+
+    <main id="main-content">
+
+        <!-- Hero -->
+        <section class="shipping-hero">
+            <div class="shipping-hero-content">
+                <span class="shipping-hero-badge">Order Info</span>
+                <h1>Ordering &amp; <span class="gradient-text">Shipping</span></h1>
+                <p>Everything you need to know about placing orders, lead times, and global delivery of WelkinRim drone motors.</p>
+            </div>
+        </section>
+
+        <!-- Section 1: Minimum Order Quantities -->
+        <section class="shipping-section">
+            <div class="container">
+                <div class="shipping-section-header">
+                    <span class="shipping-section-label">Order Tiers</span>
+                    <h2 class="shipping-section-title">Minimum Order Quantities</h2>
+                    <p class="shipping-section-desc">Flexible options from single evaluation units to full production runs.</p>
+                </div>
+                <div class="moq-grid">
+                    <!-- Standard Orders -->
+                    <div class="moq-card moq-card--featured">
+                        <div class="moq-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="1" y="3" width="15" height="13"></rect>
+                                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                            </svg>
+                        </div>
+                        <h3>Standard Orders</h3>
+                        <div class="moq-quantity">10 units</div>
+                        <div class="moq-quantity-label">Minimum order</div>
+                        <p>Catalogue motors from our standard product line. No setup fees, ships from inventory when available.</p>
+                        <div class="moq-detail">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            No setup fee
+                        </div>
+                    </div>
+                    <!-- Custom Configuration -->
+                    <div class="moq-card">
+                        <div class="moq-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                            </svg>
+                        </div>
+                        <h3>Custom Configuration</h3>
+                        <div class="moq-quantity">25 units</div>
+                        <div class="moq-quantity-label">Minimum order</div>
+                        <p>Custom KV ratings, winding configurations, and connector options. $500 NRE fee waived at 100+ units.</p>
+                        <div class="moq-detail">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            NRE waived at 100+ units
+                        </div>
+                    </div>
+                    <!-- Sample & Evaluation -->
+                    <div class="moq-card">
+                        <div class="moq-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                            </svg>
+                        </div>
+                        <h3>Sample &amp; Evaluation</h3>
+                        <div class="moq-quantity">1 unit</div>
+                        <div class="moq-quantity-label">Minimum order</div>
+                        <p>Single unit for bench testing and evaluation. $50 evaluation fee credited toward your first bulk order.</p>
+                        <div class="moq-detail">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            $50 fee credited to bulk order
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Lead Times -->
+        <section class="shipping-section">
+            <div class="container">
+                <div class="shipping-section-header">
+                    <span class="shipping-section-label">Production</span>
+                    <h2 class="shipping-section-title">Lead Times</h2>
+                    <p class="shipping-section-desc">From stock items to custom defence-grade production runs.</p>
+                </div>
+                <div class="lead-times-table-wrap">
+                    <table class="lead-times-table">
+                        <thead>
+                            <tr>
+                                <th>Order Type</th>
+                                <th>Lead Time</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="lt-order-type">Stock items (catalogue motors)</td>
+                                <td class="lt-time">1&ndash;2 weeks</td>
+                                <td class="lt-notes">Subject to inventory availability</td>
+                            </tr>
+                            <tr>
+                                <td class="lt-order-type">Standard production run</td>
+                                <td class="lt-time">2&ndash;3 weeks</td>
+                                <td class="lt-notes">MOQ 10 units</td>
+                            </tr>
+                            <tr>
+                                <td class="lt-order-type">Custom winding configuration</td>
+                                <td class="lt-time">4&ndash;6 weeks</td>
+                                <td class="lt-notes">MOQ 25 units, custom KV/winding</td>
+                            </tr>
+                            <tr>
+                                <td class="lt-order-type">Defence-grade (MIL-STD certified)</td>
+                                <td class="lt-time">6&ndash;8 weeks</td>
+                                <td class="lt-notes">Includes certification &amp; documentation</td>
+                            </tr>
+                            <tr>
+                                <td class="lt-order-type">Bulk orders (200+ units)</td>
+                                <td class="lt-time">6&ndash;8 weeks</td>
+                                <td class="lt-notes">Dedicated production slot</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Shipping & Territories -->
+        <section class="shipping-section">
+            <div class="container">
+                <div class="shipping-section-header">
+                    <span class="shipping-section-label">Logistics</span>
+                    <h2 class="shipping-section-title">Shipping &amp; Territories</h2>
+                    <p class="shipping-section-desc">Global coverage with industry-leading carriers and protective packaging.</p>
+                </div>
+                <div class="shipping-info-grid">
+                    <!-- Global Coverage -->
+                    <div class="shipping-info-card">
+                        <h3>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                            Global Coverage
+                        </h3>
+                        <p>We ship to 50+ countries worldwide, including North America, Europe, Asia-Pacific, the Middle East, and Africa. Export compliance documentation included with every shipment.</p>
+                    </div>
+                    <!-- Shipping Terms -->
+                    <div class="shipping-info-card">
+                        <h3>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                            Shipping Terms
+                        </h3>
+                        <ul>
+                            <li>DDP (Delivered Duty Paid) for orders over $5,000</li>
+                            <li>DAP (Delivered at Place) for smaller orders</li>
+                            <li>Ex Works (EXW) available on request</li>
+                        </ul>
+                    </div>
+                    <!-- Carriers -->
+                    <div class="shipping-info-card">
+                        <h3>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                            Carriers
+                        </h3>
+                        <ul>
+                            <li>DHL Express (2&ndash;4 business days)</li>
+                            <li>FedEx International Priority (2&ndash;5 business days)</li>
+                            <li>UPS Worldwide Expedited (3&ndash;7 business days)</li>
+                        </ul>
+                    </div>
+                    <!-- Packaging -->
+                    <div class="shipping-info-card">
+                        <h3>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                            Packaging
+                        </h3>
+                        <ul>
+                            <li>Anti-static ESD bags for each motor</li>
+                            <li>Foam-lined flight cases for bulk orders</li>
+                            <li>Humidity indicator cards included</li>
+                            <li>Full traceability labels on every unit</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Payment Terms -->
+        <section class="shipping-section">
+            <div class="container">
+                <div class="shipping-section-header">
+                    <span class="shipping-section-label">Payment</span>
+                    <h2 class="shipping-section-title">Payment Terms</h2>
+                    <p class="shipping-section-desc">All prices in USD. Flexible terms for qualified accounts.</p>
+                </div>
+                <div class="payment-grid">
+                    <div class="payment-card">
+                        <div class="payment-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        </div>
+                        <div>
+                            <h3>Wire Transfer (T/T)</h3>
+                            <p>Standard payment method for all orders. Bank details provided on invoice.</p>
+                        </div>
+                    </div>
+                    <div class="payment-card">
+                        <div class="payment-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                        </div>
+                        <div>
+                            <h3>NET-30 Terms</h3>
+                            <p>Available for qualified accounts. Credit application required for approval.</p>
+                        </div>
+                    </div>
+                    <div class="payment-card">
+                        <div class="payment-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <div>
+                            <h3>Custom Orders: 50% Deposit</h3>
+                            <p>50% deposit required at order confirmation. Remaining balance due on shipment.</p>
+                        </div>
+                    </div>
+                    <div class="payment-card">
+                        <div class="payment-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <div>
+                            <h3>Secure Processing</h3>
+                            <p>All transactions processed securely. Pricing quoted in USD for international clarity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="shipping-cta">
+            <div class="container">
+                <h2>Ready to <span class="gradient-text">Order?</span></h2>
+                <p>Get a custom quote with pricing, lead times, and shipping details tailored to your requirements.</p>
+                <div class="shipping-cta-actions">
+                    <button class="btn-cta-primary" onclick="openQuoteModal()">Request a Quote &rarr;</button>
+                    <a href="contact.html" class="btn-cta-secondary">Contact Sales</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer (injected by shared.js) -->
+    <footer id="main-footer"></footer>
+
+    <script src="shared.js" defer></script>
+    <script src="scripts.js" defer></script>
+</body>
+</html>
