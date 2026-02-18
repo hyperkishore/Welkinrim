@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Motor Selection Guide | WelkinRim — Choose the Right Drone Motor</title>
+    <meta name="description" content="Free engineering guide to choosing the right drone motor. Learn about KV ratings, stator sizing, voltage selection, and how to match motors to your UAV application.">
+    <link rel="canonical" href="https://welkinrim.com/motor-selection-guide.html">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Free Motor Selection Guide | WelkinRim">
+    <meta property="og:description" content="Comprehensive guide to choosing the right drone motor — KV ratings, stator sizing, voltage selection, and application matching.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://welkinrim.com/motor-selection-guide.html">
+    <meta property="og:image" content="https://welkinrim.com/assets/Welkinrim logo.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Motor Selection Guide | WelkinRim">
+    <meta name="twitter:description" content="Comprehensive guide to choosing the right drone motor — KV ratings, stator sizing, voltage selection, and application matching.">
+    <meta name="twitter:image" content="https://welkinrim.com/assets/Welkinrim logo.png">
+    <link rel="icon" type="image/png" href="assets/Welkinrim logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The Complete Drone Motor Selection Guide",
+        "description": "A comprehensive engineering guide to choosing the right drone motor for any application — from micro racing to industrial heavy-lift.",
+        "author": {
+            "@type": "Organization",
+            "name": "WelkinRim Technologies",
+            "url": "https://welkinrim.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "WelkinRim Technologies",
+            "logo": {"@type": "ImageObject", "url": "https://welkinrim.com/assets/Welkinrim logo.png"}
+        },
+        "datePublished": "2026-02-17",
+        "mainEntityOfPage": "https://welkinrim.com/motor-selection-guide.html"
+    }
+    </script>
+    <style>
+        /* Page background */
+        body {
+            background: #000;
+            color: #94a3b8;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem 5%;
+            margin-top: 80px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .breadcrumb-nav {
+            font-size: 0.85rem;
+            color: #64748b;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb-nav a {
+            color: #f6a604;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .breadcrumb-nav a:hover {
+            color: #fbbf24;
+            text-decoration: underline;
+        }
+
+        .breadcrumb-separator {
+            margin: 0 10px;
+            color: #475569;
+        }
+
+        .breadcrumb-current {
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        /* Guide layout */
+        .guide-container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 60px 5% 100px;
+        }
+
+        /* Gate section */
+        .guide-gate {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 48px 40px;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .guide-gate-badge {
+            display: inline-block;
+            background: rgba(246, 166, 4, 0.12);
+            color: #f6a604;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+        }
+
+        .guide-gate h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .guide-gate-subtitle {
+            font-size: 1.05rem;
+            color: #94a3b8;
+            line-height: 1.7;
+            max-width: 560px;
+            margin: 0 auto 32px;
+        }
+
+        .guide-gate-form {
+            display: flex;
+            gap: 12px;
+            max-width: 480px;
+            margin: 0 auto 16px;
+        }
+
+        .guide-gate-input {
+            flex: 1;
+            padding: 14px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            background: rgba(255, 255, 255, 0.06);
+            color: #fff;
+            outline: none;
+            transition: border-color 0.2s ease, background 0.2s ease;
+        }
+
+        .guide-gate-input::placeholder {
+            color: #64748b;
+        }
+
+        .guide-gate-input:focus {
+            border-color: #f6a604;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .guide-gate-btn {
+            padding: 14px 28px;
+            background: #f6a604;
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.2s ease, transform 0.15s ease;
+        }
+
+        .guide-gate-btn:hover {
+            background: #e09500;
+            transform: translateY(-1px);
+        }
+
+        .guide-gate-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .guide-gate-privacy {
+            font-size: 0.78rem;
+            color: #64748b;
+        }
+
+        .guide-gate-success {
+            display: none;
+            color: #22c55e;
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-top: 8px;
+        }
+
+        /* Table of contents (always visible) */
+        .guide-toc {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 36px 40px;
+            margin-bottom: 60px;
+        }
+
+        .guide-toc h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .guide-toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .guide-toc-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .guide-toc-list li:last-child {
+            border-bottom: none;
+        }
+
+        .guide-toc-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: rgba(246, 166, 4, 0.12);
+            color: #f6a604;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .guide-toc-text {
+            color: #e2e8f0;
+            font-size: 0.95rem;
+        }
+
+        .guide-toc-text a {
+            color: #e2e8f0;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .guide-toc-text a:hover {
+            color: #f6a604;
+        }
+
+        /* Locked overlay for gated content */
+        .guide-content {
+            position: relative;
+        }
+
+        .guide-content.locked::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 300px;
+            background: linear-gradient(to bottom, transparent, #000 85%);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .guide-content.locked .guide-section:nth-child(n+2) {
+            filter: blur(4px);
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .guide-locked-cta {
+            text-align: center;
+            padding: 40px 20px;
+            display: none;
+        }
+
+        .guide-content.locked ~ .guide-locked-cta {
+            display: block;
+        }
+
+        .guide-locked-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .guide-locked-cta p {
+            color: #94a3b8;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .guide-locked-cta a {
+            color: #f6a604;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(246, 166, 4, 0.3);
+            transition: border-color 0.2s ease;
+        }
+
+        .guide-locked-cta a:hover {
+            border-color: #f6a604;
+        }
+
+        /* Guide content sections */
+        .guide-section {
+            margin-bottom: 56px;
+        }
+
+        .guide-section h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+
+        .guide-section h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            margin-top: 32px;
+            margin-bottom: 14px;
+        }
+
+        .guide-section p {
+            font-size: 0.97rem;
+            line-height: 1.8;
+            color: #94a3b8;
+            margin-bottom: 16px;
+        }
+
+        .guide-section ul,
+        .guide-section ol {
+            padding-left: 24px;
+            margin-bottom: 20px;
+        }
+
+        .guide-section li {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #94a3b8;
+            margin-bottom: 8px;
+        }
+
+        .guide-section li strong {
+            color: #e2e8f0;
+        }
+
+        .guide-section strong {
+            color: #e2e8f0;
+        }
+
+        /* Highlight box */
+        .guide-highlight {
+            background: rgba(246, 166, 4, 0.06);
+            border-left: 3px solid #f6a604;
+            border-radius: 0 12px 12px 0;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+
+        .guide-highlight p {
+            color: #e2e8f0;
+            margin-bottom: 0;
+        }
+
+        .guide-highlight strong {
+            color: #f6a604;
+        }
+
+        /* Tables */
+        .guide-table-wrap {
+            overflow-x: auto;
+            margin: 24px 0;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .guide-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .guide-table thead {
+            background: rgba(246, 166, 4, 0.1);
+        }
+
+        .guide-table th {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            color: #f6a604;
+            text-align: left;
+            padding: 14px 18px;
+            white-space: nowrap;
+        }
+
+        .guide-table td {
+            padding: 12px 18px;
+            color: #94a3b8;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .guide-table tbody tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .guide-table .highlight-row {
+            background: rgba(246, 166, 4, 0.04);
+        }
+
+        .guide-table .highlight-row td {
+            color: #e2e8f0;
+        }
+
+        /* Checklist */
+        .guide-checklist {
+            list-style: none;
+            padding: 0;
+            margin: 24px 0;
+        }
+
+        .guide-checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .guide-checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .guide-check {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            border: 2px solid rgba(246, 166, 4, 0.4);
+            border-radius: 6px;
+            margin-top: 2px;
+            position: relative;
+        }
+
+        .guide-check::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 6px;
+            width: 5px;
+            height: 9px;
+            border: solid #f6a604;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            opacity: 0.5;
+        }
+
+        /* Bottom CTA */
+        .guide-bottom-cta {
+            background: rgba(246, 166, 4, 0.08);
+            border: 1px solid rgba(246, 166, 4, 0.2);
+            border-radius: 16px;
+            padding: 48px 40px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .guide-bottom-cta h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .guide-bottom-cta p {
+            color: #94a3b8;
+            font-size: 1rem;
+            margin-bottom: 28px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .guide-bottom-cta .btn-primary {
+            display: inline-block;
+            padding: 16px 36px;
+            background: #f6a604;
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background 0.2s ease, transform 0.15s ease;
+        }
+
+        .guide-bottom-cta .btn-primary:hover {
+            background: #e09500;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .guide-gate {
+                padding: 36px 24px;
+            }
+
+            .guide-gate h1 {
+                font-size: 1.65rem;
+            }
+
+            .guide-gate-form {
+                flex-direction: column;
+            }
+
+            .guide-gate-btn {
+                padding: 14px 24px;
+            }
+
+            .guide-container {
+                padding: 40px 5% 80px;
+            }
+
+            .guide-section h2 {
+                font-size: 1.35rem;
+            }
+
+            .guide-toc {
+                padding: 28px 24px;
+            }
+
+            .guide-bottom-cta {
+                padding: 36px 24px;
+            }
+
+            .breadcrumb {
+                padding: 0.75rem 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#guide-content" class="skip-to-content">Skip to content</a>
+
+    <!-- Navigation -->
+    <nav id="main-nav"></nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">Motor Selection Guide</span>
+        </nav>
+    </div>
+
+    <div class="guide-container" id="guide-content">
+
+        <!-- Gate: Email capture -->
+        <div class="guide-gate" id="guide-gate">
+            <div class="guide-gate-badge">Free Engineering Guide</div>
+            <h1>The Complete Drone Motor Selection Guide</h1>
+            <p class="guide-gate-subtitle">Everything you need to choose the right motor for your UAV — from KV ratings and stator sizing to voltage selection and application matching.</p>
+            <form class="guide-gate-form" id="guide-gate-form" action="https://formspree.io/f/xwpkpqyz" method="POST">
+                <input type="hidden" name="_source" value="motor-guide-download">
+                <input type="email" name="email" placeholder="Enter your email to unlock the guide" required class="guide-gate-input" id="guide-gate-email">
+                <button type="submit" class="guide-gate-btn" id="guide-gate-btn">Unlock Guide</button>
+            </form>
+            <p class="guide-gate-privacy">No spam, ever. Unsubscribe anytime.</p>
+            <p class="guide-gate-success" id="guide-gate-success">Guide unlocked! Scroll down to read.</p>
+        </div>
+
+        <!-- Table of Contents (always visible) -->
+        <div class="guide-toc">
+            <h2>What You'll Learn</h2>
+            <ol class="guide-toc-list">
+                <li>
+                    <span class="guide-toc-num">1</span>
+                    <span class="guide-toc-text"><a href="#section-kv">Understanding KV Ratings</a> — What KV means and how it affects performance</span>
+                </li>
+                <li>
+                    <span class="guide-toc-num">2</span>
+                    <span class="guide-toc-text"><a href="#section-stator">Stator Size Decoded</a> — The 4-digit number that determines thrust class</span>
+                </li>
+                <li>
+                    <span class="guide-toc-num">3</span>
+                    <span class="guide-toc-text"><a href="#section-voltage">Voltage &amp; Cell Count</a> — Matching battery voltage to motor capability</span>
+                </li>
+                <li>
+                    <span class="guide-toc-num">4</span>
+                    <span class="guide-toc-text"><a href="#section-application">Sizing by Application</a> — Micro, commercial, industrial, and defence requirements</span>
+                </li>
+                <li>
+                    <span class="guide-toc-num">5</span>
+                    <span class="guide-toc-text"><a href="#section-lineup">WelkinRim Motor Lineup</a> — Our three core models compared</span>
+                </li>
+                <li>
+                    <span class="guide-toc-num">6</span>
+                    <span class="guide-toc-text"><a href="#section-checklist">Buyer's Checklist</a> — What to evaluate before purchasing</span>
+                </li>
+                <li>
+                    <span class="guide-toc-num">7</span>
+                    <span class="guide-toc-text"><a href="#section-reference">Quick Reference Table</a> — All specs at a glance</span>
+                </li>
+            </ol>
+        </div>
+
+        <!-- Guide Content (gated) -->
+        <div class="guide-content locked" id="guide-body">
+
+            <!-- Section 1: KV Ratings -->
+            <div class="guide-section" id="section-kv">
+                <h2>1. Understanding KV Ratings</h2>
+                <p>KV is the most commonly cited motor specification, yet it is frequently misunderstood. A motor's KV rating indicates how many revolutions per minute (RPM) the unloaded shaft turns for every volt applied. A 1000KV motor on a 14.8V (4S) battery spins at roughly 14,800 RPM with no propeller attached.</p>
+
+                <h3>Higher KV vs. Lower KV</h3>
+                <p>A higher KV motor spins faster but produces less torque per amp. This makes high-KV motors well suited for small propellers, agile flight, and racing. Lower KV motors turn more slowly but generate substantially more torque, allowing them to swing larger propellers efficiently. Heavy-lift and long-endurance platforms almost always use low-KV motors.</p>
+
+                <div class="guide-highlight">
+                    <p><strong>Rule of thumb:</strong> The heavier the aircraft and the larger the propeller, the lower the KV you need. For a 5-inch racing quad, 2000-2600KV is common. For a 15-inch commercial platform, 400-700KV is typical.</p>
+                </div>
+
+                <h3>KV and Efficiency</h3>
+                <p>Motor efficiency is highest in a specific RPM band. Running a high-KV motor with a large prop forces it to draw excessive current and overheat. Running a low-KV motor with a tiny prop wastes its torque potential. Matching KV to your propeller diameter and battery voltage is the single most impactful decision you will make when selecting a motor.</p>
+
+                <ul>
+                    <li><strong>1500+ KV</strong> — Micro and racing drones (3" to 7" props)</li>
+                    <li><strong>700-1400 KV</strong> — Photography and light commercial (8" to 12" props)</li>
+                    <li><strong>400-700 KV</strong> — Heavy commercial, inspection, delivery (12" to 18" props)</li>
+                    <li><strong>150-400 KV</strong> — Industrial heavy-lift and VTOL fixed-wing (18" to 30"+ props)</li>
+                </ul>
+            </div>
+
+            <!-- Section 2: Stator Size -->
+            <div class="guide-section" id="section-stator">
+                <h2>2. Stator Size Decoded</h2>
+                <p>Every brushless motor model number contains a four-digit stator designation — for example, <strong>2212</strong>, <strong>2815</strong>, or <strong>3508</strong>. The first two digits represent the stator diameter in millimeters, and the last two represent the stator height. Together, these numbers determine the motor's torque capacity and heat dissipation characteristics.</p>
+
+                <h3>What Stator Volume Tells You</h3>
+                <p>A wider stator (larger first two digits) provides more copper winding area, which means more torque at a given current. A taller stator (larger last two digits) adds more magnetic material for higher sustained power. The total stator volume — roughly proportional to diameter squared times height — is the best single predictor of a motor's thrust class.</p>
+
+                <div class="guide-table-wrap">
+                    <table class="guide-table">
+                        <thead>
+                            <tr>
+                                <th>Stator Size</th>
+                                <th>Diameter</th>
+                                <th>Height</th>
+                                <th>Typical Use</th>
+                                <th>Prop Range</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1806</td>
+                                <td>18mm</td>
+                                <td>6mm</td>
+                                <td>Micro / FPV racing</td>
+                                <td>3" - 5"</td>
+                            </tr>
+                            <tr class="highlight-row">
+                                <td>2212</td>
+                                <td>22mm</td>
+                                <td>12mm</td>
+                                <td>Mini quads, photography</td>
+                                <td>8" - 10"</td>
+                            </tr>
+                            <tr class="highlight-row">
+                                <td>2815</td>
+                                <td>28mm</td>
+                                <td>15mm</td>
+                                <td>Commercial, inspection</td>
+                                <td>10" - 12"</td>
+                            </tr>
+                            <tr class="highlight-row">
+                                <td>3508</td>
+                                <td>35mm</td>
+                                <td>8mm</td>
+                                <td>Heavy commercial, delivery</td>
+                                <td>12" - 15"</td>
+                            </tr>
+                            <tr>
+                                <td>4014</td>
+                                <td>40mm</td>
+                                <td>14mm</td>
+                                <td>Industrial, heavy-lift</td>
+                                <td>15" - 18"</td>
+                            </tr>
+                            <tr>
+                                <td>5020+</td>
+                                <td>50mm+</td>
+                                <td>20mm+</td>
+                                <td>VTOL, cargo, defence</td>
+                                <td>18" - 30"+</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="guide-highlight">
+                    <p><strong>Key insight:</strong> Don't confuse stator size with motor weight class. A 3508 motor has a wide 35mm stator but is only 8mm tall — this design optimizes for efficiency at moderate RPM. A 2815 motor has a smaller diameter but is taller, giving it higher sustained power density for its weight.</p>
+                </div>
+            </div>
+
+            <!-- Section 3: Voltage -->
+            <div class="guide-section" id="section-voltage">
+                <h2>3. Voltage &amp; Cell Count</h2>
+                <p>Battery voltage directly controls motor RPM (RPM = KV x Voltage). More cells means higher voltage, which means faster spinning and more power — but also more heat and mechanical stress. Every motor is rated for a maximum cell count, and exceeding it will damage windings or magnets.</p>
+
+                <h3>Common Battery Configurations</h3>
+                <div class="guide-table-wrap">
+                    <table class="guide-table">
+                        <thead>
+                            <tr>
+                                <th>Cell Count</th>
+                                <th>Nominal Voltage</th>
+                                <th>Typical Application</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>3S</td>
+                                <td>11.1V</td>
+                                <td>Micro drones, lightweight FPV</td>
+                            </tr>
+                            <tr>
+                                <td>4S</td>
+                                <td>14.8V</td>
+                                <td>Racing quads, small photography</td>
+                            </tr>
+                            <tr>
+                                <td>6S</td>
+                                <td>22.2V</td>
+                                <td>Commercial, inspection, mapping</td>
+                            </tr>
+                            <tr>
+                                <td>8S</td>
+                                <td>29.6V</td>
+                                <td>Heavy-lift, delivery, defence</td>
+                            </tr>
+                            <tr>
+                                <td>12S</td>
+                                <td>44.4V</td>
+                                <td>Industrial VTOL, cargo platforms</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Choosing the Right Voltage</h3>
+                <p>Higher voltage allows you to achieve the same power with lower current, which reduces resistive losses in wiring and ESCs. This is why professional platforms are moving toward 6S and 8S configurations. However, higher voltage batteries are heavier and more expensive, so there is always a tradeoff with total system weight.</p>
+
+                <div class="guide-highlight">
+                    <p><strong>Pro tip:</strong> If you're designing a new platform and can choose either a 4S high-KV or 6S low-KV setup for the same target thrust, the 6S system will almost always be more efficient. Lower current means thinner wires, cooler ESCs, and longer flight time.</p>
+                </div>
+            </div>
+
+            <!-- Section 4: Application Sizing -->
+            <div class="guide-section" id="section-application">
+                <h2>4. Motor Sizing by Application</h2>
+                <p>Different mission profiles place fundamentally different demands on a motor. A racing drone needs peak burst power for a few minutes. An agricultural sprayer needs steady, efficient thrust for 30+ minutes while carrying a heavy liquid payload. Here is how to think about motor selection for each major category.</p>
+
+                <h3>Micro / Racing (AUW under 500g)</h3>
+                <p>Prioritize KV and responsiveness. Stator sizes 1806 to 2206 are common. Weight matters more than efficiency at this scale because flight times are short (3-5 minutes). Look for high KV (1500-2600), 3S-4S compatibility, and low weight.</p>
+
+                <h3>Commercial Photography &amp; Inspection (AUW 1-5kg)</h3>
+                <p>Balance between thrust headroom and efficiency. You need at least a 2:1 thrust-to-weight ratio for safe, stable flight with a camera gimbal. Stator sizes 2212 to 2815 are the sweet spot. IP54+ protection is recommended for outdoor reliability. KV in the 700-1000 range on 4S-6S provides good hover efficiency.</p>
+
+                <h3>Industrial Heavy-Lift &amp; Delivery (AUW 5-25kg)</h3>
+                <p>Efficiency and thermal management dominate. These motors must run at 50-60% throttle for extended periods without overheating. Stator sizes 3508 to 4020 with low KV (400-680) on 6S-12S are standard. IP67+ protection is essential for all-weather operation. Cooling fins and high-grade magnets (N52H or better) make a measurable difference at this scale.</p>
+
+                <h3>Defence &amp; Specialized (AUW 10-50kg+)</h3>
+                <p>Mission-critical reliability is non-negotiable. Motors must meet MIL-STD-810H environmental standards and function from -40C to +80C. IP68 sealing protects against sand, dust, salt spray, and full submersion. Redundant winding configurations and vibration-dampened mounting are common requirements. Stator sizes 4014+ with KV under 500 on 8S-12S is typical.</p>
+            </div>
+
+            <!-- Section 5: WelkinRim Lineup -->
+            <div class="guide-section" id="section-lineup">
+                <h2>5. The WelkinRim Motor Lineup</h2>
+                <p>WelkinRim offers three core motors designed to cover the most common commercial and professional drone applications. Each model is German-engineered with aerospace-grade materials, IP-rated sealing, and a 2-year warranty.</p>
+
+                <div class="guide-table-wrap">
+                    <table class="guide-table">
+                        <thead>
+                            <tr>
+                                <th>Specification</th>
+                                <th>WR2212-1000</th>
+                                <th>WR2815-900</th>
+                                <th>WR3508-680</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Stator Size</strong></td>
+                                <td>22 x 12mm</td>
+                                <td>28 x 15mm</td>
+                                <td>35 x 8mm</td>
+                            </tr>
+                            <tr>
+                                <td><strong>KV Rating</strong></td>
+                                <td>1000</td>
+                                <td>900</td>
+                                <td>680</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Max Thrust</strong></td>
+                                <td>850g</td>
+                                <td>1,420g</td>
+                                <td>2,150g</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Weight</strong></td>
+                                <td>56g</td>
+                                <td>82g</td>
+                                <td>125g</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Voltage</strong></td>
+                                <td>3S - 4S (11.1-14.8V)</td>
+                                <td>4S - 6S (14.8-22.2V)</td>
+                                <td>6S - 8S (22.2-29.6V)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Max Current</strong></td>
+                                <td>25A</td>
+                                <td>40A</td>
+                                <td>55A</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Max Power</strong></td>
+                                <td>370W</td>
+                                <td>888W</td>
+                                <td>1,628W</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Prop Range</strong></td>
+                                <td>8" - 10"</td>
+                                <td>10" - 12"</td>
+                                <td>12" - 15"</td>
+                            </tr>
+                            <tr>
+                                <td><strong>IP Rating</strong></td>
+                                <td>IP54</td>
+                                <td>IP65</td>
+                                <td>IP67</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Efficiency</strong></td>
+                                <td>85%</td>
+                                <td>88%</td>
+                                <td>90%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Best For</strong></td>
+                                <td>Racing, photography, research</td>
+                                <td>Inspection, surveillance, mapping</td>
+                                <td>Delivery, heavy payload, research</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Price</strong></td>
+                                <td>$89</td>
+                                <td>$149</td>
+                                <td>$229</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Which Model Should You Choose?</h3>
+                <ul>
+                    <li><strong>WR2212-1000</strong> — Best for lightweight builds under 2kg AUW. Ideal for photography drones, research platforms, and agile flight where weight savings matter most. The 1000KV rating paired with 3S-4S gives excellent throttle response.</li>
+                    <li><strong>WR2815-900</strong> — The commercial workhorse. Sized for 2-5kg platforms carrying camera gimbals, sensors, or LiDAR payloads. IP65 protection means reliable performance in rain and dust. This is our most popular model for professional operators.</li>
+                    <li><strong>WR3508-680</strong> — Built for demanding payloads up to 8kg AUW per motor. The 680KV on 6S-8S swings large props efficiently for maximum flight time. IP67 sealing handles harsh weather conditions. Choose this for delivery drones, heavy inspection rigs, or any platform where endurance matters.</li>
+                </ul>
+            </div>
+
+            <!-- Section 6: Buyer's Checklist -->
+            <div class="guide-section" id="section-checklist">
+                <h2>6. Buyer's Checklist</h2>
+                <p>Before purchasing drone motors, work through this checklist to ensure you are making a well-informed decision. Each item addresses a common oversight that can lead to costly redesigns later.</p>
+
+                <ul class="guide-checklist">
+                    <li>
+                        <span class="guide-check"></span>
+                        <span><strong>Thrust-to-weight ratio:</strong> Calculate your all-up weight (AUW) including payload, battery, and frame. Total motor thrust should be at least 2x AUW for stable hover, 3x for aggressive maneuvering.</span>
+                    </li>
+                    <li>
+                        <span class="guide-check"></span>
+                        <span><strong>Propeller compatibility:</strong> Verify the motor's recommended prop range and shaft size. A motor rated for 10-12" props will be inefficient and potentially dangerous with a 15" prop.</span>
+                    </li>
+                    <li>
+                        <span class="guide-check"></span>
+                        <span><strong>Voltage match:</strong> Confirm the motor's rated voltage range matches your battery configuration. Running a 4S motor on 6S will void the warranty and risk demagnetization.</span>
+                    </li>
+                    <li>
+                        <span class="guide-check"></span>
+                        <span><strong>ESC compatibility:</strong> Your ESC must handle the motor's max current with at least 20% headroom. A 40A motor needs a 50A+ ESC for reliable operation.</span>
+                    </li>
+                    <li>
+                        <span class="guide-check"></span>
+                        <span><strong>Environmental protection:</strong> Consider where the drone will operate. IP54 handles splash and dust. IP65 handles rain. IP67+ handles all-weather and harsh conditions.</span>
+                    </li>
+                    <li>
+                        <span class="guide-check"></span>
+                        <span><strong>Mounting pattern:</strong> Check bolt hole spacing and shaft diameter. Common patterns are 16x16mm, 16x19mm, and 25x25mm. An adapter plate adds weight and vibration.</span>
+                    </li>
+                    <li>
+                        <span class="guide-check"></span>
+                        <span><strong>Thermal management:</strong> For sustained flight over 15 minutes, check that the motor's continuous current rating (not just burst) meets your hover current draw.</span>
+                    </li>
+                    <li>
+                        <span class="guide-check"></span>
+                        <span><strong>Warranty and support:</strong> Verify warranty duration, what it covers (magnets, bearings, windings), and whether the manufacturer provides technical support for integration.</span>
+                    </li>
+                    <li>
+                        <span class="guide-check"></span>
+                        <span><strong>Lead time and MOQ:</strong> Check stock availability and minimum order quantities. Some motors have 6-8 week lead times for custom configurations.</span>
+                    </li>
+                    <li>
+                        <span class="guide-check"></span>
+                        <span><strong>Certification:</strong> For commercial or defence use, verify the motor meets relevant standards (CE, FCC, MIL-STD-810H, DO-160G). Ask for test reports.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Section 7: Quick Reference Table -->
+            <div class="guide-section" id="section-reference">
+                <h2>7. Quick Reference Table</h2>
+                <p>Use this table as a starting point to narrow down your motor selection based on your aircraft's weight class and intended application.</p>
+
+                <div class="guide-table-wrap">
+                    <table class="guide-table">
+                        <thead>
+                            <tr>
+                                <th>Aircraft AUW</th>
+                                <th>Application</th>
+                                <th>Motor Size</th>
+                                <th>KV Range</th>
+                                <th>Battery</th>
+                                <th>Prop Size</th>
+                                <th>WelkinRim Pick</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>250g - 500g</td>
+                                <td>Micro / FPV</td>
+                                <td>1806</td>
+                                <td>2000-2600</td>
+                                <td>3S-4S</td>
+                                <td>3" - 5"</td>
+                                <td>--</td>
+                            </tr>
+                            <tr>
+                                <td>500g - 2kg</td>
+                                <td>Photography, racing</td>
+                                <td>2212</td>
+                                <td>900-1200</td>
+                                <td>3S-4S</td>
+                                <td>8" - 10"</td>
+                                <td>WR2212</td>
+                            </tr>
+                            <tr>
+                                <td>2kg - 5kg</td>
+                                <td>Commercial, inspection</td>
+                                <td>2815</td>
+                                <td>700-900</td>
+                                <td>4S-6S</td>
+                                <td>10" - 12"</td>
+                                <td>WR2815</td>
+                            </tr>
+                            <tr>
+                                <td>5kg - 12kg</td>
+                                <td>Delivery, heavy payload</td>
+                                <td>3508-4014</td>
+                                <td>400-700</td>
+                                <td>6S-8S</td>
+                                <td>12" - 18"</td>
+                                <td>WR3508</td>
+                            </tr>
+                            <tr>
+                                <td>12kg - 25kg</td>
+                                <td>Industrial, VTOL</td>
+                                <td>4014-5020</td>
+                                <td>250-500</td>
+                                <td>8S-12S</td>
+                                <td>18" - 24"</td>
+                                <td>Custom</td>
+                            </tr>
+                            <tr>
+                                <td>25kg+</td>
+                                <td>Defence, cargo</td>
+                                <td>5020+</td>
+                                <td>150-350</td>
+                                <td>12S+</td>
+                                <td>24" - 30"+</td>
+                                <td>Custom</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div><!-- /guide-body -->
+
+        <!-- Locked CTA (shown when gated) -->
+        <div class="guide-locked-cta" id="guide-locked-cta">
+            <div class="guide-locked-icon">&#128274;</div>
+            <p>Enter your email above to unlock the full guide — including stator sizing tables, voltage selection, the complete WelkinRim lineup comparison, buyer's checklist, and quick reference table.</p>
+            <a href="#guide-gate">Unlock the guide</a>
+        </div>
+
+        <!-- Bottom CTA (visible after unlock) -->
+        <div class="guide-bottom-cta" id="guide-bottom-cta" style="display: none;">
+            <h2>Ready to Find Your Motor?</h2>
+            <p>Use our Motor Matchmaker to get personalized recommendations based on your aircraft specs and mission requirements.</p>
+            <a href="motor-matchmaker.html" class="btn-primary">Try Motor Matchmaker</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="main-footer"></footer>
+
+    <script src="shared.js" defer></script>
+    <script>
+        // Guide gate logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const gate = document.getElementById('guide-gate');
+            const form = document.getElementById('guide-gate-form');
+            const btn = document.getElementById('guide-gate-btn');
+            const successMsg = document.getElementById('guide-gate-success');
+            const guideBody = document.getElementById('guide-body');
+            const lockedCta = document.getElementById('guide-locked-cta');
+            const bottomCta = document.getElementById('guide-bottom-cta');
+
+            // Check if already unlocked
+            if (localStorage.getItem('welkinrim_guide_unlocked') === '1') {
+                unlockGuide();
+            }
+
+            // Make TOC links work only when unlocked
+            document.querySelectorAll('.guide-toc-text a').forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    if (guideBody.classList.contains('locked')) {
+                        e.preventDefault();
+                        gate.scrollIntoView({ behavior: 'smooth' });
+                        document.getElementById('guide-gate-email').focus();
+                    }
+                });
+            });
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                btn.textContent = 'Unlocking...';
+                btn.disabled = true;
+
+                var formData = new FormData(form);
+
+                fetch('https://formspree.io/f/xwpkpqyz', {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                }).then(function() {
+                    localStorage.setItem('welkinrim_guide_unlocked', '1');
+                    unlockGuide();
+                    successMsg.style.display = 'block';
+                    form.style.display = 'none';
+                    document.querySelector('.guide-gate-privacy').style.display = 'none';
+                }).catch(function() {
+                    // Unlock anyway on error (fail-open for UX)
+                    localStorage.setItem('welkinrim_guide_unlocked', '1');
+                    unlockGuide();
+                    successMsg.style.display = 'block';
+                    form.style.display = 'none';
+                    document.querySelector('.guide-gate-privacy').style.display = 'none';
+                });
+            });
+
+            function unlockGuide() {
+                guideBody.classList.remove('locked');
+                lockedCta.style.display = 'none';
+                bottomCta.style.display = 'block';
+
+                // If returning visitor, update the gate UI
+                if (localStorage.getItem('welkinrim_guide_unlocked') === '1') {
+                    gate.querySelector('.guide-gate-badge').textContent = 'You Have Access';
+                    gate.querySelector('h1').textContent = 'The Complete Drone Motor Selection Guide';
+                    gate.querySelector('.guide-gate-subtitle').textContent = 'Scroll down to read the full guide.';
+                    form.style.display = 'none';
+                    document.querySelector('.guide-gate-privacy').style.display = 'none';
+                    successMsg.style.display = 'none';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

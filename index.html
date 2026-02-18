@@ -918,12 +918,14 @@
         <div class="exit-popup-card">
             <button class="exit-popup-close" id="exit-popup-close" aria-label="Close popup">&times;</button>
             <h3 class="exit-popup-title">Free Motor Selection Guide</h3>
-            <p class="exit-popup-desc">Get our comprehensive guide to choosing the right drone motor for your application — covering defence, agriculture, and commercial use cases.</p>
-            <form class="exit-popup-form" id="exit-popup-form">
+            <p class="exit-popup-desc">Get our comprehensive guide to choosing the right drone motor for your application — covering KV ratings, stator sizing, and application matching.</p>
+            <form class="exit-popup-form" id="exit-popup-form" action="https://formspree.io/f/xwpkpqyz" method="POST">
+                <input type="hidden" name="_source" value="exit-popup-guide">
                 <input type="email" name="email" placeholder="your@email.com" required class="exit-popup-input">
                 <button type="submit" class="btn btn-primary exit-popup-submit">Download Guide</button>
             </form>
             <p class="exit-popup-privacy">No spam. Unsubscribe anytime.</p>
+            <a href="motor-selection-guide.html" class="exit-popup-guide-link" id="exit-popup-guide-link" style="display:none;color:#f6a604;font-weight:600;font-size:1.05rem;text-decoration:none;border-bottom:1px solid rgba(246,166,4,0.3);transition:border-color 0.2s ease;">View Your Free Guide &rarr;</a>
         </div>
     </div>
 
@@ -939,5 +941,27 @@
     <script src="scripts.js" defer></script>
 
     <!-- A/B hero variant panel removed in v1.2.25. See CLAUDE.md for restoration instructions. -->
+
+    <!-- Show guide link after exit-popup form submission (scripts.js replaces form innerHTML on success) -->
+    <script>
+    (function() {
+        var guideLink = document.getElementById('exit-popup-guide-link');
+        if (!guideLink) return;
+        // Observe the form element — scripts.js replaces its innerHTML with a success message
+        var form = document.getElementById('exit-popup-form');
+        if (!form) return;
+        var observer = new MutationObserver(function(mutations) {
+            // When form innerHTML changes (success), show the guide link
+            if (form.querySelector('p') && !form.querySelector('input[type="email"]')) {
+                guideLink.style.display = 'inline-block';
+                guideLink.style.marginTop = '16px';
+                // Also mark guide as unlocked for the guide page
+                try { localStorage.setItem('welkinrim_guide_unlocked', '1'); } catch(e) {}
+                observer.disconnect();
+            }
+        });
+        observer.observe(form, { childList: true, subtree: true });
+    })();
+    </script>
 </body>
 </html>
