@@ -447,6 +447,236 @@
             background: rgba(246,166,4,0.05);
         }
 
+        /* Gated Resource Section */
+        .gated-resource {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #000 0%, #0a0f0a 50%, #000 100%);
+            position: relative;
+        }
+        .gated-resource::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(34,197,94,0.3), transparent);
+        }
+        .gated-resource-card {
+            max-width: 720px;
+            margin: 0 auto;
+            background: rgba(34,197,94,0.04);
+            border: 1px solid rgba(34,197,94,0.15);
+            border-radius: 20px;
+            padding: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+        .gated-resource-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 20%; right: 20%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(34,197,94,0.5), transparent);
+        }
+        .gated-resource-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border: 1px solid rgba(34,197,94,0.25);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #22c55e;
+            margin-bottom: 20px;
+            background: rgba(34,197,94,0.06);
+        }
+        .gated-resource-badge svg { width: 14px; height: 14px; }
+        .gated-resource-card h3 {
+            font-size: 1.6rem;
+            color: #fff;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        .gated-resource-card > p {
+            color: #888;
+            font-size: 0.95rem;
+            line-height: 1.65;
+            margin-bottom: 28px;
+        }
+        .gated-resource-card .doc-preview {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 28px;
+            padding: 20px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+        }
+        .doc-preview-icon {
+            width: 56px;
+            height: 70px;
+            background: rgba(34,197,94,0.1);
+            border: 1px solid rgba(34,197,94,0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .doc-preview-icon svg { width: 28px; height: 28px; stroke: #22c55e; fill: none; }
+        .doc-preview-info h4 { font-size: 0.95rem; color: #fff; margin-bottom: 6px; }
+        .doc-preview-info p { font-size: 0.8rem; color: #666; line-height: 1.5; margin: 0; }
+        .doc-preview-info .doc-meta { margin-top: 8px; display: flex; gap: 16px; }
+        .doc-preview-info .doc-meta span { font-size: 0.7rem; color: #555; text-transform: uppercase; letter-spacing: 0.08em; }
+        .gated-form { display: flex; flex-direction: column; gap: 12px; }
+        .gated-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .gated-form input, .gated-form select {
+            width: 100%;
+            padding: 14px 16px;
+            background: #0f172a;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        .gated-form input::placeholder { color: #555; }
+        .gated-form input:focus, .gated-form select:focus {
+            border-color: rgba(34,197,94,0.5);
+            box-shadow: 0 0 0 3px rgba(34,197,94,0.1);
+        }
+        .gated-form select { cursor: pointer; }
+        .gated-form select option { background: #0f172a; }
+        .gated-form-submit {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin-top: 4px;
+        }
+        .gated-form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(34,197,94,0.25);
+        }
+        .gated-form-submit svg { width: 18px; height: 18px; }
+        .gated-form-success {
+            display: none;
+            text-align: center;
+            padding: 32px;
+        }
+        .gated-form-success.show { display: block; }
+        .gated-form-success .success-icon {
+            width: 64px; height: 64px;
+            background: rgba(34,197,94,0.1);
+            border: 2px solid rgba(34,197,94,0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+        .gated-form-success .success-icon svg { width: 32px; height: 32px; stroke: #22c55e; fill: none; }
+        .gated-form-success h4 { color: #22c55e; font-size: 1.15rem; margin-bottom: 8px; }
+        .gated-form-success p { color: #888; font-size: 0.9rem; }
+
+        /* Defence Consultation CTA */
+        .defence-consultation {
+            padding: 100px 0;
+            background: linear-gradient(180deg, #000 0%, #0d1117 50%, #000 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .defence-consultation::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 400px;
+            background: radial-gradient(ellipse, rgba(246,166,4,0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .defence-consultation .container { position: relative; z-index: 1; }
+        .defence-consultation h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .defence-consultation > .container > p {
+            color: #777;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        .defence-consultation .consult-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 40px;
+            background: #f6a604;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin-bottom: 36px;
+        }
+        .defence-consultation .consult-btn:hover {
+            background: #ffb824;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(246,166,4,0.25);
+        }
+        .defence-consultation .consult-btn svg { width: 20px; height: 20px; }
+        .trust-signals {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        .trust-signal {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+        }
+        .trust-signal svg {
+            width: 20px;
+            height: 20px;
+            stroke: #f6a604;
+            fill: none;
+            stroke-width: 1.5;
+            flex-shrink: 0;
+        }
+        .trust-signal span {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #aaa;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .defence-hero { padding: 100px 0 70px; }
@@ -466,6 +696,14 @@
             .cta-section { padding: 60px 0; }
             .cta-buttons { flex-direction: column; align-items: center; }
             .section-header { margin-bottom: 40px; }
+            .gated-resource { padding: 60px 0; }
+            .gated-resource-card { padding: 28px 20px; }
+            .gated-form-row { grid-template-columns: 1fr; }
+            .doc-preview { flex-direction: column; align-items: center; text-align: center; }
+            .defence-consultation { padding: 60px 0; }
+            .trust-signals { gap: 12px; }
+            .trust-signal { padding: 8px 14px; }
+            .trust-signal span { font-size: 0.7rem; }
         }
     </style>
     <script type="application/ld+json">
@@ -769,11 +1007,124 @@
         </div>
     </section>
 
+    <!-- Gated Resource: Defence Motor Selection Guide -->
+    <section class="gated-resource">
+        <div class="container">
+            <div class="gated-resource-card">
+                <div class="gated-resource-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    Restricted Access Resource
+                </div>
+                <h3>Defence Motor Selection Guide</h3>
+                <p>Comprehensive 32-page technical guide covering motor selection criteria for military and government UAS platforms. Includes MIL-STD compliance matrices, environmental qualification data, and mission profile motor mapping.</p>
+
+                <div class="doc-preview">
+                    <div class="doc-preview-icon">
+                        <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
+                    <div class="doc-preview-info">
+                        <h4>WR-D Series Defence Motor Selection Guide (PDF)</h4>
+                        <p>Motor specification tables, qualification test results, environmental ratings, integration schematics, and recommended configurations for 12+ mission profiles.</p>
+                        <div class="doc-meta">
+                            <span>PDF Format</span>
+                            <span>32 Pages</span>
+                            <span>v2.4 - Updated Feb 2026</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="defenceGuideForm" class="gated-form" action="https://formspree.io/f/xwpkpqyz" method="POST">
+                    <input type="hidden" name="_source" value="defence-guide">
+                    <input type="hidden" name="_subject" value="Defence Motor Selection Guide Request">
+                    <div class="gated-form-row">
+                        <input type="email" name="email" placeholder="Work email address *" required>
+                        <input type="text" name="company" placeholder="Company / Organisation *" required>
+                    </div>
+                    <div class="gated-form-row">
+                        <input type="text" name="name" placeholder="Full name *" required>
+                        <select name="role" required>
+                            <option value="" disabled selected>Select your role *</option>
+                            <option value="Engineering">Engineering / Technical</option>
+                            <option value="Procurement">Procurement / Supply Chain</option>
+                            <option value="Programme Management">Programme Management</option>
+                            <option value="Executive">Executive / Director</option>
+                            <option value="Research">Research / Academia</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="gated-form-submit">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Download Defence Guide
+                    </button>
+                </form>
+                <div id="defenceGuideSuccess" class="gated-form-success">
+                    <div class="success-icon">
+                        <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <h4>Guide Sent to Your Email</h4>
+                    <p>Check your inbox for the Defence Motor Selection Guide. Our defence engineering team may also reach out to discuss your specific requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Request Defence Consultation -->
+    <section class="defence-consultation">
+        <div class="container">
+            <h2>Request a Defence Consultation</h2>
+            <p>Speak directly with our defence engineering team about your UAS programme requirements, motor qualification needs, and integration support.</p>
+            <button class="consult-btn" onclick="if(typeof openQuoteModal==='function'){openQuoteModal('Defence Series')}else{window.location.href='../contact.html?type=defence'}">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Request Defence Consultation
+            </button>
+            <div class="trust-signals">
+                <div class="trust-signal">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                    <span>MIL-STD-810H Compliant</span>
+                </div>
+                <div class="trust-signal">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    <span>NATO STANAG Ready</span>
+                </div>
+                <div class="trust-signal">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    <span>ITAR Aware</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer id="main-footer"></footer>
-    <script src="../shared.js"></script>
+    <script src="../shared.js" defer></script>
     <script src="../motor-database.js"></script>
     <script src="../scripts.js"></script>
     <script src="../products/product-page.js"></script>
     <script src="../products/motor-detail.js"></script>
+    <script>
+    (function() {
+        var form = document.getElementById('defenceGuideForm');
+        var success = document.getElementById('defenceGuideSuccess');
+        if (!form) return;
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var formData = new FormData(form);
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(function(response) {
+                if (response.ok) {
+                    form.style.display = 'none';
+                    form.previousElementSibling.style.display = 'none'; // hide doc-preview
+                    success.classList.add('show');
+                } else {
+                    alert('There was an issue submitting the form. Please try again.');
+                }
+            }).catch(function() {
+                alert('Network error. Please check your connection and try again.');
+            });
+        });
+    })();
+    </script>
 </body>
 </html>

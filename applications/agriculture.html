@@ -835,6 +835,304 @@
             height: 18px;
         }
 
+        /* ===== Gated Resource Section ===== */
+        .gated-resource {
+            padding: 7rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .gated-resource-card {
+            max-width: 720px;
+            margin: 0 auto;
+            background: rgba(34,197,94,0.04);
+            border: 1px solid rgba(34,197,94,0.15);
+            border-radius: 20px;
+            padding: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+        .gated-resource-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 20%; right: 20%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(34,197,94,0.5), transparent);
+        }
+        .gated-resource-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border: 1px solid rgba(34,197,94,0.25);
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #22c55e;
+            margin-bottom: 20px;
+            background: rgba(34,197,94,0.06);
+        }
+        .gated-resource-badge svg { width: 14px; height: 14px; }
+        .gated-resource-card h3 {
+            font-size: 1.6rem;
+            color: #fff;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        .gated-resource-card > p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.65;
+            margin-bottom: 28px;
+        }
+        .gated-resource-card .doc-preview {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 28px;
+            padding: 20px;
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+        }
+        .doc-preview-icon {
+            width: 56px;
+            height: 70px;
+            background: rgba(34,197,94,0.1);
+            border: 1px solid rgba(34,197,94,0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .doc-preview-icon svg { width: 28px; height: 28px; color: #22c55e; }
+        .doc-preview-info h4 { font-size: 0.95rem; color: #fff; margin-bottom: 6px; }
+        .doc-preview-info p { font-size: 0.8rem; color: #64748b; line-height: 1.5; margin: 0; }
+        .doc-preview-info .doc-meta { margin-top: 8px; display: flex; gap: 16px; }
+        .doc-preview-info .doc-meta span { font-size: 0.7rem; color: #475569; text-transform: uppercase; letter-spacing: 0.08em; }
+        .gated-form { display: flex; flex-direction: column; gap: 12px; }
+        .gated-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .gated-form input, .gated-form select {
+            width: 100%;
+            padding: 14px 16px;
+            background: #0f172a;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        .gated-form input::placeholder { color: #475569; }
+        .gated-form input:focus, .gated-form select:focus {
+            border-color: rgba(34,197,94,0.5);
+            box-shadow: 0 0 0 3px rgba(34,197,94,0.1);
+        }
+        .gated-form select { cursor: pointer; }
+        .gated-form select option { background: #0f172a; }
+        .gated-form-submit {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin-top: 4px;
+        }
+        .gated-form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(34,197,94,0.25);
+        }
+        .gated-form-submit svg { width: 18px; height: 18px; }
+        .gated-form-success {
+            display: none;
+            text-align: center;
+            padding: 32px;
+        }
+        .gated-form-success.show { display: block; }
+        .gated-form-success .success-icon {
+            width: 64px; height: 64px;
+            background: rgba(34,197,94,0.1);
+            border: 2px solid rgba(34,197,94,0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+        .gated-form-success .success-icon svg { width: 32px; height: 32px; color: #22c55e; }
+        .gated-form-success h4 { color: #22c55e; font-size: 1.15rem; margin-bottom: 8px; }
+        .gated-form-success p { color: #94a3b8; font-size: 0.9rem; }
+
+        /* ===== ROI CTA Banner ===== */
+        .roi-cta-banner {
+            padding: 5rem 5%;
+            background: linear-gradient(180deg, #0a0a0a 0%, #0a0f0a 50%, #0a0a0a 100%);
+            position: relative;
+        }
+        .roi-cta-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(34,197,94,0.3), transparent);
+        }
+        .roi-cta-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            background: rgba(34,197,94,0.04);
+            border: 1px solid rgba(34,197,94,0.12);
+            border-radius: 20px;
+            padding: 3rem;
+        }
+        .roi-cta-stat {
+            flex-shrink: 0;
+            text-align: center;
+            min-width: 160px;
+        }
+        .roi-cta-stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #22c55e, #4ade80);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .roi-cta-stat-label {
+            font-size: 0.8rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .roi-cta-content h3 {
+            font-size: 1.5rem;
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .roi-cta-content p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            line-height: 1.65;
+            margin-bottom: 20px;
+        }
+        .roi-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: #fff;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .roi-cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(34,197,94,0.3);
+        }
+        .roi-cta-btn svg { width: 16px; height: 16px; }
+
+        /* ===== Agriculture Specialist CTA ===== */
+        .specialist-cta {
+            padding: 6rem 5%;
+            text-align: center;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+        }
+        .specialist-cta::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 400px;
+            background: radial-gradient(ellipse, rgba(34,197,94,0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .specialist-cta .container { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+        .specialist-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #fff 0%, #86efac 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .specialist-cta > .container > p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        .specialist-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 40px;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 20px rgba(34,197,94,0.25);
+        }
+        .specialist-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(34,197,94,0.35);
+        }
+        .specialist-btn svg { width: 20px; height: 20px; }
+        .ag-trust-signals {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .ag-trust-signal {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: rgba(34,197,94,0.04);
+            border: 1px solid rgba(34,197,94,0.12);
+            border-radius: 8px;
+        }
+        .ag-trust-signal svg {
+            width: 20px; height: 20px;
+            color: #22c55e;
+            flex-shrink: 0;
+        }
+        .ag-trust-signal span {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #94a3b8;
+            letter-spacing: 0.04em;
+        }
+
         /* ===== Responsive ===== */
         @media (max-width: 1024px) {
             .use-cases-grid {
@@ -920,6 +1218,17 @@
             .roi-content h2 {
                 font-size: 2rem;
             }
+
+            .gated-resource { padding: 4rem 5%; }
+            .gated-resource-card { padding: 28px 20px; }
+            .gated-form-row { grid-template-columns: 1fr; }
+            .doc-preview { flex-direction: column; align-items: center; text-align: center; }
+            .roi-cta-inner { flex-direction: column; text-align: center; padding: 2rem; }
+            .roi-cta-stat-number { font-size: 2.5rem; }
+            .specialist-cta { padding: 4rem 5%; }
+            .specialist-cta h2 { font-size: 1.75rem; }
+            .ag-trust-signals { gap: 10px; }
+            .ag-trust-signal { padding: 8px 14px; }
         }
     </style>
     <script type="application/ld+json">
@@ -1457,6 +1766,109 @@
             </div>
         </section>
 
+        <!-- ==================== GATED RESOURCE ==================== -->
+        <section class="gated-resource section-dark">
+            <div class="gated-resource-card">
+                <div class="gated-resource-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22V8"/><path d="M5 12c0-4 3-7 7-7"/><path d="M19 12c0-4-3-7-7-7"/></svg>
+                    Free Technical Resource
+                </div>
+                <h3>Agriculture Drone Motor Sizing Guide</h3>
+                <p>24-page technical guide covering motor selection for every agricultural application. Includes chemical resistance ratings, spray drone motor requirements, payload capacity tables, and endurance calculations for common crop types and farm sizes.</p>
+
+                <div class="doc-preview">
+                    <div class="doc-preview-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
+                    <div class="doc-preview-info">
+                        <h4>WR-A Series Agriculture Motor Sizing Guide (PDF)</h4>
+                        <p>Chemical resistance data tables, spray drone motor requirements, recommended configurations by crop type, endurance vs. payload charts, and IP rating comparisons.</p>
+                        <div class="doc-meta">
+                            <span>PDF Format</span>
+                            <span>24 Pages</span>
+                            <span>v1.8 - Updated Jan 2026</span>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="agGuideForm" class="gated-form" action="https://formspree.io/f/xwpkpqyz" method="POST">
+                    <input type="hidden" name="_source" value="agriculture-guide">
+                    <input type="hidden" name="_subject" value="Agriculture Drone Motor Sizing Guide Request">
+                    <div class="gated-form-row">
+                        <input type="email" name="email" placeholder="Email address *" required>
+                        <input type="text" name="company" placeholder="Farm / Company name *" required>
+                    </div>
+                    <div class="gated-form-row">
+                        <input type="text" name="name" placeholder="Full name *" required>
+                        <select name="role" required>
+                            <option value="" disabled selected>Primary use case *</option>
+                            <option value="Crop Spraying">Crop Spraying</option>
+                            <option value="Field Mapping">Field Mapping / Survey</option>
+                            <option value="Seeding">Seeding / Fertilizing</option>
+                            <option value="Livestock">Livestock Monitoring</option>
+                            <option value="Fleet Ops">Fleet Operations</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="gated-form-submit">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        Download Agriculture Guide
+                    </button>
+                </form>
+                <div id="agGuideSuccess" class="gated-form-success">
+                    <div class="success-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <h4>Guide Sent to Your Email</h4>
+                    <p>Check your inbox for the Agriculture Motor Sizing Guide. Our agriculture team may follow up to help with your specific requirements.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== ROI CALCULATOR CTA ==================== -->
+        <section class="roi-cta-banner">
+            <div class="roi-cta-inner">
+                <div class="roi-cta-stat">
+                    <div class="roi-cta-stat-number">40%</div>
+                    <div class="roi-cta-stat-label">Motor Replacement<br>Cost Savings</div>
+                </div>
+                <div class="roi-cta-content">
+                    <h3>Calculate Your Spray Drone ROI</h3>
+                    <p>See exactly how much you can save by switching to WelkinRim motors. Our customers report 40% lower motor replacement costs and significantly reduced downtime compared to competing agricultural drone motors.</p>
+                    <a href="../tools/calculator.html" class="roi-cta-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/><line x1="8" y1="18" x2="12" y2="18"/></svg>
+                        Open ROI Calculator
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SPECIALIST CTA ==================== -->
+        <section class="specialist-cta">
+            <div class="container">
+                <h2>Talk to an Agriculture Specialist</h2>
+                <p>Our agricultural engineering team has helped drone operators across 30+ countries optimize their fleet performance. Get expert guidance on motor selection, chemical compatibility, and fleet configuration.</p>
+                <button class="specialist-btn" onclick="if(typeof openQuoteModal==='function'){openQuoteModal('Agriculture Series')}else{window.location.href='../contact.html?type=agriculture'}">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    Talk to Agriculture Specialist
+                </button>
+                <div class="ag-trust-signals">
+                    <div class="ag-trust-signal">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                        <span>IP65+ Rated</span>
+                    </div>
+                    <div class="ag-trust-signal">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.18A1 1 0 0 0 5.596 22h12.808a1 1 0 0 0 .876-1.82l-5.069-9.757A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7M7 16h10"/></svg>
+                        <span>Chemical Resistant</span>
+                    </div>
+                    <div class="ag-trust-signal">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        <span>10,000+ Hour MTBF</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ==================== CTA ==================== -->
         <section class="cta-section">
             <div class="cta-content">
@@ -1483,10 +1895,36 @@
 
     <footer id="main-footer"></footer>
 
-    <script src="../shared.js"></script>
+    <script src="../shared.js" defer></script>
     <script src="../motor-database.js"></script>
     <script src="../scripts.js"></script>
     <script src="../products/product-page.js"></script>
     <script src="../products/motor-detail.js"></script>
+    <script>
+    (function() {
+        var form = document.getElementById('agGuideForm');
+        var success = document.getElementById('agGuideSuccess');
+        if (!form) return;
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var formData = new FormData(form);
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(function(response) {
+                if (response.ok) {
+                    form.style.display = 'none';
+                    form.previousElementSibling.style.display = 'none';
+                    success.classList.add('show');
+                } else {
+                    alert('There was an issue submitting the form. Please try again.');
+                }
+            }).catch(function() {
+                alert('Network error. Please check your connection and try again.');
+            });
+        });
+    })();
+    </script>
 </body>
 </html>

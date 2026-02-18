@@ -3,528 +3,999 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Partners | WelkinRim - Industrial Motor Solutions</title>
-    <meta name="description" content="Explore partnership opportunities with WelkinRim. Technology partners, research collaborations, and integration programs.">
+    <title>Become a WelkinRim Partner | Distributor & Integration Programs</title>
+    <meta name="description" content="Join WelkinRim's global partner network. Authorized distributor, technology partner, and integration partner programs with competitive margins, marketing support, and technical training.">
+    <meta name="keywords" content="WelkinRim partner, drone motor distributor, drone motor reseller, OEM partner, drone propulsion partner, WelkinRim distributor">
     <link rel="canonical" href="https://welkinrim.com/partners.html">
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://welkinrim.com/partners.html">
-    <meta property="og:title" content="Partners | WelkinRim - Industrial Motor Solutions">
-    <meta property="og:description" content="Explore partnership opportunities with WelkinRim. Technology partners, research collaborations, and integration programs.">
+    <meta property="og:title" content="Become a WelkinRim Partner | Distributor & Integration Programs">
+    <meta property="og:description" content="Join WelkinRim's global partner network. Competitive margins, marketing support, technical training, and exclusive territory rights for qualified distributors.">
     <meta property="og:image" content="https://welkinrim.com/assets/Welkinrim logo.png">
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Partners | WelkinRim - Industrial Motor Solutions">
-    <meta name="twitter:description" content="Explore partnership opportunities with WelkinRim. Technology partners, research collaborations, and integration programs.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Become a WelkinRim Partner | Distributor & Integration Programs">
+    <meta name="twitter:description" content="Join WelkinRim's global partner network. Competitive margins, marketing support, technical training, and exclusive territory rights.">
     <meta name="twitter:image" content="https://welkinrim.com/assets/Welkinrim logo.png">
+    <link rel="icon" type="image/png" href="assets/Welkinrim logo.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        .partners-hero {
-            padding: 120px 0 80px;
-            background: linear-gradient(180deg, #0a0a0f 0%, #0f0f16 100%);
-            text-align: center;
-            color: white;
-        }
+        body { background: #000; color: #e0e0e0; }
 
+        /* ===== Hero ===== */
+        .partners-hero {
+            position: relative;
+            padding: 160px 0 120px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(10,10,10,0.85) 100%);
+            text-align: center;
+            overflow: hidden;
+        }
+        .partners-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse 80% 50% at 50% 0%, rgba(246,166,4,0.08) 0%, transparent 60%),
+                radial-gradient(circle at 20% 80%, rgba(246,166,4,0.04) 0%, transparent 40%),
+                repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(255,255,255,0.012) 50px),
+                repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(255,255,255,0.012) 50px);
+            pointer-events: none;
+        }
+        .partners-hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 120px;
+            background: linear-gradient(to top, #000, transparent);
+            pointer-events: none;
+        }
+        .partners-hero .container { position: relative; z-index: 2; }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            border: 1px solid rgba(246,166,4,0.3);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #f6a604;
+            margin-bottom: 28px;
+            background: rgba(246,166,4,0.05);
+        }
+        .hero-badge svg { width: 14px; height: 14px; }
         .partners-hero h1 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 700;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-weight: 800;
+            color: #fff;
             margin-bottom: 20px;
-            line-height: 1.2;
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+        }
+        .partners-hero h1 span { color: #f6a604; }
+        .partners-hero p {
+            font-size: 1.25rem;
+            color: #999;
+            max-width: 680px;
+            margin: 0 auto 48px;
+            line-height: 1.7;
+        }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+        .hero-stat { text-align: center; }
+        .hero-stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #f6a604;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            letter-spacing: -0.03em;
+        }
+        .hero-stat-label {
+            font-size: 0.75rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 4px;
         }
 
-        .partners-hero p {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.25rem;
-            opacity: 0.95;
-            max-width: 700px;
+        /* ===== Shared Section Styles ===== */
+        .section { padding: 100px 0; }
+        .section-dark { background: #000; }
+        .section-alt { background: #0a0a0a; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+        .section-header { text-align: center; margin-bottom: 64px; }
+        .section-header h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .section-header p {
+            font-size: 1.1rem;
+            color: #777;
+            max-width: 650px;
             margin: 0 auto;
             line-height: 1.6;
         }
 
-        .partners-content {
-            padding: 80px 0;
-            background: #0a0a0f;
+        /* ===== Partner Types ===== */
+        .partner-types-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .partner-type-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            padding: 40px 32px;
+            transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+            position: relative;
+            overflow: hidden;
         }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
+        .partner-type-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #f6a604, transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
-
-        .section-header h2 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
+        .partner-type-card:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(246,166,4,0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 30px rgba(246,166,4,0.05);
+        }
+        .partner-type-card:hover::before { opacity: 1; }
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: rgba(246,166,4,0.08);
+            border: 1px solid rgba(246,166,4,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        .card-icon svg {
+            width: 28px; height: 28px;
+            stroke: #f6a604;
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .partner-type-card h3 {
+            font-size: 1.3rem;
             color: #fff;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+        .partner-type-card .card-desc {
+            color: #888;
+            font-size: 0.95rem;
+            line-height: 1.65;
             margin-bottom: 20px;
         }
-
-        .section-header p {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.125rem;
-            color: rgba(255,255,255,0.5);
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.7;
+        .partner-type-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .partner-type-card li {
+            font-size: 0.85rem;
+            color: #999;
+            padding: 6px 0 6px 22px;
+            position: relative;
+            line-height: 1.5;
+        }
+        .partner-type-card li::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 50%;
+            transform: translateY(-50%);
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: rgba(246,166,4,0.6);
         }
 
-        .partnership-types {
+        /* ===== Benefits ===== */
+        .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 80px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
         }
-
-        .partnership-card {
-            background: rgba(255,255,255,0.03);
-            border: 2px solid rgba(255,255,255,0.08);
-            border-radius: 12px;
-            padding: 35px;
+        .benefit-card {
+            padding: 32px 28px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
             transition: all 0.3s ease;
         }
-
-        .partnership-card:hover {
-            border-color: #f6a604;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(246,166,4,0.15);
+        .benefit-card:hover {
+            background: rgba(255,255,255,0.04);
+            border-color: rgba(246,166,4,0.15);
         }
-
-        .partnership-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
+        .benefit-card-icon {
+            width: 44px; height: 44px;
+            border-radius: 10px;
+            background: rgba(246,166,4,0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
         }
-
-        .partnership-card h3 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 600;
+        .benefit-card-icon svg {
+            width: 22px; height: 22px;
+            stroke: #f6a604;
+            fill: none;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .benefit-card h4 {
+            font-size: 1.05rem;
             color: #fff;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .benefit-card p {
+            color: #777;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 0;
         }
 
-        .partnership-card p {
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            color: rgba(255,255,255,0.5);
-            line-height: 1.7;
-            margin-bottom: 20px;
+        /* ===== Requirements ===== */
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
         }
-
-        .partnership-card ul {
+        .req-card {
+            padding: 36px 32px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+        }
+        .req-card h4 {
+            font-size: 1.1rem;
+            color: #f6a604;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+        .req-card ul {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-
-        .partnership-card li {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            color: rgba(255,255,255,0.5);
-            line-height: 1.8;
-            padding-left: 25px;
+        .req-card li {
+            font-size: 0.9rem;
+            color: #999;
+            padding: 8px 0 8px 24px;
             position: relative;
-            margin-bottom: 8px;
+            line-height: 1.5;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
         }
-
-        .partnership-card li:before {
-            content: "✓";
+        .req-card li:last-child { border-bottom: none; }
+        .req-card li::before {
+            content: '';
             position: absolute;
-            left: 0;
-            color: #f6a604;
-            font-weight: bold;
+            left: 0; top: 50%;
+            transform: translateY(-50%);
+            width: 6px; height: 6px;
+            border: 1.5px solid #f6a604;
+            border-radius: 50%;
         }
 
-        .benefits-section {
-            background: rgba(255,255,255,0.04);
-            border-radius: 16px;
-            padding: 60px 40px;
-            margin-bottom: 80px;
+        /* ===== Territory Map/Coverage ===== */
+        .territory-section { position: relative; overflow: hidden; }
+        .territory-section::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(246,166,4,0.04) 0%, transparent 70%);
+            pointer-events: none;
         }
-
-        .benefits-section h2 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .benefits-grid {
+        .territory-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            position: relative;
+            z-index: 1;
         }
-
-        .benefit-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
+        .territory-card {
+            padding: 28px 24px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 14px;
+            text-align: center;
+            transition: all 0.3s ease;
         }
-
-        .benefit-icon {
-            font-size: 1.5rem;
-            flex-shrink: 0;
+        .territory-card:hover {
+            border-color: rgba(246,166,4,0.2);
+            background: rgba(246,166,4,0.03);
         }
-
-        .benefit-text {
-            flex: 1;
-        }
-
-        .benefit-text h4 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 8px;
-        }
-
-        .benefit-text p {
-            font-family: 'Inter', sans-serif;
+        .territory-card h4 {
             font-size: 0.95rem;
-            color: rgba(255,255,255,0.5);
-            line-height: 1.6;
+            color: #fff;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .territory-status {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 100px;
+            margin-bottom: 12px;
+        }
+        .status-covered {
+            background: rgba(246,166,4,0.1);
+            border: 1px solid rgba(246,166,4,0.25);
+            color: #f6a604;
+        }
+        .status-open {
+            background: rgba(34,197,94,0.1);
+            border: 1px solid rgba(34,197,94,0.25);
+            color: #22c55e;
+        }
+        .territory-card p {
+            font-size: 0.8rem;
+            color: #666;
+            line-height: 1.5;
             margin: 0;
         }
 
-        .process-section {
-            margin-bottom: 80px;
+        /* ===== Application Form ===== */
+        .application-section {
+            position: relative;
         }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+        .application-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(246,166,4,0.3), transparent);
         }
-
-        .process-step {
-            text-align: center;
-            padding: 30px 20px;
-            background: rgba(255,255,255,0.04);
-            border-radius: 12px;
+        .application-form-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 48px;
+            position: relative;
+            overflow: hidden;
         }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
+        .application-form-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 20%; right: 20%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(246,166,4,0.4), transparent);
+        }
+        .app-form { display: flex; flex-direction: column; gap: 16px; }
+        .app-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .app-form-group { display: flex; flex-direction: column; gap: 6px; }
+        .app-form-group label {
+            font-size: 0.8rem;
+            color: #888;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .app-form-group label .required { color: #f6a604; }
+        .app-form input, .app-form select, .app-form textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: #0f172a;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        .app-form input::placeholder, .app-form textarea::placeholder { color: #555; }
+        .app-form input:focus, .app-form select:focus, .app-form textarea:focus {
+            border-color: rgba(246,166,4,0.5);
+            box-shadow: 0 0 0 3px rgba(246,166,4,0.1);
+        }
+        .app-form select { cursor: pointer; }
+        .app-form select option { background: #0f172a; }
+        .app-form textarea { min-height: 120px; resize: vertical; }
+        .app-form-submit {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 18px 40px;
             background: #f6a604;
-            color: white;
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin-top: 8px;
+            align-self: flex-start;
+        }
+        .app-form-submit:hover {
+            background: #ffb824;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(246,166,4,0.25);
+        }
+        .app-form-submit svg { width: 18px; height: 18px; }
+        .app-form-success {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+        .app-form-success.show { display: block; }
+        .app-form-success .success-icon {
+            width: 72px; height: 72px;
+            background: rgba(34,197,94,0.1);
+            border: 2px solid rgba(34,197,94,0.3);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
             margin: 0 auto 20px;
         }
+        .app-form-success .success-icon svg { width: 36px; height: 36px; stroke: #22c55e; fill: none; }
+        .app-form-success h4 { color: #22c55e; font-size: 1.25rem; margin-bottom: 10px; }
+        .app-form-success p { color: #888; font-size: 0.95rem; line-height: 1.6; }
 
-        .process-step h4 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-
-        .process-step p {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            color: rgba(255,255,255,0.5);
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        .testimonial-section {
-            background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.03) 100%);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 16px;
-            padding: 60px 40px;
-            margin-bottom: 80px;
-            color: white;
-            text-align: center;
-        }
-
-        .testimonial-section h2 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 40px;
-        }
-
-        .testimonial-quote {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.25rem;
-            font-style: italic;
-            line-height: 1.8;
+        /* ===== Testimonial ===== */
+        .partner-testimonial {
             max-width: 800px;
-            margin: 0 auto 30px;
-            opacity: 0.95;
-        }
-
-        .testimonial-author {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        .testimonial-company {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            opacity: 0.8;
-            margin-top: 5px;
-        }
-
-        .cta-section {
-            background: linear-gradient(135deg, rgba(246,166,4,0.15) 0%, rgba(246,166,4,0.08) 100%);
-            border: 1px solid rgba(246,166,4,0.3);
-            border-radius: 16px;
-            padding: 60px 40px;
+            margin: 0 auto;
+            padding: 48px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
             text-align: center;
-            color: white;
+            position: relative;
         }
-
-        .cta-section h2 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
+        .partner-testimonial::before {
+            content: '';
+            position: absolute;
+            top: -1px; left: 20%; right: 20%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(246,166,4,0.4), transparent);
         }
-
-        .cta-section p {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.125rem;
-            opacity: 0.95;
-            max-width: 600px;
-            margin: 0 auto 30px;
-            line-height: 1.7;
+        .testimonial-quote-mark {
+            font-size: 4rem;
+            color: rgba(246,166,4,0.2);
+            line-height: 1;
+            margin-bottom: 8px;
+            font-family: Georgia, serif;
         }
-
-        .cta-button {
-            display: inline-block;
-            background: white;
-            color: #0a0a0f;
-            padding: 15px 40px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 600;
-            font-size: 1.125rem;
-            transition: all 0.3s ease;
+        .testimonial-text {
+            font-size: 1.15rem;
+            color: #ccc;
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 24px;
         }
+        .testimonial-name { font-size: 0.95rem; font-weight: 700; color: #fff; }
+        .testimonial-role { font-size: 0.8rem; color: #666; margin-top: 4px; }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        /* ===== Responsive ===== */
+        @media (max-width: 1024px) {
+            .partner-types-grid { grid-template-columns: 1fr 1fr; }
+            .territory-grid { grid-template-columns: repeat(2, 1fr); }
         }
-
         @media (max-width: 768px) {
-            .partners-hero {
-                padding: 100px 20px 60px;
-            }
-
-            .partners-hero h1 {
-                font-size: 2rem;
-            }
-
-            .section-header h2 {
-                font-size: 2rem;
-            }
-
-            .benefits-section,
-            .testimonial-section,
-            .cta-section {
-                padding: 40px 20px;
-            }
-
-            .cta-section h2 {
-                font-size: 1.75rem;
-            }
+            .partners-hero { padding: 120px 0 80px; }
+            .partners-hero h1 { font-size: 2.2rem; }
+            .hero-stats { gap: 24px; }
+            .hero-stat-value { font-size: 1.5rem; }
+            .section { padding: 60px 0; }
+            .section-header { margin-bottom: 40px; }
+            .section-header h2 { font-size: 1.8rem; }
+            .partner-types-grid { grid-template-columns: 1fr; }
+            .benefits-grid { grid-template-columns: 1fr; }
+            .requirements-grid { grid-template-columns: 1fr; }
+            .territory-grid { grid-template-columns: 1fr; }
+            .app-form-row { grid-template-columns: 1fr; }
+            .application-form-wrapper { padding: 28px 20px; }
+            .partner-testimonial { padding: 32px 20px; }
         }
     </style>
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do I become a WelkinRim authorized distributor?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Submit a partner application through our online form. Our partnerships team reviews applications within 5 business days and schedules a discovery call with qualified applicants to discuss territory, requirements, and terms."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What are the minimum order requirements for WelkinRim distributors?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Authorized Distributors have a minimum initial order of 50 units with quarterly minimums of 25 units. Technology Partners and Integration Partners have flexible volume requirements based on the partnership agreement."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What margins do WelkinRim partners receive?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Partner margins vary by partner tier and volume. Authorized Distributors receive competitive wholesale pricing with margins ranging from 25-40% depending on volume commitments and territory exclusivity."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does WelkinRim provide marketing support to partners?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. All partners receive co-branded marketing materials, product photography, technical datasheets, and access to our partner marketing fund for local campaigns. Authorized Distributors also receive demo units and trade show support."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What territories are available for new WelkinRim partners?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We have open territories in Southeast Asia, Latin America, Africa, and Eastern Europe. North America, Western Europe, and parts of East Asia have existing partners, though sub-regional opportunities may be available."
+                }
+            }
+        ]
+    }
+    </script>
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://welkinrim.com/"},
+            {"@type": "ListItem", "position": 2, "name": "Partners", "item": "https://welkinrim.com/partners.html"}
+        ]
+    }
+    </script>
 </head>
 <body>
     <a href="#main-content" class="skip-to-content">Skip to content</a>
     <nav id="main-nav"></nav>
 
     <main id="main-content">
+
+        <!-- ==================== HERO ==================== -->
         <section class="partners-hero">
-            <h1>Partnership Programs</h1>
-            <p>Collaborate with WelkinRim to create innovative motor solutions and accelerate industrial advancement</p>
-        </section>
-
-        <section class="partners-content">
             <div class="container">
-                <div class="section-header">
-                    <h2>Partnership Opportunities</h2>
-                    <p>Join forces with a global leader in precision motor technology. We offer multiple partnership models designed to create mutual value and drive innovation.</p>
+                <div class="hero-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    Global Partner Network
                 </div>
-
-                <div class="partnership-types">
-                    <div class="partnership-card">
-                        <div class="partnership-icon">🔬</div>
-                        <h3>Technology Partners</h3>
-                        <p>Collaborate on next-generation motor technology, control systems, and industrial automation solutions.</p>
-                        <ul>
-                            <li>Joint R&D initiatives</li>
-                            <li>Technology licensing</li>
-                            <li>Product co-development</li>
-                            <li>IP sharing agreements</li>
-                        </ul>
+                <h1>Become a <span>WelkinRim</span> Partner</h1>
+                <p>Join our worldwide distribution network and bring precision drone motor technology to your market. We provide the products, training, and support; you provide the local expertise.</p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">50+</div>
+                        <div class="hero-stat-label">Countries Served</div>
                     </div>
-
-                    <div class="partnership-card">
-                        <div class="partnership-icon">🏪</div>
-                        <h3>Distribution Partners</h3>
-                        <p>Expand our global reach by becoming an authorized distributor in your region.</p>
-                        <ul>
-                            <li>Protected territories</li>
-                            <li>Competitive margins</li>
-                            <li>Technical training</li>
-                            <li>Marketing support</li>
-                        </ul>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">120+</div>
+                        <div class="hero-stat-label">Active Partners</div>
                     </div>
-
-                    <div class="partnership-card">
-                        <div class="partnership-icon">🎓</div>
-                        <h3>Research Institutions</h3>
-                        <p>Academic partnerships for fundamental research and advanced motor technology development.</p>
-                        <ul>
-                            <li>Research grants</li>
-                            <li>Equipment donations</li>
-                            <li>Internship programs</li>
-                            <li>Joint publications</li>
-                        </ul>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">25-40%</div>
+                        <div class="hero-stat-label">Partner Margins</div>
                     </div>
-
-                    <div class="partnership-card">
-                        <div class="partnership-icon">🔧</div>
-                        <h3>Integration Partners</h3>
-                        <p>System integrators and OEMs incorporating WelkinRim motors into their solutions.</p>
-                        <ul>
-                            <li>Custom configurations</li>
-                            <li>Volume pricing</li>
-                            <li>Technical consultation</li>
-                            <li>Priority support</li>
-                        </ul>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">98%</div>
+                        <div class="hero-stat-label">Partner Retention</div>
                     </div>
-                </div>
-
-                <div class="benefits-section">
-                    <h2>Partner Benefits</h2>
-                    <div class="benefits-grid">
-                        <div class="benefit-item">
-                            <div class="benefit-icon">🏆</div>
-                            <div class="benefit-text">
-                                <h4>Industry Leadership</h4>
-                                <p>Align with a recognized leader in precision motor technology</p>
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <div class="benefit-icon">💡</div>
-                            <div class="benefit-text">
-                                <h4>Innovation Access</h4>
-                                <p>Early access to new technologies and product roadmaps</p>
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <div class="benefit-icon">🎯</div>
-                            <div class="benefit-text">
-                                <h4>Technical Expertise</h4>
-                                <p>Dedicated engineering support and consultation</p>
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <div class="benefit-icon">📈</div>
-                            <div class="benefit-text">
-                                <h4>Market Expansion</h4>
-                                <p>Access to our global distribution network</p>
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <div class="benefit-icon">🤝</div>
-                            <div class="benefit-text">
-                                <h4>Collaborative Culture</h4>
-                                <p>Work with experienced engineers and business professionals</p>
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <div class="benefit-icon">🌍</div>
-                            <div class="benefit-text">
-                                <h4>Global Reach</h4>
-                                <p>Leverage our presence in 50+ countries worldwide</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="process-section">
-                    <div class="section-header">
-                        <h2>How to Become a Partner</h2>
-                        <p>Our partnership process is designed to ensure mutual alignment and successful collaboration</p>
-                    </div>
-
-                    <div class="process-steps">
-                        <div class="process-step">
-                            <div class="step-number">1</div>
-                            <h4>Initial Contact</h4>
-                            <p>Submit your partnership inquiry through our contact form</p>
-                        </div>
-                        <div class="process-step">
-                            <div class="step-number">2</div>
-                            <h4>Qualification</h4>
-                            <p>Our team reviews your capabilities and alignment with our goals</p>
-                        </div>
-                        <div class="process-step">
-                            <div class="step-number">3</div>
-                            <h4>Discovery Meeting</h4>
-                            <p>Discuss opportunities, expectations, and mutual objectives</p>
-                        </div>
-                        <div class="process-step">
-                            <div class="step-number">4</div>
-                            <h4>Agreement</h4>
-                            <p>Finalize partnership terms and contractual arrangements</p>
-                        </div>
-                        <div class="process-step">
-                            <div class="step-number">5</div>
-                            <h4>Onboarding</h4>
-                            <p>Training, resource provisioning, and launch planning</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-section">
-                    <h2>What Our Partners Say</h2>
-                    <blockquote class="testimonial-quote">
-                        "WelkinRim's technical expertise and commitment to quality make them an ideal partner. Their motors have become the foundation of our industrial automation solutions, and their engineering team provides exceptional support."
-                    </blockquote>
-                    <div class="testimonial-author">Dr. Marcus Weber</div>
-                    <div class="testimonial-company">Chief Technology Officer, AutoTech Systems GmbH</div>
-                </div>
-
-                <div class="cta-section">
-                    <h2>Ready to Partner With Us?</h2>
-                    <p>Let's discuss how we can create value together. Contact our partnership team to explore opportunities.</p>
-                    <a href="contact.html?type=partner" class="cta-button">Start the Conversation</a>
                 </div>
             </div>
         </section>
+
+        <!-- ==================== PARTNER TYPES ==================== -->
+        <section class="section section-dark">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Partnership Models</h2>
+                    <p>Three partnership tiers designed for different business models. Find the programme that fits your capabilities and market.</p>
+                </div>
+
+                <div class="partner-types-grid">
+
+                    <!-- Authorized Distributor -->
+                    <div class="partner-type-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                        </div>
+                        <h3>Authorized Distributor</h3>
+                        <p class="card-desc">Full product line access with exclusive or semi-exclusive territory rights. Ideal for established drone equipment distributors and industrial supply companies.</p>
+                        <ul>
+                            <li>Exclusive / semi-exclusive territory</li>
+                            <li>25-40% wholesale margins</li>
+                            <li>Co-branded marketing materials</li>
+                            <li>Demo units and trade show support</li>
+                            <li>Quarterly business reviews</li>
+                            <li>Priority allocation on new products</li>
+                        </ul>
+                    </div>
+
+                    <!-- Technology Partner -->
+                    <div class="partner-type-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                        </div>
+                        <h3>Technology Partner</h3>
+                        <p class="card-desc">Joint R&D, co-development, and technology licensing for flight controller manufacturers, ESC companies, and propulsion system developers.</p>
+                        <ul>
+                            <li>Joint R&D initiatives</li>
+                            <li>Pre-release product access</li>
+                            <li>Technology licensing options</li>
+                            <li>Co-branded product development</li>
+                            <li>Shared IP agreements</li>
+                            <li>Engineering team collaboration</li>
+                        </ul>
+                    </div>
+
+                    <!-- Integration Partner -->
+                    <div class="partner-type-card">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        </div>
+                        <h3>Integration Partner</h3>
+                        <p class="card-desc">For OEMs and system integrators building WelkinRim motors into complete drone platforms. Volume pricing with dedicated technical support.</p>
+                        <ul>
+                            <li>Custom motor configurations</li>
+                            <li>Volume-based pricing tiers</li>
+                            <li>Dedicated integration engineer</li>
+                            <li>Custom firmware and tuning</li>
+                            <li>Priority technical support</li>
+                            <li>Joint go-to-market programmes</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== BENEFITS ==================== -->
+        <section class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Partner Benefits</h2>
+                    <p>Every WelkinRim partner receives a comprehensive support package designed to accelerate your success in the drone motor market.</p>
+                </div>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                        </div>
+                        <h4>Competitive Margins</h4>
+                        <p>25-40% wholesale margins with volume incentive tiers. Quarterly rebates for exceeding targets.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <h4>Marketing Support</h4>
+                        <p>Co-branded materials, product photography, datasheets, and a shared marketing fund for local campaigns.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                        </div>
+                        <h4>Technical Training</h4>
+                        <p>Certification programme for your sales and engineering teams. Online modules plus annual in-person training events.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        </div>
+                        <h4>Lead Sharing</h4>
+                        <p>Inbound leads from your territory are routed directly to you. Full CRM integration available.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-card-icon">
+                            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                        </div>
+                        <h4>Demo Units</h4>
+                        <p>Complimentary evaluation and demonstration units for qualified partners. Refresh programme for new product launches.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-card-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                        </div>
+                        <h4>Warranty Support</h4>
+                        <p>Extended warranty programme for partner-sold units. Local RMA handling with pre-authorization for faster resolution.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== REQUIREMENTS ==================== -->
+        <section class="section section-dark">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Partner Requirements</h2>
+                    <p>We seek partners who share our commitment to quality, technical expertise, and customer satisfaction.</p>
+                </div>
+                <div class="requirements-grid">
+                    <div class="req-card">
+                        <h4>Authorized Distributor</h4>
+                        <ul>
+                            <li>Minimum initial order: 50 units</li>
+                            <li>Quarterly minimum: 25 units</li>
+                            <li>Established drone / UAV customer base</li>
+                            <li>Dedicated sales staff (2+ people)</li>
+                            <li>Local warehousing capability</li>
+                            <li>Technical support capability</li>
+                            <li>Active website and marketing presence</li>
+                        </ul>
+                    </div>
+                    <div class="req-card">
+                        <h4>Technology Partner</h4>
+                        <ul>
+                            <li>Active R&D programme in propulsion or controls</li>
+                            <li>Engineering team with motor / ESC expertise</li>
+                            <li>Existing product line in adjacent technology</li>
+                            <li>Intellectual property portfolio</li>
+                            <li>Published research or technical publications</li>
+                            <li>Willingness to share development roadmap</li>
+                        </ul>
+                    </div>
+                    <div class="req-card">
+                        <h4>Integration Partner (OEM)</h4>
+                        <ul>
+                            <li>Annual volume commitment: 100+ units</li>
+                            <li>Existing drone / UAS product in production</li>
+                            <li>Integration engineering capability</li>
+                            <li>Quality management system (ISO 9001 preferred)</li>
+                            <li>End-customer support infrastructure</li>
+                            <li>Product liability insurance</li>
+                        </ul>
+                    </div>
+                    <div class="req-card">
+                        <h4>All Partners</h4>
+                        <ul>
+                            <li>Registered business entity</li>
+                            <li>Minimum 2 years operating history</li>
+                            <li>Clean regulatory and compliance record</li>
+                            <li>Agreement to WelkinRim brand guidelines</li>
+                            <li>Participation in quarterly business reviews</li>
+                            <li>Completion of product certification training</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TERRITORY COVERAGE ==================== -->
+        <section class="section section-alt territory-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Territory Coverage</h2>
+                    <p>We have active partners across 50+ countries. Open territories represent significant growth opportunities for qualified partners.</p>
+                </div>
+                <div class="territory-grid">
+                    <div class="territory-card">
+                        <h4>North America</h4>
+                        <span class="territory-status status-covered">Partners Active</span>
+                        <p>USA, Canada, Mexico covered. Sub-regional roles may be available.</p>
+                    </div>
+                    <div class="territory-card">
+                        <h4>Western Europe</h4>
+                        <span class="territory-status status-covered">Partners Active</span>
+                        <p>UK, Germany, France, Netherlands, Nordics covered.</p>
+                    </div>
+                    <div class="territory-card">
+                        <h4>East Asia</h4>
+                        <span class="territory-status status-covered">Partners Active</span>
+                        <p>Japan, South Korea, Taiwan covered. China sub-regions open.</p>
+                    </div>
+                    <div class="territory-card">
+                        <h4>India & South Asia</h4>
+                        <span class="territory-status status-covered">Partners Active</span>
+                        <p>India covered. Sri Lanka, Bangladesh, Nepal open.</p>
+                    </div>
+                    <div class="territory-card">
+                        <h4>Southeast Asia</h4>
+                        <span class="territory-status status-open">Open Territory</span>
+                        <p>High-growth market. Agriculture and defence demand.</p>
+                    </div>
+                    <div class="territory-card">
+                        <h4>Latin America</h4>
+                        <span class="territory-status status-open">Open Territory</span>
+                        <p>Brazil, Argentina, Colombia, Chile. Agriculture focus.</p>
+                    </div>
+                    <div class="territory-card">
+                        <h4>Africa</h4>
+                        <span class="territory-status status-open">Open Territory</span>
+                        <p>Emerging drone market. Agriculture and conservation.</p>
+                    </div>
+                    <div class="territory-card">
+                        <h4>Eastern Europe</h4>
+                        <span class="territory-status status-open">Open Territory</span>
+                        <p>Poland, Czech Republic, Romania, Baltic states.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TESTIMONIAL ==================== -->
+        <section class="section section-dark">
+            <div class="container">
+                <div class="partner-testimonial">
+                    <div class="testimonial-quote-mark">&ldquo;</div>
+                    <p class="testimonial-text">Partnering with WelkinRim transformed our drone equipment business. The combination of premium product quality, generous margins, and genuine marketing support helped us grow our UAV division by 180% in 18 months. Their engineering team treats us like an extension of their own company.</p>
+                    <div class="testimonial-name">Dr. Marcus Weber</div>
+                    <div class="testimonial-role">Chief Technology Officer, AutoTech Systems GmbH</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== APPLICATION FORM ==================== -->
+        <section class="section section-alt application-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Apply to Become a Partner</h2>
+                    <p>Complete the form below and our partnerships team will review your application within 5 business days.</p>
+                </div>
+                <div class="application-form-wrapper">
+                    <form id="partnerAppForm" class="app-form" action="https://formspree.io/f/xwpkpqyz" method="POST">
+                        <input type="hidden" name="_source" value="partner-application">
+                        <input type="hidden" name="_subject" value="New Partner Application">
+
+                        <div class="app-form-row">
+                            <div class="app-form-group">
+                                <label>Company Name <span class="required">*</span></label>
+                                <input type="text" name="company" placeholder="Your company name" required>
+                            </div>
+                            <div class="app-form-group">
+                                <label>Contact Name <span class="required">*</span></label>
+                                <input type="text" name="name" placeholder="Full name" required>
+                            </div>
+                        </div>
+
+                        <div class="app-form-row">
+                            <div class="app-form-group">
+                                <label>Email <span class="required">*</span></label>
+                                <input type="email" name="email" placeholder="business@company.com" required>
+                            </div>
+                            <div class="app-form-group">
+                                <label>Phone</label>
+                                <input type="tel" name="phone" placeholder="+1 (555) 000-0000">
+                            </div>
+                        </div>
+
+                        <div class="app-form-row">
+                            <div class="app-form-group">
+                                <label>Company Website</label>
+                                <input type="url" name="website" placeholder="https://yourcompany.com">
+                            </div>
+                            <div class="app-form-group">
+                                <label>Territory / Region <span class="required">*</span></label>
+                                <select name="territory" required>
+                                    <option value="" disabled selected>Select region</option>
+                                    <option value="North America">North America</option>
+                                    <option value="Western Europe">Western Europe</option>
+                                    <option value="Eastern Europe">Eastern Europe</option>
+                                    <option value="East Asia">East Asia</option>
+                                    <option value="Southeast Asia">Southeast Asia</option>
+                                    <option value="South Asia">South Asia (India, etc.)</option>
+                                    <option value="Middle East">Middle East</option>
+                                    <option value="Africa">Africa</option>
+                                    <option value="Latin America">Latin America</option>
+                                    <option value="Oceania">Australia / Oceania</option>
+                                    <option value="Global">Global / Multiple Regions</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="app-form-row">
+                            <div class="app-form-group">
+                                <label>Partner Type <span class="required">*</span></label>
+                                <select name="partner_type" required>
+                                    <option value="" disabled selected>Select partner type</option>
+                                    <option value="Authorized Distributor">Authorized Distributor</option>
+                                    <option value="Technology Partner">Technology Partner</option>
+                                    <option value="Integration Partner (OEM)">Integration Partner (OEM)</option>
+                                </select>
+                            </div>
+                            <div class="app-form-group">
+                                <label>Annual Revenue Range</label>
+                                <select name="revenue_range">
+                                    <option value="" disabled selected>Select range</option>
+                                    <option value="Under $500K">Under $500K</option>
+                                    <option value="$500K - $2M">$500K - $2M</option>
+                                    <option value="$2M - $10M">$2M - $10M</option>
+                                    <option value="$10M - $50M">$10M - $50M</option>
+                                    <option value="$50M+">$50M+</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="app-form-group">
+                            <label>Why do you want to partner with WelkinRim?</label>
+                            <textarea name="message" placeholder="Tell us about your business, your current drone/motor product lines, target market, and what you hope to achieve through this partnership."></textarea>
+                        </div>
+
+                        <button type="submit" class="app-form-submit">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                            Submit Partner Application
+                        </button>
+                    </form>
+                    <div id="partnerAppSuccess" class="app-form-success">
+                        <div class="success-icon">
+                            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <h4>Application Submitted Successfully</h4>
+                        <p>Thank you for your interest in partnering with WelkinRim. Our partnerships team will review your application and respond within 5 business days. We look forward to exploring this opportunity together.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer id="main-footer"></footer>
-    <script src="shared.js"></script>
+    <script src="shared.js" defer></script>
     <script src="scripts.js"></script>
+    <script>
+    (function() {
+        var form = document.getElementById('partnerAppForm');
+        var success = document.getElementById('partnerAppSuccess');
+        if (!form) return;
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var formData = new FormData(form);
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            }).then(function(response) {
+                if (response.ok) {
+                    form.style.display = 'none';
+                    success.classList.add('show');
+                } else {
+                    alert('There was an issue submitting your application. Please try again.');
+                }
+            }).catch(function() {
+                alert('Network error. Please check your connection and try again.');
+            });
+        });
+    })();
+    </script>
 </body>
 </html>

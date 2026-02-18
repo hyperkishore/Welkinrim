@@ -1,3 +1,54 @@
+// ── Google Analytics 4 ─────────────────────────────────
+// Replace G-XXXXXXXXXX with your actual GA4 Measurement ID
+// Get yours at: https://analytics.google.com → Admin → Data Streams → Measurement ID
+(function initGA4() {
+    var GA4_ID = 'G-XXXXXXXXXX'; // ← REPLACE with your real Measurement ID
+    if (GA4_ID === 'G-XXXXXXXXXX') return; // Skip if not configured
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function() { dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', GA4_ID, { send_page_view: true });
+})();
+
+// ── Global Analytics Helpers ───────────────────────────
+window.wrTrack = function(eventName, params) {
+    if (typeof gtag === 'function') {
+        gtag('event', eventName, params || {});
+    }
+};
+
+// Auto-track Formspree form submissions as conversions
+document.addEventListener('submit', function(e) {
+    var form = e.target;
+    if (form && form.action && form.action.indexOf('formspree.io') !== -1) {
+        var source = '';
+        var srcEl = form.querySelector('input[name="_source"]');
+        if (srcEl) source = srcEl.value;
+        wrTrack('generate_lead', {
+            event_category: 'Form',
+            event_label: source || 'unknown',
+            form_source: source,
+            page: window.location.pathname
+        });
+    }
+});
+
+// Auto-track outbound link clicks
+document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[href]');
+    if (link && link.hostname && link.hostname !== window.location.hostname) {
+        wrTrack('outbound_click', {
+            event_category: 'Outbound',
+            event_label: link.href,
+            url: link.href
+        });
+    }
+});
+
 // Shared Navigation & Footer - WelkinRim
 (function() {
     'use strict';
@@ -5,7 +56,7 @@
     // Detect relative path prefix based on page location
     function getBasePath() {
         const path = window.location.pathname;
-        if (path.includes('/products/') || path.includes('/tools/') || path.includes('/applications/')) {
+        if (path.includes('/products/') || path.includes('/tools/') || path.includes('/applications/') || path.includes('/compare/')) {
             return '../';
         }
         return '';

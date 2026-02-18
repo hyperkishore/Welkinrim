@@ -256,6 +256,140 @@
         }
         .cs-cta .container { position: relative; z-index: 2; }
 
+        /* Replicate This Deployment CTA */
+        .cs-deploy-cta {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 40px 36px;
+            margin-top: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+        .cs-deploy-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+        }
+        .cs-deploy-cta--defence::before {
+            background: linear-gradient(90deg, #f6a604, #f59e0b, transparent);
+        }
+        .cs-deploy-cta--agriculture::before {
+            background: linear-gradient(90deg, #22c55e, #16a34a, transparent);
+        }
+        .cs-deploy-cta--commercial::before {
+            background: linear-gradient(90deg, #3b82f6, #2563eb, transparent);
+        }
+        .cs-deploy-cta--defence {
+            box-shadow: 0 0 60px rgba(246,166,4,0.04);
+        }
+        .cs-deploy-cta--agriculture {
+            box-shadow: 0 0 60px rgba(34,197,94,0.04);
+        }
+        .cs-deploy-cta--commercial {
+            box-shadow: 0 0 60px rgba(59,130,246,0.04);
+        }
+        .cs-deploy-cta-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .cs-deploy-cta-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .cs-deploy-cta--defence .cs-deploy-cta-icon {
+            background: rgba(246,166,4,0.1);
+        }
+        .cs-deploy-cta--agriculture .cs-deploy-cta-icon {
+            background: rgba(34,197,94,0.1);
+        }
+        .cs-deploy-cta--commercial .cs-deploy-cta-icon {
+            background: rgba(59,130,246,0.1);
+        }
+        .cs-deploy-cta h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+            margin: 0;
+        }
+        .cs-deploy-cta > p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.92rem;
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+        .cs-deploy-cta-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .cs-deploy-cta .btn-deploy-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: #f6a604;
+            color: #0a0a0a;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .cs-deploy-cta .btn-deploy-primary:hover {
+            background: #fbbf24;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px rgba(246,166,4,0.3);
+        }
+        .cs-deploy-cta .btn-deploy-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: transparent;
+            color: rgba(255,255,255,0.8);
+            font-weight: 500;
+            font-size: 0.9rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.15);
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .cs-deploy-cta .btn-deploy-secondary:hover {
+            border-color: rgba(246,166,4,0.4);
+            color: #f6a604;
+            background: rgba(246,166,4,0.05);
+        }
+        .cs-deploy-cta .btn-deploy-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 12px 16px;
+            color: rgba(255,255,255,0.6);
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .cs-deploy-cta .btn-deploy-link:hover {
+            color: #f6a604;
+        }
+
         @media (max-width: 1024px) {
             .cs-grid {
                 grid-template-columns: 1fr;
@@ -267,6 +401,19 @@
             .cs-section { padding: 80px 0; }
             .cs-stats { grid-template-columns: 1fr; }
             .cs-cta { padding: 80px 0; }
+            .cs-deploy-cta {
+                padding: 28px 24px;
+            }
+            .cs-deploy-cta-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .cs-deploy-cta .btn-deploy-primary,
+            .cs-deploy-cta .btn-deploy-secondary,
+            .cs-deploy-cta .btn-deploy-link {
+                justify-content: center;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -357,6 +504,21 @@
                     <blockquote>WelkinRim motors survived conditions that destroyed three competing products in our evaluation. Zero failures across 18 months of continuous border operations.</blockquote>
                     <cite>&mdash; Col. R. Krishnamurthy (Ret.), CTO, Sentinel Defence Systems</cite>
                 </div>
+
+                <div class="cs-deploy-cta cs-deploy-cta--defence reveal-up">
+                    <div class="cs-deploy-cta-header">
+                        <div class="cs-deploy-cta-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f6a604" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h4>Interested in a similar deployment?</h4>
+                    </div>
+                    <p>Whether you need surveillance, reconnaissance, or border security propulsion, our defence engineering team can configure motors to your exact mission profile &mdash; including custom bearing assemblies, IP68 sealing, and MIL-STD certification packages.</p>
+                    <div class="cs-deploy-cta-actions">
+                        <button class="btn-deploy-primary" onclick="openQuoteModal('WR-D3510')">Get a Custom Quote &rarr;</button>
+                        <a href="contact.html?type=technical" class="btn-deploy-secondary">Speak to an Engineer</a>
+                        <a href="applications/defence.html" class="btn-deploy-link">View Defence Motors &rarr;</a>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -410,6 +572,21 @@
                     <blockquote>Our fleet went from 72% uptime to 96% after switching to WelkinRim. The chemical-resistant coating alone paid for itself in the first growing season.</blockquote>
                     <cite>&mdash; James Patterson, Fleet Manager, AgriDrone Systems</cite>
                 </div>
+
+                <div class="cs-deploy-cta cs-deploy-cta--agriculture reveal-up">
+                    <div class="cs-deploy-cta-header">
+                        <div class="cs-deploy-cta-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4-4 8-7.5 8-12a8 8 0 1 0-16 0c0 4.5 4 8 8 12z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <h4>Interested in a similar deployment?</h4>
+                    </div>
+                    <p>From single-drone trials to 100+ fleet rollouts, our agriculture team helps operators select the right motor, coating package, and duty cycle configuration. We provide chemical compatibility testing for your specific spray formulations.</p>
+                    <div class="cs-deploy-cta-actions">
+                        <button class="btn-deploy-primary" onclick="openQuoteModal('WR-A4010')">Get a Custom Quote &rarr;</button>
+                        <a href="contact.html?type=technical" class="btn-deploy-secondary">Speak to an Engineer</a>
+                        <a href="applications/agriculture.html" class="btn-deploy-link">View Agriculture Motors &rarr;</a>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -462,6 +639,21 @@
                 <div class="cs-quote reveal-up">
                     <blockquote>We evaluated every motor on the market. WelkinRim was the only one that met our IP68, temperature range, and MIL-STD requirements simultaneously.</blockquote>
                     <cite>&mdash; Sarah Mitchell, VP Engineering, SkyLogistics Inc.</cite>
+                </div>
+
+                <div class="cs-deploy-cta cs-deploy-cta--commercial reveal-up">
+                    <div class="cs-deploy-cta-header">
+                        <div class="cs-deploy-cta-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="22" height="12" rx="2" ry="2"/><path d="M1 10h22"/></svg>
+                        </div>
+                        <h4>Interested in a similar deployment?</h4>
+                    </div>
+                    <p>Scaling a delivery or commercial inspection fleet? WelkinRim provides custom firmware integration, fleet telemetry support, and dedicated account engineering for high-volume deployments. Our 48-hour motor replacement programme keeps your fleet in the air.</p>
+                    <div class="cs-deploy-cta-actions">
+                        <button class="btn-deploy-primary" onclick="openQuoteModal('WR-C2815')">Get a Custom Quote &rarr;</button>
+                        <a href="contact.html?type=technical" class="btn-deploy-secondary">Speak to an Engineer</a>
+                        <a href="applications/delivery.html" class="btn-deploy-link">View Commercial Motors &rarr;</a>
+                    </div>
                 </div>
             </div>
         </section>

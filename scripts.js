@@ -428,13 +428,32 @@ document.addEventListener('DOMContentLoaded', function() {
             trackEvent('Tools', 'Motor Selector', 'Used');
         });
     }
-    
+
     // Track CTA clicks
     const ctaButtons = document.querySelectorAll('.btn-primary, .nav-cta');
     ctaButtons.forEach(button => {
         button.addEventListener('click', function() {
             trackEvent('CTA', 'Click', this.textContent.trim());
         });
+    });
+
+    // Track scroll depth milestones (25%, 50%, 75%, 100%)
+    var scrollMilestones = {};
+    window.addEventListener('scroll', function() {
+        var pct = Math.round(100 * (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight);
+        [25, 50, 75, 100].forEach(function(m) {
+            if (pct >= m && !scrollMilestones[m]) {
+                scrollMilestones[m] = true;
+                trackEvent('Engagement', 'Scroll Depth', m + '%', m);
+            }
+        });
+    }, { passive: true });
+
+    // Track time on page (30s, 60s, 120s, 300s)
+    [30, 60, 120, 300].forEach(function(sec) {
+        setTimeout(function() {
+            trackEvent('Engagement', 'Time on Page', sec + 's', sec);
+        }, sec * 1000);
     });
 });
 

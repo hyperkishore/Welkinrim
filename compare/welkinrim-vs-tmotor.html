@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WelkinRim vs T-Motor: Which Drone Motor Is Right for You?</title>
+    <meta name="description" content="WelkinRim vs T-Motor drone motor comparison. Side-by-side specs, efficiency, IP ratings, pricing, and use case recommendations for commercial and heavy-lift UAVs.">
+    <link rel="canonical" href="https://welkinrim.com/compare/welkinrim-vs-tmotor.html">
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://welkinrim.com/compare/welkinrim-vs-tmotor.html">
+    <meta property="og:title" content="WelkinRim vs T-Motor: Which Drone Motor Is Right for You?">
+    <meta property="og:description" content="Detailed comparison of WelkinRim and T-Motor drone motors. Specs, efficiency, durability, and pricing side-by-side.">
+    <meta property="og:image" content="https://welkinrim.com/assets/Welkinrim logo.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="WelkinRim vs T-Motor: Which Drone Motor Is Right for You?">
+    <meta name="twitter:description" content="Detailed comparison of WelkinRim and T-Motor drone motors. Specs, efficiency, durability, and pricing side-by-side.">
+    <meta name="twitter:image" content="https://welkinrim.com/assets/Welkinrim logo.png">
+    <link rel="icon" type="image/png" href="../assets/Welkinrim logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://welkinrim.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Compare", "item": "https://welkinrim.com/compare/" },
+            { "@type": "ListItem", "position": 3, "name": "WelkinRim vs T-Motor" }
+        ]
+    }
+    </script>
+
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is WelkinRim better than T-Motor for commercial drones?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "WelkinRim motors offer higher peak efficiency (up to 98.8%), better IP ratings (IP54-IP67 vs IP44-IP55), and MIL-STD-810H compliance at competitive prices. T-Motor has a wider product range and longer market presence. For mission-critical commercial applications where durability and efficiency matter most, WelkinRim is the stronger choice."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does WelkinRim WR2815 compare to the T-Motor U5?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The WelkinRim WR2815 offers 98.8% peak efficiency vs approximately 88% for the T-Motor U5, along with IP65 protection vs IP44, and MIL-STD-810H compliance. The WR2815 produces 4.2kg thrust at 112g compared to the U5's approximately 3.5kg at 115g. The WR2815 is priced at $149 compared to $80-120 for the U5."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does T-Motor have MIL-STD certified drone motors?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "T-Motor does not currently offer MIL-STD-810H certified motors across their standard product lineup. WelkinRim's entire commercial range is MIL-STD-810H compliant, making them a better fit for defence contractors and government-regulated projects requiring formal military standard certification."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which brand is better for heavy-lift drones: WelkinRim or T-Motor?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "For heavy-lift applications, WelkinRim's WR3508 delivers 6.8kg thrust with IP67 protection and 97.2% efficiency at $229. T-Motor's U8 Pro offers similar thrust in the 6-8kg range with a proven track record in cinema and industrial drones, priced at $150-200. WelkinRim wins on environmental protection; T-Motor wins on ecosystem maturity."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        body { background: #000; color: #e0e0e0; }
+
+        /* Breadcrumb */
+        .breadcrumb { background: #0a0a0a; padding: 20px 0; margin-top: 80px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .breadcrumb-nav { font-size: 0.875rem; color: #888; }
+        .breadcrumb-nav a { color: #f6a604; text-decoration: none; }
+        .breadcrumb-nav a:hover { text-decoration: underline; }
+        .breadcrumb-sep { margin: 0 12px; color: #555; }
+
+        /* Hero */
+        .compare-hero {
+            padding: 100px 0 80px;
+            background: linear-gradient(160deg, rgba(0,0,0,0.9) 0%, rgba(10,15,26,0.85) 50%, rgba(0,0,0,0.95) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .compare-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse 80% 50% at 50% 0%, rgba(246,166,4,0.06) 0%, transparent 60%),
+                repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(255,255,255,0.015) 50px),
+                repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(255,255,255,0.015) 50px);
+            pointer-events: none;
+        }
+        .compare-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .compare-hero h1 .accent { color: #f6a604; }
+        .compare-hero .subtitle {
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            color: rgba(255,255,255,0.6);
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.6;
+            position: relative;
+        }
+        .compare-hero .vs-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 50px;
+            padding: 8px 24px;
+            margin-bottom: 32px;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+            position: relative;
+        }
+        .compare-hero .vs-badge .vs { color: #f6a604; font-weight: 700; }
+
+        /* Quick Verdict */
+        .verdict-section { padding: 80px 0; background: #0a0a0a; }
+        .verdict-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .verdict-card::before {
+            content: 'QUICK VERDICT';
+            position: absolute;
+            top: -12px;
+            left: 40px;
+            background: #f6a604;
+            color: #000;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            padding: 4px 14px;
+            border-radius: 4px;
+        }
+        .verdict-card p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.8);
+        }
+        .verdict-card strong { color: #fff; }
+
+        /* Spec Table */
+        .specs-section { padding: 80px 0; background: #000; }
+        .specs-section .section-label {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #f6a604;
+            margin-bottom: 12px;
+        }
+        .specs-section h2 {
+            text-align: center;
+            margin-bottom: 48px;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .table-wrapper::-webkit-scrollbar { height: 6px; }
+        .table-wrapper::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); }
+        .table-wrapper::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+            font-size: 0.9rem;
+        }
+        .compare-table thead th {
+            padding: 16px 20px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.02);
+        }
+        .compare-table thead th.brand-wr {
+            color: #f6a604;
+            background: rgba(246,166,4,0.06);
+            border-bottom-color: rgba(246,166,4,0.2);
+        }
+        .compare-table thead th.brand-competitor {
+            color: rgba(255,255,255,0.7);
+        }
+        .compare-table tbody td {
+            padding: 14px 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.75);
+            vertical-align: middle;
+        }
+        .compare-table tbody tr:hover {
+            background: rgba(255,255,255,0.02);
+        }
+        .compare-table tbody td:first-child {
+            text-align: left;
+            font-weight: 600;
+            color: rgba(255,255,255,0.9);
+            white-space: nowrap;
+        }
+        .compare-table td.highlight {
+            color: #f6a604;
+            font-weight: 600;
+        }
+        .compare-table .winner-cell {
+            position: relative;
+        }
+        .compare-table .winner-cell::after {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: #f6a604;
+            border-radius: 50%;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+        .table-note {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.35);
+        }
+        .table-note .dot { display: inline-block; width: 6px; height: 6px; background: #f6a604; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+
+        /* Category Breakdown */
+        .breakdown-section { padding: 80px 0; background: #0a0a0a; }
+        .breakdown-section .section-label {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #f6a604;
+            margin-bottom: 12px;
+        }
+        .breakdown-section h2 {
+            text-align: center;
+            margin-bottom: 56px;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+        }
+        .breakdown-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .breakdown-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 32px;
+            transition: border-color 0.3s ease;
+        }
+        .breakdown-card:hover {
+            border-color: rgba(246,166,4,0.2);
+        }
+        .breakdown-card .card-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(246,166,4,0.08);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        .breakdown-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+        .breakdown-card p {
+            font-size: 0.92rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.6);
+        }
+        .breakdown-card .winner-tag {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+        .winner-tag.wr { background: rgba(246,166,4,0.12); color: #f6a604; }
+        .winner-tag.comp { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.6); }
+        .winner-tag.tie { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.5); }
+
+        /* Use Cases */
+        .usecase-section { padding: 80px 0; background: #000; }
+        .usecase-section h2 {
+            text-align: center;
+            margin-bottom: 48px;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+        }
+        .usecase-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .usecase-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 36px;
+        }
+        .usecase-card.wr { border-top: 2px solid #f6a604; }
+        .usecase-card.comp { border-top: 2px solid rgba(255,255,255,0.2); }
+        .usecase-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .usecase-card h3 .brand-wr { color: #f6a604; }
+        .usecase-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .usecase-card ul li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            font-size: 0.92rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.5;
+        }
+        .usecase-card.wr ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 8px;
+            height: 8px;
+            background: #f6a604;
+            border-radius: 2px;
+        }
+        .usecase-card.comp ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 8px;
+            height: 8px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+        }
+
+        /* FAQ */
+        .faq-section { padding: 80px 0; background: #0a0a0a; }
+        .faq-section .section-label {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #f6a604;
+            margin-bottom: 12px;
+        }
+        .faq-section h2 {
+            text-align: center;
+            margin-bottom: 48px;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+        }
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            padding: 24px 40px 24px 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.2s;
+        }
+        .faq-question:hover { color: #f6a604; }
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.4);
+            transition: transform 0.3s, color 0.3s;
+        }
+        .faq-item.active .faq-question::after {
+            content: '-';
+            color: #f6a604;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding-bottom: 24px;
+        }
+        .faq-answer p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* CTA */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(160deg, rgba(0,0,0,0.9) 0%, rgba(20,15,5,0.9) 50%, rgba(0,0,0,0.95) 100%);
+            text-align: center;
+            position: relative;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse 60% 40% at 50% 50%, rgba(246,166,4,0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .cta-section h2 {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            margin-bottom: 16px;
+            position: relative;
+        }
+        .cta-section p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        .cta-btn-primary {
+            background: #f6a604;
+            color: #000;
+        }
+        .cta-btn-primary:hover {
+            background: #e09800;
+            box-shadow: 0 0 30px rgba(246,166,4,0.3);
+            transform: translateY(-1px);
+        }
+        .cta-btn-secondary {
+            background: rgba(255,255,255,0.06);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+        .cta-btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.2);
+        }
+        .cta-btn-outline {
+            background: transparent;
+            color: #f6a604;
+            border: 1px solid rgba(246,166,4,0.3);
+        }
+        .cta-btn-outline:hover {
+            background: rgba(246,166,4,0.08);
+            border-color: #f6a604;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .breakdown-grid, .usecase-grid { grid-template-columns: 1fr; }
+            .compare-hero h1 { font-size: clamp(1.6rem, 6vw, 2.4rem); }
+            .verdict-card { padding: 32px 24px; }
+            .verdict-card::before { left: 24px; }
+            .breakdown-card { padding: 24px; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .cta-btn { width: 100%; max-width: 320px; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav id="main-nav"></nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="breadcrumb-sep">/</span>
+                <span>Compare</span>
+                <span class="breadcrumb-sep">/</span>
+                <span>WelkinRim vs T-Motor</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Hero -->
+    <section class="compare-hero">
+        <div class="container">
+            <div class="vs-badge">WelkinRim <span class="vs">VS</span> T-Motor</div>
+            <h1>WelkinRim <span class="accent">vs</span> T-Motor</h1>
+            <p class="subtitle">A detailed side-by-side comparison of two leading commercial drone motor brands. Specs, durability, pricing, and real-world recommendations to help you choose the right motor for your fleet.</p>
+        </div>
+    </section>
+
+    <!-- Quick Verdict -->
+    <section class="verdict-section">
+        <div class="container">
+            <div class="verdict-card">
+                <p><strong>WelkinRim</strong> is the better choice for operators who need maximum efficiency, superior environmental protection (IP54-IP67), and MIL-STD-810H compliance at competitive pricing. <strong>T-Motor</strong> is a well-established brand with a broader product lineup, extensive ecosystem of ESCs and propellers, and strong community support, making it ideal for hobbyists upgrading to commercial or operators who value aftermarket compatibility. If your missions involve harsh environments, regulatory compliance, or defence contracts, WelkinRim pulls ahead. For general commercial mapping and cinematography with readily available spare parts, T-Motor remains a solid option.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Side-by-Side Spec Table -->
+    <section class="specs-section">
+        <div class="container">
+            <div class="section-label">Specifications</div>
+            <h2>Side-by-Side Motor Specs</h2>
+
+            <div class="table-wrapper">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>Specification</th>
+                            <th class="brand-wr">WR2212</th>
+                            <th class="brand-wr">WR2815</th>
+                            <th class="brand-wr">WR3508</th>
+                            <th class="brand-competitor">T-Motor MN3510</th>
+                            <th class="brand-competitor">T-Motor U5</th>
+                            <th class="brand-competitor">T-Motor U8 Pro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Stator Size</td>
+                            <td>22x12mm</td>
+                            <td>28x15mm</td>
+                            <td>35x8mm</td>
+                            <td>35x10mm</td>
+                            <td>28x11mm</td>
+                            <td>39x10mm</td>
+                        </tr>
+                        <tr>
+                            <td>KV Rating</td>
+                            <td>1000 KV</td>
+                            <td>900 KV</td>
+                            <td>680 KV</td>
+                            <td>700 KV</td>
+                            <td>400 KV</td>
+                            <td>100 KV</td>
+                        </tr>
+                        <tr>
+                            <td>Max Thrust</td>
+                            <td>2.4 kg</td>
+                            <td class="highlight winner-cell">4.2 kg</td>
+                            <td class="highlight winner-cell">6.8 kg</td>
+                            <td>2.8 kg</td>
+                            <td>3.5 kg</td>
+                            <td>6.5 kg</td>
+                        </tr>
+                        <tr>
+                            <td>Weight</td>
+                            <td class="highlight winner-cell">68 g</td>
+                            <td>112 g</td>
+                            <td>165 g</td>
+                            <td>102 g</td>
+                            <td class="highlight winner-cell">107 g</td>
+                            <td>240 g</td>
+                        </tr>
+                        <tr>
+                            <td>Peak Efficiency</td>
+                            <td class="highlight winner-cell">96.8%</td>
+                            <td class="highlight winner-cell">98.8%</td>
+                            <td class="highlight winner-cell">97.2%</td>
+                            <td>87%</td>
+                            <td>88%</td>
+                            <td>89%</td>
+                        </tr>
+                        <tr>
+                            <td>IP Rating</td>
+                            <td class="highlight winner-cell">IP54</td>
+                            <td class="highlight winner-cell">IP65</td>
+                            <td class="highlight winner-cell">IP67</td>
+                            <td>-</td>
+                            <td>IP44</td>
+                            <td>IP55</td>
+                        </tr>
+                        <tr>
+                            <td>MIL-STD-810H</td>
+                            <td class="highlight winner-cell">Yes</td>
+                            <td class="highlight winner-cell">Yes</td>
+                            <td class="highlight winner-cell">Yes</td>
+                            <td>No</td>
+                            <td>No</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>Voltage Range</td>
+                            <td>3S-6S</td>
+                            <td>4S-8S</td>
+                            <td>6S-12S</td>
+                            <td>3S-6S</td>
+                            <td>6S-12S</td>
+                            <td>6S-14S</td>
+                        </tr>
+                        <tr>
+                            <td>Price</td>
+                            <td>$89</td>
+                            <td>$149</td>
+                            <td>$229</td>
+                            <td class="highlight winner-cell">~$55</td>
+                            <td class="highlight winner-cell">~$95</td>
+                            <td class="highlight winner-cell">~$175</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="table-note"><span class="dot"></span>Orange dot indicates category leader in each row. Competitor specs are approximate and based on publicly available data.</p>
+        </div>
+    </section>
+
+    <!-- Category Breakdown -->
+    <section class="breakdown-section">
+        <div class="container">
+            <div class="section-label">Analysis</div>
+            <h2>Category Breakdown</h2>
+            <div class="breakdown-grid">
+                <div class="breakdown-card">
+                    <div class="card-icon">&#9889;</div>
+                    <h3>Performance</h3>
+                    <p>WelkinRim motors achieve 96.8-98.8% peak efficiency compared to T-Motor's typical 87-89% range. This translates to longer flight times and less thermal waste. The WR2815 delivers 4.2kg thrust from a 112g motor, an exceptional thrust-to-weight ratio that outperforms the T-Motor U5 class.</p>
+                    <span class="winner-tag wr">WelkinRim Wins</span>
+                </div>
+                <div class="breakdown-card">
+                    <div class="card-icon">&#128737;</div>
+                    <h3>Durability</h3>
+                    <p>WelkinRim offers IP54 to IP67 protection across its range, with full MIL-STD-810H compliance for shock, vibration, and temperature extremes. T-Motor's IP ratings top out around IP55 on premium models, with no formal military standard certification on commercial units.</p>
+                    <span class="winner-tag wr">WelkinRim Wins</span>
+                </div>
+                <div class="breakdown-card">
+                    <div class="card-icon">&#128176;</div>
+                    <h3>Pricing</h3>
+                    <p>T-Motor offers lower entry pricing, with the MN series starting around $55 and the U5 at roughly $95. WelkinRim's premium is justified by higher efficiency and durability, but for budget-constrained builds, T-Motor provides strong value. Volume pricing from WelkinRim narrows the gap significantly for fleet buyers.</p>
+                    <span class="winner-tag comp">T-Motor Wins</span>
+                </div>
+                <div class="breakdown-card">
+                    <div class="card-icon">&#128736;</div>
+                    <h3>Support &amp; Warranty</h3>
+                    <p>T-Motor benefits from years of community knowledge, tutorials, and third-party accessories. WelkinRim provides dedicated engineering support, custom winding options, and a 2-year warranty with on-site service for fleet contracts. For enterprise buyers, WelkinRim's white-glove support wins; for hobbyist-to-commercial, T-Motor's ecosystem is hard to beat.</p>
+                    <span class="winner-tag tie">Depends on Use Case</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Case Recommendations -->
+    <section class="usecase-section">
+        <div class="container">
+            <h2>Which Brand Should You Choose?</h2>
+            <div class="usecase-grid">
+                <div class="usecase-card wr">
+                    <h3>Choose <span class="brand-wr">WelkinRim</span> if you need:</h3>
+                    <ul>
+                        <li>Maximum motor efficiency for extended flight times on every charge</li>
+                        <li>IP65-IP67 environmental protection for rain, dust, or coastal operations</li>
+                        <li>MIL-STD-810H compliance for government or defence contracts</li>
+                        <li>Field-serviceable motors you can maintain without factory returns</li>
+                        <li>Dedicated engineering support and custom winding configurations</li>
+                        <li>A fleet partner with volume pricing and warranty service agreements</li>
+                    </ul>
+                </div>
+                <div class="usecase-card comp">
+                    <h3>Choose T-Motor if you need:</h3>
+                    <ul>
+                        <li>Budget-friendly motors for prototype builds or cost-sensitive projects</li>
+                        <li>Widest selection of KV ratings, stator sizes, and prop combos</li>
+                        <li>Strong community forums, tutorials, and third-party compatibility</li>
+                        <li>Established supply chain with global resellers and fast shipping</li>
+                        <li>Matched ESC and propeller bundles for plug-and-fly convenience</li>
+                        <li>Cinematography rigs where T-Motor's U-series has a proven track record</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-label">Common Questions</div>
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">Is WelkinRim better than T-Motor for commercial drones?</button>
+                    <div class="faq-answer">
+                        <p>For mission-critical commercial applications where efficiency, durability, and regulatory compliance matter, WelkinRim is the stronger choice. Its motors achieve up to 98.8% peak efficiency with IP65-IP67 protection and MIL-STD-810H compliance. T-Motor excels in breadth of product options and community support, making it a solid choice for general-purpose commercial work where environmental extremes are not a primary concern.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How does the WelkinRim WR2815 compare to the T-Motor U5?</button>
+                    <div class="faq-answer">
+                        <p>The WR2815 delivers 4.2kg thrust at 112g with 98.8% peak efficiency and IP65 protection. The T-Motor U5 produces approximately 3.5kg at 107g with around 88% efficiency and IP44 protection. The WR2815 costs $149 versus the U5 at approximately $95. The WR2815 offers more thrust, higher efficiency, and better environmental sealing for the price premium.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Does T-Motor have MIL-STD certified drone motors?</button>
+                    <div class="faq-answer">
+                        <p>T-Motor does not currently offer MIL-STD-810H certified motors in their standard product lineup. WelkinRim's entire commercial range carries MIL-STD-810H compliance, making it the better fit for defence contractors, government programs, and projects requiring formal military standard documentation.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Which brand is better for heavy-lift drones?</button>
+                    <div class="faq-answer">
+                        <p>WelkinRim's WR3508 delivers 6.8kg thrust with IP67 protection and 97.2% efficiency at $229. T-Motor's U8 Pro offers comparable thrust in the 6-8kg range with a proven cinema and industrial track record at approximately $175. WelkinRim wins on environmental protection and efficiency; T-Motor wins on ecosystem maturity and price. For harsh-environment heavy-lift work, WelkinRim is the safer investment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Try WelkinRim?</h2>
+            <p>Configure your ideal motor setup or request a custom quote from our engineering team.</p>
+            <div class="cta-buttons">
+                <a href="../configurator.html" class="cta-btn cta-btn-primary">Configure Your Motor</a>
+                <button class="cta-btn cta-btn-secondary" onclick="openQuoteModal()">Get a Quote</button>
+                <a href="../motor-selection-guide.html" class="cta-btn cta-btn-outline">Download Comparison PDF</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="main-footer"></footer>
+    <script src="../shared.js" defer></script>
+    <script>
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var item = this.parentElement;
+                var isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(function(el) { el.classList.remove('active'); });
+                if (!isActive) item.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
