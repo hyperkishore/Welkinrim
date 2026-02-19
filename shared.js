@@ -194,6 +194,8 @@ document.addEventListener('click', function(e) {
                             <li><a href="${base}certifications.html">Certifications</a></li>
                             <li><a href="${base}tools/calculator.html">Performance Calculator</a></li>
                             <li><a href="${base}motor-matchmaker.html">Motor Matchmaker</a></li>
+                            <li><a href="${base}style-guide.html">Style Guide</a></li>
+                            <li><a href="${base}asset-library.html">Asset Library</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">

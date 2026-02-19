@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="color-scheme" content="dark">
+    <title>Style Guide | WelkinRim Design System</title>
+    <meta name="description" content="WelkinRim brand style guide — colors, typography, components, and design tokens for the WelkinRim design system.">
+    <link rel="canonical" href="https://welkinrim.com/style-guide.html">
+    <meta property="og:title" content="Style Guide | WelkinRim Design System">
+    <meta property="og:description" content="Complete brand and design system documentation for WelkinRim.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://welkinrim.com/style-guide.html">
+    <meta property="og:image" content="https://welkinrim.com/assets/Welkinrim logo.png">
+    <link rel="icon" type="image/png" href="assets/Welkinrim logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        body { background: #050508; color: #e0e0e0; }
+
+        /* Breadcrumb */
+        .breadcrumb { background: rgba(255,255,255,0.02); padding: 20px 0; margin-top: 80px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .breadcrumb-nav { font-size: 0.85rem; color: #666; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .breadcrumb-nav a { color: #f6a604; text-decoration: none; }
+        .breadcrumb-nav a:hover { text-decoration: underline; }
+        .breadcrumb-sep { margin: 0 10px; color: #444; }
+
+        /* Style Guide Layout */
+        .sg-page { max-width: 1200px; margin: 0 auto; padding: 60px 24px 120px; }
+
+        .sg-hero { text-align: center; padding: 80px 0 60px; }
+        .sg-hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 600; color: #fff; margin-bottom: 16px; letter-spacing: -0.03em; }
+        .sg-hero p { font-size: 1.1rem; color: rgba(255,255,255,0.5); max-width: 600px; margin: 0 auto; line-height: 1.6; }
+        .sg-hero-badge { display: inline-block; background: rgba(246,166,4,0.12); color: #f6a604; padding: 4px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 20px; }
+
+        /* Table of Contents */
+        .sg-toc { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 32px; margin-bottom: 60px; }
+        .sg-toc h2 { font-size: 1.1rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px; font-weight: 600; }
+        .sg-toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; }
+        .sg-toc a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; padding: 6px 0; display: block; transition: color 0.2s; }
+        .sg-toc a:hover { color: #f6a604; }
+        .sg-toc a::before { content: ''; display: inline-block; width: 6px; height: 6px; background: #f6a604; border-radius: 50%; margin-right: 10px; vertical-align: middle; }
+
+        /* Section */
+        .sg-section { margin-bottom: 80px; }
+        .sg-section-title { font-size: 1.5rem; font-weight: 600; color: #fff; margin-bottom: 8px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; gap: 12px; }
+        .sg-section-title .sg-anchor { color: rgba(255,255,255,0.2); text-decoration: none; font-size: 1rem; }
+        .sg-section-title .sg-anchor:hover { color: #f6a604; }
+        .sg-section-desc { font-size: 0.95rem; color: rgba(255,255,255,0.5); margin-bottom: 32px; line-height: 1.6; }
+
+        /* Color Swatches */
+        .sg-color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
+        .sg-color-card { border-radius: 12px; overflow: hidden; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); }
+        .sg-color-swatch { height: 80px; display: flex; align-items: flex-end; padding: 8px 12px; }
+        .sg-color-swatch span { font-size: 0.7rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; background: rgba(0,0,0,0.5); color: #fff; }
+        .sg-color-info { padding: 12px; }
+        .sg-color-name { font-size: 0.85rem; font-weight: 600; color: #fff; margin-bottom: 4px; }
+        .sg-color-var { font-size: 0.75rem; color: rgba(255,255,255,0.4); font-family: 'Monaco', monospace; }
+        .sg-color-hex { font-size: 0.75rem; color: rgba(255,255,255,0.35); margin-top: 2px; }
+
+        /* Category label */
+        .sg-category { font-size: 0.75rem; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-bottom: 16px; margin-top: 32px; }
+        .sg-category:first-child { margin-top: 0; }
+
+        /* Typography samples */
+        .sg-type-sample { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 24px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+        .sg-type-preview { flex: 1; min-width: 200px; }
+        .sg-type-meta { text-align: right; min-width: 180px; }
+        .sg-type-meta span { display: block; font-size: 0.75rem; color: rgba(255,255,255,0.35); font-family: 'Monaco', monospace; }
+
+        /* Spacing / Radius demos */
+        .sg-spacing-grid { display: flex; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+        .sg-spacing-item { text-align: center; }
+        .sg-spacing-box { background: rgba(246,166,4,0.15); border: 1px solid rgba(246,166,4,0.3); margin-bottom: 8px; border-radius: 4px; }
+        .sg-spacing-label { font-size: 0.7rem; color: rgba(255,255,255,0.4); font-family: 'Monaco', monospace; }
+        .sg-spacing-value { font-size: 0.7rem; color: #f6a604; font-weight: 600; }
+
+        .sg-radius-grid { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+        .sg-radius-item { text-align: center; }
+        .sg-radius-box { width: 64px; height: 64px; background: rgba(246,166,4,0.12); border: 2px solid rgba(246,166,4,0.4); margin: 0 auto 8px; }
+
+        /* Shadow demos */
+        .sg-shadow-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 24px; }
+        .sg-shadow-card { background: rgba(255,255,255,0.04); border-radius: 12px; padding: 32px 16px; text-align: center; }
+        .sg-shadow-name { font-size: 0.8rem; color: #fff; font-weight: 600; margin-bottom: 4px; }
+        .sg-shadow-val { font-size: 0.7rem; color: rgba(255,255,255,0.35); font-family: 'Monaco', monospace; word-break: break-all; }
+
+        /* Button demos */
+        .sg-btn-row { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-bottom: 16px; }
+        .sg-btn-label { font-size: 0.75rem; color: rgba(255,255,255,0.4); min-width: 120px; font-family: 'Monaco', monospace; }
+
+        /* Card demos */
+        .sg-card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+
+        /* Glass card */
+        .sg-glass-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 32px; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .sg-glass-card h4 { color: #fff; margin-bottom: 8px; }
+        .sg-glass-card p { color: rgba(255,255,255,0.5); font-size: 0.9rem; line-height: 1.6; }
+
+        /* Code block */
+        .sg-code { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 16px 20px; font-family: 'Monaco', 'Consolas', monospace; font-size: 0.8rem; color: rgba(255,255,255,0.6); overflow-x: auto; line-height: 1.8; margin-top: 12px; }
+        .sg-code .sg-prop { color: #f6a604; }
+        .sg-code .sg-val { color: #22c55e; }
+        .sg-code .sg-comment { color: rgba(255,255,255,0.25); }
+
+        /* Gradient demos */
+        .sg-gradient-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+        .sg-gradient-card { border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); }
+        .sg-gradient-preview { height: 80px; }
+        .sg-gradient-info { padding: 12px; background: rgba(255,255,255,0.03); }
+        .sg-gradient-name { font-size: 0.85rem; font-weight: 600; color: #fff; }
+        .sg-gradient-css { font-size: 0.7rem; color: rgba(255,255,255,0.35); font-family: 'Monaco', monospace; margin-top: 4px; word-break: break-all; }
+
+        /* Form demo */
+        .sg-form-demo { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 32px; max-width: 400px; }
+        .sg-form-group { margin-bottom: 16px; }
+        .sg-form-label { display: block; font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.6); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.04em; }
+        .sg-form-input { width: 100%; padding: 12px 14px; background: #0a0a0f; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; color: #fff; font-size: 0.95rem; font-family: 'Inter', sans-serif; outline: none; transition: border-color 0.2s; box-sizing: border-box; }
+        .sg-form-input::placeholder { color: rgba(255,255,255,0.25); }
+        .sg-form-input:focus { border-color: rgba(246,166,4,0.5); box-shadow: 0 0 0 3px rgba(246,166,4,0.1); }
+        .sg-form-select { width: 100%; padding: 12px 14px; background: #0a0a0f; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; color: #fff; font-size: 0.95rem; font-family: 'Inter', sans-serif; outline: none; appearance: none; cursor: pointer; }
+
+        /* Animation demo */
+        .sg-anim-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+        .sg-anim-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 24px; text-align: center; cursor: pointer; transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.3s ease; }
+        .sg-anim-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
+        .sg-anim-name { font-size: 0.85rem; font-weight: 600; color: #fff; margin-bottom: 4px; }
+        .sg-anim-desc { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+
+        /* Icon / badge demo */
+        .sg-badge-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+        .sg-badge { display: inline-block; padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+
+        /* Logo section */
+        .sg-logo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 24px; }
+        .sg-logo-card { border-radius: 12px; padding: 48px 32px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+        .sg-logo-card img { height: 48px; width: auto; }
+        .sg-logo-label { font-size: 0.8rem; color: rgba(255,255,255,0.4); }
+
+        /* Do/Don't */
+        .sg-donts { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 16px; }
+        .sg-do, .sg-dont { border-radius: 12px; padding: 20px; }
+        .sg-do { background: rgba(34,197,94,0.06); border: 1px solid rgba(34,197,94,0.15); }
+        .sg-dont { background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.15); }
+        .sg-do-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .sg-do .sg-do-label { color: #22c55e; }
+        .sg-dont .sg-do-label { color: #ef4444; }
+        .sg-do p, .sg-dont p { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.5; }
+
+        /* Status badge */
+        .sg-status-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+        .sg-status-card { border-radius: 12px; padding: 16px; display: flex; align-items: center; gap: 12px; }
+        .sg-status-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+        .sg-status-text { font-size: 0.85rem; color: #fff; }
+        .sg-status-desc { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+
+        @media (max-width: 768px) {
+            .sg-type-sample { flex-direction: column; align-items: flex-start; }
+            .sg-type-meta { text-align: left; }
+            .sg-donts { grid-template-columns: 1fr; }
+            .sg-toc-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav id="main-nav"></nav>
+
+    <div class="breadcrumb">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <span>Style Guide</span>
+        </nav>
+    </div>
+
+    <div class="sg-page">
+        <!-- Hero -->
+        <div class="sg-hero">
+            <span class="sg-hero-badge">Design System v1.2</span>
+            <h1>WelkinRim Style Guide</h1>
+            <p>The complete design language for WelkinRim's digital presence. Colors, typography, components, and patterns — everything you need to build on-brand.</p>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="sg-toc">
+            <h2>Contents</h2>
+            <div class="sg-toc-grid">
+                <a href="#brand">Brand & Logo</a>
+                <a href="#colors">Color Palette</a>
+                <a href="#typography">Typography</a>
+                <a href="#spacing">Spacing Scale</a>
+                <a href="#radius">Border Radius</a>
+                <a href="#shadows">Shadows & Elevation</a>
+                <a href="#gradients">Gradients & Glass</a>
+                <a href="#buttons">Buttons</a>
+                <a href="#cards">Cards & Containers</a>
+                <a href="#forms">Form Elements</a>
+                <a href="#badges">Badges & Tags</a>
+                <a href="#animations">Animations & Transitions</a>
+                <a href="#sections">Section Patterns</a>
+                <a href="#icons">Icons & Certification</a>
+                <a href="#usage">Usage Guidelines</a>
+            </div>
+        </div>
+
+        <!-- 1. Brand & Logo -->
+        <section class="sg-section" id="brand">
+            <h2 class="sg-section-title">Brand & Logo <a href="#brand" class="sg-anchor">#</a></h2>
+            <p class="sg-section-desc">The WelkinRim logo is always displayed inverted (white) on dark backgrounds. Maintain clear space equal to the height of the "W" mark around the logo at all times.</p>
+
+            <div class="sg-logo-grid">
+                <div class="sg-logo-card" style="background:#0a0a0f;border:1px solid rgba(255,255,255,0.08);">
+                    <img src="assets/Welkinrim logo.png" alt="WelkinRim logo on dark" style="filter:brightness(0) invert(1);">
+                    <span class="sg-logo-label">Primary (dark background)</span>
+                </div>
+                <div class="sg-logo-card" style="background:#ffffff;border:1px solid rgba(0,0,0,0.1);">
+                    <img src="assets/Welkinrim logo.png" alt="WelkinRim logo on light">
+                    <span class="sg-logo-label" style="color:#666;">Original (light background)</span>
+                </div>
+                <div class="sg-logo-card" style="background:linear-gradient(135deg,#f6a604,#ff6b35);border:none;">
+                    <img src="assets/Welkinrim logo.png" alt="WelkinRim logo on accent" style="filter:brightness(0) invert(1);">
+                    <span class="sg-logo-label" style="color:rgba(255,255,255,0.7);">On accent gradient</span>
+                </div>
+            </div>
+
+            <div class="sg-donts" style="margin-top:32px;">
+                <div class="sg-do">
+                    <p class="sg-do-label">Do</p>
+                    <p>Use the white inverted logo on dark backgrounds. Maintain minimum clear space. Keep aspect ratio locked.</p>
+                </div>
+                <div class="sg-dont">
+                    <p class="sg-do-label">Don't</p>
+                    <p>Don't stretch, rotate, or add effects to the logo. Don't place it on busy backgrounds without a scrim. Don't use below 100px width.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Color Palette -->
+        <section class="sg-section" id="colors">
+            <h2 class="sg-section-title">Color Palette <a href="#colors" class="sg-anchor">#</a></h2>
+            <p class="sg-section-desc">WelkinRim uses a dark-first palette. The site background is near-black (#0a0a0f) with warm amber accent (#f6a604) for CTAs and highlights. All colors are defined as CSS custom properties for consistency.</p>
+
+            <p class="sg-category">Accent & Primary</p>
+            <div class="sg-color-grid">
+                <div class="sg-color-card">
+                    <div class="sg-color-swatch" style="background:#f6a604;"><span>#f6a604</span></div>
+                    <div class="sg-color-info">
+                        <div class="sg-color-name">Accent</div>
+                        <div class="sg-color-var">--color-accent</div>
+                        <div class="sg-color-hex">WelkinRim Amber — primary CTAs, links, highlights</div>
+                    </div>
+                </div>
+                <div class="sg-color-card">
+                    <div class="sg-color-swatch" style="background:#e09500;"><span>#e09500</span></div>
+                    <div class="sg-color-info">
+                        <div class="sg-color-name">Accent Hover</div>
+                        <div class="sg-color-var">--color-accent-hover</div>
+                    </div>
+                </div>
+                <div class="sg-color-card">
+                    <div class="sg-color-swatch" style="background:rgba(246,166,4,0.1);border:1px solid rgba(246,166,4,0.2);"><span>10% opacity</span></div>
+                    <div class="sg-color-info">
+                        <div class="sg-color-name">Accent Light</div>
+                        <div class="sg-color-var">--color-accent-light</div>
+                        <div class="sg-color-hex">Badges, tag backgrounds</div>
+                    </div>
+                </div>
+                <div class="sg-color-card">
+                    <div class="sg-color-swatch" style="background:#171a20;"><span style="color:#fff;">#171a20</span></div>
+                    <div class="sg-color-info">
+                        <div class="sg-color-name">Primary</div>
+                        <div class="sg-color-var">--color-primary</div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="sg-category">Background</p>
+            <div class="sg-color-grid">
+                <div class="sg-color-card">
+                    <div class="sg-color-swatch" style="background:#0a0a0f;border:1px solid rgba(255,255,255,0.1);"><span style="color:#fff;">#0a0a0f</span></div>
+                    <div class="sg-color-info">
+                        <div class="sg-color-name">Page Background</div>
+                        <div class="sg-color-var">body background-color</div>
+                        <div class="sg-color-hex">Near-black — the darkest surface</div>
+                    </div>
+                </div>
+                <div class="sg-color-card">
+                    <div class="sg-color-swatch" style="background:#0f0f16;border:1px solid rgba(255,255,255,0.1);"><span style="color:#fff;">#0f0f16</span></div>
+                    <div class="sg-color-info">
+                        <div class="sg-color-name">Card / Modal BG</div>
+                        <div class="sg-color-var">.qq-modal, .wr-exit-card</div>
+                    </div>
+                </div>
+                <div class="sg-color-card">
+                    <div class="sg-color-swatch" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);"><span style="color:#fff;">3% white</span></div>
+                    <div class="sg-color-info">
+                        <div class="sg-color-name">Glass Card</div>
+                        <div class="sg-color-var">rgba(255,255,255,0.03)</div>
+                        <div class="sg-color-hex">Cards, panels, elevated surfaces</div>
+                    </div>
+                </div>
+                <div class="sg-color-card">
+                    <div class="sg-color-swatch" style="background:#0d0d1a;border:1px solid rgba(255,255,255,0.1);"><span style="color:#fff;">#0d0d1a</span></div>
+                    <div class="sg-color-info">
+                        <div class="sg-color-name">Credentials Strip</div>
+                        <div class="sg-color-var">.company-credentials</div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="sg-category">Text</p>
+            <div class="sg-color-grid">
+                <div class="sg-color-card">
+                    <div class="sg-color-swatch" style="background:#ffffff;"><span style="color:#000;">#ffffff</span></div>
+                    <div class="sg-color-info">
+                        <div class="sg-color-name">Headings</div>
+                        <div class="sg-color-hex">All h1-h6 headings</div>
+                    </div>
+                </div>
+                <div class="sg-color-card">
+                    <div class="sg-color-swatch" style="background:rgba(255,255,255,0.9);border:1px solid rgba(255,255,255,0.1);"><span>#fff / 90%</span></div>
+                    <div class="sg-color-info">
+                        <div class="sg-color-name">Body Text</div>
+                        <div class="sg-color-hex">Default body copy</div>
+                    </div>
+                </div>
+                <div class="sg-color-card">
+                    <div class="sg-color-swatch" style="background:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.1);"><span>#fff / 60%</span></div>
+                    <div class="sg-color-info">
+                        <div class="sg-color-name">Subtitle / Muted</div>
+                        <div class="sg-color-hex">Section subtitles, descriptions</div>
+                    </div>
+                </div>
+                <div class="sg-color-card">
+                    <div class="sg-color-swatch" style="background:rgba(255,255,255,0.35);border:1px solid rgba(255,255,255,0.1);"><span>#fff / 35%</span></div>
+                    <div class="sg-color-info">
+                        <div class="sg-color-name">Tertiary / Hint</div>
+                        <div class="sg-color-hex">Labels, placeholders, timestamps</div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="sg-category">Status</p>
+            <div class="sg-color-grid">
+                <div class="sg-color-card">
+                    <div class="sg-color-swatch" style="background:#22c55e;"><span>#22c55e</span></div>
+                    <div class="sg-color-info">
+                        <div class="sg-color-name">Success</div>
+                        <div class="sg-color-var">--color-success</div>
+                    </div>
+                </div>
+                <div class="sg-color-card">
+                    <div class="sg-color-swatch" style="background:#f59e0b;"><span>#f59e0b</span></div>
+                    <div class="sg-color-info">
+                        <div class="sg-color-name">Warning</div>
+                        <div class="sg-color-var">--color-warning</div>
+                    </div>
+                </div>
+                <div class="sg-color-card">
+                    <div class="sg-color-swatch" style="background:#ef4444;"><span>#ef4444</span></div>
+                    <div class="sg-color-info">
+                        <div class="sg-color-name">Danger</div>
+                        <div class="sg-color-var">--color-danger</div>
+                    </div>
+                </div>
+                <div class="sg-color-card">
+                    <div class="sg-color-swatch" style="background:#3b82f6;"><span>#3b82f6</span></div>
+                    <div class="sg-color-info">
+                        <div class="sg-color-name">Info / Commercial</div>
+                        <div class="sg-color-hex">Commercial industry tag</div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="sg-category">Industry Accent Colors</p>
+            <div class="sg-color-grid">
+                <div class="sg-color-card">
+                    <div class="sg-color-swatch" style="background:#f6a604;"><span>#f6a604</span></div>
+                    <div class="sg-color-info">
+                        <div class="sg-color-name">Defence</div>
+                        <div class="sg-color-hex">Defence badges, tags, accents</div>
+                    </div>
+                </div>
+                <div class="sg-color-card">
+                    <div class="sg-color-swatch" style="background:#22c55e;"><span>#22c55e</span></div>
+                    <div class="sg-color-info">
+                        <div class="sg-color-name">Agriculture</div>
+                        <div class="sg-color-hex">Agriculture badges, CTAs</div>
+                    </div>
+                </div>
+                <div class="sg-color-card">
+                    <div class="sg-color-swatch" style="background:#3b82f6;"><span>#3b82f6</span></div>
+                    <div class="sg-color-info">
+                        <div class="sg-color-name">Commercial</div>
+                        <div class="sg-color-hex">Commercial/delivery tags</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Typography -->
+        <section class="sg-section" id="typography">
+            <h2 class="sg-section-title">Typography <a href="#typography" class="sg-anchor">#</a></h2>
+            <p class="sg-section-desc">Two font families: <strong>Plus Jakarta Sans</strong> for headings and buttons, <strong>Inter</strong> for body text. Both are loaded from Google Fonts with display=swap for performance.</p>
+
+            <div class="sg-type-sample">
+                <div class="sg-type-preview">
+                    <h1 style="font-size:clamp(2.5rem,6vw,4rem);letter-spacing:-0.04em;font-weight:700;margin:0;">Heading 1</h1>
+                </div>
+                <div class="sg-type-meta">
+                    <span>Plus Jakarta Sans</span>
+                    <span>700 weight</span>
+                    <span>clamp(2.5rem, 6vw, 5.5rem)</span>
+                    <span>letter-spacing: -0.04em</span>
+                </div>
+            </div>
+            <div class="sg-type-sample">
+                <div class="sg-type-preview">
+                    <h2 style="font-size:clamp(1.8rem,4vw,3rem);letter-spacing:-0.03em;font-weight:600;margin:0;">Heading 2 / Section Title</h2>
+                </div>
+                <div class="sg-type-meta">
+                    <span>Plus Jakarta Sans</span>
+                    <span>600 weight</span>
+                    <span>clamp(1.8rem, 4vw, 3.5rem)</span>
+                    <span>letter-spacing: -0.03em</span>
+                </div>
+            </div>
+            <div class="sg-type-sample">
+                <div class="sg-type-preview">
+                    <h3 style="font-size:1.75rem;font-weight:600;margin:0;">Heading 3</h3>
+                </div>
+                <div class="sg-type-meta">
+                    <span>Plus Jakarta Sans</span>
+                    <span>600 weight</span>
+                    <span>1.75rem</span>
+                </div>
+            </div>
+            <div class="sg-type-sample">
+                <div class="sg-type-preview">
+                    <h4 style="font-size:1.25rem;font-weight:500;margin:0;">Heading 4</h4>
+                </div>
+                <div class="sg-type-meta">
+                    <span>Plus Jakarta Sans</span>
+                    <span>500 weight</span>
+                    <span>1.25rem</span>
+                </div>
+            </div>
+            <div class="sg-type-sample">
+                <div class="sg-type-preview">
+                    <p style="font-size:clamp(1rem,1.2vw,1.2rem);color:rgba(255,255,255,0.9);margin:0;line-height:1.7;">Body text renders in Inter at a responsive size. Line height is 1.7 for comfortable reading. This is the default text style across all content areas.</p>
+                </div>
+                <div class="sg-type-meta">
+                    <span>Inter</span>
+                    <span>400 weight</span>
+                    <span>clamp(1rem, 1.2vw, 1.2rem)</span>
+                    <span>line-height: 1.7</span>
+                </div>
+            </div>
+            <div class="sg-type-sample">
+                <div class="sg-type-preview">
+                    <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.5px;color:rgba(255,255,255,0.5);margin:0;">SPEC LABEL / UPPERCASE</p>
+                </div>
+                <div class="sg-type-meta">
+                    <span>Inter</span>
+                    <span>0.75rem</span>
+                    <span>uppercase, letter-spacing: 0.5px</span>
+                </div>
+            </div>
+            <div class="sg-type-sample">
+                <div class="sg-type-preview">
+                    <p style="margin:0;"><span class="gradient-text" style="font-size:2rem;font-weight:600;font-family:'Plus Jakarta Sans',sans-serif;">Gradient Text</span></p>
+                </div>
+                <div class="sg-type-meta">
+                    <span>.gradient-text utility</span>
+                    <span>background-clip: text</span>
+                    <span>#f6a604 to #ff8c42</span>
+                </div>
+            </div>
+
+            <div class="sg-code" style="margin-top:24px;">
+                <span class="sg-comment">/* Font Stack */</span><br>
+                <span class="sg-prop">--font-heading</span>: <span class="sg-val">'Plus Jakarta Sans', -apple-system, sans-serif</span>;<br>
+                <span class="sg-prop">--font-body</span>: <span class="sg-val">'Inter', -apple-system, 'Segoe UI', Roboto, sans-serif</span>;<br>
+                <span class="sg-prop">--font-mono</span>: <span class="sg-val">'Monaco', 'Consolas', monospace</span>;
+            </div>
+        </section>
+
+        <!-- 4. Spacing -->
+        <section class="sg-section" id="spacing">
+            <h2 class="sg-section-title">Spacing Scale <a href="#spacing" class="sg-anchor">#</a></h2>
+            <p class="sg-section-desc">A consistent spacing scale based on multiples of 4px. Use CSS custom properties for all margin and padding values.</p>
+
+            <div class="sg-spacing-grid">
+                <div class="sg-spacing-item">
+                    <div class="sg-spacing-box" style="width:4px;height:4px;"></div>
+                    <div class="sg-spacing-label">--space-xs</div>
+                    <div class="sg-spacing-value">4px</div>
+                </div>
+                <div class="sg-spacing-item">
+                    <div class="sg-spacing-box" style="width:8px;height:8px;"></div>
+                    <div class="sg-spacing-label">--space-sm</div>
+                    <div class="sg-spacing-value">8px</div>
+                </div>
+                <div class="sg-spacing-item">
+                    <div class="sg-spacing-box" style="width:16px;height:16px;"></div>
+                    <div class="sg-spacing-label">--space-md</div>
+                    <div class="sg-spacing-value">16px</div>
+                </div>
+                <div class="sg-spacing-item">
+                    <div class="sg-spacing-box" style="width:24px;height:24px;"></div>
+                    <div class="sg-spacing-label">--space-lg</div>
+                    <div class="sg-spacing-value">24px</div>
+                </div>
+                <div class="sg-spacing-item">
+                    <div class="sg-spacing-box" style="width:32px;height:32px;"></div>
+                    <div class="sg-spacing-label">--space-xl</div>
+                    <div class="sg-spacing-value">32px</div>
+                </div>
+                <div class="sg-spacing-item">
+                    <div class="sg-spacing-box" style="width:40px;height:40px;"></div>
+                    <div class="sg-spacing-label">--space-2xl</div>
+                    <div class="sg-spacing-value">40px</div>
+                </div>
+                <div class="sg-spacing-item">
+                    <div class="sg-spacing-box" style="width:60px;height:60px;"></div>
+                    <div class="sg-spacing-label">--space-3xl</div>
+                    <div class="sg-spacing-value">60px</div>
+                </div>
+                <div class="sg-spacing-item">
+                    <div class="sg-spacing-box" style="width:80px;height:80px;"></div>
+                    <div class="sg-spacing-label">--space-4xl</div>
+                    <div class="sg-spacing-value">80px</div>
+                </div>
+                <div class="sg-spacing-item">
+                    <div class="sg-spacing-box" style="width:120px;height:40px;"></div>
+                    <div class="sg-spacing-label">--space-section</div>
+                    <div class="sg-spacing-value">120px</div>
+                </div>
+            </div>
+
+            <div class="sg-code" style="margin-top:24px;">
+                <span class="sg-comment">/* Layout */</span><br>
+                <span class="sg-prop">--max-width</span>: <span class="sg-val">1200px</span>; <span class="sg-comment">/* .container max-width */</span><br>
+                <span class="sg-prop">--nav-height</span>: <span class="sg-val">80px</span>;<br>
+                <span class="sg-prop">Container padding</span>: <span class="sg-val">0 24px</span>;
+            </div>
+        </section>
+
+        <!-- 5. Border Radius -->
+        <section class="sg-section" id="radius">
+            <h2 class="sg-section-title">Border Radius <a href="#radius" class="sg-anchor">#</a></h2>
+            <p class="sg-section-desc">Rounded corners create a modern, approachable feel. Buttons use full-radius (pill shape), cards use 12-16px, inputs use 10px.</p>
+
+            <div class="sg-radius-grid">
+                <div class="sg-radius-item">
+                    <div class="sg-radius-box" style="border-radius:6px;"></div>
+                    <div class="sg-spacing-label">--radius-sm</div>
+                    <div class="sg-spacing-value">6px</div>
+                </div>
+                <div class="sg-radius-item">
+                    <div class="sg-radius-box" style="border-radius:8px;"></div>
+                    <div class="sg-spacing-label">--radius-md</div>
+                    <div class="sg-spacing-value">8px</div>
+                </div>
+                <div class="sg-radius-item">
+                    <div class="sg-radius-box" style="border-radius:12px;"></div>
+                    <div class="sg-spacing-label">--radius-lg</div>
+                    <div class="sg-spacing-value">12px</div>
+                </div>
+                <div class="sg-radius-item">
+                    <div class="sg-radius-box" style="border-radius:16px;"></div>
+                    <div class="sg-spacing-label">--radius-xl</div>
+                    <div class="sg-spacing-value">16px</div>
+                </div>
+                <div class="sg-radius-item">
+                    <div class="sg-radius-box" style="border-radius:50px;"></div>
+                    <div class="sg-spacing-label">--radius-full</div>
+                    <div class="sg-spacing-value">50px</div>
+                </div>
+                <div class="sg-radius-item">
+                    <div class="sg-radius-box" style="border-radius:50%;"></div>
+                    <div class="sg-spacing-label">--radius-circle</div>
+                    <div class="sg-spacing-value">50%</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Shadows -->
+        <section class="sg-section" id="shadows">
+            <h2 class="sg-section-title">Shadows & Elevation <a href="#shadows" class="sg-anchor">#</a></h2>
+            <p class="sg-section-desc">Dark theme shadows are more dramatic than light theme. Glow effects use the accent color for CTAs and interactive elements.</p>
+
+            <div class="sg-shadow-grid">
+                <div class="sg-shadow-card" style="box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+                    <div class="sg-shadow-name">Small</div>
+                    <div class="sg-shadow-val">--shadow-sm</div>
+                </div>
+                <div class="sg-shadow-card" style="box-shadow:0 10px 40px rgba(0,0,0,0.08);">
+                    <div class="sg-shadow-name">Medium</div>
+                    <div class="sg-shadow-val">--shadow-md</div>
+                </div>
+                <div class="sg-shadow-card" style="box-shadow:0 20px 40px rgba(0,0,0,0.3);">
+                    <div class="sg-shadow-name">Large</div>
+                    <div class="sg-shadow-val">--shadow-lg</div>
+                </div>
+                <div class="sg-shadow-card" style="box-shadow:0 30px 80px rgba(0,0,0,0.4);">
+                    <div class="sg-shadow-name">Dramatic</div>
+                    <div class="sg-shadow-val">--shadow-dramatic</div>
+                </div>
+                <div class="sg-shadow-card" style="box-shadow:0 0 15px rgba(246,166,4,0.2);">
+                    <div class="sg-shadow-name">Glow Small</div>
+                    <div class="sg-shadow-val">--shadow-glow-sm</div>
+                </div>
+                <div class="sg-shadow-card" style="box-shadow:0 0 30px rgba(246,166,4,0.3);">
+                    <div class="sg-shadow-name">Glow</div>
+                    <div class="sg-shadow-val">--shadow-glow</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Gradients & Glass -->
+        <section class="sg-section" id="gradients">
+            <h2 class="sg-section-title">Gradients & Glass Effects <a href="#gradients" class="sg-anchor">#</a></h2>
+            <p class="sg-section-desc">Gradients define section backgrounds and accent surfaces. Glass effects (backdrop-filter) are used for nav, dropdowns, and modal overlays.</p>
+
+            <div class="sg-gradient-grid">
+                <div class="sg-gradient-card">
+                    <div class="sg-gradient-preview" style="background:linear-gradient(135deg,#f6a604 0%,#ff6b35 100%);"></div>
+                    <div class="sg-gradient-info">
+                        <div class="sg-gradient-name">Accent Gradient</div>
+                        <div class="sg-gradient-css">--gradient-accent: #f6a604 to #ff6b35</div>
+                    </div>
+                </div>
+                <div class="sg-gradient-card">
+                    <div class="sg-gradient-preview" style="background:linear-gradient(135deg,#f6a604 0%,#ff8c42 50%,#f6a604 100%);"></div>
+                    <div class="sg-gradient-info">
+                        <div class="sg-gradient-name">Text Gradient</div>
+                        <div class="sg-gradient-css">--gradient-text: #f6a604 to #ff8c42</div>
+                    </div>
+                </div>
+                <div class="sg-gradient-card">
+                    <div class="sg-gradient-preview" style="background:linear-gradient(135deg,#0a0a0a 0%,#1a1a2e 50%,#0a0a0a 100%);"></div>
+                    <div class="sg-gradient-info">
+                        <div class="sg-gradient-name">Hero Gradient</div>
+                        <div class="sg-gradient-css">--gradient-hero</div>
+                    </div>
+                </div>
+                <div class="sg-gradient-card">
+                    <div class="sg-gradient-preview" style="background:linear-gradient(180deg,#0a0a0a 0%,#1a1a2e 100%);"></div>
+                    <div class="sg-gradient-info">
+                        <div class="sg-gradient-name">Dark Section</div>
+                        <div class="sg-gradient-css">--gradient-dark-section</div>
+                    </div>
+                </div>
+                <div class="sg-gradient-card">
+                    <div class="sg-gradient-preview" style="background:radial-gradient(ellipse at center,rgba(246,166,4,0.15) 0%,transparent 70%);border:1px solid rgba(255,255,255,0.05);"></div>
+                    <div class="sg-gradient-info">
+                        <div class="sg-gradient-name">Glow Radial</div>
+                        <div class="sg-gradient-css">--gradient-glow</div>
+                    </div>
+                </div>
+                <div class="sg-gradient-card">
+                    <div class="sg-gradient-preview" style="background:rgba(255,255,255,0.05);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);"></div>
+                    <div class="sg-gradient-info">
+                        <div class="sg-gradient-name">Glass Effect</div>
+                        <div class="sg-gradient-css">--glass-bg + backdrop-filter: blur(20px)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Buttons -->
+        <section class="sg-section" id="buttons">
+            <h2 class="sg-section-title">Buttons <a href="#buttons" class="sg-anchor">#</a></h2>
+            <p class="sg-section-desc">All buttons use Plus Jakarta Sans with pill-shaped radius (50px). Primary uses the accent gradient. Buttons hover with scale(1.02) and glow shadow.</p>
+
+            <div class="sg-btn-row">
+                <span class="sg-btn-label">.btn-primary</span>
+                <button class="btn btn-primary">Get a Quote</button>
+                <button class="btn btn-primary btn-large">Large Primary</button>
+            </div>
+            <div class="sg-btn-row">
+                <span class="sg-btn-label">.btn-secondary</span>
+                <a href="#" class="btn" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.9);border:1px solid rgba(255,255,255,0.15);">Secondary</a>
+            </div>
+            <div class="sg-btn-row">
+                <span class="sg-btn-label">.btn-outline</span>
+                <a href="#" class="btn" style="background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.3);">Outline</a>
+            </div>
+            <div class="sg-btn-row">
+                <span class="sg-btn-label">.nav-cta</span>
+                <a href="#" class="nav-cta" style="position:relative;">Get Quote</a>
+            </div>
+
+            <div class="sg-code" style="margin-top:24px;">
+                <span class="sg-comment">/* Button base */</span><br>
+                <span class="sg-prop">padding</span>: <span class="sg-val">12px 28px</span>; <span class="sg-comment">/* .btn-large: 16px 40px */</span><br>
+                <span class="sg-prop">border-radius</span>: <span class="sg-val">50px</span>;<br>
+                <span class="sg-prop">font-family</span>: <span class="sg-val">'Plus Jakarta Sans'</span>;<br>
+                <span class="sg-prop">font-weight</span>: <span class="sg-val">500</span>; <span class="sg-comment">/* primary: 600 */</span><br>
+                <span class="sg-prop">font-size</span>: <span class="sg-val">0.875rem</span>;<br>
+                <span class="sg-prop">transition</span>: <span class="sg-val">transform 0.3s, box-shadow 0.3s</span>;
+            </div>
+        </section>
+
+        <!-- 9. Cards -->
+        <section class="sg-section" id="cards">
+            <h2 class="sg-section-title">Cards & Containers <a href="#cards" class="sg-anchor">#</a></h2>
+            <p class="sg-section-desc">Cards use glass-morphism: semi-transparent backgrounds with subtle borders and optional backdrop-blur. The primary card pattern is used throughout for content blocks, testimonials, and feature highlights.</p>
+
+            <div class="sg-card-grid">
+                <div class="sg-glass-card">
+                    <h4>Glass Card</h4>
+                    <p>The standard card pattern. Semi-transparent background with 8% white border and 16px radius. Used for feature cards, testimonials, and content blocks.</p>
+                    <div class="sg-code" style="margin-top:12px;font-size:0.7rem;">
+                        background: rgba(255,255,255,0.03);<br>
+                        border: 1px solid rgba(255,255,255,0.08);<br>
+                        border-radius: 16px;<br>
+                        backdrop-filter: blur(20px);
+                    </div>
+                </div>
+                <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:32px;">
+                    <h4 style="color:#fff;margin-bottom:8px;">Elevated Card</h4>
+                    <p style="color:rgba(255,255,255,0.5);font-size:0.9rem;line-height:1.6;">Slightly brighter variant for hover states or highlighted items. Used for active testimonial cards on mobile.</p>
+                </div>
+                <div style="background:#0f0f16;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;box-shadow:0 24px 64px rgba(0,0,0,0.5);">
+                    <h4 style="color:#fff;margin-bottom:8px;">Modal Card</h4>
+                    <p style="color:rgba(255,255,255,0.5);font-size:0.9rem;line-height:1.6;">Opaque dark background for modals and popups. Dramatic shadow for depth separation from the overlay.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. Forms -->
+        <section class="sg-section" id="forms">
+            <h2 class="sg-section-title">Form Elements <a href="#forms" class="sg-anchor">#</a></h2>
+            <p class="sg-section-desc">Form inputs use dark backgrounds (#0a0a0f) with subtle borders. Focus state adds an amber glow ring. Labels are uppercase, small, and use 60% white opacity.</p>
+
+            <div class="sg-form-demo">
+                <div class="sg-form-group">
+                    <label class="sg-form-label" for="sg-email">Email *</label>
+                    <input class="sg-form-input" type="email" id="sg-email" placeholder="you@company.com">
+                </div>
+                <div class="sg-form-group">
+                    <label class="sg-form-label" for="sg-company">Company Name</label>
+                    <input class="sg-form-input" type="text" id="sg-company" placeholder="Your company...">
+                </div>
+                <div class="sg-form-group">
+                    <label class="sg-form-label" for="sg-select">Application</label>
+                    <select class="sg-form-select" id="sg-select">
+                        <option>Select application</option>
+                        <option>Defence & Security</option>
+                        <option>Agriculture & Farming</option>
+                        <option>Commercial Delivery</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" style="width:100%;margin-top:8px;">Submit</button>
+            </div>
+
+            <div class="sg-code" style="margin-top:24px;">
+                <span class="sg-comment">/* Input styling */</span><br>
+                <span class="sg-prop">background</span>: <span class="sg-val">#0a0a0f</span>;<br>
+                <span class="sg-prop">border</span>: <span class="sg-val">1px solid rgba(255,255,255,0.08)</span>;<br>
+                <span class="sg-prop">border-radius</span>: <span class="sg-val">10px</span>;<br>
+                <span class="sg-prop">color</span>: <span class="sg-val">#fff</span>;<br>
+                <span class="sg-prop">font-size</span>: <span class="sg-val">0.95rem</span>;<br>
+                <span class="sg-comment">/* Focus */</span><br>
+                <span class="sg-prop">border-color</span>: <span class="sg-val">rgba(246,166,4,0.5)</span>;<br>
+                <span class="sg-prop">box-shadow</span>: <span class="sg-val">0 0 0 3px rgba(246,166,4,0.1)</span>;
+            </div>
+        </section>
+
+        <!-- 11. Badges & Tags -->
+        <section class="sg-section" id="badges">
+            <h2 class="sg-section-title">Badges & Tags <a href="#badges" class="sg-anchor">#</a></h2>
+            <p class="sg-section-desc">Badges use low-opacity background tints of their respective color. Used for industry labels, status indicators, and motor model tags.</p>
+
+            <p class="sg-category">Industry Tags</p>
+            <div class="sg-badge-row">
+                <span class="sg-badge" style="background:rgba(246,166,4,0.1);color:#f6a604;">Defence</span>
+                <span class="sg-badge" style="background:rgba(34,197,94,0.1);color:#22c55e;">Agriculture</span>
+                <span class="sg-badge" style="background:rgba(59,130,246,0.1);color:#3b82f6;">Commercial</span>
+                <span class="sg-badge" style="background:rgba(168,85,247,0.1);color:#a855f7;">Engineering</span>
+                <span class="sg-badge" style="background:rgba(239,68,68,0.1);color:#ef4444;">Testing</span>
+            </div>
+
+            <p class="sg-category">Motor Model Tags</p>
+            <div class="sg-badge-row">
+                <span class="sg-badge" style="background:rgba(246,166,4,0.12);color:#f6a604;">WR-D3510</span>
+                <span class="sg-badge" style="background:rgba(246,166,4,0.12);color:#f6a604;">WR-A4010</span>
+                <span class="sg-badge" style="background:rgba(246,166,4,0.12);color:#f6a604;">WR2815</span>
+                <span class="sg-badge" style="background:rgba(246,166,4,0.12);color:#f6a604;">WR3508</span>
+            </div>
+
+            <p class="sg-category">Status Indicators</p>
+            <div class="sg-status-grid">
+                <div class="sg-status-card" style="background:rgba(34,197,94,0.06);border:1px solid rgba(34,197,94,0.15);">
+                    <div class="sg-status-dot" style="background:#22c55e;"></div>
+                    <div>
+                        <div class="sg-status-text">In Stock</div>
+                        <div class="sg-status-desc">Available for immediate shipping</div>
+                    </div>
+                </div>
+                <div class="sg-status-card" style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.15);">
+                    <div class="sg-status-dot" style="background:#f59e0b;"></div>
+                    <div>
+                        <div class="sg-status-text">Lead Time</div>
+                        <div class="sg-status-desc">4-6 weeks production</div>
+                    </div>
+                </div>
+                <div class="sg-status-card" style="background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15);">
+                    <div class="sg-status-dot" style="background:#ef4444;"></div>
+                    <div>
+                        <div class="sg-status-text">Custom Order</div>
+                        <div class="sg-status-desc">Contact engineering team</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. Animations -->
+        <section class="sg-section" id="animations">
+            <h2 class="sg-section-title">Animations & Transitions <a href="#animations" class="sg-anchor">#</a></h2>
+            <p class="sg-section-desc">Smooth, purposeful motion. All transitions respect prefers-reduced-motion. Interactive effects (magnetic buttons, card tilt) are disabled on mobile and when reduced motion is preferred.</p>
+
+            <div class="sg-anim-grid">
+                <div class="sg-anim-card">
+                    <div class="sg-anim-name">Fast</div>
+                    <div class="sg-anim-desc">0.2s ease</div>
+                    <div style="font-size:0.7rem;color:rgba(255,255,255,0.3);margin-top:4px;">Hover states, focus</div>
+                </div>
+                <div class="sg-anim-card">
+                    <div class="sg-anim-name">Base</div>
+                    <div class="sg-anim-desc">0.3s cubic-bezier</div>
+                    <div style="font-size:0.7rem;color:rgba(255,255,255,0.3);margin-top:4px;">Default transitions</div>
+                </div>
+                <div class="sg-anim-card">
+                    <div class="sg-anim-name">Smooth</div>
+                    <div class="sg-anim-desc">0.6s ease-out</div>
+                    <div style="font-size:0.7rem;color:rgba(255,255,255,0.3);margin-top:4px;">Page transitions, reveals</div>
+                </div>
+                <div class="sg-anim-card">
+                    <div class="sg-anim-name">Spring</div>
+                    <div class="sg-anim-desc">0.5s overshoot</div>
+                    <div style="font-size:0.7rem;color:rgba(255,255,255,0.3);margin-top:4px;">Playful bounces, popups</div>
+                </div>
+            </div>
+
+            <div class="sg-code" style="margin-top:24px;">
+                <span class="sg-prop">--transition-fast</span>: <span class="sg-val">0.2s ease</span>;<br>
+                <span class="sg-prop">--transition-base</span>: <span class="sg-val">0.3s cubic-bezier(0.25, 0.1, 0.25, 1)</span>;<br>
+                <span class="sg-prop">--transition-slow</span>: <span class="sg-val">0.5s cubic-bezier(0.25, 0.1, 0.25, 1)</span>;<br>
+                <span class="sg-prop">--transition-smooth</span>: <span class="sg-val">0.6s cubic-bezier(0.16, 1, 0.3, 1)</span>;<br>
+                <span class="sg-prop">--transition-spring</span>: <span class="sg-val">0.5s cubic-bezier(0.34, 1.56, 0.64, 1)</span>;
+            </div>
+
+            <p class="sg-category" style="margin-top:32px;">Interactive Effects</p>
+            <div class="sg-card-grid">
+                <div class="sg-glass-card">
+                    <h4>Scroll Reveal</h4>
+                    <p>Elements animate in as they enter the viewport using IntersectionObserver. Classes: .reveal, .reveal-up, .reveal-left, .reveal-right, .reveal-scale</p>
+                </div>
+                <div class="sg-glass-card">
+                    <h4>Card Tilt (3D)</h4>
+                    <p>Value and testimonial cards rotate subtly on mouse hover using perspective transforms. Disabled on mobile and reduced-motion.</p>
+                </div>
+                <div class="sg-glass-card">
+                    <h4>Magnetic Buttons</h4>
+                    <p>Primary and large buttons follow the cursor slightly on hover for a magnetic feel. Disabled on mobile and reduced-motion.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 13. Section Patterns -->
+        <section class="sg-section" id="sections">
+            <h2 class="sg-section-title">Section Patterns <a href="#sections" class="sg-anchor">#</a></h2>
+            <p class="sg-section-desc">The entire site uses dark sections. Each section has subtle top/bottom gradient pseudo-elements for visual separation.</p>
+
+            <div class="sg-card-grid">
+                <div class="sg-glass-card">
+                    <h4>.section-dark</h4>
+                    <p>Primary section style. Uses --gradient-dark-section background. Adds 60px gradient fades at top and bottom edges.</p>
+                    <div class="sg-code" style="margin-top:8px;font-size:0.7rem;">
+                        background: linear-gradient(180deg, #0a0a0a, #1a1a2e);
+                    </div>
+                </div>
+                <div class="sg-glass-card">
+                    <h4>.company-credentials</h4>
+                    <p>Client logo marquee strip. Slightly different background (#0d0d1a) to visually separate from adjacent sections.</p>
+                </div>
+                <div class="sg-glass-card">
+                    <h4>Hero Section</h4>
+                    <p>Full-viewport height with workshop photo background, grid overlay pattern, and radial amber glow. Single-column centered layout.</p>
+                </div>
+            </div>
+
+            <div class="sg-code" style="margin-top:24px;">
+                <span class="sg-comment">/* Section heading pattern */</span><br>
+                <span class="sg-prop">.section-title</span>: <span class="sg-val">centered, clamp(1.8rem, 4vw, 3rem), mb 3.5rem</span>;<br>
+                <span class="sg-prop">.section-subtitle</span>: <span class="sg-val">centered, 60% white, max-width 640px, mb 3rem</span>;
+            </div>
+        </section>
+
+        <!-- 14. Icons & Certifications -->
+        <section class="sg-section" id="icons">
+            <h2 class="sg-section-title">Icons & Certifications <a href="#icons" class="sg-anchor">#</a></h2>
+            <p class="sg-section-desc">Icons use inline SVGs (no icon font). Certification badges are custom SVGs in a horizontal strip. All icons are 20-24px with currentColor for theming.</p>
+
+            <div class="sg-badge-row" style="gap:24px;">
+                <div style="text-align:center;">
+                    <img src="assets/iso-9001.svg" alt="ISO 9001" width="48" height="48" style="display:block;margin:0 auto 8px;">
+                    <span style="font-size:0.75rem;color:rgba(255,255,255,0.4);">iso-9001.svg</span>
+                </div>
+                <div style="text-align:center;">
+                    <img src="assets/ce-mark.svg" alt="CE Mark" width="48" height="48" style="display:block;margin:0 auto 8px;">
+                    <span style="font-size:0.75rem;color:rgba(255,255,255,0.4);">ce-mark.svg</span>
+                </div>
+                <div style="text-align:center;">
+                    <img src="assets/fcc-cert.svg" alt="FCC" width="48" height="48" style="display:block;margin:0 auto 8px;">
+                    <span style="font-size:0.75rem;color:rgba(255,255,255,0.4);">fcc-cert.svg</span>
+                </div>
+            </div>
+
+            <p class="sg-category" style="margin-top:32px;">SVG Icon Pattern</p>
+            <div class="sg-code">
+                <span class="sg-comment">&lt;!-- Inline SVG pattern (20x20, stroke currentColor) --&gt;</span><br>
+                &lt;svg <span class="sg-prop">aria-hidden</span>="true" <span class="sg-prop">width</span>="20" <span class="sg-prop">height</span>="20" viewBox="0 0 20 20" fill="none"&gt;<br>
+                &nbsp;&nbsp;&lt;circle cx="10" cy="10" r="10" <span class="sg-prop">fill</span>="<span class="sg-val">#22c55e</span>" opacity="0.15"/&gt;<br>
+                &nbsp;&nbsp;&lt;path d="M6 10l3 3 5-6" <span class="sg-prop">stroke</span>="<span class="sg-val">#22c55e</span>" stroke-width="2"/&gt;<br>
+                &lt;/svg&gt;
+            </div>
+        </section>
+
+        <!-- 15. Usage Guidelines -->
+        <section class="sg-section" id="usage">
+            <h2 class="sg-section-title">Usage Guidelines <a href="#usage" class="sg-anchor">#</a></h2>
+            <p class="sg-section-desc">Key rules for maintaining brand consistency across all WelkinRim pages and materials.</p>
+
+            <div class="sg-donts">
+                <div class="sg-do">
+                    <p class="sg-do-label">Do</p>
+                    <p>Use the dark theme consistently. All pages use #0a0a0f or #000 body backgrounds. Keep text at 90% white for body, 100% for headings.</p>
+                </div>
+                <div class="sg-dont">
+                    <p class="sg-do-label">Don't</p>
+                    <p>Don't mix light and dark sections. The site is fully dark since v1.2.24. Don't use any .section-light backgrounds on new pages.</p>
+                </div>
+            </div>
+            <div class="sg-donts">
+                <div class="sg-do">
+                    <p class="sg-do-label">Do</p>
+                    <p>Use shared.js for nav, footer, WhatsApp button, quote modal, sticky bar, and exit popup. Every page gets these automatically.</p>
+                </div>
+                <div class="sg-dont">
+                    <p class="sg-do-label">Don't</p>
+                    <p>Don't duplicate nav or footer HTML in pages. Don't hardcode API keys in source files. Don't skip theme-color and color-scheme meta tags.</p>
+                </div>
+            </div>
+            <div class="sg-donts">
+                <div class="sg-do">
+                    <p class="sg-do-label">Do</p>
+                    <p>Use CSS custom properties (--color-accent, --radius-lg, etc.) for all values. Include OG meta tags on every page. Add pages to sitemap.xml.</p>
+                </div>
+                <div class="sg-dont">
+                    <p class="sg-do-label">Don't</p>
+                    <p>Don't use hardcoded hex values when a CSS variable exists. Don't create new font stacks. Don't skip canonical URLs or structured data schemas.</p>
+                </div>
+            </div>
+
+            <p class="sg-category" style="margin-top:32px;">Page Template Checklist</p>
+            <div class="sg-glass-card" style="margin-top:8px;">
+                <div class="sg-code" style="background:transparent;border:none;padding:0;">
+                    &lt;meta name="<span class="sg-prop">theme-color</span>" content="<span class="sg-val">#0a0a0f</span>"&gt;<br>
+                    &lt;meta name="<span class="sg-prop">color-scheme</span>" content="<span class="sg-val">dark</span>"&gt;<br>
+                    &lt;link rel="<span class="sg-prop">canonical</span>" href="<span class="sg-val">https://welkinrim.com/page.html</span>"&gt;<br>
+                    &lt;link rel="stylesheet" href="<span class="sg-val">styles.css</span>"&gt;<br>
+                    &lt;nav <span class="sg-prop">id</span>="<span class="sg-val">main-nav</span>"&gt;&lt;/nav&gt;<br>
+                    &lt;footer <span class="sg-prop">id</span>="<span class="sg-val">main-footer</span>"&gt;&lt;/footer&gt;<br>
+                    &lt;script src="<span class="sg-val">shared.js</span>" defer&gt;&lt;/script&gt;
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer id="main-footer"></footer>
+    <script src="shared.js" defer></script>
+    <script src="scripts.js" defer></script>
+</body>
+</html>
