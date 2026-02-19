@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="color-scheme" content="dark">
+    <title>WelkinRim vs SunnySky: Professional-Grade vs Hobbyist Drone Motors</title>
+    <meta name="description" content="WelkinRim vs SunnySky drone motor comparison. Professional-grade motors with IP ratings and MIL-STD compliance vs hobbyist-grade V-series and X-series. Specs, pricing, and recommendations.">
+    <link rel="canonical" href="https://welkinrim.com/compare/welkinrim-vs-sunnysky.html">
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://welkinrim.com/compare/welkinrim-vs-sunnysky.html">
+    <meta property="og:title" content="WelkinRim vs SunnySky: Professional-Grade vs Hobbyist Drone Motors">
+    <meta property="og:description" content="Compare WelkinRim professional-grade drone motors against SunnySky's hobbyist V-series and X-series. Efficiency, IP ratings, pricing, and use case recommendations.">
+    <meta property="og:image" content="https://welkinrim.com/assets/Welkinrim logo.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="WelkinRim vs SunnySky: Professional-Grade vs Hobbyist Drone Motors">
+    <meta name="twitter:description" content="Compare WelkinRim professional-grade drone motors against SunnySky's hobbyist V-series and X-series. Efficiency, IP ratings, pricing, and use case recommendations.">
+    <meta name="twitter:image" content="https://welkinrim.com/assets/Welkinrim logo.png">
+    <link rel="icon" type="image/png" href="../assets/Welkinrim logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://welkinrim.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Compare", "item": "https://welkinrim.com/compare/" },
+            { "@type": "ListItem", "position": 3, "name": "WelkinRim vs SunnySky" }
+        ]
+    }
+    </script>
+
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is WelkinRim worth the price premium over SunnySky?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "For professional and commercial operations, yes. WelkinRim motors deliver 93% peak efficiency versus SunnySky's 86%, include IP54-IP68 environmental protection that SunnySky lacks entirely, and carry MIL-STD-810H certification. The higher upfront cost is offset by longer motor lifespan, lower maintenance costs, and compliance with commercial and government regulations. For hobby builds on a budget, SunnySky offers good value."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can SunnySky motors be used for commercial drone operations?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SunnySky motors can technically be used in commercial drones, but they lack IP-rated environmental protection, MIL-STD certification, and the reliability ratings required for regulated commercial operations. For recreational or light commercial use in fair weather, SunnySky works. For mission-critical operations, defence contracts, or harsh environments, WelkinRim is the professional-grade choice."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does WelkinRim efficiency compare to SunnySky V-series?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "WelkinRim motors achieve up to 93.2% peak efficiency compared to approximately 86.1% for SunnySky V-series motors. This 7-percentage-point gap translates to significantly longer flight times, less heat generation, and reduced battery wear. The efficiency advantage comes from WelkinRim's precision-wound stators, higher-grade magnets, and tighter manufacturing tolerances."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does SunnySky offer waterproof or IP-rated drone motors?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SunnySky does not offer IP-rated or waterproof motors in their standard product lineup. Their motors are designed primarily for fair-weather hobby and light commercial use. WelkinRim offers IP54 to IP68 ratings across its commercial range, with chemical-resistant coatings available for agricultural and industrial applications."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        body { background: #000; color: #e0e0e0; }
+
+        /* Breadcrumb */
+        .breadcrumb { background: #0a0a0a; padding: 20px 0; margin-top: 80px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .breadcrumb-nav { font-size: 0.875rem; color: #888; }
+        .breadcrumb-nav a { color: #f6a604; text-decoration: none; }
+        .breadcrumb-nav a:hover { text-decoration: underline; }
+        .breadcrumb-sep { margin: 0 12px; color: #555; }
+
+        /* Hero */
+        .compare-hero {
+            padding: 100px 0 80px;
+            background: linear-gradient(160deg, rgba(0,0,0,0.9) 0%, rgba(10,15,26,0.85) 50%, rgba(0,0,0,0.95) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .compare-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse 80% 50% at 50% 0%, rgba(246,166,4,0.06) 0%, transparent 60%),
+                repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(255,255,255,0.015) 50px),
+                repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(255,255,255,0.015) 50px);
+            pointer-events: none;
+        }
+        .compare-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .compare-hero h1 .accent { color: #f6a604; }
+        .compare-hero .subtitle {
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            color: rgba(255,255,255,0.6);
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.6;
+            position: relative;
+        }
+        .compare-hero .vs-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 50px;
+            padding: 8px 24px;
+            margin-bottom: 32px;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+            position: relative;
+        }
+        .compare-hero .vs-badge .vs { color: #f6a604; font-weight: 700; }
+
+        /* Quick Verdict */
+        .verdict-section { padding: 80px 0; background: #0a0a0a; }
+        .verdict-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .verdict-card::before {
+            content: 'QUICK VERDICT';
+            position: absolute;
+            top: -12px;
+            left: 40px;
+            background: #f6a604;
+            color: #000;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            padding: 4px 14px;
+            border-radius: 4px;
+        }
+        .verdict-card p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.8);
+        }
+        .verdict-card strong { color: #fff; }
+
+        /* Spec Table */
+        .specs-section { padding: 80px 0; background: #000; }
+        .specs-section .section-label {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #f6a604;
+            margin-bottom: 12px;
+        }
+        .specs-section h2 {
+            text-align: center;
+            margin-bottom: 48px;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .table-wrapper::-webkit-scrollbar { height: 6px; }
+        .table-wrapper::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); }
+        .table-wrapper::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+            font-size: 0.9rem;
+        }
+        .compare-table thead th {
+            padding: 16px 20px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.02);
+        }
+        .compare-table thead th.brand-wr {
+            color: #f6a604;
+            background: rgba(246,166,4,0.06);
+            border-bottom-color: rgba(246,166,4,0.2);
+        }
+        .compare-table thead th.brand-competitor {
+            color: rgba(255,255,255,0.7);
+        }
+        .compare-table tbody td {
+            padding: 14px 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.75);
+            vertical-align: middle;
+        }
+        .compare-table tbody tr:hover {
+            background: rgba(255,255,255,0.02);
+        }
+        .compare-table tbody td:first-child {
+            text-align: left;
+            font-weight: 600;
+            color: rgba(255,255,255,0.9);
+            white-space: nowrap;
+        }
+        .compare-table td.highlight {
+            color: #f6a604;
+            font-weight: 600;
+        }
+        .compare-table .winner-cell {
+            position: relative;
+        }
+        .compare-table .winner-cell::after {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: #f6a604;
+            border-radius: 50%;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+        .table-note {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.35);
+        }
+        .table-note .dot { display: inline-block; width: 6px; height: 6px; background: #f6a604; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+
+        /* Category Breakdown */
+        .breakdown-section { padding: 80px 0; background: #0a0a0a; }
+        .breakdown-section .section-label {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #f6a604;
+            margin-bottom: 12px;
+        }
+        .breakdown-section h2 {
+            text-align: center;
+            margin-bottom: 56px;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+        }
+        .breakdown-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .breakdown-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 32px;
+            transition: border-color 0.3s ease;
+        }
+        .breakdown-card:hover {
+            border-color: rgba(246,166,4,0.2);
+        }
+        .breakdown-card .card-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(246,166,4,0.08);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        .breakdown-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+        .breakdown-card p {
+            font-size: 0.92rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.6);
+        }
+        .breakdown-card .winner-tag {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+        .winner-tag.wr { background: rgba(246,166,4,0.12); color: #f6a604; }
+        .winner-tag.comp { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.6); }
+        .winner-tag.tie { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.5); }
+
+        /* Use Cases */
+        .usecase-section { padding: 80px 0; background: #000; }
+        .usecase-section h2 {
+            text-align: center;
+            margin-bottom: 48px;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+        }
+        .usecase-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .usecase-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 36px;
+        }
+        .usecase-card.wr { border-top: 2px solid #f6a604; }
+        .usecase-card.comp { border-top: 2px solid rgba(255,255,255,0.2); }
+        .usecase-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .usecase-card h3 .brand-wr { color: #f6a604; }
+        .usecase-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .usecase-card ul li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            font-size: 0.92rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.5;
+        }
+        .usecase-card.wr ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 8px;
+            height: 8px;
+            background: #f6a604;
+            border-radius: 2px;
+        }
+        .usecase-card.comp ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 8px;
+            height: 8px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+        }
+
+        /* FAQ */
+        .faq-section { padding: 80px 0; background: #0a0a0a; }
+        .faq-section .section-label {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #f6a604;
+            margin-bottom: 12px;
+        }
+        .faq-section h2 {
+            text-align: center;
+            margin-bottom: 48px;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+        }
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            padding: 24px 40px 24px 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.2s;
+        }
+        .faq-question:hover { color: #f6a604; }
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.4);
+            transition: transform 0.3s, color 0.3s;
+        }
+        .faq-item.active .faq-question::after {
+            content: '-';
+            color: #f6a604;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding-bottom: 24px;
+        }
+        .faq-answer p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* CTA */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(160deg, rgba(0,0,0,0.9) 0%, rgba(20,15,5,0.9) 50%, rgba(0,0,0,0.95) 100%);
+            text-align: center;
+            position: relative;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse 60% 40% at 50% 50%, rgba(246,166,4,0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .cta-section h2 {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            margin-bottom: 16px;
+            position: relative;
+        }
+        .cta-section p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        .cta-btn-primary {
+            background: #f6a604;
+            color: #000;
+        }
+        .cta-btn-primary:hover {
+            background: #e09800;
+            box-shadow: 0 0 30px rgba(246,166,4,0.3);
+            transform: translateY(-1px);
+        }
+        .cta-btn-secondary {
+            background: rgba(255,255,255,0.06);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+        .cta-btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.2);
+        }
+        .cta-btn-outline {
+            background: transparent;
+            color: #f6a604;
+            border: 1px solid rgba(246,166,4,0.3);
+        }
+        .cta-btn-outline:hover {
+            background: rgba(246,166,4,0.08);
+            border-color: #f6a604;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .breakdown-grid, .usecase-grid { grid-template-columns: 1fr; }
+            .compare-hero h1 { font-size: clamp(1.6rem, 6vw, 2.4rem); }
+            .verdict-card { padding: 32px 24px; }
+            .verdict-card::before { left: 24px; }
+            .breakdown-card { padding: 24px; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .cta-btn { width: 100%; max-width: 320px; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav id="main-nav"></nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="breadcrumb-sep">/</span>
+                <span>Compare</span>
+                <span class="breadcrumb-sep">/</span>
+                <span>WelkinRim vs SunnySky</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Hero -->
+    <section class="compare-hero">
+        <div class="container">
+            <div class="vs-badge">WelkinRim <span class="vs">VS</span> SunnySky</div>
+            <h1>WelkinRim <span class="accent">vs</span> SunnySky</h1>
+            <p class="subtitle">Professional-grade drone motors versus popular hobbyist options. A detailed comparison of efficiency, environmental protection, warranty, and pricing for operators deciding between commercial reliability and budget-friendly builds.</p>
+        </div>
+    </section>
+
+    <!-- Quick Verdict -->
+    <section class="verdict-section">
+        <div class="container">
+            <div class="verdict-card">
+                <p><strong>WelkinRim</strong> is the professional-grade choice, delivering up to 93.2% peak efficiency with IP54-IP68 environmental protection, MIL-STD-810H compliance, chemical-resistant coatings, and 24-36 month warranties backed by dedicated engineering support. <strong>SunnySky</strong> is a popular hobbyist brand offering solid performance at a fraction of the price, with a wide KV range, lightweight designs, and a large DIY community. If you are building a commercial fleet, flying in harsh environments, or need certification for government contracts, WelkinRim justifies the premium. For hobby builds, prototyping, or budget-constrained projects where environmental protection is not critical, SunnySky delivers good value.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Side-by-Side Spec Table -->
+    <section class="specs-section">
+        <div class="container">
+            <div class="section-label">Specifications</div>
+            <h2>Side-by-Side Motor Specs</h2>
+
+            <div class="table-wrapper">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>Specification</th>
+                            <th class="brand-wr">WelkinRim</th>
+                            <th class="brand-competitor">SunnySky</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Peak Efficiency</td>
+                            <td class="highlight winner-cell">93.2%</td>
+                            <td>~86.1%</td>
+                        </tr>
+                        <tr>
+                            <td>IP Rating</td>
+                            <td class="highlight winner-cell">IP54 - IP68</td>
+                            <td>None</td>
+                        </tr>
+                        <tr>
+                            <td>MIL-STD-810H</td>
+                            <td class="highlight winner-cell">Yes</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>Price Range</td>
+                            <td>$89 - $229</td>
+                            <td class="highlight winner-cell">$30 - $80</td>
+                        </tr>
+                        <tr>
+                            <td>Operating Temp</td>
+                            <td class="highlight winner-cell">-40&deg;C to +80&deg;C</td>
+                            <td>0&deg;C to +40&deg;C</td>
+                        </tr>
+                        <tr>
+                            <td>Warranty</td>
+                            <td class="highlight winner-cell">24 - 36 months</td>
+                            <td>6 - 12 months</td>
+                        </tr>
+                        <tr>
+                            <td>Chemical Resistance</td>
+                            <td class="highlight winner-cell">Coated (optional)</td>
+                            <td>None</td>
+                        </tr>
+                        <tr>
+                            <td>KV Range</td>
+                            <td>680 - 1000 KV</td>
+                            <td class="highlight winner-cell">150 - 2300 KV</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="table-note"><span class="dot"></span>Orange dot indicates category leader in each row. SunnySky specs are approximate and based on publicly available V-series and X-series data.</p>
+        </div>
+    </section>
+
+    <!-- Category Breakdown -->
+    <section class="breakdown-section">
+        <div class="container">
+            <div class="section-label">Analysis</div>
+            <h2>Category Breakdown</h2>
+            <div class="breakdown-grid">
+                <div class="breakdown-card">
+                    <div class="card-icon">&#9889;</div>
+                    <h3>Efficiency &amp; Performance</h3>
+                    <p>WelkinRim motors achieve 93.2% peak efficiency compared to SunnySky's approximately 86.1%. This 7-percentage-point gap translates to measurably longer flight times, less thermal waste, and reduced battery degradation over hundreds of charge cycles. For commercial fleets where every minute of flight time directly impacts revenue, the efficiency premium pays for itself.</p>
+                    <span class="winner-tag wr">WelkinRim Wins</span>
+                </div>
+                <div class="breakdown-card">
+                    <div class="card-icon">&#128737;</div>
+                    <h3>Environmental Protection</h3>
+                    <p>WelkinRim offers IP54 to IP68 protection with optional chemical-resistant coatings, MIL-STD-810H compliance for temperature extremes, shock, and vibration, and an operating range of -40 to +80 degrees. SunnySky offers no IP rating and no environmental sealing, limiting them to fair-weather flying in temperate conditions.</p>
+                    <span class="winner-tag wr">WelkinRim Wins</span>
+                </div>
+                <div class="breakdown-card">
+                    <div class="card-icon">&#128176;</div>
+                    <h3>Pricing &amp; Accessibility</h3>
+                    <p>SunnySky motors start around $30 and top out near $80, making them accessible to hobbyists, students, and prototype builders. WelkinRim's range of $89-$229 reflects the cost of military-grade materials, precision manufacturing, and certification. For budget builds and experimentation, SunnySky is hard to beat. For fleet buyers, WelkinRim offers volume pricing that narrows the gap.</p>
+                    <span class="winner-tag comp">SunnySky Wins</span>
+                </div>
+                <div class="breakdown-card">
+                    <div class="card-icon">&#128736;</div>
+                    <h3>Support &amp; Warranty</h3>
+                    <p>WelkinRim provides 24-36 month warranties, dedicated engineering support, custom winding options, and on-site service for fleet contracts. SunnySky offers 6-12 month warranties with support primarily through community forums and reseller channels. For professional operators who need guaranteed uptime and direct manufacturer access, WelkinRim's support model is a decisive advantage.</p>
+                    <span class="winner-tag wr">WelkinRim Wins</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Case Recommendations -->
+    <section class="usecase-section">
+        <div class="container">
+            <h2>Which Brand Should You Choose?</h2>
+            <div class="usecase-grid">
+                <div class="usecase-card wr">
+                    <h3>Choose <span class="brand-wr">WelkinRim</span> if you need:</h3>
+                    <ul>
+                        <li>Professional-grade efficiency (93%+) for maximum flight time per charge</li>
+                        <li>IP54-IP68 environmental protection for rain, dust, or chemical exposure</li>
+                        <li>MIL-STD-810H compliance for defence and government contracts</li>
+                        <li>Extended 24-36 month warranty with dedicated engineering support</li>
+                        <li>Chemical-resistant coatings for agricultural spraying operations</li>
+                        <li>A reliable fleet motor with volume pricing and service agreements</li>
+                    </ul>
+                </div>
+                <div class="usecase-card comp">
+                    <h3>Choose SunnySky if you need:</h3>
+                    <ul>
+                        <li>Budget-friendly motors starting at $30 for hobby and DIY builds</li>
+                        <li>Wide KV range (150-2300 KV) for diverse applications from aerial photo to racing</li>
+                        <li>Lightweight designs optimized for small and micro quads</li>
+                        <li>Large hobbyist community with tutorials, forums, and build guides</li>
+                        <li>Quick prototype builds where long-term durability is not the priority</li>
+                        <li>Fair-weather flying in temperate conditions without extreme environment demands</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-label">Common Questions</div>
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">Is WelkinRim worth the price premium over SunnySky?</button>
+                    <div class="faq-answer">
+                        <p>For professional and commercial operations, yes. WelkinRim motors deliver 93% peak efficiency versus SunnySky's 86%, include IP54-IP68 environmental protection that SunnySky lacks entirely, and carry MIL-STD-810H certification. The higher upfront cost is offset by longer motor lifespan, lower maintenance costs, and compliance with commercial and government regulations. For hobby builds on a tight budget, SunnySky offers solid value.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Can SunnySky motors be used for commercial drone operations?</button>
+                    <div class="faq-answer">
+                        <p>SunnySky motors can technically power commercial drones, but they lack IP-rated environmental protection, MIL-STD certification, and the reliability ratings required for regulated commercial operations. For recreational or light commercial use in fair weather, SunnySky works well. For mission-critical operations, defence contracts, or harsh environments, WelkinRim is the professional-grade choice with the certifications and warranties to back it up.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">How does WelkinRim efficiency compare to SunnySky V-series?</button>
+                    <div class="faq-answer">
+                        <p>WelkinRim motors achieve up to 93.2% peak efficiency compared to approximately 86.1% for SunnySky V-series motors. This 7-percentage-point gap translates to significantly longer flight times, less heat generation, and reduced battery wear. The efficiency advantage comes from precision-wound stators, higher-grade neodymium magnets, and tighter manufacturing tolerances at every step of production.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Does SunnySky offer waterproof or IP-rated drone motors?</button>
+                    <div class="faq-answer">
+                        <p>SunnySky does not offer IP-rated or waterproof motors in their standard product lineup. Their motors are designed primarily for fair-weather hobby and light commercial use. WelkinRim offers IP54 to IP68 ratings across its commercial range, with optional chemical-resistant coatings for agricultural spraying and industrial applications where exposure to moisture, dust, or chemicals is unavoidable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Upgrade to Professional-Grade?</h2>
+            <p>Configure your ideal motor setup or request a custom quote from our engineering team.</p>
+            <div class="cta-buttons">
+                <a href="../configurator.html" class="cta-btn cta-btn-primary">Configure Your Motor</a>
+                <button class="cta-btn cta-btn-secondary" onclick="openQuoteModal()">Get a Quote</button>
+                <a href="../motor-selection-guide.html" class="cta-btn cta-btn-outline">View Motor Selection Guide</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="main-footer"></footer>
+    <script src="../shared.js" defer></script>
+    <script>
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var item = this.parentElement;
+                var isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(function(el) { el.classList.remove('active'); });
+                if (!isActive) item.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

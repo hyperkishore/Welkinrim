@@ -526,6 +526,34 @@
         </div>
     </section>
 
+    <!-- Video Section -->
+    <section class="video-section section-dark" style="padding:60px 0;">
+        <div class="container">
+            <h2 class="section-title" style="font-size:1.5rem;">See Our Commercial Motors in Action</h2>
+            <div class="video-wrapper video-wrapper--small" id="product-video" role="button" tabindex="0" aria-label="Play product video">
+                <img src="../assets/generated/wr2815-motor-v5.jpg" alt="WelkinRim commercial motors video thumbnail" loading="lazy" width="700" height="394">
+                <div class="video-play-btn">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+    (function() {
+        var VIDEO_ID = 'VIDEO_ID_HERE'; // ← REPLACE with your real YouTube video ID
+        var wrapper = document.getElementById('product-video');
+        if (!wrapper) return;
+        function loadVideo() {
+            wrapper.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + VIDEO_ID + '?autoplay=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen title="WelkinRim commercial motors demo"></iframe>';
+            if (typeof wrTrack === 'function') wrTrack('video_play', { video_id: VIDEO_ID, location: 'commercial-motors' });
+        }
+        wrapper.addEventListener('click', loadVideo);
+        wrapper.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); loadVideo(); }
+        });
+    })();
+    </script>
+
     <!-- Support Section -->
     <section class="product-support">
         <div class="container">

@@ -49,6 +49,28 @@ document.addEventListener('click', function(e) {
     }
 });
 
+// ── LinkedIn Insight Tag ──────────────────────────────
+// Replace XXXXXXX with your LinkedIn Partner ID
+// Get yours at: https://www.linkedin.com/campaignmanager → Account Assets → Insight Tag
+(function initLinkedInPixel() {
+    var PARTNER_ID = 'XXXXXXX'; // ← REPLACE with your real Partner ID
+    if (PARTNER_ID === 'XXXXXXX') return; // Skip if not configured
+    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+    window._linkedin_data_partner_ids.push(PARTNER_ID);
+    (function(l) {
+        if (!l) { window.lintrk = function(a, b) { window.lintrk.q.push([a, b]); }; window.lintrk.q = []; }
+        var s = document.getElementsByTagName('script')[0];
+        var b = document.createElement('script');
+        b.type = 'text/javascript'; b.async = true;
+        b.src = 'https://snap.licdn.com/li.lms-analytics/insight.min.js';
+        s.parentNode.insertBefore(b, s);
+    })(window.lintrk);
+    // noscript fallback
+    var ns = document.createElement('noscript');
+    ns.innerHTML = '<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=' + PARTNER_ID + '&fmt=gif" />';
+    document.body.appendChild(ns);
+})();
+
 // Shared Navigation & Footer - WelkinRim
 (function() {
     'use strict';
@@ -56,7 +78,7 @@ document.addEventListener('click', function(e) {
     // Detect relative path prefix based on page location
     function getBasePath() {
         const path = window.location.pathname;
-        if (path.includes('/products/') || path.includes('/tools/') || path.includes('/applications/') || path.includes('/compare/')) {
+        if (path.includes('/products/') || path.includes('/tools/') || path.includes('/applications/') || path.includes('/compare/') || path.includes('/landing/')) {
             return '../';
         }
         return '';
@@ -633,6 +655,325 @@ document.addEventListener('click', function(e) {
         waDiv.className = 'wa-float';
         waDiv.innerHTML = '<a class="wa-float-btn" href="https://wa.me/919876543210?text=Hi%20WelkinRim%2C%20I%27m%20interested%20in%20your%20drone%20motors." target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a><span class="wa-float-tooltip">Chat with us</span>';
         document.body.appendChild(waDiv);
+    })();
+
+    // ─── Sticky "Get a Quote" Bottom Bar ───
+    (function injectStickyBar() {
+        var sbarStyle = document.createElement('style');
+        sbarStyle.textContent = `
+            .wr-sticky-bar {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 997;
+                background: rgba(10,10,15,0.95);
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                border-top: 1px solid rgba(255,255,255,0.08);
+                padding: 12px 24px;
+                padding-right: 90px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                transform: translateY(100%);
+                transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .wr-sticky-bar.visible { transform: translateY(0); }
+            .wr-sticky-bar-text {
+                color: rgba(255,255,255,0.7);
+                font-size: 0.9rem;
+                font-family: 'Inter', sans-serif;
+            }
+            .wr-sticky-bar-text strong { color: #fff; }
+            .wr-sticky-bar-btn {
+                background: #f6a604;
+                color: #0a0a0f;
+                border: none;
+                padding: 10px 24px;
+                border-radius: 8px;
+                font-weight: 700;
+                font-size: 0.9rem;
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                cursor: pointer;
+                white-space: nowrap;
+                transition: background 0.2s, transform 0.1s;
+                flex-shrink: 0;
+            }
+            .wr-sticky-bar-btn:hover { background: #e09800; }
+            .wr-sticky-bar-btn:active { transform: scale(0.97); }
+            @media (max-width: 768px) {
+                .wr-sticky-bar {
+                    padding: 10px 16px;
+                    padding-right: 16px;
+                    flex-direction: column;
+                    gap: 8px;
+                    text-align: center;
+                }
+                .wr-sticky-bar-btn { width: 100%; }
+                .wa-float { bottom: 80px !important; }
+            }
+        `;
+        document.head.appendChild(sbarStyle);
+
+        var sbar = document.createElement('div');
+        sbar.className = 'wr-sticky-bar';
+        sbar.id = 'wr-sticky-bar';
+        sbar.innerHTML = '<span class="wr-sticky-bar-text"><strong>Ready to upgrade?</strong> Get a custom motor quote in 24 hours.</span><button class="wr-sticky-bar-btn" onclick="openQuoteModal()">Get a Quote</button>';
+        document.body.appendChild(sbar);
+
+        var shown = false;
+        window.addEventListener('scroll', function() {
+            if (!shown && window.scrollY > 500) {
+                shown = true;
+                sbar.classList.add('visible');
+            }
+        }, { passive: true });
+    })();
+
+    // ─── Calendly "Talk to an Engineer" ───
+    window.openCalendly = function() {
+        // Lazy-load Calendly assets on first call
+        var CALENDLY_URL = 'https://calendly.com/welkinrim-engineering/technical-consultation';
+        if (!window._calendlyLoaded) {
+            window._calendlyLoaded = true;
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = 'https://assets.calendly.com/assets/external/widget.css';
+            document.head.appendChild(link);
+            var script = document.createElement('script');
+            script.src = 'https://assets.calendly.com/assets/external/widget.js';
+            script.onload = function() {
+                if (window.Calendly) {
+                    Calendly.initPopupWidget({ url: CALENDLY_URL });
+                    wrTrack('calendly_open', { page: window.location.pathname });
+                }
+            };
+            document.head.appendChild(script);
+        } else if (window.Calendly) {
+            Calendly.initPopupWidget({ url: CALENDLY_URL });
+            wrTrack('calendly_open', { page: window.location.pathname });
+        }
+    };
+
+    // ─── Exit-Intent Popup (Global) ───
+    (function injectExitPopup() {
+        var epStyle = document.createElement('style');
+        epStyle.textContent = `
+            .wr-exit-overlay {
+                position: fixed;
+                inset: 0;
+                z-index: 10002;
+                background: rgba(0,0,0,0.7);
+                backdrop-filter: blur(4px);
+                -webkit-backdrop-filter: blur(4px);
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+            }
+            .wr-exit-overlay.active { opacity: 1; visibility: visible; }
+            .wr-exit-card {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(0.92);
+                z-index: 10003;
+                background: #0f0f16;
+                border: 1px solid rgba(255,255,255,0.08);
+                border-radius: 16px;
+                width: 90%;
+                max-width: 440px;
+                padding: 40px 32px 32px;
+                text-align: center;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+                box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+            }
+            .wr-exit-card.active {
+                opacity: 1;
+                visibility: visible;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            .wr-exit-close {
+                position: absolute;
+                top: 14px;
+                right: 14px;
+                width: 32px;
+                height: 32px;
+                background: rgba(255,255,255,0.05);
+                border: 1px solid rgba(255,255,255,0.08);
+                border-radius: 8px;
+                color: rgba(255,255,255,0.5);
+                font-size: 18px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.2s, color 0.2s;
+                line-height: 1;
+            }
+            .wr-exit-close:hover { background: rgba(255,255,255,0.1); color: #fff; }
+            .wr-exit-badge {
+                display: inline-block;
+                background: rgba(246,166,4,0.12);
+                color: #f6a604;
+                padding: 4px 14px;
+                border-radius: 20px;
+                font-size: 0.8rem;
+                font-weight: 600;
+                margin-bottom: 16px;
+            }
+            .wr-exit-title {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-size: 1.4rem;
+                font-weight: 700;
+                color: #fff;
+                margin: 0 0 8px;
+            }
+            .wr-exit-desc {
+                font-size: 0.92rem;
+                color: rgba(255,255,255,0.5);
+                line-height: 1.6;
+                margin: 0 0 20px;
+            }
+            .wr-exit-social {
+                font-size: 0.8rem;
+                color: rgba(255,255,255,0.35);
+                margin-bottom: 20px;
+            }
+            .wr-exit-form { display: flex; gap: 10px; }
+            .wr-exit-input {
+                flex: 1;
+                padding: 12px 16px;
+                background: #0a0a0f;
+                border: 1px solid rgba(255,255,255,0.08);
+                border-radius: 10px;
+                color: #fff;
+                font-size: 0.92rem;
+                font-family: 'Inter', sans-serif;
+                outline: none;
+                transition: border-color 0.2s;
+            }
+            .wr-exit-input::placeholder { color: rgba(255,255,255,0.25); }
+            .wr-exit-input:focus { border-color: rgba(246,166,4,0.5); }
+            .wr-exit-submit {
+                background: #f6a604;
+                color: #0a0a0f;
+                border: none;
+                padding: 12px 20px;
+                border-radius: 10px;
+                font-weight: 700;
+                font-size: 0.9rem;
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                cursor: pointer;
+                white-space: nowrap;
+                transition: background 0.2s;
+            }
+            .wr-exit-submit:hover { background: #e09800; }
+            .wr-exit-privacy {
+                font-size: 0.75rem;
+                color: rgba(255,255,255,0.3);
+                margin-top: 12px;
+            }
+            .wr-exit-guide-link {
+                display: none;
+                color: #f6a604;
+                font-weight: 600;
+                font-size: 1rem;
+                text-decoration: none;
+                margin-top: 16px;
+                border-bottom: 1px solid rgba(246,166,4,0.3);
+                transition: border-color 0.2s;
+            }
+            .wr-exit-guide-link:hover { border-color: #f6a604; }
+            @media (max-width: 480px) {
+                .wr-exit-card { width: 95%; padding: 32px 20px 24px; }
+                .wr-exit-form { flex-direction: column; }
+            }
+        `;
+        document.head.appendChild(epStyle);
+
+        var overlay = document.createElement('div');
+        overlay.className = 'wr-exit-overlay';
+        overlay.id = 'wr-exit-overlay';
+        document.body.appendChild(overlay);
+
+        var card = document.createElement('div');
+        card.className = 'wr-exit-card';
+        card.id = 'wr-exit-card';
+        card.innerHTML = '<button class="wr-exit-close" id="wr-exit-close" aria-label="Close">&times;</button>'
+            + '<div class="wr-exit-badge">Free Download</div>'
+            + '<h3 class="wr-exit-title">Before You Go\u2026</h3>'
+            + '<p class="wr-exit-desc">Get <strong>The Complete Motor Selection Guide</strong> \u2014 covering KV ratings, stator sizing, and application matching for every drone type.</p>'
+            + '<p class="wr-exit-social">Join 2,000+ engineers who downloaded this guide</p>'
+            + '<form class="wr-exit-form" id="wr-exit-form">'
+            + '<input class="wr-exit-input" type="email" name="email" placeholder="your@email.com" required autocomplete="email">'
+            + '<input type="hidden" name="_source" value="exit-popup-guide">'
+            + '<button type="submit" class="wr-exit-submit">Download Guide</button>'
+            + '</form>'
+            + '<p class="wr-exit-privacy">No spam. Unsubscribe anytime.</p>'
+            + '<a href="' + base + 'motor-selection-guide.html" class="wr-exit-guide-link" id="wr-exit-guide-link">View Your Free Guide \u2192</a>';
+        document.body.appendChild(card);
+
+        // Show/close logic
+        var exitShown = false;
+        var sessionKey = 'welkinrim_exit_shown';
+        if (sessionStorage.getItem(sessionKey)) return;
+
+        var canShow = false;
+        setTimeout(function() { canShow = true; }, 30000);
+
+        function showExit() {
+            if (exitShown || !canShow) return;
+            exitShown = true;
+            sessionStorage.setItem(sessionKey, '1');
+            overlay.classList.add('active');
+            card.classList.add('active');
+            wrTrack('exit_intent_shown', { page: window.location.pathname });
+        }
+
+        function hideExit() {
+            overlay.classList.remove('active');
+            card.classList.remove('active');
+        }
+
+        document.addEventListener('mouseleave', function(e) {
+            if (e.clientY <= 0) showExit();
+        });
+
+        document.getElementById('wr-exit-close').addEventListener('click', hideExit);
+        overlay.addEventListener('click', hideExit);
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && card.classList.contains('active')) hideExit();
+        });
+
+        // Form submit
+        document.getElementById('wr-exit-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var form = this;
+            var submitBtn = form.querySelector('.wr-exit-submit');
+            submitBtn.textContent = 'Sending\u2026';
+            submitBtn.disabled = true;
+
+            fetch('https://formspree.io/f/xwpkpqyz', {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            }).then(function() {
+                form.innerHTML = '<p style="color:#22c55e;font-weight:600;font-size:1.1rem;">Check your inbox!</p>';
+                var link = document.getElementById('wr-exit-guide-link');
+                if (link) { link.style.display = 'inline-block'; }
+                try { localStorage.setItem('welkinrim_guide_unlocked', '1'); } catch(ex) {}
+                setTimeout(hideExit, 4000);
+            }).catch(function() {
+                form.innerHTML = '<p style="color:#22c55e;font-weight:600;font-size:1.1rem;">Check your inbox!</p>';
+                var link = document.getElementById('wr-exit-guide-link');
+                if (link) { link.style.display = 'inline-block'; }
+                try { localStorage.setItem('welkinrim_guide_unlocked', '1'); } catch(ex) {}
+                setTimeout(hideExit, 4000);
+            });
+        });
     })();
 
     // ─── UTM Capture & Form Injection ───

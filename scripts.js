@@ -808,29 +808,7 @@ function initFAQ() {
     });
 }
 
-// ==========================================
-// STICKY MOBILE CTA
-// ==========================================
-function initStickyCTA() {
-    const stickyCta = document.getElementById('sticky-cta');
-    if (!stickyCta) return;
-
-    // Add to existing scroll handler via separate observer
-    const hero = document.querySelector('.hero');
-    if (!hero) return;
-
-    const ctaObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                stickyCta.classList.remove('visible');
-            } else {
-                stickyCta.classList.add('visible');
-            }
-        });
-    }, { threshold: 0 });
-
-    ctaObserver.observe(hero);
-}
+// initStickyCTA removed — now handled globally via shared.js sticky bar
 
 // ==========================================
 // FIELD STORY STATS COUNT-UP
@@ -876,65 +854,7 @@ function initFieldStatsCountUp() {
     statContainers.forEach(el => countObserver.observe(el));
 }
 
-// ==========================================
-// EXIT INTENT POPUP
-// ==========================================
-function initExitIntent() {
-    const popup = document.getElementById('exit-popup');
-    if (!popup) return;
-
-    let shown = false;
-    const sessionKey = 'welkinrim_exit_shown';
-    if (sessionStorage.getItem(sessionKey)) return;
-
-    // Only show after 30 seconds on page
-    let canShow = false;
-    setTimeout(() => { canShow = true; }, 30000);
-
-    document.addEventListener('mouseleave', (e) => {
-        if (e.clientY <= 0 && canShow && !shown) {
-            shown = true;
-            sessionStorage.setItem(sessionKey, '1');
-            popup.classList.add('active');
-        }
-    });
-
-    // Close handlers
-    const closeBtn = document.getElementById('exit-popup-close');
-    const overlay = popup.querySelector('.exit-popup-overlay');
-
-    if (closeBtn) closeBtn.addEventListener('click', () => popup.classList.remove('active'));
-    if (overlay) overlay.addEventListener('click', () => popup.classList.remove('active'));
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && popup.classList.contains('active')) {
-            popup.classList.remove('active');
-        }
-    });
-
-    // Form submit
-    const form = document.getElementById('exit-popup-form');
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const emailInput = form.querySelector('input[type="email"]');
-            const submitBtn = form.querySelector('.exit-popup-submit');
-            submitBtn.textContent = 'Sending\u2026';
-            submitBtn.disabled = true;
-
-            const formData = new FormData(form);
-            fetch('https://formspree.io/f/xwpkpqyz', {
-                method: 'POST',
-                body: formData,
-                headers: { 'Accept': 'application/json' }
-            }).then(() => {
-                form.innerHTML = '<p style="color:#22c55e;font-weight:600;font-size:1.1rem;">Check your inbox!</p>';
-            }).catch(() => {
-                form.innerHTML = '<p style="color:#22c55e;font-weight:600;font-size:1.1rem;">Check your inbox!</p>';
-            });
-        });
-    }
-}
+// initExitIntent removed — now handled globally via shared.js exit popup
 
 // ==========================================
 // MOBILE NAV POLISH
@@ -975,9 +895,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initMotorShowcase();
     initRFQForm();
     initFAQ();
-    initStickyCTA();
     initFieldStatsCountUp();
-    initExitIntent();
     initMobileNavPolish();
 
     // Set up progressive enhancement
@@ -993,9 +911,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const testimonialCards = document.querySelectorAll('.testimonial-card, .testimonial-card--dark');
     testimonialCards.forEach(el => observer.observe(el));
 
-    // Intercept all "Get Quote" nav CTAs and sticky CTA to open Quick Quote modal
+    // Intercept all "Get Quote" nav CTAs to open Quick Quote modal
     if (typeof openQuoteModal === 'function') {
-        document.querySelectorAll('.nav-cta, .sticky-cta-btn').forEach(function(el) {
+        document.querySelectorAll('.nav-cta').forEach(function(el) {
             el.addEventListener('click', function(e) {
                 e.preventDefault();
                 openQuoteModal();

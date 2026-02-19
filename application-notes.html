@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="color-scheme" content="dark">
+    <title>Technical Application Notes | WelkinRim — Industry-Specific Motor Guides</title>
+    <meta name="description" content="In-depth technical application notes for drone motors across agriculture, defence, delivery, inspection, racing, and custom integration. Motor selection criteria, recommended configs, and performance data.">
+    <link rel="canonical" href="https://welkinrim.com/application-notes.html">
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://welkinrim.com/application-notes.html">
+    <meta property="og:title" content="Technical Application Notes | WelkinRim">
+    <meta property="og:description" content="In-depth technical application notes for drone motors across agriculture, defence, delivery, inspection, racing, and custom integration.">
+    <meta property="og:image" content="https://welkinrim.com/assets/Welkinrim logo.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Technical Application Notes | WelkinRim">
+    <meta name="twitter:description" content="In-depth technical application notes for drone motors across agriculture, defence, delivery, inspection, racing, and custom integration.">
+    <meta name="twitter:image" content="https://welkinrim.com/assets/Welkinrim logo.png">
+    <link rel="icon" type="image/png" href="assets/Welkinrim logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Page background */
+        body {
+            background: #000;
+            color: #94a3b8;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem 5%;
+            margin-top: 80px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .breadcrumb-nav {
+            font-size: 0.85rem;
+            color: #64748b;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb-nav a {
+            color: #f6a604;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .breadcrumb-nav a:hover {
+            color: #fbbf24;
+            text-decoration: underline;
+        }
+
+        .breadcrumb-separator {
+            margin: 0 10px;
+            color: #475569;
+        }
+
+        .breadcrumb-current {
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        /* Container */
+        .an-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 5% 100px;
+        }
+
+        /* Gate section */
+        .an-gate {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 48px 40px;
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        .an-gate-badge {
+            display: inline-block;
+            background: rgba(246, 166, 4, 0.12);
+            color: #f6a604;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+        }
+
+        .an-gate h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .an-gate-subtitle {
+            font-size: 1.05rem;
+            color: #94a3b8;
+            line-height: 1.7;
+            max-width: 580px;
+            margin: 0 auto 32px;
+        }
+
+        .an-gate-form {
+            display: flex;
+            gap: 12px;
+            max-width: 480px;
+            margin: 0 auto 16px;
+        }
+
+        .an-gate-input {
+            flex: 1;
+            padding: 14px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            background: rgba(255, 255, 255, 0.06);
+            color: #fff;
+            outline: none;
+            transition: border-color 0.2s ease, background 0.2s ease;
+        }
+
+        .an-gate-input::placeholder {
+            color: #64748b;
+        }
+
+        .an-gate-input:focus {
+            border-color: #f6a604;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .an-gate-btn {
+            padding: 14px 28px;
+            background: #f6a604;
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.2s ease, transform 0.15s ease;
+        }
+
+        .an-gate-btn:hover {
+            background: #e09500;
+            transform: translateY(-1px);
+        }
+
+        .an-gate-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .an-gate-privacy {
+            font-size: 0.78rem;
+            color: #64748b;
+        }
+
+        .an-gate-social {
+            font-size: 0.82rem;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+
+        .an-gate-success {
+            display: none;
+            color: #22c55e;
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-top: 8px;
+        }
+
+        /* Accordion content */
+        .an-content {
+            position: relative;
+        }
+
+        .an-content.locked .an-accordion-item:nth-child(n+2) {
+            filter: blur(4px);
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .an-content.locked::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 300px;
+            background: linear-gradient(to bottom, transparent, #000 85%);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* Locked CTA */
+        .an-locked-cta {
+            text-align: center;
+            padding: 40px 20px;
+            display: none;
+        }
+
+        .an-content.locked ~ .an-locked-cta {
+            display: block;
+        }
+
+        .an-locked-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .an-locked-cta p {
+            color: #94a3b8;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .an-locked-cta a {
+            color: #f6a604;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(246, 166, 4, 0.3);
+            transition: border-color 0.2s ease;
+        }
+
+        .an-locked-cta a:hover {
+            border-color: #f6a604;
+        }
+
+        /* Accordion */
+        .an-accordion-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: border-color 0.2s ease;
+        }
+
+        .an-accordion-item:hover {
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .an-accordion-item.active {
+            border-color: rgba(246, 166, 4, 0.2);
+        }
+
+        .an-accordion-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            cursor: pointer;
+            user-select: none;
+            gap: 16px;
+        }
+
+        .an-accordion-header:focus-visible {
+            outline: 2px solid #f6a604;
+            outline-offset: -2px;
+            border-radius: 14px;
+        }
+
+        .an-accordion-title-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .an-accordion-num {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #f6a604;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .an-accordion-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .an-accordion-motors {
+            font-size: 0.82rem;
+            color: #64748b;
+        }
+
+        .an-accordion-chevron {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            color: #64748b;
+            transition: transform 0.3s ease, color 0.2s ease;
+        }
+
+        .an-accordion-item.active .an-accordion-chevron {
+            transform: rotate(180deg);
+            color: #f6a604;
+        }
+
+        .an-accordion-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .an-accordion-item.active .an-accordion-body {
+            max-height: 3000px;
+        }
+
+        .an-accordion-content {
+            padding: 0 24px 28px;
+        }
+
+        /* Content styling inside accordion */
+        .an-accordion-content h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #e2e8f0;
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        .an-accordion-content h3:first-child {
+            margin-top: 0;
+        }
+
+        .an-accordion-content p {
+            font-size: 0.93rem;
+            line-height: 1.8;
+            color: #94a3b8;
+            margin-bottom: 14px;
+        }
+
+        .an-accordion-content ul {
+            padding-left: 20px;
+            margin-bottom: 16px;
+        }
+
+        .an-accordion-content li {
+            font-size: 0.92rem;
+            line-height: 1.75;
+            color: #94a3b8;
+            margin-bottom: 6px;
+        }
+
+        .an-accordion-content li strong {
+            color: #e2e8f0;
+        }
+
+        .an-accordion-content strong {
+            color: #e2e8f0;
+        }
+
+        /* Highlight box */
+        .an-highlight {
+            background: rgba(246, 166, 4, 0.06);
+            border-left: 3px solid #f6a604;
+            border-radius: 0 12px 12px 0;
+            padding: 16px 20px;
+            margin: 18px 0;
+        }
+
+        .an-highlight p {
+            color: #e2e8f0;
+            margin-bottom: 0;
+        }
+
+        .an-highlight strong {
+            color: #f6a604;
+        }
+
+        /* Tables */
+        .an-table-wrap {
+            overflow-x: auto;
+            margin: 18px 0;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .an-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.87rem;
+        }
+
+        .an-table thead {
+            background: rgba(246, 166, 4, 0.1);
+        }
+
+        .an-table th {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            color: #f6a604;
+            text-align: left;
+            padding: 12px 16px;
+            white-space: nowrap;
+        }
+
+        .an-table td {
+            padding: 10px 16px;
+            color: #94a3b8;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .an-table tbody tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .an-table .highlight-row {
+            background: rgba(246, 166, 4, 0.04);
+        }
+
+        .an-table .highlight-row td {
+            color: #e2e8f0;
+        }
+
+        /* Bottom CTA */
+        .an-bottom-cta {
+            background: rgba(246, 166, 4, 0.08);
+            border: 1px solid rgba(246, 166, 4, 0.2);
+            border-radius: 16px;
+            padding: 48px 40px;
+            text-align: center;
+            margin-top: 48px;
+            display: none;
+        }
+
+        .an-bottom-cta.visible {
+            display: block;
+        }
+
+        .an-bottom-cta h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .an-bottom-cta p {
+            color: #94a3b8;
+            font-size: 1rem;
+            margin-bottom: 28px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .an-cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .an-btn-primary {
+            display: inline-block;
+            padding: 16px 36px;
+            background: #f6a604;
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.15s ease;
+        }
+
+        .an-btn-primary:hover {
+            background: #e09500;
+            transform: translateY(-2px);
+        }
+
+        .an-btn-secondary {
+            display: inline-block;
+            padding: 16px 36px;
+            background: transparent;
+            color: #f6a604;
+            border: 1px solid rgba(246, 166, 4, 0.3);
+            border-radius: 50px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease;
+        }
+
+        .an-btn-secondary:hover {
+            border-color: #f6a604;
+            background: rgba(246, 166, 4, 0.06);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .an-gate {
+                padding: 36px 24px;
+            }
+
+            .an-gate h1 {
+                font-size: 1.65rem;
+            }
+
+            .an-gate-form {
+                flex-direction: column;
+            }
+
+            .an-gate-btn {
+                padding: 14px 24px;
+            }
+
+            .an-container {
+                padding: 40px 5% 80px;
+            }
+
+            .an-accordion-header {
+                padding: 16px 18px;
+            }
+
+            .an-accordion-content {
+                padding: 0 18px 24px;
+            }
+
+            .an-accordion-title {
+                font-size: 1rem;
+            }
+
+            .an-bottom-cta {
+                padding: 36px 24px;
+            }
+
+            .an-cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .breadcrumb {
+                padding: 0.75rem 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#an-content" class="skip-to-content">Skip to content</a>
+
+    <!-- Navigation -->
+    <nav id="main-nav"></nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="resources.html">Resources</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">Application Notes</span>
+        </nav>
+    </div>
+
+    <div class="an-container" id="an-content">
+
+        <!-- Gate: Email capture -->
+        <div class="an-gate" id="an-gate">
+            <div class="an-gate-badge">Free Resource</div>
+            <h1>Technical Application Notes</h1>
+            <p class="an-gate-subtitle">Industry-specific motor selection guides with criteria tables, recommended configurations, performance data, and integration tips for six key drone verticals.</p>
+            <p class="an-gate-social">Join 2,000+ engineers who downloaded our guides</p>
+            <form class="an-gate-form" id="an-gate-form" action="https://formspree.io/f/xwpkpqyz" method="POST">
+                <input type="hidden" name="_source" value="application-notes-gate">
+                <input type="email" name="email" placeholder="Enter your work email to unlock" required class="an-gate-input" id="an-gate-email">
+                <button type="submit" class="an-gate-btn" id="an-gate-btn">Unlock Notes</button>
+            </form>
+            <p class="an-gate-privacy">No spam, ever. Unsubscribe anytime.</p>
+            <p class="an-gate-success" id="an-gate-success">Notes unlocked! Scroll down to read.</p>
+        </div>
+
+        <!-- Accordion content (gated) -->
+        <div class="an-content locked" id="an-body">
+
+            <!-- 1. Agriculture Spraying -->
+            <div class="an-accordion-item" id="section-agriculture">
+                <div class="an-accordion-header" tabindex="0" role="button" aria-expanded="false">
+                    <div class="an-accordion-title-group">
+                        <span class="an-accordion-num">Application Note 01</span>
+                        <span class="an-accordion-title">Agriculture Spraying</span>
+                        <span class="an-accordion-motors">Motors: WR-A2812 &middot; WR-A4010</span>
+                    </div>
+                    <svg class="an-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="an-accordion-body">
+                    <div class="an-accordion-content">
+                        <h3>Motor Selection Criteria</h3>
+                        <div class="an-table-wrap">
+                            <table class="an-table">
+                                <thead>
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>WR-A2812</th>
+                                        <th>WR-A4010</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Weight</strong></td>
+                                        <td>95g</td>
+                                        <td>185g</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Max Thrust</strong></td>
+                                        <td>1,650g</td>
+                                        <td>3,800g</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>IP Rating</strong></td>
+                                        <td>IP65</td>
+                                        <td>IP65</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>KV</strong></td>
+                                        <td>750</td>
+                                        <td>340</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Chemical Resistance</strong></td>
+                                        <td>Yes (epoxy-sealed windings)</td>
+                                        <td>Yes (epoxy-sealed windings)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Voltage</strong></td>
+                                        <td>4S - 6S</td>
+                                        <td>6S - 12S</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3>Recommended Configuration</h3>
+                        <ul>
+                            <li><strong>Small sprayer (10L tank, &lt;15kg AUW):</strong> 6x WR-A2812 on 6S, 13" folding props. Hexacopter for redundancy over crops.</li>
+                            <li><strong>Large sprayer (20-30L tank, 25-40kg AUW):</strong> 8x WR-A4010 on 12S, 22" props. Octocopter with centrifugal nozzle system.</li>
+                        </ul>
+
+                        <h3>Performance Stats</h3>
+                        <p>At 60% throttle cruise with a 10L payload, the WR-A2812 hex achieves 22 minutes flight time covering 2.5 hectares per sortie. The WR-A4010 octo with 25L payload achieves 18 minutes covering 5 hectares per sortie. Both configurations maintain stable hover in winds up to 28 km/h.</p>
+
+                        <div class="an-highlight">
+                            <p><strong>Integration tip:</strong> Agriculture motors are exposed to pesticides, fertilizers, and moisture daily. The IP65-rated epoxy-sealed windings on WR-A series motors prevent chemical corrosion of copper. After every 50 hours of spray operations, clean motors with compressed air at 30 PSI max to clear debris from bearing seals.</p>
+                        </div>
+
+                        <h3>Integration Tips</h3>
+                        <ul>
+                            <li>Mount motors with vibration dampeners to prevent spray nozzle resonance at hover RPM.</li>
+                            <li>Route ESC signal wires away from pump power cables to avoid electromagnetic interference.</li>
+                            <li>Use conformal-coated ESCs rated for the same IP level as the motors.</li>
+                            <li>Schedule motor bearing replacement every 500 flight hours for sustained field operations.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Defence ISR -->
+            <div class="an-accordion-item" id="section-defence">
+                <div class="an-accordion-header" tabindex="0" role="button" aria-expanded="false">
+                    <div class="an-accordion-title-group">
+                        <span class="an-accordion-num">Application Note 02</span>
+                        <span class="an-accordion-title">Defence ISR</span>
+                        <span class="an-accordion-motors">Motors: WR-D3510 &middot; WR-D5015</span>
+                    </div>
+                    <svg class="an-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="an-accordion-body">
+                    <div class="an-accordion-content">
+                        <h3>Motor Selection Criteria</h3>
+                        <div class="an-table-wrap">
+                            <table class="an-table">
+                                <thead>
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>WR-D3510</th>
+                                        <th>WR-D5015</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Weight</strong></td>
+                                        <td>145g</td>
+                                        <td>310g</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Max Thrust</strong></td>
+                                        <td>2,400g</td>
+                                        <td>5,200g</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>IP Rating</strong></td>
+                                        <td>IP68</td>
+                                        <td>IP68</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>KV</strong></td>
+                                        <td>480</td>
+                                        <td>220</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>MIL-STD-810H</strong></td>
+                                        <td>Compliant</td>
+                                        <td>Compliant</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Operating Temp</strong></td>
+                                        <td>-40C to +80C</td>
+                                        <td>-40C to +80C</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Voltage</strong></td>
+                                        <td>6S - 8S</td>
+                                        <td>8S - 12S</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3>Recommended Configuration</h3>
+                        <ul>
+                            <li><strong>Man-portable ISR (5-8kg AUW):</strong> 4x WR-D3510 on 8S, 15" low-noise props. Quadcopter with folding arms for backpack transport. EO/IR gimbal payload.</li>
+                            <li><strong>Extended-range ISR (15-25kg AUW):</strong> 8x WR-D5015 on 12S, 22" props. Octocopter or VTOL fixed-wing hybrid for 60+ minute endurance with SIGINT/COMINT payloads.</li>
+                        </ul>
+
+                        <h3>Performance Stats</h3>
+                        <p>The WR-D3510 quad achieves 42 minutes loiter time at 300m AGL with a 1.2kg EO/IR payload on 8S 12,000mAh packs. Acoustic signature at 100m altitude measures below 55 dBA with low-RPM carbon fiber props. The WR-D5015 VTOL platform sustains 90+ minutes total mission time with 45 minutes on-station loiter carrying a 3.5kg multi-sensor payload.</p>
+
+                        <div class="an-highlight">
+                            <p><strong>Integration tip:</strong> Defence ISR platforms demand silent operation. Use the lowest KV variant available and the largest propeller that fits your airframe. Every 10% reduction in RPM yields approximately 4 dBA noise reduction. The WR-D series N52SH magnets maintain full field strength at 80C continuous, critical for desert deployments.</p>
+                        </div>
+
+                        <h3>Integration Tips</h3>
+                        <ul>
+                            <li>Use MIL-spec connectors (Amphenol or equivalent) for motor-to-ESC wiring. Avoid solder joints that may crack under vibration.</li>
+                            <li>Torque motor mounting bolts to 1.8 Nm with medium-strength threadlocker (Loctite 243).</li>
+                            <li>Perform vibration analysis after assembly. Motor imbalance should be below 0.5 mm/s RMS at hover RPM.</li>
+                            <li>For salt-fog environments, apply corrosion-inhibiting compound to all exposed aluminum surfaces every 100 hours.</li>
+                            <li>EMC shielding: Route encoder/telemetry cables at least 50mm from motor phase wires.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Commercial Delivery -->
+            <div class="an-accordion-item" id="section-delivery">
+                <div class="an-accordion-header" tabindex="0" role="button" aria-expanded="false">
+                    <div class="an-accordion-title-group">
+                        <span class="an-accordion-num">Application Note 03</span>
+                        <span class="an-accordion-title">Commercial Delivery</span>
+                        <span class="an-accordion-motors">Motors: WR2815 &middot; WR3508</span>
+                    </div>
+                    <svg class="an-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="an-accordion-body">
+                    <div class="an-accordion-content">
+                        <h3>Motor Selection Criteria</h3>
+                        <div class="an-table-wrap">
+                            <table class="an-table">
+                                <thead>
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>WR2815</th>
+                                        <th>WR3508</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Weight</strong></td>
+                                        <td>82g</td>
+                                        <td>125g</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Max Thrust</strong></td>
+                                        <td>1,420g</td>
+                                        <td>2,150g</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>IP Rating</strong></td>
+                                        <td>IP65</td>
+                                        <td>IP67</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>KV</strong></td>
+                                        <td>900</td>
+                                        <td>680</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Efficiency</strong></td>
+                                        <td>88%</td>
+                                        <td>90%</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Voltage</strong></td>
+                                        <td>4S - 6S</td>
+                                        <td>6S - 8S</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3>Recommended Configuration</h3>
+                        <ul>
+                            <li><strong>Last-mile light delivery (1-2kg payload, 5kg AUW):</strong> 4x WR2815 on 6S, 12" props. Quadcopter optimized for 15-minute round trips within 5km radius.</li>
+                            <li><strong>Medium delivery (3-5kg payload, 10-12kg AUW):</strong> 6x WR3508 on 8S, 15" props. Hexacopter for motor-out redundancy with payload winch system.</li>
+                        </ul>
+
+                        <h3>Performance Stats</h3>
+                        <p>The WR2815 quad completes a 5km round trip in 12 minutes carrying a 1.5kg package, consuming 38% of a 6S 8,000mAh battery. This allows 2 full deliveries per charge with reserve. The WR3508 hex achieves 25 minutes flight time with a 4kg payload, covering a 7km delivery radius with 20% battery reserve for safe return.</p>
+
+                        <div class="an-highlight">
+                            <p><strong>Integration tip:</strong> Delivery drones fly hundreds of cycles per week. Motor bearing life is the primary maintenance driver. WelkinRim's ceramic hybrid bearings (Si3N4 balls, steel races) in the WR2815 and WR3508 achieve 2,000+ hours MTBF at delivery-cycle loads, versus 800 hours for standard steel bearings. This reduces per-delivery maintenance cost by approximately 60%.</p>
+                        </div>
+
+                        <h3>Integration Tips</h3>
+                        <ul>
+                            <li>Size propellers for maximum hover efficiency at 55-65% throttle with full payload. This extends motor and ESC life.</li>
+                            <li>Use quick-disconnect motor mounts for field-swappable motor replacement in under 3 minutes.</li>
+                            <li>Implement motor temperature monitoring via ESC telemetry. Set a 120C winding temp alarm threshold.</li>
+                            <li>For rain delivery operations, ensure ESC compartment matches the motor IP rating. A single unsealed ESC defeats the purpose of IP67 motors.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Industrial Inspection -->
+            <div class="an-accordion-item" id="section-inspection">
+                <div class="an-accordion-header" tabindex="0" role="button" aria-expanded="false">
+                    <div class="an-accordion-title-group">
+                        <span class="an-accordion-num">Application Note 04</span>
+                        <span class="an-accordion-title">Industrial Inspection</span>
+                        <span class="an-accordion-motors">Motors: WR2212 &middot; WR2815</span>
+                    </div>
+                    <svg class="an-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="an-accordion-body">
+                    <div class="an-accordion-content">
+                        <h3>Motor Selection Criteria</h3>
+                        <div class="an-table-wrap">
+                            <table class="an-table">
+                                <thead>
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>WR2212</th>
+                                        <th>WR2815</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Weight</strong></td>
+                                        <td>56g</td>
+                                        <td>82g</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Max Thrust</strong></td>
+                                        <td>850g</td>
+                                        <td>1,420g</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>IP Rating</strong></td>
+                                        <td>IP54</td>
+                                        <td>IP65</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>KV</strong></td>
+                                        <td>1000</td>
+                                        <td>900</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Efficiency</strong></td>
+                                        <td>85%</td>
+                                        <td>88%</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Voltage</strong></td>
+                                        <td>3S - 4S</td>
+                                        <td>4S - 6S</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3>Recommended Configuration</h3>
+                        <ul>
+                            <li><strong>Indoor / confined space inspection (1-2kg AUW):</strong> 4x WR2212 on 4S, 9" props with prop guards. Lightweight quadcopter for pipeline interiors, tank inspections, and indoor warehouses.</li>
+                            <li><strong>Outdoor infrastructure (2-4kg AUW):</strong> 4x WR2815 on 6S, 12" props. Quadcopter with LiDAR, thermal camera, or high-res zoom payload for bridge, tower, and building facade inspection.</li>
+                        </ul>
+
+                        <h3>Performance Stats</h3>
+                        <p>The WR2212 inspection quad achieves position hold accuracy of plus or minus 5cm using GPS-RTK, with negligible motor-induced vibration (below 0.3g at flight controller mount). Hover duration reaches 28 minutes on 4S 5,000mAh. The WR2815 outdoor platform maintains stable hover in 35 km/h gusts while capturing 50MP stills at 30m from target structures, with 25 minutes endurance on 6S 10,000mAh.</p>
+
+                        <div class="an-highlight">
+                            <p><strong>Integration tip:</strong> Precision hover is non-negotiable for inspection. Motor vibration directly degrades camera clarity and LiDAR point cloud accuracy. WelkinRim motors are dynamically balanced to ISO G1.0 at the factory. After prop installation, perform a hover vibration test and reject any motor-prop combination exceeding 0.5g peak at the FC mount.</p>
+                        </div>
+
+                        <h3>Integration Tips</h3>
+                        <ul>
+                            <li>Use carbon fiber propellers for inspection work. They are stiffer than nylon, reducing flex-induced vibration at steady hover.</li>
+                            <li>Mount thermal cameras at least 100mm from motors to avoid heat interference in close-range inspections.</li>
+                            <li>For GPS-denied indoor environments, use optical flow sensors and ensure motor RPM telemetry feeds into the flight controller for altitude estimation.</li>
+                            <li>Implement motor current logging to detect early bearing degradation before it causes position hold drift.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Racing / FPV -->
+            <div class="an-accordion-item" id="section-racing">
+                <div class="an-accordion-header" tabindex="0" role="button" aria-expanded="false">
+                    <div class="an-accordion-title-group">
+                        <span class="an-accordion-num">Application Note 05</span>
+                        <span class="an-accordion-title">Racing / FPV</span>
+                        <span class="an-accordion-motors">Motors: WR2212-1400KV</span>
+                    </div>
+                    <svg class="an-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="an-accordion-body">
+                    <div class="an-accordion-content">
+                        <h3>Motor Selection Criteria</h3>
+                        <div class="an-table-wrap">
+                            <table class="an-table">
+                                <thead>
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>WR2212-1400KV</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Weight</strong></td>
+                                        <td>52g</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Max Thrust</strong></td>
+                                        <td>1,100g</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>IP Rating</strong></td>
+                                        <td>IP44</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>KV</strong></td>
+                                        <td>1400</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Response Time</strong></td>
+                                        <td>&lt;15ms (0-80% throttle)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Voltage</strong></td>
+                                        <td>4S - 6S</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Max Current</strong></td>
+                                        <td>35A burst</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3>Recommended Configuration</h3>
+                        <ul>
+                            <li><strong>5-inch freestyle / race quad (600-800g AUW):</strong> 4x WR2212-1400KV on 6S, 5.1" triblade props. True-X frame with 30x30 stack. Target thrust-to-weight ratio of 8:1 or higher for competitive racing.</li>
+                            <li><strong>7-inch long-range FPV (900-1200g AUW):</strong> 4x WR2212-1400KV on 6S, 7" biblade props. Stretched-X frame optimized for forward flight efficiency. 30+ minute cruise range.</li>
+                        </ul>
+
+                        <h3>Performance Stats</h3>
+                        <p>On 6S with 5.1" triblade props, the WR2212-1400KV produces 1,100g thrust per motor, achieving a 5.5:1 thrust-to-weight ratio on a 800g build. Throttle response from idle to 80% completes in under 15 milliseconds. Top speed on a race course exceeds 160 km/h. With 7" biblades on the long-range build, cruise efficiency reaches 8.2 g/W at 60 km/h forward flight, enabling 35 km range on a 1,300mAh 6S pack.</p>
+
+                        <div class="an-highlight">
+                            <p><strong>Integration tip:</strong> For racing, motor response time matters more than peak thrust. The WR2212-1400KV uses a 14-pole arc magnet design with low-inductance windings, enabling the fastest throttle transients in its class. Pair with 48kHz capable ESCs running BLHeli_32 for the smoothest stick feel.</p>
+                        </div>
+
+                        <h3>Integration Tips</h3>
+                        <ul>
+                            <li>Use soft-mount motor screws (rubber O-rings under screw heads) to reduce high-frequency vibration transmitted to the gyro.</li>
+                            <li>Solder motor wires directly to ESC pads for the lowest resistance connection. Avoid bullet connectors on race builds.</li>
+                            <li>Set motor timing advance to 22.5 degrees for optimal efficiency and response on 6S.</li>
+                            <li>After crashes, spin each motor by hand and listen for bearing roughness. Replace any motor with detectable bearing play immediately to prevent mid-flight desync.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Custom Integration -->
+            <div class="an-accordion-item" id="section-custom">
+                <div class="an-accordion-header" tabindex="0" role="button" aria-expanded="false">
+                    <div class="an-accordion-title-group">
+                        <span class="an-accordion-num">Application Note 06</span>
+                        <span class="an-accordion-title">Custom Integration</span>
+                        <span class="an-accordion-motors">Custom Windings &middot; Bespoke Configurations</span>
+                    </div>
+                    <svg class="an-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="an-accordion-body">
+                    <div class="an-accordion-content">
+                        <h3>When You Need Custom</h3>
+                        <p>Standard motors cover 80% of applications. For the remaining 20% with unique operating envelopes, payload profiles, or environmental conditions, WelkinRim offers custom motor winding and configuration services. Minimum order quantity for custom builds is 50 units.</p>
+
+                        <h3>Custom Winding Guide</h3>
+                        <div class="an-table-wrap">
+                            <table class="an-table">
+                                <thead>
+                                    <tr>
+                                        <th>Winding Change</th>
+                                        <th>Effect on KV</th>
+                                        <th>Effect on Torque</th>
+                                        <th>Use Case</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>More turns, thinner wire</td>
+                                        <td>Lower KV</td>
+                                        <td>Higher torque per amp</td>
+                                        <td>Heavy-lift, large props, efficiency</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fewer turns, thicker wire</td>
+                                        <td>Higher KV</td>
+                                        <td>Lower torque, higher RPM</td>
+                                        <td>Racing, small props, agility</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Delta winding (vs. Y)</td>
+                                        <td>1.73x higher KV</td>
+                                        <td>Lower torque per amp</td>
+                                        <td>Higher RPM on lower voltage</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Y winding (vs. Delta)</td>
+                                        <td>Standard KV</td>
+                                        <td>Higher torque per amp</td>
+                                        <td>Standard efficiency operation</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h3>How to Spec a Custom Motor</h3>
+                        <p>Provide the following information to our engineering team for a custom motor quote. The more detail you share, the faster we can iterate on a design.</p>
+                        <ul>
+                            <li><strong>Target thrust per motor</strong> at your operating voltage and desired propeller size.</li>
+                            <li><strong>Operating voltage range</strong> (minimum and maximum cell count).</li>
+                            <li><strong>Propeller diameter and pitch</strong> you plan to use, or let us recommend one.</li>
+                            <li><strong>Duty cycle:</strong> continuous hover percentage, burst duration, cooldown periods.</li>
+                            <li><strong>Environmental conditions:</strong> temperature range, humidity, altitude, exposure to chemicals or salt spray.</li>
+                            <li><strong>IP rating requirement</strong> and any military or aviation standards (MIL-STD, DO-160, CE, FCC).</li>
+                            <li><strong>Mechanical constraints:</strong> maximum motor diameter, height, weight, mounting pattern.</li>
+                            <li><strong>Volume:</strong> expected annual quantity for production pricing.</li>
+                        </ul>
+
+                        <h3>Performance Validation</h3>
+                        <p>Every custom motor order includes a dynamometer test report showing thrust curves, efficiency maps, and thermal profiles across the full operating range. Prototype samples ship within 4 weeks. Production lead time is 6-8 weeks after design sign-off.</p>
+
+                        <div class="an-highlight">
+                            <p><strong>Integration tip:</strong> Before committing to a custom winding, test your airframe with the closest standard motor. Measure actual hover current, peak current during maneuvers, and motor surface temperature after 10 minutes of flight. This data tells our engineers exactly where to optimize the winding for your specific operating point.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /an-body -->
+
+        <!-- Locked CTA (shown when gated) -->
+        <div class="an-locked-cta" id="an-locked-cta">
+            <div class="an-locked-icon">&#128274;</div>
+            <p>Enter your email above to unlock all six application notes, including motor criteria tables, recommended configurations, performance data, and integration tips.</p>
+            <a href="#an-gate">Unlock all notes</a>
+        </div>
+
+        <!-- Bottom CTA (visible after unlock) -->
+        <div class="an-bottom-cta" id="an-bottom-cta">
+            <h2>Need a Custom Configuration?</h2>
+            <p>Our engineering team can help you select the right motor or design a custom winding for your specific application requirements.</p>
+            <div class="an-cta-buttons">
+                <button class="an-btn-primary" onclick="openQuoteModal()">Get a Custom Quote</button>
+                <a href="https://calendly.com/welkinrim/engineering" target="_blank" rel="noopener noreferrer" class="an-btn-secondary">Talk to an Engineer</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="main-footer"></footer>
+
+    <script src="shared.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var gate = document.getElementById('an-gate');
+            var form = document.getElementById('an-gate-form');
+            var btn = document.getElementById('an-gate-btn');
+            var successMsg = document.getElementById('an-gate-success');
+            var body = document.getElementById('an-body');
+            var lockedCta = document.getElementById('an-locked-cta');
+            var bottomCta = document.getElementById('an-bottom-cta');
+
+            // Check if already unlocked
+            if (localStorage.getItem('welkinrim_appnotes_unlocked') === '1') {
+                unlockContent();
+            }
+
+            // Form submit
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                btn.textContent = 'Unlocking...';
+                btn.disabled = true;
+
+                var formData = new FormData(form);
+
+                fetch('https://formspree.io/f/xwpkpqyz', {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                }).then(function() {
+                    localStorage.setItem('welkinrim_appnotes_unlocked', '1');
+                    unlockContent();
+                    successMsg.style.display = 'block';
+                    form.style.display = 'none';
+                    gate.querySelector('.an-gate-privacy').style.display = 'none';
+                    gate.querySelector('.an-gate-social').style.display = 'none';
+                }).catch(function() {
+                    // Fail-open: unlock even if fetch fails
+                    localStorage.setItem('welkinrim_appnotes_unlocked', '1');
+                    unlockContent();
+                    successMsg.style.display = 'block';
+                    form.style.display = 'none';
+                    gate.querySelector('.an-gate-privacy').style.display = 'none';
+                    gate.querySelector('.an-gate-social').style.display = 'none';
+                });
+            });
+
+            function unlockContent() {
+                body.classList.remove('locked');
+                lockedCta.style.display = 'none';
+                bottomCta.classList.add('visible');
+
+                // If returning visitor, update the gate UI
+                if (localStorage.getItem('welkinrim_appnotes_unlocked') === '1') {
+                    gate.querySelector('.an-gate-badge').textContent = 'You Have Access';
+                    gate.querySelector('h1').textContent = 'Technical Application Notes';
+                    gate.querySelector('.an-gate-subtitle').textContent = 'Select any section below to read the full application note.';
+                    form.style.display = 'none';
+                    gate.querySelector('.an-gate-privacy').style.display = 'none';
+                    gate.querySelector('.an-gate-social').style.display = 'none';
+                    successMsg.style.display = 'none';
+                }
+            }
+
+            // Accordion logic
+            var accordionItems = document.querySelectorAll('.an-accordion-item');
+            accordionItems.forEach(function(item) {
+                var header = item.querySelector('.an-accordion-header');
+
+                header.addEventListener('click', function() {
+                    toggleAccordion(item);
+                });
+
+                header.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleAccordion(item);
+                    }
+                });
+            });
+
+            function toggleAccordion(item) {
+                var isActive = item.classList.contains('active');
+                var header = item.querySelector('.an-accordion-header');
+
+                // Close all
+                accordionItems.forEach(function(i) {
+                    i.classList.remove('active');
+                    i.querySelector('.an-accordion-header').setAttribute('aria-expanded', 'false');
+                });
+
+                // Open clicked if it was closed
+                if (!isActive) {
+                    item.classList.add('active');
+                    header.setAttribute('aria-expanded', 'true');
+                    // Scroll into view with offset for nav
+                    setTimeout(function() {
+                        var rect = item.getBoundingClientRect();
+                        if (rect.top < 100) {
+                            window.scrollBy({ top: rect.top - 100, behavior: 'smooth' });
+                        }
+                    }, 100);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

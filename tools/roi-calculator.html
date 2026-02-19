@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="color-scheme" content="dark">
+    <title>ROI Calculator | WelkinRim — Quantify Your Motor Savings</title>
+    <meta name="description" content="Calculate the cost savings of switching to WelkinRim drone motors. Compare annual costs, payback period, and 5-year savings with our interactive ROI calculator.">
+    <link rel="canonical" href="https://welkinrim.com/tools/roi-calculator.html">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://welkinrim.com/tools/roi-calculator.html">
+    <meta property="og:title" content="ROI Calculator | WelkinRim — Quantify Your Motor Savings">
+    <meta property="og:description" content="Calculate the cost savings of switching to WelkinRim drone motors. Compare annual costs, payback period, and 5-year savings.">
+    <meta property="og:image" content="https://welkinrim.com/assets/Welkinrim logo.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ROI Calculator | WelkinRim — Quantify Your Motor Savings">
+    <meta name="twitter:description" content="Calculate the cost savings of switching to WelkinRim drone motors. Compare annual costs, payback period, and 5-year savings.">
+    <meta name="twitter:image" content="https://welkinrim.com/assets/Welkinrim logo.png">
+    <link rel="icon" type="image/png" href="../assets/Welkinrim logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* Page background */
+        body {
+            background: #000;
+            color: #e0e0e0;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem 5%;
+            margin-top: 80px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .breadcrumb-nav {
+            font-size: 0.85rem;
+            color: #64748b;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb-nav a {
+            color: #f6a604;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .breadcrumb-nav a:hover {
+            color: #fbbf24;
+            text-decoration: underline;
+        }
+
+        .breadcrumb-separator {
+            margin: 0 10px;
+            color: #475569;
+        }
+
+        .breadcrumb-current {
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        /* Page header */
+        .roi-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 5% 0;
+            text-align: center;
+        }
+
+        .roi-header h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .roi-header p {
+            font-size: 1.05rem;
+            color: #94a3b8;
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Calculator container */
+        .roi-container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 48px 5% 100px;
+        }
+
+        /* Input form card */
+        .roi-form-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 40px 36px;
+            margin-bottom: 40px;
+        }
+
+        .roi-form-card h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 28px;
+        }
+
+        .roi-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 28px;
+        }
+
+        .roi-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .roi-field.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .roi-label {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 8px;
+        }
+
+        .roi-input,
+        .roi-select {
+            padding: 13px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .roi-input::placeholder {
+            color: rgba(255, 255, 255, 0.25);
+        }
+
+        .roi-input:focus,
+        .roi-select:focus {
+            border-color: rgba(246, 166, 4, 0.5);
+            box-shadow: 0 0 0 3px rgba(246, 166, 4, 0.1);
+        }
+
+        .roi-select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%2394a3b8' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 38px;
+            cursor: pointer;
+        }
+
+        .roi-select option {
+            background: #111;
+            color: #fff;
+        }
+
+        .roi-field-help {
+            font-size: 0.78rem;
+            color: #64748b;
+            margin-top: 6px;
+        }
+
+        .roi-calculate-btn {
+            grid-column: 1 / -1;
+            margin-top: 8px;
+            padding: 16px 36px;
+            background: #f6a604;
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.15s ease;
+        }
+
+        .roi-calculate-btn:hover {
+            background: #e09500;
+            transform: translateY(-2px);
+        }
+
+        .roi-calculate-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Results section */
+        .roi-results {
+            display: none;
+        }
+
+        .roi-results.visible {
+            display: block;
+        }
+
+        /* Result cards row */
+        .roi-results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .roi-result-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: border-color 0.3s ease;
+        }
+
+        .roi-result-card:hover {
+            border-color: rgba(246, 166, 4, 0.2);
+        }
+
+        .roi-result-label {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 12px;
+        }
+
+        .roi-result-value {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: #f6a604;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .roi-result-detail {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        /* Bar chart */
+        .roi-chart-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 36px;
+            margin-bottom: 40px;
+        }
+
+        .roi-chart-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 28px;
+        }
+
+        .roi-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .roi-bar-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .roi-bar-label {
+            width: 110px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            flex-shrink: 0;
+            text-align: right;
+        }
+
+        .roi-bar-track {
+            flex: 1;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .roi-bar-fill {
+            height: 100%;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 14px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #fff;
+            width: 0;
+            transition: width 1.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .roi-bar-fill.current {
+            background: linear-gradient(90deg, #64748b 0%, #94a3b8 100%);
+        }
+
+        .roi-bar-fill.welkinrim {
+            background: linear-gradient(90deg, #b87a00 0%, #f6a604 100%);
+        }
+
+        .roi-bar-amount {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #94a3b8;
+            width: 100px;
+            text-align: left;
+            flex-shrink: 0;
+        }
+
+        /* Savings highlight */
+        .roi-savings-strip {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 14px 20px;
+            background: rgba(246, 166, 4, 0.08);
+            border: 1px solid rgba(246, 166, 4, 0.15);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .roi-savings-strip span {
+            font-size: 0.92rem;
+            color: #f6a604;
+            font-weight: 600;
+        }
+
+        /* Formula note */
+        .roi-formula {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin-bottom: 48px;
+        }
+
+        .roi-formula h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .roi-formula p {
+            font-size: 0.85rem;
+            color: #64748b;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .roi-formula code {
+            display: block;
+            margin-top: 10px;
+            padding: 12px 16px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 8px;
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 0.82rem;
+            color: #f6a604;
+            overflow-x: auto;
+        }
+
+        /* CTA section */
+        .roi-cta {
+            background: rgba(246, 166, 4, 0.08);
+            border: 1px solid rgba(246, 166, 4, 0.2);
+            border-radius: 16px;
+            padding: 48px 40px;
+            text-align: center;
+        }
+
+        .roi-cta h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .roi-cta p {
+            color: #94a3b8;
+            font-size: 1rem;
+            margin-bottom: 28px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .roi-cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .roi-btn-primary {
+            display: inline-block;
+            padding: 16px 36px;
+            background: #f6a604;
+            color: #000;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.15s ease;
+        }
+
+        .roi-btn-primary:hover {
+            background: #e09500;
+            transform: translateY(-2px);
+        }
+
+        .roi-btn-secondary {
+            display: inline-block;
+            padding: 16px 36px;
+            background: transparent;
+            color: #f6a604;
+            border: 1px solid rgba(246, 166, 4, 0.3);
+            border-radius: 50px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease;
+        }
+
+        .roi-btn-secondary:hover {
+            border-color: #f6a604;
+            background: rgba(246, 166, 4, 0.06);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .roi-header h1 {
+                font-size: 1.7rem;
+            }
+
+            .roi-form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .roi-calculate-btn {
+                grid-column: 1;
+            }
+
+            .roi-results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .roi-result-value {
+                font-size: 2rem;
+            }
+
+            .roi-bar-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .roi-bar-label {
+                text-align: left;
+                width: auto;
+            }
+
+            .roi-bar-track {
+                width: 100%;
+            }
+
+            .roi-bar-amount {
+                text-align: left;
+            }
+
+            .roi-form-card {
+                padding: 28px 20px;
+            }
+
+            .roi-chart-card {
+                padding: 24px 20px;
+            }
+
+            .roi-cta {
+                padding: 36px 24px;
+            }
+
+            .roi-cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .breadcrumb {
+                padding: 0.75rem 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#roi-calculator" class="skip-to-content">Skip to content</a>
+
+    <!-- Navigation -->
+    <nav id="main-nav"></nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="../resources.html">Resources</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">ROI Calculator</span>
+        </nav>
+    </div>
+
+    <!-- Page Header -->
+    <div class="roi-header">
+        <h1>ROI Calculator</h1>
+        <p>Quantify the cost savings of switching to WelkinRim motors. Enter your current fleet details to see annual savings, payback period, and long-term value.</p>
+    </div>
+
+    <!-- Calculator -->
+    <div class="roi-container" id="roi-calculator">
+
+        <!-- Input Form -->
+        <div class="roi-form-card">
+            <h2>Your Fleet Details</h2>
+            <div class="roi-form-grid">
+                <div class="roi-field">
+                    <label class="roi-label" for="current-cost">Current Motor Cost / Unit ($)</label>
+                    <input type="number" id="current-cost" class="roi-input" placeholder="120" min="1" step="1">
+                    <span class="roi-field-help">What you pay per motor today</span>
+                </div>
+
+                <div class="roi-field">
+                    <label class="roi-label" for="failure-rate">Annual Failure Rate (%)</label>
+                    <input type="number" id="failure-rate" class="roi-input" placeholder="15" min="0" max="100" step="0.1">
+                    <span class="roi-field-help">Percentage of motors replaced per year</span>
+                </div>
+
+                <div class="roi-field">
+                    <label class="roi-label" for="fleet-size">Fleet Size (Drones)</label>
+                    <input type="number" id="fleet-size" class="roi-input" placeholder="20" min="1" step="1">
+                    <span class="roi-field-help">Total number of drones in your fleet</span>
+                </div>
+
+                <div class="roi-field">
+                    <label class="roi-label" for="motors-per-drone">Motors Per Drone</label>
+                    <input type="number" id="motors-per-drone" class="roi-input" placeholder="4" min="1" max="12" step="1">
+                    <span class="roi-field-help">Typically 4 (quad), 6 (hex), or 8 (octo)</span>
+                </div>
+
+                <div class="roi-field full-width">
+                    <label class="roi-label" for="wr-motor">WelkinRim Motor</label>
+                    <select id="wr-motor" class="roi-select">
+                        <option value="89">WR2212 &mdash; $89 / unit</option>
+                        <option value="149" selected>WR2815 &mdash; $149 / unit</option>
+                        <option value="229">WR3508 &mdash; $229 / unit</option>
+                    </select>
+                </div>
+
+                <button type="button" class="roi-calculate-btn" onclick="calculateROI()">Calculate Savings</button>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div class="roi-results" id="roi-results">
+
+            <!-- Three metric cards -->
+            <div class="roi-results-grid">
+                <div class="roi-result-card">
+                    <div class="roi-result-label">Annual Savings</div>
+                    <div class="roi-result-value" id="result-annual">$0</div>
+                    <div class="roi-result-detail">per year</div>
+                </div>
+                <div class="roi-result-card">
+                    <div class="roi-result-label">Payback Period</div>
+                    <div class="roi-result-value" id="result-payback">0</div>
+                    <div class="roi-result-detail" id="result-payback-unit">months</div>
+                </div>
+                <div class="roi-result-card">
+                    <div class="roi-result-label">5-Year Savings</div>
+                    <div class="roi-result-value" id="result-5year">$0</div>
+                    <div class="roi-result-detail">total savings</div>
+                </div>
+            </div>
+
+            <!-- Bar chart comparison -->
+            <div class="roi-chart-card">
+                <div class="roi-chart-title">Annual Cost Comparison</div>
+                <div class="roi-chart">
+                    <div class="roi-bar-row">
+                        <div class="roi-bar-label">Current</div>
+                        <div class="roi-bar-track">
+                            <div class="roi-bar-fill current" id="bar-current"></div>
+                        </div>
+                        <div class="roi-bar-amount" id="bar-current-amount">$0</div>
+                    </div>
+                    <div class="roi-bar-row">
+                        <div class="roi-bar-label">WelkinRim</div>
+                        <div class="roi-bar-track">
+                            <div class="roi-bar-fill welkinrim" id="bar-welkinrim"></div>
+                        </div>
+                        <div class="roi-bar-amount" id="bar-welkinrim-amount">$0</div>
+                    </div>
+                </div>
+                <div class="roi-savings-strip" id="savings-strip">
+                    <span id="savings-percent">0% lower annual cost with WelkinRim</span>
+                </div>
+            </div>
+
+            <!-- Formula explanation -->
+            <div class="roi-formula">
+                <h3>How We Calculate</h3>
+                <p>Annual cost includes initial motor purchase plus replacements due to failure. WelkinRim motors have an industry-leading 0.3% annual failure rate thanks to aerospace-grade bearings and IP-rated sealing.</p>
+                <code>Annual Cost = Fleet Size &times; Motors/Drone &times; Motor Cost &times; (1 + Failure Rate)<br>Savings = Current Annual Cost &minus; WelkinRim Annual Cost</code>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="roi-cta">
+            <h2>Ready to Start Saving?</h2>
+            <p>Get a custom quote tailored to your fleet size, or schedule a call with our engineering team to discuss integration.</p>
+            <div class="roi-cta-buttons">
+                <button class="roi-btn-primary" onclick="openQuoteModal()">Get a Custom Quote</button>
+                <a href="https://calendly.com/welkinrim/engineering" target="_blank" rel="noopener noreferrer" class="roi-btn-secondary">Talk to an Engineer</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="main-footer"></footer>
+
+    <script src="../shared.js" defer></script>
+    <script>
+        function calculateROI() {
+            // Read inputs
+            var currentCost = parseFloat(document.getElementById('current-cost').value) || 0;
+            var failureRate = parseFloat(document.getElementById('failure-rate').value) || 0;
+            var fleetSize = parseInt(document.getElementById('fleet-size').value, 10) || 0;
+            var motorsPerDrone = parseInt(document.getElementById('motors-per-drone').value, 10) || 0;
+            var wrCost = parseFloat(document.getElementById('wr-motor').value) || 0;
+
+            // Validate
+            if (currentCost <= 0 || fleetSize <= 0 || motorsPerDrone <= 0) {
+                alert('Please fill in all fields with valid values.');
+                return;
+            }
+
+            // Calculate
+            var totalMotors = fleetSize * motorsPerDrone;
+            var currentAnnualCost = totalMotors * currentCost * (1 + failureRate / 100);
+            var wrAnnualCost = totalMotors * wrCost * 1.003; // 0.3% failure rate
+            var annualSavings = currentAnnualCost - wrAnnualCost;
+            var fiveYearSavings = annualSavings * 5;
+
+            // Payback period: cost to switch / monthly savings
+            var switchCost = totalMotors * wrCost; // Cost to buy new WelkinRim motors
+            var monthlySavings = annualSavings / 12;
+            var paybackMonths = monthlySavings > 0 ? switchCost / monthlySavings : Infinity;
+
+            // Show results
+            var resultsEl = document.getElementById('roi-results');
+            resultsEl.classList.add('visible');
+
+            // Animated counter for annual savings
+            animateValue('result-annual', 0, annualSavings, 1500, '$');
+            // Payback period
+            if (paybackMonths === Infinity || paybackMonths < 0) {
+                document.getElementById('result-payback').textContent = 'N/A';
+                document.getElementById('result-payback-unit').textContent = 'no savings';
+            } else {
+                animateValue('result-payback', 0, Math.ceil(paybackMonths), 1500, '', false);
+                document.getElementById('result-payback-unit').textContent = paybackMonths <= 1 ? 'month' : 'months';
+            }
+            // 5-year savings
+            animateValue('result-5year', 0, fiveYearSavings, 1500, '$');
+
+            // Bar chart
+            var maxCost = Math.max(currentAnnualCost, wrAnnualCost, 1);
+            var currentBar = document.getElementById('bar-current');
+            var wrBar = document.getElementById('bar-welkinrim');
+
+            // Reset bars before animating
+            currentBar.style.width = '0';
+            wrBar.style.width = '0';
+
+            requestAnimationFrame(function() {
+                requestAnimationFrame(function() {
+                    currentBar.style.width = Math.round((currentAnnualCost / maxCost) * 100) + '%';
+                    wrBar.style.width = Math.round((wrAnnualCost / maxCost) * 100) + '%';
+                });
+            });
+
+            document.getElementById('bar-current-amount').textContent = '$' + formatNumber(Math.round(currentAnnualCost));
+            document.getElementById('bar-welkinrim-amount').textContent = '$' + formatNumber(Math.round(wrAnnualCost));
+
+            // Savings percentage
+            var savingsPercent = currentAnnualCost > 0 ? ((annualSavings / currentAnnualCost) * 100) : 0;
+            var stripEl = document.getElementById('savings-percent');
+            if (savingsPercent > 0) {
+                stripEl.textContent = Math.round(savingsPercent) + '% lower annual cost with WelkinRim';
+            } else {
+                stripEl.textContent = 'WelkinRim costs are higher for this configuration';
+            }
+
+            // Scroll to results
+            resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function animateValue(elementId, start, end, duration, prefix, formatAsNum) {
+            if (formatAsNum === undefined) formatAsNum = true;
+            var el = document.getElementById(elementId);
+            var startTime = null;
+            var isNegative = end < 0;
+            var absEnd = Math.abs(end);
+
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                var progress = Math.min((timestamp - startTime) / duration, 1);
+                // Ease out cubic
+                var eased = 1 - Math.pow(1 - progress, 3);
+                var current = Math.round(start + (absEnd - start) * eased);
+                var displayValue = formatAsNum ? formatNumber(current) : current;
+                el.textContent = (isNegative ? '-' : '') + prefix + displayValue;
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                }
+            }
+            requestAnimationFrame(step);
+        }
+
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+    </script>
+</body>
+</html>

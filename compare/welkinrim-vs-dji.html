@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="color-scheme" content="dark">
+    <title>WelkinRim vs DJI: Open-Platform Drone Motors vs Closed Ecosystem</title>
+    <meta name="description" content="WelkinRim vs DJI drone motor comparison. Open-platform motors vs closed ecosystem propulsion modules. Specs, IP ratings, customization, and use case recommendations.">
+    <link rel="canonical" href="https://welkinrim.com/compare/welkinrim-vs-dji.html">
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://welkinrim.com/compare/welkinrim-vs-dji.html">
+    <meta property="og:title" content="WelkinRim vs DJI: Open-Platform Drone Motors vs Closed Ecosystem">
+    <meta property="og:description" content="Compare WelkinRim open-platform drone motors against DJI's closed ecosystem propulsion modules. Specs, IP ratings, customization, and recommendations.">
+    <meta property="og:image" content="https://welkinrim.com/assets/Welkinrim logo.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="WelkinRim vs DJI: Open-Platform Drone Motors vs Closed Ecosystem">
+    <meta name="twitter:description" content="Compare WelkinRim open-platform drone motors against DJI's closed ecosystem propulsion modules. Specs, IP ratings, customization, and recommendations.">
+    <meta name="twitter:image" content="https://welkinrim.com/assets/Welkinrim logo.png">
+    <link rel="icon" type="image/png" href="../assets/Welkinrim logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://welkinrim.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Compare", "item": "https://welkinrim.com/compare/" },
+            { "@type": "ListItem", "position": 3, "name": "WelkinRim vs DJI" }
+        ]
+    }
+    </script>
+
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Can WelkinRim motors be used as a DJI replacement?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "WelkinRim motors are open-platform and work with any flight controller and frame, but they are not drop-in replacements for DJI's proprietary propulsion modules. DJI drones use closed-ecosystem integrated motor-ESC-propeller units that only work with DJI hardware. WelkinRim is ideal for custom builds, defence platforms, and commercial drones where you want full control over your propulsion stack."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Why choose open-platform motors over DJI's integrated system?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Open-platform motors like WelkinRim give you full control over every component: frame, flight controller, ESC, and propeller. This enables custom winding configurations, MIL-STD-810H compliance, IP68 environmental sealing, and individual motor replacement. DJI's closed system offers convenience but locks you into their ecosystem with no customization options."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does DJI offer MIL-STD-810H certified drone motors?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "DJI does not offer MIL-STD-810H certified propulsion components. Their enterprise drones (Matrice series) are designed for commercial use but lack formal military standard certification. WelkinRim's entire commercial range is MIL-STD-810H compliant, making it the choice for defence contractors, government programs, and regulated operations."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is DJI or WelkinRim better for agricultural drone spraying?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "For agricultural spraying, WelkinRim motors offer IP68 environmental protection against water and chemical exposure, custom winding configurations optimized for heavy-lift spray rigs, and operating temperatures from -40C to +80C. DJI's Agras series is a turnkey solution with integrated spray systems, but its IP45 rating and closed ecosystem limit field repairability and customization."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        body { background: #000; color: #e0e0e0; }
+
+        /* Breadcrumb */
+        .breadcrumb { background: #0a0a0a; padding: 20px 0; margin-top: 80px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .breadcrumb-nav { font-size: 0.875rem; color: #888; }
+        .breadcrumb-nav a { color: #f6a604; text-decoration: none; }
+        .breadcrumb-nav a:hover { text-decoration: underline; }
+        .breadcrumb-sep { margin: 0 12px; color: #555; }
+
+        /* Hero */
+        .compare-hero {
+            padding: 100px 0 80px;
+            background: linear-gradient(160deg, rgba(0,0,0,0.9) 0%, rgba(10,15,26,0.85) 50%, rgba(0,0,0,0.95) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .compare-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse 80% 50% at 50% 0%, rgba(246,166,4,0.06) 0%, transparent 60%),
+                repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(255,255,255,0.015) 50px),
+                repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(255,255,255,0.015) 50px);
+            pointer-events: none;
+        }
+        .compare-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .compare-hero h1 .accent { color: #f6a604; }
+        .compare-hero .subtitle {
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            color: rgba(255,255,255,0.6);
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.6;
+            position: relative;
+        }
+        .compare-hero .vs-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 50px;
+            padding: 8px 24px;
+            margin-bottom: 32px;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+            position: relative;
+        }
+        .compare-hero .vs-badge .vs { color: #f6a604; font-weight: 700; }
+
+        /* Quick Verdict */
+        .verdict-section { padding: 80px 0; background: #0a0a0a; }
+        .verdict-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .verdict-card::before {
+            content: 'QUICK VERDICT';
+            position: absolute;
+            top: -12px;
+            left: 40px;
+            background: #f6a604;
+            color: #000;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            padding: 4px 14px;
+            border-radius: 4px;
+        }
+        .verdict-card p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.8);
+        }
+        .verdict-card strong { color: #fff; }
+
+        /* Spec Table */
+        .specs-section { padding: 80px 0; background: #000; }
+        .specs-section .section-label {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #f6a604;
+            margin-bottom: 12px;
+        }
+        .specs-section h2 {
+            text-align: center;
+            margin-bottom: 48px;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+        .table-wrapper::-webkit-scrollbar { height: 6px; }
+        .table-wrapper::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); }
+        .table-wrapper::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+            font-size: 0.9rem;
+        }
+        .compare-table thead th {
+            padding: 16px 20px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.02);
+        }
+        .compare-table thead th.brand-wr {
+            color: #f6a604;
+            background: rgba(246,166,4,0.06);
+            border-bottom-color: rgba(246,166,4,0.2);
+        }
+        .compare-table thead th.brand-competitor {
+            color: rgba(255,255,255,0.7);
+        }
+        .compare-table tbody td {
+            padding: 14px 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: rgba(255,255,255,0.75);
+            vertical-align: middle;
+        }
+        .compare-table tbody tr:hover {
+            background: rgba(255,255,255,0.02);
+        }
+        .compare-table tbody td:first-child {
+            text-align: left;
+            font-weight: 600;
+            color: rgba(255,255,255,0.9);
+            white-space: nowrap;
+        }
+        .compare-table td.highlight {
+            color: #f6a604;
+            font-weight: 600;
+        }
+        .compare-table .winner-cell {
+            position: relative;
+        }
+        .compare-table .winner-cell::after {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: #f6a604;
+            border-radius: 50%;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+        .table-note {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.35);
+        }
+        .table-note .dot { display: inline-block; width: 6px; height: 6px; background: #f6a604; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+
+        /* Category Breakdown */
+        .breakdown-section { padding: 80px 0; background: #0a0a0a; }
+        .breakdown-section .section-label {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #f6a604;
+            margin-bottom: 12px;
+        }
+        .breakdown-section h2 {
+            text-align: center;
+            margin-bottom: 56px;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+        }
+        .breakdown-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .breakdown-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 32px;
+            transition: border-color 0.3s ease;
+        }
+        .breakdown-card:hover {
+            border-color: rgba(246,166,4,0.2);
+        }
+        .breakdown-card .card-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(246,166,4,0.08);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        .breakdown-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+        .breakdown-card p {
+            font-size: 0.92rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.6);
+        }
+        .breakdown-card .winner-tag {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+        .winner-tag.wr { background: rgba(246,166,4,0.12); color: #f6a604; }
+        .winner-tag.comp { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.6); }
+        .winner-tag.tie { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.5); }
+
+        /* Use Cases */
+        .usecase-section { padding: 80px 0; background: #000; }
+        .usecase-section h2 {
+            text-align: center;
+            margin-bottom: 48px;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+        }
+        .usecase-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .usecase-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 36px;
+        }
+        .usecase-card.wr { border-top: 2px solid #f6a604; }
+        .usecase-card.comp { border-top: 2px solid rgba(255,255,255,0.2); }
+        .usecase-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .usecase-card h3 .brand-wr { color: #f6a604; }
+        .usecase-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .usecase-card ul li {
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+            font-size: 0.92rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.5;
+        }
+        .usecase-card.wr ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 8px;
+            height: 8px;
+            background: #f6a604;
+            border-radius: 2px;
+        }
+        .usecase-card.comp ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 8px;
+            height: 8px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+        }
+
+        /* FAQ */
+        .faq-section { padding: 80px 0; background: #0a0a0a; }
+        .faq-section .section-label {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #f6a604;
+            margin-bottom: 12px;
+        }
+        .faq-section h2 {
+            text-align: center;
+            margin-bottom: 48px;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+        }
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            padding: 24px 40px 24px 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.2s;
+        }
+        .faq-question:hover { color: #f6a604; }
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.4);
+            transition: transform 0.3s, color 0.3s;
+        }
+        .faq-item.active .faq-question::after {
+            content: '-';
+            color: #f6a604;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding-bottom: 24px;
+        }
+        .faq-answer p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* CTA */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(160deg, rgba(0,0,0,0.9) 0%, rgba(20,15,5,0.9) 50%, rgba(0,0,0,0.95) 100%);
+            text-align: center;
+            position: relative;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse 60% 40% at 50% 50%, rgba(246,166,4,0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .cta-section h2 {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            margin-bottom: 16px;
+            position: relative;
+        }
+        .cta-section p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        .cta-btn-primary {
+            background: #f6a604;
+            color: #000;
+        }
+        .cta-btn-primary:hover {
+            background: #e09800;
+            box-shadow: 0 0 30px rgba(246,166,4,0.3);
+            transform: translateY(-1px);
+        }
+        .cta-btn-secondary {
+            background: rgba(255,255,255,0.06);
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+        .cta-btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.2);
+        }
+        .cta-btn-outline {
+            background: transparent;
+            color: #f6a604;
+            border: 1px solid rgba(246,166,4,0.3);
+        }
+        .cta-btn-outline:hover {
+            background: rgba(246,166,4,0.08);
+            border-color: #f6a604;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .breakdown-grid, .usecase-grid { grid-template-columns: 1fr; }
+            .compare-hero h1 { font-size: clamp(1.6rem, 6vw, 2.4rem); }
+            .verdict-card { padding: 32px 24px; }
+            .verdict-card::before { left: 24px; }
+            .breakdown-card { padding: 24px; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .cta-btn { width: 100%; max-width: 320px; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav id="main-nav"></nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb">
+        <div class="container">
+            <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                <a href="../index.html">Home</a>
+                <span class="breadcrumb-sep">/</span>
+                <span>Compare</span>
+                <span class="breadcrumb-sep">/</span>
+                <span>WelkinRim vs DJI</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Hero -->
+    <section class="compare-hero">
+        <div class="container">
+            <div class="vs-badge">WelkinRim <span class="vs">VS</span> DJI</div>
+            <h1>WelkinRim <span class="accent">vs</span> DJI</h1>
+            <p class="subtitle">Open-platform drone motors versus a closed-ecosystem propulsion system. A detailed comparison of customization, environmental protection, repairability, and mission flexibility for commercial and defence UAV operators.</p>
+        </div>
+    </section>
+
+    <!-- Quick Verdict -->
+    <section class="verdict-section">
+        <div class="container">
+            <div class="verdict-card">
+                <p><strong>WelkinRim</strong> is the better choice for operators who need an open-platform motor that works with any frame, flight controller, or ESC. With MIL-STD-810H compliance, IP54-IP68 environmental sealing, and custom winding configurations, WelkinRim is built for defence, agriculture, and custom commercial builds. <strong>DJI</strong> dominates as a turnkey integrated solution with plug-and-play convenience, a mature software ecosystem including FlightHub fleet management, and a global service network. If you are building a custom platform, need military certification, or want field-swappable motors, WelkinRim is the clear winner. For out-of-the-box commercial mapping and inspection with minimal setup, DJI remains the industry default.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Side-by-Side Spec Table -->
+    <section class="specs-section">
+        <div class="container">
+            <div class="section-label">Specifications</div>
+            <h2>Side-by-Side Comparison</h2>
+
+            <div class="table-wrapper">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>Specification</th>
+                            <th class="brand-wr">WelkinRim</th>
+                            <th class="brand-competitor">DJI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ecosystem</td>
+                            <td class="highlight winner-cell">Open-platform</td>
+                            <td>Closed / Proprietary</td>
+                        </tr>
+                        <tr>
+                            <td>IP Rating</td>
+                            <td class="highlight winner-cell">IP54 - IP68</td>
+                            <td>IP45 (typical)</td>
+                        </tr>
+                        <tr>
+                            <td>MIL-STD-810H</td>
+                            <td class="highlight winner-cell">Yes</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>Custom Windings</td>
+                            <td class="highlight winner-cell">Available</td>
+                            <td>Not available</td>
+                        </tr>
+                        <tr>
+                            <td>Operating Temp</td>
+                            <td class="highlight winner-cell">-40&deg;C to +80&deg;C</td>
+                            <td>-10&deg;C to +40&deg;C</td>
+                        </tr>
+                        <tr>
+                            <td>Repairability</td>
+                            <td class="highlight winner-cell">Individual motor swap</td>
+                            <td>Module replacement</td>
+                        </tr>
+                        <tr>
+                            <td>Flight Controller</td>
+                            <td class="highlight winner-cell">Any (Pixhawk, Cube, etc.)</td>
+                            <td>DJI only</td>
+                        </tr>
+                        <tr>
+                            <td>Software Ecosystem</td>
+                            <td>Third-party integrations</td>
+                            <td class="highlight winner-cell">FlightHub, Pilot 2, Terra</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="table-note"><span class="dot"></span>Orange dot indicates category leader in each row. DJI specs are approximate and based on publicly available enterprise drone data.</p>
+        </div>
+    </section>
+
+    <!-- Category Breakdown -->
+    <section class="breakdown-section">
+        <div class="container">
+            <div class="section-label">Analysis</div>
+            <h2>Category Breakdown</h2>
+            <div class="breakdown-grid">
+                <div class="breakdown-card">
+                    <div class="card-icon">&#128268;</div>
+                    <h3>Customization &amp; Flexibility</h3>
+                    <p>WelkinRim motors work with any frame, flight controller, and ESC. Custom winding configurations let you optimize for thrust, efficiency, or thermal performance. DJI propulsion modules are locked to DJI airframes and cannot be mixed with third-party components, limiting design freedom for specialized missions.</p>
+                    <span class="winner-tag wr">WelkinRim Wins</span>
+                </div>
+                <div class="breakdown-card">
+                    <div class="card-icon">&#128737;</div>
+                    <h3>Environmental Protection</h3>
+                    <p>WelkinRim offers IP54 to IP68 protection with chemical-resistant coatings and MIL-STD-810H compliance for shock, vibration, humidity, and temperature extremes (-40 to +80 degrees). DJI enterprise drones carry an IP45 rating and operate in a narrower temperature band of -10 to +40 degrees, making them less suited for extreme environments.</p>
+                    <span class="winner-tag wr">WelkinRim Wins</span>
+                </div>
+                <div class="breakdown-card">
+                    <div class="card-icon">&#128187;</div>
+                    <h3>Software &amp; Integration</h3>
+                    <p>DJI's ecosystem is unmatched for turnkey operations: FlightHub for fleet management, Pilot 2 for mission planning, and DJI Terra for photogrammetry. WelkinRim integrates with open-source stacks (ArduPilot, PX4) and third-party GCS platforms, offering more flexibility but requiring more integration effort.</p>
+                    <span class="winner-tag comp">DJI Wins</span>
+                </div>
+                <div class="breakdown-card">
+                    <div class="card-icon">&#128736;</div>
+                    <h3>Repairability &amp; Total Cost</h3>
+                    <p>A failed WelkinRim motor can be swapped individually in the field in minutes, with each motor priced at $89-$229. A failed DJI propulsion module requires replacing the entire integrated unit, often at several hundred dollars, and may need factory service. For fleet operators, WelkinRim's field serviceability dramatically reduces downtime and long-term maintenance costs.</p>
+                    <span class="winner-tag wr">WelkinRim Wins</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Case Recommendations -->
+    <section class="usecase-section">
+        <div class="container">
+            <h2>Which Brand Should You Choose?</h2>
+            <div class="usecase-grid">
+                <div class="usecase-card wr">
+                    <h3>Choose <span class="brand-wr">WelkinRim</span> if you need:</h3>
+                    <ul>
+                        <li>Open-platform motors compatible with any frame and flight controller</li>
+                        <li>MIL-STD-810H compliance for defence contracts and government projects</li>
+                        <li>IP68 environmental sealing for rain, dust, saltwater, or chemical exposure</li>
+                        <li>Custom winding configurations optimized for your specific mission profile</li>
+                        <li>Field-swappable motors that reduce downtime to minutes, not days</li>
+                        <li>Full control over your propulsion stack without vendor lock-in</li>
+                    </ul>
+                </div>
+                <div class="usecase-card comp">
+                    <h3>Choose DJI if you need:</h3>
+                    <ul>
+                        <li>A turnkey integrated drone system ready to fly out of the box</li>
+                        <li>Mature software ecosystem with FlightHub, Pilot 2, and DJI Terra</li>
+                        <li>Global service network with authorized repair centres worldwide</li>
+                        <li>Plug-and-play propulsion with no integration work required</li>
+                        <li>Consumer and prosumer market coverage with established brand trust</li>
+                        <li>Standard commercial mapping and inspection where extreme environments are not a factor</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-label">Common Questions</div>
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">Can WelkinRim motors be used as a DJI replacement?</button>
+                    <div class="faq-answer">
+                        <p>WelkinRim motors are open-platform and work with any flight controller and frame, but they are not drop-in replacements for DJI's proprietary propulsion modules. DJI drones use closed-ecosystem integrated motor-ESC-propeller units that only work with DJI hardware. WelkinRim is ideal for custom builds, defence platforms, and commercial drones where you want full control over your propulsion stack.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Why choose open-platform motors over DJI's integrated system?</button>
+                    <div class="faq-answer">
+                        <p>Open-platform motors give you full control over every component in your propulsion system: frame, flight controller, ESC, and propeller. This enables custom winding configurations, MIL-STD-810H compliance, IP68 environmental sealing, and individual motor replacement in the field. DJI's closed system offers plug-and-play convenience but locks you into their ecosystem with no customization options.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Does DJI offer MIL-STD-810H certified drone motors?</button>
+                    <div class="faq-answer">
+                        <p>DJI does not offer MIL-STD-810H certified propulsion components. Their enterprise drones like the Matrice series are designed for commercial use but lack formal military standard certification. WelkinRim's entire commercial range is MIL-STD-810H compliant, making it the preferred choice for defence contractors, government programs, and regulated operations requiring formal certification documentation.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Is DJI or WelkinRim better for agricultural drone spraying?</button>
+                    <div class="faq-answer">
+                        <p>For agricultural spraying, WelkinRim motors offer IP68 environmental protection against water and chemical exposure, custom winding configurations optimized for heavy-lift spray rigs, and an operating temperature range of -40 to +80 degrees Celsius. DJI's Agras series is a turnkey solution with integrated spray systems, but its IP45 rating and closed ecosystem limit field repairability and customization for specialized agricultural operations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Go Open-Platform?</h2>
+            <p>Configure your ideal motor setup or request a custom quote from our engineering team.</p>
+            <div class="cta-buttons">
+                <a href="../configurator.html" class="cta-btn cta-btn-primary">Configure Your Motor</a>
+                <button class="cta-btn cta-btn-secondary" onclick="openQuoteModal()">Get a Quote</button>
+                <a href="../motor-selection-guide.html" class="cta-btn cta-btn-outline">View Motor Selection Guide</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="main-footer"></footer>
+    <script src="../shared.js" defer></script>
+    <script>
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var item = this.parentElement;
+                var isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(function(el) { el.classList.remove('active'); });
+                if (!isActive) item.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

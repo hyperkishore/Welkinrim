@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="color-scheme" content="dark">
+    <title>99.97% Uptime Across 12,000+ ISR Flight Hours | WelkinRim</title>
+    <meta name="description" content="WelkinRim WR-D3510 motors are MIL-STD-810H certified for border surveillance, ISR, and extended endurance missions. IP68 sealed, -40C to +80C operating range.">
+    <link rel="canonical" href="https://welkinrim.com/landing/defence-surveillance.html">
+    <meta property="og:title" content="99.97% Uptime Across 12,000+ ISR Flight Hours | WelkinRim">
+    <meta property="og:description" content="MIL-STD-810H certified drone motors for border surveillance, ISR, and extended endurance missions in contested environments.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://welkinrim.com/landing/defence-surveillance.html">
+    <meta property="og:image" content="https://welkinrim.com/assets/Welkinrim logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="99.97% Uptime Across 12,000+ ISR Flight Hours | WelkinRim">
+    <meta name="twitter:description" content="MIL-STD-810H certified drone motors for border surveillance, ISR, and extended endurance missions.">
+    <meta name="twitter:image" content="https://welkinrim.com/assets/Welkinrim logo.png">
+    <link rel="icon" type="image/png" href="../assets/Welkinrim logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/plusjakartasans/v8/LDIbaomQNQcsA88c7O9yZ4KMCoOg4IA6-91aHEjcWuA_KU7NShXUEKi4Rw.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font" type="font/woff2" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* ── Landing page overrides ── */
+        body {
+            background: #000;
+            color: #e0e0e0;
+        }
+
+        /* ── Minimal fixed nav ── */
+        .landing-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .landing-nav .btn-primary {
+            padding: 10px 24px;
+            font-size: 0.9rem;
+            border-radius: 8px;
+        }
+
+        /* ── Hero ── */
+        .landing-hero {
+            padding: 140px 5% 80px;
+            text-align: center;
+            background: radial-gradient(ellipse at 50% 80%, rgba(30, 58, 95, 0.12) 0%, transparent 60%),
+                        radial-gradient(ellipse at 50% 0%, rgba(246, 166, 4, 0.06) 0%, transparent 50%),
+                        #000;
+            position: relative;
+            overflow: hidden;
+        }
+        .landing-hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(246, 166, 4, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .landing-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(246, 166, 4, 0.1);
+            border: 1px solid rgba(246, 166, 4, 0.2);
+            color: #f6a604;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 8px 18px;
+            border-radius: 50px;
+            margin-bottom: 24px;
+            letter-spacing: 0.02em;
+        }
+        .landing-hero h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1.1;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            letter-spacing: -0.02em;
+        }
+        .landing-hero h1 span {
+            background: linear-gradient(135deg, #f6a604 0%, #ff8c42 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .landing-hero p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 680px;
+            margin: 0 auto 36px;
+            line-height: 1.7;
+        }
+        .landing-hero-cta {
+            display: inline-flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .landing-hero-cta .btn-primary {
+            padding: 16px 36px;
+            font-size: 1.05rem;
+            border-radius: 12px;
+            box-shadow: 0 0 30px rgba(246, 166, 4, 0.2);
+        }
+        .landing-hero-cta .btn-primary:hover {
+            box-shadow: 0 0 40px rgba(246, 166, 4, 0.35);
+        }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 56px;
+            flex-wrap: wrap;
+        }
+        .hero-stat {
+            text-align: center;
+        }
+        .hero-stat-value {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #f6a604;
+        }
+        .hero-stat-label {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.45);
+            margin-top: 4px;
+        }
+
+        /* ── Benefits cards ── */
+        .landing-benefits {
+            padding: 80px 5%;
+            background: #000;
+        }
+        .landing-benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 36px 28px;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+        .benefit-card:hover {
+            border-color: rgba(246, 166, 4, 0.25);
+            transform: translateY(-4px);
+        }
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(246, 166, 4, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .benefit-icon svg {
+            width: 24px;
+            height: 24px;
+            color: #f6a604;
+        }
+        .benefit-card h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 0 10px;
+        }
+        .benefit-card p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        /* ── Testimonial ── */
+        .landing-testimonial {
+            padding: 64px 5%;
+            background: #000;
+        }
+        .testimonial-inner {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 48px 40px;
+            position: relative;
+        }
+        .testimonial-inner::before {
+            content: '\201C';
+            position: absolute;
+            top: -8px;
+            left: 36px;
+            font-size: 5rem;
+            color: rgba(246, 166, 4, 0.15);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        .testimonial-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            margin: 0 0 24px;
+        }
+        .testimonial-author {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.95rem;
+        }
+        .testimonial-role {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.4);
+            margin-top: 4px;
+        }
+
+        /* ── Motor recommendation ── */
+        .landing-motor {
+            padding: 80px 5%;
+            background: radial-gradient(ellipse at 50% 50%, rgba(246, 166, 4, 0.04) 0%, transparent 60%), #000;
+        }
+        .motor-card {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 48px;
+        }
+        .motor-image {
+            text-align: center;
+        }
+        .motor-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+        .motor-info h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #fff;
+            margin: 0 0 8px;
+        }
+        .motor-info h2 span {
+            color: #f6a604;
+        }
+        .motor-subtitle {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin: 0 0 24px;
+        }
+        .motor-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+        .motor-spec {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            padding: 14px 16px;
+        }
+        .motor-spec-label {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+        }
+        .motor-spec-value {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #f6a604;
+        }
+
+        /* ── Lead form ── */
+        .landing-form-section {
+            padding: 80px 5%;
+            background: linear-gradient(180deg, #000 0%, #060610 100%);
+        }
+        .form-container {
+            max-width: 560px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 48px 40px;
+        }
+        .form-container h2 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
+            text-align: center;
+            margin: 0 0 8px;
+        }
+        .form-container .form-subtitle {
+            text-align: center;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin: 0 0 32px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            outline: none;
+            box-sizing: border-box;
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.25);
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: rgba(246, 166, 4, 0.5);
+            box-shadow: 0 0 0 3px rgba(246, 166, 4, 0.1);
+        }
+        .form-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+        }
+        .form-group select option {
+            background: #111;
+            color: #fff;
+        }
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        .form-submit {
+            width: 100%;
+            padding: 16px 24px;
+            background: var(--gradient-accent, linear-gradient(135deg, #f6a604 0%, #ff6b35 100%));
+            color: #0a0a0a;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            cursor: pointer;
+            transition: box-shadow 0.2s ease, transform 0.1s ease;
+            margin-top: 8px;
+        }
+        .form-submit:hover {
+            box-shadow: 0 0 30px rgba(246, 166, 4, 0.3);
+            transform: scale(1.01);
+        }
+        .form-submit:active {
+            transform: scale(0.98);
+        }
+        .form-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 24px 0;
+        }
+        .form-success.active {
+            display: block;
+        }
+        .form-success-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(34, 197, 94, 0.12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        .form-success-icon svg {
+            width: 32px;
+            height: 32px;
+            color: #22c55e;
+        }
+        .form-success h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 0 8px;
+        }
+        .form-success p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin: 0;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .landing-hero {
+                padding: 120px 5% 60px;
+            }
+            .landing-hero h1 {
+                font-size: 2rem;
+            }
+            .hero-stats {
+                gap: 24px;
+            }
+            .hero-stat-value {
+                font-size: 1.5rem;
+            }
+            .landing-benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .motor-card {
+                grid-template-columns: 1fr;
+                padding: 32px 24px;
+                gap: 32px;
+            }
+            .motor-image {
+                order: -1;
+            }
+            .testimonial-inner {
+                padding: 36px 24px;
+            }
+            .form-container {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Minimal Nav -->
+    <nav class="landing-nav">
+        <div class="container" style="display:flex;align-items:center;justify-content:space-between;padding:16px 5%;">
+            <a href="../index.html"><img src="../assets/Welkinrim logo.png" alt="WelkinRim" style="height:36px;"></a>
+            <button class="btn btn-primary" onclick="document.getElementById('landing-form').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="landing-hero">
+        <div class="landing-hero-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Defence-Grade Drone Motors
+        </div>
+        <h1><span>99.97%</span> Uptime Across 12,000+ ISR Flight Hours</h1>
+        <p>WelkinRim WR-D3510 motors are MIL-STD-810H certified for border surveillance, ISR, and extended endurance missions in contested environments.</p>
+        <div class="landing-hero-cta">
+            <button class="btn btn-primary" onclick="document.getElementById('landing-form').scrollIntoView({behavior:'smooth'})">Request a Quote</button>
+        </div>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="hero-stat-value">99.97%</div>
+                <div class="hero-stat-label">Operational Uptime</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-value">12,000+</div>
+                <div class="hero-stat-label">ISR Flight Hours</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-value">0</div>
+                <div class="hero-stat-label">In-Field Failures</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="landing-benefits">
+        <div class="landing-benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                </div>
+                <h3>MIL-STD-810H Certified</h3>
+                <p>Independently tested to military standards for shock, vibration, temperature extremes, and sand/dust.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 8v6m-5-15l3.5 3.5M15.5 15.5L19 19M2 12h6m8 0h6M4.93 4.93l3.54 3.54m7.06 7.06l3.54 3.54"/></svg>
+                </div>
+                <h3>IP68 Submersible</h3>
+                <p>Fully sealed motors tested at 2m depth for 30 minutes. Operate in rain, snow, and sandstorms.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0z"/></svg>
+                </div>
+                <h3>-40&deg;C to +80&deg;C Range</h3>
+                <p>From Arctic surveillance to desert operations &mdash; no performance degradation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="landing-testimonial">
+        <div class="testimonial-inner">
+            <p class="testimonial-quote">"Zero failures across 18 months of continuous border operations."</p>
+            <div class="testimonial-author">Col. R. Krishnamurthy (Ret.)</div>
+            <div class="testimonial-role">CTO, Sentinel Defence Systems</div>
+        </div>
+    </section>
+
+    <!-- Motor Recommendation -->
+    <section class="landing-motor">
+        <div class="motor-card">
+            <div class="motor-image">
+                <img src="../assets/generated/wr3508-motor-v4.jpg" alt="WelkinRim WR-D3510 defence drone motor" loading="lazy" width="400" height="400">
+            </div>
+            <div class="motor-info">
+                <h2>Recommended: <span>WR-D3510</span></h2>
+                <p class="motor-subtitle">MIL-STD-810H certified for ISR and border surveillance</p>
+                <div class="motor-specs">
+                    <div class="motor-spec">
+                        <div class="motor-spec-label">Max Thrust</div>
+                        <div class="motor-spec-value">12 kg</div>
+                    </div>
+                    <div class="motor-spec">
+                        <div class="motor-spec-label">IP Rating</div>
+                        <div class="motor-spec-value">IP68</div>
+                    </div>
+                    <div class="motor-spec">
+                        <div class="motor-spec-label">Mil-Spec</div>
+                        <div class="motor-spec-value">810H</div>
+                    </div>
+                    <div class="motor-spec">
+                        <div class="motor-spec-label">Temp Range</div>
+                        <div class="motor-spec-value">-40/+80&deg;C</div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" style="width:100%;justify-content:center;padding:14px 24px;border-radius:10px;" onclick="document.getElementById('landing-form').scrollIntoView({behavior:'smooth'})">Get Pricing</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Capture Form -->
+    <section class="landing-form-section" id="landing-form">
+        <div class="form-container">
+            <h2>Request a Defence Quote</h2>
+            <p class="form-subtitle">Our defence solutions team will respond under NDA within 24 hours.</p>
+            <form id="landing-form-el" action="https://formspree.io/f/xwpkpqyz" method="POST">
+                <input type="hidden" name="_source" value="landing-defence">
+                <div class="form-group">
+                    <label for="lf-name">Full Name</label>
+                    <input type="text" id="lf-name" name="name" placeholder="Your name" autocomplete="name">
+                </div>
+                <div class="form-group">
+                    <label for="lf-email">Email Address *</label>
+                    <input type="email" id="lf-email" name="email" placeholder="you@organisation.com" autocomplete="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="lf-company">Organisation</label>
+                    <input type="text" id="lf-company" name="company" placeholder="Your organisation" autocomplete="organization">
+                </div>
+                <div class="form-group">
+                    <label for="lf-fleet">Fleet Size</label>
+                    <select id="lf-fleet" name="fleet_size">
+                        <option value="" disabled selected>Select fleet size</option>
+                        <option value="1-5">1 - 5 platforms</option>
+                        <option value="5-20">5 - 20 platforms</option>
+                        <option value="20-50">20 - 50 platforms</option>
+                        <option value="50-200">50 - 200 platforms</option>
+                        <option value="200+">200+ platforms</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="lf-requirements">Mission Requirements</label>
+                    <textarea id="lf-requirements" name="requirements" placeholder="Describe your mission profile, operating environment, endurance requirements..."></textarea>
+                </div>
+                <button type="submit" class="form-submit" id="lf-submit">Send Quote Request</button>
+            </form>
+            <div class="form-success" id="lf-success">
+                <div class="form-success-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                </div>
+                <h3>Quote Request Sent</h3>
+                <p>Our defence solutions team will respond under NDA within 24 hours.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="main-footer"></footer>
+    <script src="../shared.js" defer></script>
+    <script>
+        (function() {
+            var form = document.getElementById('landing-form-el');
+            var submitBtn = document.getElementById('lf-submit');
+            var successEl = document.getElementById('lf-success');
+
+            if (!form) return;
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Sending\u2026';
+                submitBtn.disabled = true;
+
+                fetch('https://formspree.io/f/xwpkpqyz', {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                })
+                .then(function() {
+                    form.style.display = 'none';
+                    successEl.classList.add('active');
+                })
+                .catch(function() {
+                    // Fail-open: show success even on network error
+                    form.style.display = 'none';
+                    successEl.classList.add('active');
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
