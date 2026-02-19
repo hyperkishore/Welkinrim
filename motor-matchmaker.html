@@ -292,10 +292,10 @@
     </section>
 
     <!-- Comparison Drawer -->
-    <div class="comparison-drawer" id="comparison-drawer">
+    <div class="comparison-drawer" id="comparison-drawer" role="dialog" aria-modal="true" aria-label="Motor Comparison">
         <div class="drawer-header">
             <h3>Motor Comparison</h3>
-            <button class="drawer-close" id="drawer-close">&times;</button>
+            <button class="drawer-close" id="drawer-close" aria-label="Close comparison drawer">&times;</button>
         </div>
         <div class="drawer-content" id="comparison-content">
             <!-- Comparison table will be populated here -->
@@ -303,11 +303,11 @@
     </div>
 
     <!-- Quote Modal -->
-    <div class="quote-modal" id="quote-modal">
+    <div class="quote-modal" id="quote-modal" role="dialog" aria-modal="true" aria-label="Request Quote">
         <div class="modal-content">
             <div class="modal-header">
                 <h3>Request Quote</h3>
-                <button class="modal-close" id="modal-close">&times;</button>
+                <button class="modal-close" id="modal-close" aria-label="Close quote modal">&times;</button>
             </div>
             <div class="modal-body" id="quote-modal-body">
                 <!-- Quote form will be populated here -->

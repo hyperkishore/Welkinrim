@@ -26,17 +26,21 @@ const quoteModal = document.getElementById('quote-modal');
 const modalClose = document.getElementById('modal-close');
 const quoteModalBody = document.getElementById('quote-modal-body');
 
+// Track trigger elements for focus restoration
+let drawerTriggerElement = null;
+let modalTriggerElement = null;
+
 // Initialize event listeners
 function initializeEventListeners() {
     // Form submission
     form.addEventListener('submit', handleSearch);
-    
+
     // Sort selection
     sortSelect.addEventListener('change', (e) => {
         currentSortMethod = e.target.value;
         displayResults(searchResults);
     });
-    
+
     // Select all checkbox
     selectAllCheckbox.addEventListener('change', (e) => {
         const checkboxes = document.querySelectorAll('.motor-checkbox');
@@ -45,29 +49,98 @@ function initializeEventListeners() {
             handleMotorSelection(cb);
         });
     });
-    
+
     // Compare button
-    compareButton.addEventListener('click', showComparison);
-    
+    compareButton.addEventListener('click', () => {
+        drawerTriggerElement = document.activeElement;
+        showComparison();
+    });
+
     // Drawer close
     drawerClose.addEventListener('click', () => {
-        comparisonDrawer.classList.remove('open');
+        closeDrawer();
     });
-    
+
     // Modal close
     modalClose.addEventListener('click', () => {
-        quoteModal.classList.remove('open');
+        closeModal();
     });
-    
+
     // Click outside modal to close
     quoteModal.addEventListener('click', (e) => {
         if (e.target === quoteModal) {
-            quoteModal.classList.remove('open');
+            closeModal();
         }
     });
-    
+
+    // Escape key to close modals/drawer
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            if (quoteModal.classList.contains('open')) {
+                closeModal();
+            } else if (comparisonDrawer.classList.contains('open')) {
+                closeDrawer();
+            }
+        }
+    });
+
+    // Focus trap for quote modal
+    quoteModal.addEventListener('keydown', (e) => {
+        if (e.key === 'Tab') {
+            trapFocus(e, quoteModal.querySelector('.modal-content'));
+        }
+    });
+
+    // Focus trap for comparison drawer
+    comparisonDrawer.addEventListener('keydown', (e) => {
+        if (e.key === 'Tab') {
+            trapFocus(e, comparisonDrawer);
+        }
+    });
+
     // Enable/disable search button based on required fields
     form.addEventListener('input', validateForm);
+}
+
+// Close comparison drawer and restore focus
+function closeDrawer() {
+    comparisonDrawer.classList.remove('open');
+    if (drawerTriggerElement) {
+        drawerTriggerElement.focus();
+        drawerTriggerElement = null;
+    }
+}
+
+// Close quote modal and restore focus
+function closeModal() {
+    quoteModal.classList.remove('open');
+    if (modalTriggerElement) {
+        modalTriggerElement.focus();
+        modalTriggerElement = null;
+    }
+}
+
+// Trap focus within a container (Tab cycles within modal)
+function trapFocus(e, container) {
+    const focusable = container.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    if (focusable.length === 0) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (e.shiftKey) {
+        if (document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+        }
+    } else {
+        if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+        }
+    }
 }
 
 // Validate form and enable/disable search button
@@ -589,6 +662,8 @@ function showComparison() {
 
     comparisonContent.innerHTML = html;
     comparisonDrawer.classList.add('open');
+    // Focus the close button inside the drawer for accessibility
+    drawerClose.focus();
 }
 
 // Share comparison via URL parameters
@@ -617,6 +692,7 @@ function loadComparisonFromURL() {
 
 // View motor details - shows inline modal
 function viewMotorDetails(motorId) {
+    modalTriggerElement = document.activeElement;
     const motor = motorDatabase.find(m => m.id === motorId);
     if (!motor) return;
 
@@ -639,12 +715,14 @@ function viewMotorDetails(motorId) {
         ${motor.description ? '<p style="color:#666;margin-bottom:16px;">' + motor.description + '</p>' : ''}
         <div style="display:flex;gap:12px;">
             <button class="btn btn-primary" onclick="requestQuote('${motor.id}')">Get Quote</button>
-            <button class="btn btn-secondary" onclick="quoteModal.classList.remove('open')">Close</button>
+            <button class="btn btn-secondary" onclick="closeModal()">Close</button>
         </div>
     `;
 
     quoteModalBody.innerHTML = html;
     quoteModal.classList.add('open');
+    // Focus the modal close button for accessibility
+    modalClose.focus();
 }
 
 // Request quote - open Quick Quote modal or redirect to contact page

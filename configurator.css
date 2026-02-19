@@ -739,6 +739,13 @@
     .dashboard-gauges {
         grid-template-columns: 1fr 1fr;
     }
+    .gauge-svg {
+        width: 80px;
+        height: 80px;
+    }
+    .gauge-number {
+        font-size: 1rem;
+    }
     .config-steps-bar {
         gap: 0;
     }
@@ -750,8 +757,37 @@
         grid-template-columns: 1fr 1fr;
     }
 }
+
+@media (max-width: 600px) {
+    .requirements-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .sub-category-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .summary-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .gauge-svg {
+        width: 72px;
+        height: 72px;
+    }
+    .gauge-number {
+        font-size: 0.9rem;
+    }
+    .gauge-label {
+        font-size: 0.6rem;
+    }
+}
+
 @media (max-width: 480px) {
     .mission-grid {
         grid-template-columns: 1fr;
+    }
+    .dashboard-gauges {
+        gap: 12px;
     }
 }
