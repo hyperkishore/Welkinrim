@@ -13,7 +13,7 @@ WelkinRim positions itself as the premium choice for drone propulsion systems, c
   - ISO 9001 certified manufacturing
   - Advanced computational fluid dynamics optimization
   - Proprietary magnetic bearing technology
-  - 99.8% efficiency ratings
+  - Up to 95% efficiency ratings
 
 ### 2. Versatile Applications
 - **Message**: "One platform, infinite possibilities"
@@ -117,7 +117,7 @@ WelkinRim positions itself as the premium choice for drone propulsion systems, c
 **Subheadline**: "German-engineered brushless motors delivering unmatched performance, reliability, and efficiency for commercial and research applications."
 
 ### Value Propositions (3-column layout)
-1. **Engineering Excellence**: "99.8% efficiency with proprietary magnetic optimization"
+1. **Engineering Excellence**: "Up to 95% efficiency with proprietary magnetic optimization"
 2. **Mission Reliability**: "10,000+ hour MTBF for critical operations"
 3. **Versatile Solutions**: "100g to 50kg applications with one platform"
 
