@@ -203,7 +203,7 @@ h6 { font-size: 1rem; font-weight: 500; }
     text-decoration: none;
     border: none;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), background-color 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
     font-size: 0.875rem;
     white-space: nowrap;
     letter-spacing: 0.01em;
@@ -257,7 +257,7 @@ h6 { font-size: 1rem; font-weight: 500; }
     backdrop-filter: none;
     border-bottom: 1px solid transparent;
     z-index: 1000;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), backdrop-filter 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-bottom-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .nav-container {
@@ -383,7 +383,7 @@ h6 { font-size: 1rem; font-weight: 500; }
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 500;
     font-size: 0.875rem;
-    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
     box-shadow: var(--shadow-glow-sm);
 }
 
@@ -413,7 +413,7 @@ h6 { font-size: 1rem; font-weight: 500; }
     width: 25px;
     height: 3px;
     background-color: rgba(255, 255, 255, 0.9);
-    transition: 0.3s;
+    transition: transform 0.3s, background-color 0.3s;
 }
 
 .nav-scrolled .nav-toggle-bar {
@@ -809,7 +809,7 @@ h6 { font-size: 1rem; font-weight: 500; }
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.6);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
 }
 
@@ -891,7 +891,7 @@ h6 { font-size: 1rem; font-weight: 500; }
     background-color: rgba(255, 255, 255, 0.06);
     color: #ffffff;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-select option {
@@ -899,7 +899,7 @@ h6 { font-size: 1rem; font-weight: 500; }
     color: #ffffff;
 }
 
-.form-select:focus {
+.form-select:focus-visible {
     outline: none;
     border-color: var(--color-accent);
     box-shadow: 0 0 0 3px rgba(246, 166, 4, 0.15);
@@ -926,7 +926,7 @@ h6 { font-size: 1rem; font-weight: 500; }
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.6);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .category-card:hover {
@@ -1016,7 +1016,7 @@ h6 { font-size: 1rem; font-weight: 500; }
     text-align: center;
     padding: 40px 24px;
     border-radius: 16px;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease;
 }
 
 .industry-card:hover {
@@ -1078,7 +1078,7 @@ h6 { font-size: 1rem; font-weight: 500; }
     border-radius: 12px;
     text-decoration: none;
     color: #ffffff;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .resource-item:hover {
@@ -1294,7 +1294,7 @@ h6 { font-size: 1rem; font-weight: 500; }
 .cert-badge {
     height: 40px;
     opacity: 0.7;
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease, filter 0.3s ease;
     position: relative;
 }
 
@@ -1678,7 +1678,7 @@ h6 { font-size: 1rem; font-weight: 500; }
 .resource-item {
     opacity: 0;
     transform: translateY(30px);
-    transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), border-color 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), background 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .value-card.animate-in,
@@ -1866,7 +1866,7 @@ textarea:focus {
     padding: 40px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.5);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .testimonial-card:hover {
@@ -2042,7 +2042,7 @@ body {
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     border: 1px solid rgba(23, 26, 32, 0.05);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .result-card:hover {
@@ -2157,7 +2157,7 @@ body {
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: var(--shadow-glow-sm);
 }
 
@@ -2840,7 +2840,7 @@ a:focus-visible {
     font-weight: 500;
     color: rgba(255,255,255,0.5);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
     text-align: center;
 }
 
@@ -2978,7 +2978,7 @@ a:focus-visible {
     border: 1px solid rgba(255,255,255,0.08);
     display: flex;
     flex-direction: column;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     opacity: 0;
     transform: translateY(30px);
 }
@@ -3187,7 +3187,7 @@ a:focus-visible {
     background-color: rgba(255,255,255,0.06);
     color: #ffffff;
     font-family: 'Inter', sans-serif;
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .rfq-form-group input::placeholder {
@@ -3199,8 +3199,8 @@ a:focus-visible {
     color: #fff;
 }
 
-.rfq-form-group input:focus,
-.rfq-form-group select:focus {
+.rfq-form-group input:focus-visible,
+.rfq-form-group select:focus-visible {
     outline: none;
     border-color: var(--color-accent);
     box-shadow: 0 0 0 3px rgba(246,166,4,0.15);
@@ -3630,11 +3630,11 @@ a:focus-visible {
     border-radius: 50px;
     font-size: 0.92rem;
     font-family: 'Inter', sans-serif;
-    outline: none;
     transition: border-color 0.2s ease;
 }
 
-.exit-popup-input:focus {
+.exit-popup-input:focus-visible {
+    outline: none;
     border-color: #f6a604;
 }
 
@@ -3738,7 +3738,7 @@ a:focus-visible {
     font-size: 0.95rem;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 .motor-tab:hover {
     background: rgba(255,255,255,0.1);

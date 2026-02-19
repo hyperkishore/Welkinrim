@@ -130,11 +130,11 @@ document.addEventListener('click', function(e) {
                     <a href="${base}about.html" class="nav-link${activeClass('company')}">Company</a>
                     <a href="${base}contact.html" class="nav-cta">Get Quote</a>
                 </div>
-                <div class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" role="button" tabindex="0">
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
                     <span class="nav-toggle-bar"></span>
                     <span class="nav-toggle-bar"></span>
                     <span class="nav-toggle-bar"></span>
-                </div>
+                </button>
             </div>
         `;
     }
@@ -193,9 +193,9 @@ document.addEventListener('click', function(e) {
                         </div>
                     </div>
                     <div class="footer-certifications">
-                        <img src="${base}assets/iso-9001.svg" alt="ISO 9001 Certified" class="cert-badge">
-                        <img src="${base}assets/ce-mark.svg" alt="CE Certified" class="cert-badge">
-                        <img src="${base}assets/fcc-cert.svg" alt="FCC Certified" class="cert-badge">
+                        <img src="${base}assets/iso-9001.svg" alt="ISO 9001 Certified" class="cert-badge" width="40" height="40">
+                        <img src="${base}assets/ce-mark.svg" alt="CE Certified" class="cert-badge" width="40" height="40">
+                        <img src="${base}assets/fcc-cert.svg" alt="FCC Certified" class="cert-badge" width="40" height="40">
                     </div>
                 </div>
             </div>
@@ -442,11 +442,11 @@ document.addEventListener('click', function(e) {
         + '<input type="hidden" name="_source" value="quick-quote-modal">'
         + '<input type="hidden" name="motor" id="qq-motor-hidden" value="">'
         + '<div class="qq-field"><label class="qq-label" for="qq-email">Email *</label>'
-        + '<input class="qq-input" type="email" id="qq-email" name="email" placeholder="you@company.com" required></div>'
+        + '<input class="qq-input" type="email" id="qq-email" name="email" placeholder="you@company.com" autocomplete="email" required></div>'
         + '<div class="qq-field"><label class="qq-label" for="qq-company">Company Name</label>'
-        + '<input class="qq-input" type="text" id="qq-company" name="company" placeholder="Your company"></div>'
+        + '<input class="qq-input" type="text" id="qq-company" name="company" placeholder="Your company\u2026" autocomplete="organization"></div>'
         + '<div class="qq-field"><label class="qq-label" for="qq-quantity">Quantity Needed</label>'
-        + '<input class="qq-input" type="text" id="qq-quantity" name="quantity" placeholder="e.g. 50 units"></div>'
+        + '<input class="qq-input" type="text" id="qq-quantity" name="quantity" placeholder="e.g. 50 units\u2026"></div>'
         + '<button type="submit" class="qq-submit" id="qq-submit">Get Quote</button>'
         + '</form></div>'
         + '<div id="qq-success-view" class="qq-success" style="display:none;">'
@@ -508,7 +508,7 @@ document.addEventListener('click', function(e) {
         var form = this;
         var submitBtn = document.getElementById('qq-submit');
         var originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending...';
+        submitBtn.textContent = 'Sending\u2026';
         submitBtn.disabled = true;
 
         fetch('https://formspree.io/f/xwpkpqyz', {
@@ -523,13 +523,13 @@ document.addEventListener('click', function(e) {
                 // Auto-close after 3 seconds
                 setTimeout(qqClose, 3000);
             } else {
-                submitBtn.textContent = 'Error \u2013 Try Again';
+                submitBtn.textContent = 'Network error \u2013 tap to retry';
                 submitBtn.disabled = false;
                 setTimeout(function() { submitBtn.textContent = originalText; }, 2000);
             }
         })
         .catch(function() {
-            submitBtn.textContent = 'Error \u2013 Try Again';
+            submitBtn.textContent = 'Network error \u2013 tap to retry';
             submitBtn.disabled = false;
             setTimeout(function() { submitBtn.textContent = originalText; }, 2000);
         });
@@ -619,7 +619,7 @@ document.addEventListener('click', function(e) {
                     height: 24px;
                 }
                 .wa-float {
-                    bottom: 20px;
+                    bottom: 80px;
                     right: 16px;
                 }
                 .wa-float-tooltip {

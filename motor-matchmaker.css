@@ -143,7 +143,7 @@
     font-size: 0.95rem;
     background: rgba(255,255,255,0.06);
     color: #fff;
-    transition: all 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .form-group input::placeholder {
@@ -155,8 +155,8 @@
     color: #fff;
 }
 
-.form-group input:focus,
-.form-group select:focus {
+.form-group input:focus-visible,
+.form-group select:focus-visible {
     outline: none;
     border-color: #f6a604;
     box-shadow: 0 0 0 3px rgba(246, 166, 4, 0.1);
@@ -434,7 +434,7 @@
     border-radius: 6px;
     border: none;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 
 .btn-view {
@@ -554,7 +554,7 @@
     font-size: 0.8rem;
     color: rgba(255,255,255,0.5);
     cursor: pointer;
-    transition: all 0.2s;
+    transition: border-color 0.2s ease, color 0.2s ease;
 }
 
 .btn-icon:hover {

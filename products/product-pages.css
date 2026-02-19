@@ -127,7 +127,7 @@
     cursor: pointer;
 }
 
-.filter-select:focus {
+.filter-select:focus-visible {
     outline: none;
     border-color: #f6a604;
     box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);

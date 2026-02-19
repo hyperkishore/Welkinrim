@@ -91,7 +91,7 @@
     border: 2px solid #333;
     font-size: 0.75rem;
     margin-bottom: 6px;
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
 }
 .config-step-indicator.active .config-step-num {
     border-color: #f6a604;
@@ -138,7 +138,7 @@
     padding: 28px 20px;
     text-align: center;
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
 }
 .mission-card:hover {
     border-color: rgba(255,255,255,0.2);
@@ -190,7 +190,7 @@
     background-repeat: no-repeat;
     background-position: right 16px center;
 }
-.config-select:focus {
+.config-select:focus-visible {
     outline: none;
     border-color: #f6a604;
 }
@@ -233,7 +233,13 @@
     height: 6px;
     border-radius: 3px;
     background: rgba(255,255,255,0.1);
+}
+.config-slider:focus:not(:focus-visible) {
     outline: none;
+}
+.config-slider:focus-visible {
+    outline: 2px solid #f6a604;
+    outline-offset: 2px;
 }
 .config-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -350,7 +356,7 @@
     border-radius: 16px;
     padding: 24px;
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: border-color 0.25s ease, background 0.25s ease;
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 16px;
@@ -489,7 +495,7 @@
     font-family: inherit;
     cursor: pointer;
     border: none;
-    transition: all 0.25s ease;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, color 0.25s ease, opacity 0.25s ease;
 }
 .config-btn-back {
     background: transparent;
@@ -622,7 +628,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease;
     line-height: 1;
 }
 .email-gate-close:hover {
@@ -665,14 +671,14 @@
     color: #fff;
     font-size: 0.95rem;
     font-family: inherit;
-    outline: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
     box-sizing: border-box;
 }
 .email-gate-input::placeholder {
     color: #475569;
 }
-.email-gate-input:focus {
+.email-gate-input:focus-visible {
+    outline: none;
     border-color: #f6a604;
     box-shadow: 0 0 0 3px rgba(246,166,4,0.15);
 }
@@ -691,7 +697,7 @@
     font-weight: 600;
     font-family: inherit;
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
     margin-top: 4px;
 }
 .email-gate-submit:hover {

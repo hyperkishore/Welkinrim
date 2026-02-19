@@ -106,7 +106,13 @@ function findMotors() {
     const flightTime = document.getElementById('flight-time').value;
     
     if (!application || !payload || !flightTime) {
-        alert('Please fill in all fields to get motor recommendations');
+        // Show inline error instead of alert
+        var resultsContainer = document.getElementById('selector-results');
+        if (resultsContainer) {
+            resultsContainer.innerHTML = '<div class="results-message" style="text-align:center;padding:24px;"><p style="color:#ef4444;font-weight:500;">Please select all three fields above to get motor recommendations.</p></div>';
+            resultsContainer.style.display = 'block';
+            resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
         return;
     }
     
@@ -371,7 +377,7 @@ function addLoadingState(element) {
     element.disabled = true;
     
     const originalText = element.textContent;
-    element.textContent = 'Loading...';
+    element.textContent = 'Loading\u2026';
     
     return () => {
         element.classList.remove('loading');
@@ -749,7 +755,7 @@ function initRFQForm() {
 
         const submitBtn = form.querySelector('.rfq-submit');
         const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending...';
+        submitBtn.textContent = 'Sending\u2026';
         submitBtn.disabled = true;
 
         const formData = new FormData(form);
@@ -913,7 +919,7 @@ function initExitIntent() {
             e.preventDefault();
             const emailInput = form.querySelector('input[type="email"]');
             const submitBtn = form.querySelector('.exit-popup-submit');
-            submitBtn.textContent = 'Sending...';
+            submitBtn.textContent = 'Sending\u2026';
             submitBtn.disabled = true;
 
             const formData = new FormData(form);

@@ -245,7 +245,7 @@
     font-weight: 600;
     cursor: pointer;
     border: none;
-    transition: all 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 .qw-btn-back {
     background: transparent;
@@ -285,7 +285,7 @@
     border-radius: ${RADIUS};
     padding: 20px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     position: relative;
 }
 .qw-motor-card:hover {
@@ -310,7 +310,7 @@
     justify-content: center;
     font-size: 0.7rem;
     color: transparent;
-    transition: all 0.2s ease;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
     background: #fff;
 }
 .qw-motor-card.qw-selected .qw-motor-check {
@@ -450,7 +450,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease;
 }
 .qw-item-remove:hover { background: #fee2e2; color: #ef4444; }
 

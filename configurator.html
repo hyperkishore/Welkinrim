@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="color-scheme" content="dark">
     <title>Propulsion Configurator | WelkinRim</title>
     <meta name="description" content="Design your perfect drone propulsion system. Interactive configurator with live thrust, efficiency, and cost calculations.">
     <link rel="canonical" href="https://welkinrim.com/configurator.html">
@@ -106,13 +108,13 @@
 
             <div class="sub-category-row">
                 <div>
-                    <label class="config-label">Sub-Category</label>
+                    <label class="config-label" for="sub-category">Sub-Category</label>
                     <select class="config-select" id="sub-category">
                         <option value="">Select mission type first...</option>
                     </select>
                 </div>
                 <div>
-                    <label class="config-label">Operating Environment</label>
+                    <label class="config-label" for="environment">Operating Environment</label>
                     <select class="config-select" id="environment">
                         <option value="temperate">Temperate</option>
                         <option value="desert">Desert / Arid</option>
@@ -137,14 +139,14 @@
                 <div>
                     <div class="req-slider-group">
                         <div class="req-slider-header">
-                            <label class="config-label">Payload Weight</label>
+                            <label class="config-label" for="payload-slider">Payload Weight</label>
                             <span class="req-slider-value" id="payload-val">5.0 kg</span>
                         </div>
                         <input type="range" class="config-slider" id="payload-slider" min="0.5" max="50" step="0.5" value="5">
                     </div>
                     <div class="req-slider-group">
                         <div class="req-slider-header">
-                            <label class="config-label">Target Flight Time</label>
+                            <label class="config-label" for="flight-time-slider">Target Flight Time</label>
                             <span class="req-slider-value" id="flight-time-val">30 min</span>
                         </div>
                         <input type="range" class="config-slider" id="flight-time-slider" min="15" max="120" step="5" value="30">
@@ -153,13 +155,13 @@
                 <div>
                     <div class="req-slider-group">
                         <div class="req-slider-header">
-                            <label class="config-label">Max Altitude</label>
+                            <label class="config-label" for="altitude-slider">Max Altitude</label>
                             <span class="req-slider-value" id="altitude-val">500 m</span>
                         </div>
                         <input type="range" class="config-slider" id="altitude-slider" min="50" max="5000" step="50" value="500">
                     </div>
                     <div style="margin-bottom:24px;">
-                        <label class="config-label">Number of Motors</label>
+                        <label class="config-label" for="motor-count">Number of Motors</label>
                         <select class="config-select" id="motor-count">
                             <option value="4">4 Motors (Quadcopter)</option>
                             <option value="6">6 Motors (Hexacopter)</option>

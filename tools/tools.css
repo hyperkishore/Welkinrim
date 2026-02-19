@@ -110,13 +110,13 @@
     border: 2px solid rgba(255,255,255,0.12);
     border-radius: 8px;
     font-size: 0.95rem;
-    transition: all 0.2s ease;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
     background-color: rgba(255,255,255,0.04);
     color: #fff;
 }
 
-.form-input:focus,
-.form-select:focus {
+.form-input:focus-visible,
+.form-select:focus-visible {
     outline: none;
     border-color: #f6a604;
     box-shadow: 0 0 0 3px rgba(246, 166, 4, 0.15);
