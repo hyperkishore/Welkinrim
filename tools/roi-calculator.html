@@ -671,6 +671,10 @@
     <script src="../shared.js" defer></script>
     <script>
         function calculateROI() {
+            // Hide any previous error
+            var errorEl = document.getElementById('roi-error');
+            if (errorEl) errorEl.style.display = 'none';
+
             // Read inputs
             var currentCost = parseFloat(document.getElementById('current-cost').value) || 0;
             var failureRate = parseFloat(document.getElementById('failure-rate').value) || 0;
@@ -680,7 +684,18 @@
 
             // Validate
             if (currentCost <= 0 || fleetSize <= 0 || motorsPerDrone <= 0) {
-                alert('Please fill in all fields with valid values.');
+                var errorEl = document.getElementById('roi-error');
+                if (!errorEl) {
+                    errorEl = document.createElement('div');
+                    errorEl.id = 'roi-error';
+                    errorEl.setAttribute('role', 'alert');
+                    errorEl.setAttribute('aria-live', 'polite');
+                    errorEl.style.cssText = 'color:#ef4444;font-weight:500;padding:12px 16px;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);border-radius:8px;margin-bottom:16px;font-size:0.9rem;';
+                    var calcBtn = document.querySelector('.roi-calculate-btn');
+                    if (calcBtn) calcBtn.parentNode.insertBefore(errorEl, calcBtn);
+                }
+                errorEl.textContent = 'Please fill in all fields with valid values.';
+                errorEl.style.display = 'block';
                 return;
             }
 
@@ -742,7 +757,7 @@
             }
 
             // Scroll to results
-            resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            resultsEl.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
         }
 
         function animateValue(elementId, start, end, duration, prefix, formatAsNum) {

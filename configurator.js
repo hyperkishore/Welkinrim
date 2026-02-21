@@ -102,7 +102,7 @@
 
         // Populate sub-categories
         const options = SUB_CATEGORIES[mission] || [];
-        subCategorySelect.innerHTML = '<option value="">Select sub-category...</option>' +
+        subCategorySelect.innerHTML = '<option value="">Select sub-category\u2026</option>' +
             options.map(o => '<option value="' + o.value + '">' + o.label + '</option>').join('');
 
         document.getElementById('btn-next-1').disabled = false;
@@ -113,6 +113,18 @@
         if (!card) return;
         selectMission(card.dataset.mission);
         card.classList.add('selected');
+    });
+
+    // Keyboard accessibility for mission cards
+    document.querySelectorAll('.mission-card').forEach(function(card) {
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+        card.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                card.click();
+            }
+        });
     });
 
     subCategorySelect.addEventListener('change', function() {
@@ -324,6 +336,12 @@
         const el = document.getElementById(id);
         if (!el) return;
         const offset = circumference - (circumference * Math.min(pct, 1));
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            // Skip animation, set final value immediately
+            el.style.transition = 'none';
+            el.setAttribute('stroke-dashoffset', offset);
+            return;
+        }
         el.style.transition = 'stroke-dashoffset 0.6s ease';
         el.setAttribute('stroke-dashoffset', offset);
     }
