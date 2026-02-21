@@ -75,6 +75,25 @@ document.addEventListener('click', function(e) {
 (function() {
     'use strict';
 
+    var _qqTrigger = null;
+    var _exitTrigger = null;
+
+    // Focus trap utility for modals
+    function trapFocus(container) {
+        var focusable = container.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])');
+        if (!focusable.length) return;
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        container.addEventListener('keydown', function(e) {
+            if (e.key !== 'Tab') return;
+            if (e.shiftKey) {
+                if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+            } else {
+                if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+            }
+        });
+    }
+
     // Detect relative path prefix based on page location
     function getBasePath() {
         const path = window.location.pathname;
@@ -378,7 +397,7 @@ document.addEventListener('click', function(e) {
         .qq-input::placeholder {
             color: rgba(255,255,255,0.25);
         }
-        .qq-input:focus {
+        .qq-input:focus-visible {
             border-color: rgba(246,166,4,0.5);
             box-shadow: 0 0 0 3px rgba(246,166,4,0.1);
         }
@@ -444,6 +463,9 @@ document.addEventListener('click', function(e) {
                 padding: 28px 20px 24px;
             }
         }
+        @media (prefers-reduced-motion: reduce) {
+            .qq-overlay, .qq-modal { transition-duration: 0.01ms !important; }
+        }
     `;
     document.head.appendChild(qqStyleEl);
 
@@ -457,6 +479,7 @@ document.addEventListener('click', function(e) {
     qqModalEl.className = 'qq-modal';
     qqModalEl.id = 'qq-modal';
     qqModalEl.setAttribute('role', 'dialog');
+    qqModalEl.setAttribute('aria-modal', 'true');
     qqModalEl.setAttribute('aria-label', 'Request a Quote');
     qqModalEl.innerHTML = '<button class="qq-close" id="qq-close" aria-label="Close">&times;</button>'
         + '<div id="qq-form-view">'
@@ -479,9 +502,11 @@ document.addEventListener('click', function(e) {
         + '<p class="qq-success-text">We\'ll get back to you within 24 hours.</p>'
         + '</div>';
     document.body.appendChild(qqModalEl);
+    trapFocus(qqModalEl);
 
     // Modal open/close logic
     function qqOpen(motorName) {
+        _qqTrigger = document.activeElement;
         var subtitle = document.getElementById('qq-subtitle');
         var hiddenMotor = document.getElementById('qq-motor-hidden');
         var formView = document.getElementById('qq-form-view');
@@ -515,6 +540,7 @@ document.addEventListener('click', function(e) {
         qqOverlayEl.classList.remove('active');
         qqModalEl.classList.remove('active');
         document.body.style.overflow = '';
+        if (_qqTrigger) { try { _qqTrigger.focus(); } catch(e) {} _qqTrigger = null; }
     }
 
     // Close handlers
@@ -650,6 +676,10 @@ document.addEventListener('click', function(e) {
                     display: none;
                 }
             }
+            @media (prefers-reduced-motion: reduce) {
+                .wa-float-btn { transition-duration: 0.01ms !important; }
+                .wa-float-tooltip { transition-duration: 0.01ms !important; }
+            }
         `;
         document.head.appendChild(style);
 
@@ -715,14 +745,18 @@ document.addEventListener('click', function(e) {
                 .wr-sticky-bar-btn { width: 100%; }
                 .wa-float { bottom: 80px !important; }
             }
+            @media (prefers-reduced-motion: reduce) {
+                .wr-sticky-bar { transition-duration: 0.01ms !important; }
+            }
         `;
         document.head.appendChild(sbarStyle);
 
         var sbar = document.createElement('div');
         sbar.className = 'wr-sticky-bar';
         sbar.id = 'wr-sticky-bar';
-        sbar.innerHTML = '<span class="wr-sticky-bar-text"><strong>Ready to upgrade?</strong> Get a custom motor quote in 24 hours.</span><button class="wr-sticky-bar-btn" onclick="openQuoteModal()">Get a Quote</button>';
+        sbar.innerHTML = '<span class="wr-sticky-bar-text"><strong>Ready to upgrade?</strong> Get a custom motor quote in 24 hours.</span><button class="wr-sticky-bar-btn">Get a Quote</button>';
         document.body.appendChild(sbar);
+        sbar.querySelector('.wr-sticky-bar-btn').addEventListener('click', function() { openQuoteModal(); });
 
         var shown = false;
         window.addEventListener('scroll', function() {
@@ -858,7 +892,7 @@ document.addEventListener('click', function(e) {
                 transition: border-color 0.2s;
             }
             .wr-exit-input::placeholder { color: rgba(255,255,255,0.25); }
-            .wr-exit-input:focus { border-color: rgba(246,166,4,0.5); }
+            .wr-exit-input:focus-visible { border-color: rgba(246,166,4,0.5); box-shadow: 0 0 0 3px rgba(246,166,4,0.1); }
             .wr-exit-submit {
                 background: #f6a604;
                 color: #0a0a0f;
@@ -893,6 +927,10 @@ document.addEventListener('click', function(e) {
                 .wr-exit-card { width: 95%; padding: 32px 20px 24px; }
                 .wr-exit-form { flex-direction: column; }
             }
+            @media (prefers-reduced-motion: reduce) {
+                .wr-exit-overlay, .wr-exit-card { transition-duration: 0.01ms !important; }
+            }
+            .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
         `;
         document.head.appendChild(epStyle);
 
@@ -904,19 +942,24 @@ document.addEventListener('click', function(e) {
         var card = document.createElement('div');
         card.className = 'wr-exit-card';
         card.id = 'wr-exit-card';
+        card.setAttribute('role', 'dialog');
+        card.setAttribute('aria-modal', 'true');
+        card.setAttribute('aria-label', 'Motor Selection Guide Download');
         card.innerHTML = '<button class="wr-exit-close" id="wr-exit-close" aria-label="Close">&times;</button>'
             + '<div class="wr-exit-badge">Free Download</div>'
             + '<h3 class="wr-exit-title">Before You Go\u2026</h3>'
             + '<p class="wr-exit-desc">Get <strong>The Complete Motor Selection Guide</strong> \u2014 covering KV ratings, stator sizing, and application matching for every drone type.</p>'
             + '<p class="wr-exit-social">Join 2,000+ engineers who downloaded this guide</p>'
             + '<form class="wr-exit-form" id="wr-exit-form">'
-            + '<input class="wr-exit-input" type="email" name="email" placeholder="your@email.com" required autocomplete="email">'
+            + '<label for="wr-exit-email" class="sr-only">Email address</label>'
+            + '<input class="wr-exit-input" type="email" id="wr-exit-email" name="email" placeholder="your@email.com" required autocomplete="email">'
             + '<input type="hidden" name="_source" value="exit-popup-guide">'
             + '<button type="submit" class="wr-exit-submit">Download Guide</button>'
             + '</form>'
             + '<p class="wr-exit-privacy">No spam. Unsubscribe anytime.</p>'
             + '<a href="' + base + 'motor-selection-guide.html" class="wr-exit-guide-link" id="wr-exit-guide-link">View Your Free Guide \u2192</a>';
         document.body.appendChild(card);
+        trapFocus(card);
 
         // Show/close logic
         var exitShown = false;
@@ -928,6 +971,7 @@ document.addEventListener('click', function(e) {
 
         function showExit() {
             if (exitShown || !canShow) return;
+            _exitTrigger = document.activeElement;
             exitShown = true;
             sessionStorage.setItem(sessionKey, '1');
             overlay.classList.add('active');
@@ -938,6 +982,7 @@ document.addEventListener('click', function(e) {
         function hideExit() {
             overlay.classList.remove('active');
             card.classList.remove('active');
+            if (_exitTrigger) { try { _exitTrigger.focus(); } catch(e) {} _exitTrigger = null; }
         }
 
         document.addEventListener('mouseleave', function(e) {

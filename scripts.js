@@ -94,7 +94,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const backToTopBtn = document.getElementById('back-to-top');
     if (backToTopBtn) {
         backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            var scrollBehavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+            window.scrollTo({ top: 0, behavior: scrollBehavior });
         });
     }
 });
@@ -111,7 +112,7 @@ function findMotors() {
         if (resultsContainer) {
             resultsContainer.innerHTML = '<div class="results-message" style="text-align:center;padding:24px;"><p style="color:#ef4444;font-weight:500;">Please select all three fields above to get motor recommendations.</p></div>';
             resultsContainer.style.display = 'block';
-            resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            resultsContainer.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
         }
         return;
     }
@@ -227,7 +228,7 @@ function displayResults(motors) {
     }
     
     resultsContainer.style.display = 'block';
-    resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    resultsContainer.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
 }
 
 // Placeholder functions for motor actions
@@ -258,9 +259,10 @@ document.addEventListener('DOMContentLoaded', function() {
             if (targetSection) {
                 const offsetTop = targetSection.offsetTop - 80; // Account for fixed nav
                 
+                var scrollBehavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
                 window.scrollTo({
                     top: offsetTop,
-                    behavior: 'smooth'
+                    behavior: scrollBehavior
                 });
             }
         });
@@ -497,6 +499,7 @@ function loadDynamicContent() {
 
 // Counter Animation for Stats
 function animateCounters() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const counters = document.querySelectorAll('.hero-stat-number');
 
     counters.forEach(counter => {
@@ -552,6 +555,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // BUTTON RIPPLE EFFECT
 // ==========================================
 function initRipple() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     document.addEventListener('click', (e) => {
         const btn = e.target.closest('.btn, .btn-primary, .nav-cta');
         if (!btn) return;
@@ -814,6 +818,7 @@ function initFAQ() {
 // FIELD STORY STATS COUNT-UP
 // ==========================================
 function initFieldStatsCountUp() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const statContainers = document.querySelectorAll('.field-story-stats');
     if (!statContainers.length) return;
 

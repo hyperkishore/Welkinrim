@@ -155,8 +155,8 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: -0.03em;
 }
 
-h1 { font-size: clamp(2.5rem, 6vw, 5.5rem); font-weight: 700; letter-spacing: -0.04em; }
-h2 { font-size: clamp(1.8rem, 4vw, 3.5rem); font-weight: 600; letter-spacing: -0.03em; }
+h1 { font-size: clamp(2.5rem, 6vw, 5.5rem); font-weight: 700; letter-spacing: -0.04em; text-wrap: balance; }
+h2 { font-size: clamp(1.8rem, 4vw, 3.5rem); font-weight: 600; letter-spacing: -0.03em; text-wrap: balance; }
 h3 { font-size: 1.75rem; font-weight: 600; }
 h4 { font-size: 1.25rem; font-weight: 500; }
 h5 { font-size: 1.125rem; font-weight: 500; }
@@ -245,6 +245,11 @@ h6 { font-size: 1rem; font-weight: 500; }
 .btn-large {
     padding: 16px 40px;
     font-size: 0.9375rem;
+}
+
+/* Touch: eliminate 300ms tap delay on interactive elements */
+.btn, .nav-cta, .nav-toggle, .nav-link, .faq-question {
+    touch-action: manipulation;
 }
 
 /* Navigation */
@@ -2191,6 +2196,19 @@ body {
 /* ==========================================
    ACCESSIBILITY
    ========================================== */
+
+/* Screen reader only utility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
 
 /* Skip to Content Link */
 .skip-to-content {
