@@ -159,6 +159,11 @@ h1 { font-size: clamp(2.5rem, 6vw, 5.5rem); font-weight: 700; letter-spacing: -0
 h2 { font-size: clamp(1.8rem, 4vw, 3.5rem); font-weight: 600; letter-spacing: -0.03em; text-wrap: balance; }
 h3 { font-size: 1.75rem; font-weight: 600; }
 h4 { font-size: 1.25rem; font-weight: 500; }
+
+/* Scroll margin for anchor links (prevents content hiding behind fixed nav) */
+section[id], [id]:target {
+    scroll-margin-top: calc(var(--nav-height) + 16px);
+}
 h5 { font-size: 1.125rem; font-weight: 500; }
 h6 { font-size: 1rem; font-weight: 500; }
 
@@ -741,7 +746,7 @@ h6 { font-size: 1rem; font-weight: 500; }
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.5);
     margin-bottom: 24px;
 }
 
@@ -1527,6 +1532,7 @@ h6 { font-size: 1rem; font-weight: 500; }
         gap: 24px;
         transition: right 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
         z-index: 999;
+        overscroll-behavior: contain;
     }
 
     .nav-menu-active {
@@ -1628,35 +1634,30 @@ h6 { font-size: 1rem; font-weight: 500; }
 .reveal {
     opacity: 0;
     transition: opacity var(--transition-smooth), transform var(--transition-smooth);
-    will-change: opacity, transform;
 }
 
 .reveal-up {
     opacity: 0;
     transform: translateY(40px);
     transition: opacity var(--transition-smooth), transform var(--transition-smooth);
-    will-change: opacity, transform;
 }
 
 .reveal-left {
     opacity: 0;
     transform: translateX(-40px);
     transition: opacity var(--transition-smooth), transform var(--transition-smooth);
-    will-change: opacity, transform;
 }
 
 .reveal-right {
     opacity: 0;
     transform: translateX(40px);
     transition: opacity var(--transition-smooth), transform var(--transition-smooth);
-    will-change: opacity, transform;
 }
 
 .reveal-scale {
     opacity: 0;
     transform: scale(0.85);
     transition: opacity var(--transition-smooth), transform var(--transition-smooth);
-    will-change: opacity, transform;
 }
 
 .reveal-active,
@@ -1764,11 +1765,11 @@ h6 { font-size: 1rem; font-weight: 500; }
 /* Resource item hover icon handled inline */
 
 /* Input Focus Glow */
-.form-select:focus,
-input:focus,
-textarea:focus {
-    border-color: var(--color-accent) !important;
-    box-shadow: 0 0 0 3px rgba(246, 166, 4, 0.15), 0 0 20px rgba(246, 166, 4, 0.1) !important;
+.form-select:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(246, 166, 4, 0.15), 0 0 20px rgba(246, 166, 4, 0.1);
 }
 
 /* Loading Shimmer */
@@ -1819,7 +1820,7 @@ textarea:focus {
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(255, 255, 255, 0.5);
     margin-bottom: 28px;
 }
 
@@ -1836,7 +1837,7 @@ textarea:focus {
 .trusted-logo-item {
     font-size: 1.1rem;
     font-weight: 700;
-    color: rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.45);
     letter-spacing: 1px;
     white-space: nowrap;
     padding: 0 40px;
@@ -1996,6 +1997,13 @@ textarea:focus {
 body {
     opacity: 0;
     animation: fadeInPage 0.5s ease forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body {
+        opacity: 1;
+        animation: none;
+    }
 }
 
 @keyframes fadeInPage {
@@ -2265,8 +2273,13 @@ body {
     }
 
     .marquee-track,
-    .client-marquee-track {
+    .client-marquee-track,
+    .trusted-logos {
         animation: none !important;
+    }
+
+    body {
+        opacity: 1 !important;
     }
 }
 
