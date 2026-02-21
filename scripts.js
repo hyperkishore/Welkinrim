@@ -4,12 +4,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.getElementById('nav-menu');
     const nav = document.querySelector('.nav');
 
-    // Mobile menu toggle
+    // Mobile menu toggle (shared.js handles this for pages with #main-nav;
+    // this handles pages with hardcoded nav like index.html)
     if (navToggle && navMenu) {
         navToggle.addEventListener('click', function() {
             navMenu.classList.toggle('nav-menu-active');
             navToggle.classList.toggle('nav-toggle-active');
             document.body.classList.toggle('menu-open');
+            var expanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', !expanded);
         });
 
         // Close menu when clicking a link
@@ -18,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 navMenu.classList.remove('nav-menu-active');
                 navToggle.classList.remove('nav-toggle-active');
                 document.body.classList.remove('menu-open');
+                navToggle.setAttribute('aria-expanded', 'false');
             });
         });
     }
@@ -718,8 +722,9 @@ function initMotorShowcase() {
     // Motor tab clicks
     motorTabs.forEach(tab => {
         tab.addEventListener('click', () => {
-            motorTabs.forEach(t => t.classList.remove('active'));
+            motorTabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
             tab.classList.add('active');
+            tab.setAttribute('aria-selected', 'true');
             const category = tab.dataset.category;
             const motor = categoryMotorMap[category];
             if (motor) selectMotor(motor, category);
@@ -732,15 +737,18 @@ function initMotorShowcase() {
             const motorCategoryMap = { wr2212: 'micro', wr2815: 'commercial', wr3508: 'industrial' };
             const cat = motorCategoryMap[tab.dataset.motor];
             selectMotor(tab.dataset.motor, cat);
-            motorTabs.forEach(t => t.classList.remove('active'));
-            motorTabs.forEach(t => { if (t.dataset.category === cat) t.classList.add('active'); });
+            tabs.forEach(t => t.setAttribute('aria-selected', 'false'));
+            tab.setAttribute('aria-selected', 'true');
+            motorTabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+            motorTabs.forEach(t => { if (t.dataset.category === cat) { t.classList.add('active'); t.setAttribute('aria-selected', 'true'); } });
         });
     });
 
     viewBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            viewBtns.forEach(b => b.classList.remove('active'));
+            viewBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
             btn.classList.add('active');
+            btn.setAttribute('aria-pressed', 'true');
             currentView = btn.dataset.view;
             updateImage();
         });

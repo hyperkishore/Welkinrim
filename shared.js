@@ -132,11 +132,11 @@ document.addEventListener('click', function(e) {
         navPlaceholder.setAttribute('aria-label', 'Main navigation');
         navPlaceholder.innerHTML = `
             <!-- Scroll Progress Indicator -->
-            <div class="scroll-progress" id="scroll-progress"></div>
+            <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
             <div class="nav-container">
                 <div class="nav-brand">
                     <a href="${base}index.html" aria-label="WelkinRim Home">
-                        <img src="${base}assets/Welkinrim logo.png" alt="WelkinRim" class="nav-logo">
+                        <img src="${base}assets/Welkinrim logo.png" alt="WelkinRim" class="nav-logo" width="150" height="40">
                     </a>
                 </div>
                 <div class="nav-menu" id="nav-menu">
@@ -171,7 +171,7 @@ document.addEventListener('click', function(e) {
                     <a href="${base}about.html" class="nav-link${activeClass('company')}">Company</a>
                     <a href="${base}contact.html" class="nav-cta">Get Quote</a>
                 </div>
-                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
                     <span class="nav-toggle-bar"></span>
                     <span class="nav-toggle-bar"></span>
                     <span class="nav-toggle-bar"></span>
